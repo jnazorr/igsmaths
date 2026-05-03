@@ -1,0 +1,84 @@
+.worksheet {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: clamp(32px, 6vw, 64px) clamp(18px, 4vw, 44px);
+  background: #fff;
+}
+
+.worksheet-cover {
+  padding-bottom: 28px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.worksheet-cover h1 {
+  font-size: clamp(2.2rem, 4vw, 4rem);
+}
+
+.student-fields {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+  margin: 28px 0;
+}
+
+.student-fields span {
+  min-height: 42px;
+  border-bottom: 1px solid var(--ink);
+  font-weight: 800;
+}
+
+.worksheet-block {
+  break-inside: avoid;
+  padding: 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.worksheet-block h2 {
+  font-size: 1.45rem;
+}
+
+.worksheet-block li + li {
+  margin-top: 10px;
+}
+
+.work-space {
+  margin-top: 18px;
+  border: 1px dashed #9c9188;
+  background-image: linear-gradient(#fff 31px, #e8dfd5 32px);
+  background-size: 100% 32px;
+}
+
+.work-space.short {
+  min-height: 120px;
+}
+
+.work-space.medium {
+  min-height: 210px;
+}
+
+.work-space.tall {
+  min-height: 300px;
+}
+
+@media print {
+  @page {
+    margin: 14mm;
+  }
+
+  body {
+    background: #fff;
+  }
+
+  .no-print {
+    display: none;
+  }
+
+  .worksheet {
+    max-width: none;
+    padding: 0;
+  }
+
+  .worksheet-block {
+    page-break-inside: avoid;
+  }
+}
