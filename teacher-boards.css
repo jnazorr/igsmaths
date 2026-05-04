@@ -1,0 +1,39 @@
+.demo-board {
+  grid-column: 1 / -1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(38, 32, 26, 0.08);
+}
+
+.demo-board summary {
+  cursor: pointer;
+  padding: 14px 16px;
+  font-weight: 900;
+}
+
+.demo-board summary span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.demo-board-shell {
+  height: min(72vh, 620px);
+  min-height: 420px;
+  border-top: 1px solid var(--line);
+  background: #f8fbfd;
+}
+
+.demo-board-mount {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.demo-board-fallback {
+  padding: 18px;
+  color: var(--muted);
+  font-weight: 800;
+}
