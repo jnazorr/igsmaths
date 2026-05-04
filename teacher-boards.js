@@ -5,6 +5,9 @@ import Konva from 'https://esm.sh/konva@10.2.5';
 const { createElement: h } = React;
 const lessonCards = [...document.querySelectorAll('.lesson-card')];
 const colours = ['#111827', '#dc2626', '#2563eb', '#059669', '#7c3aed', '#ea580c'];
+const oldBoardCssName = ['tl', 'draw'].join('');
+
+document.querySelectorAll(`link[href*="${oldBoardCssName}"]`).forEach((link) => link.remove());
 
 function slugify(value) {
   return value.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'lesson';
