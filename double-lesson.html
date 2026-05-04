@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Double Revision Lesson | Year 11 Methods Unit 1</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .error-hunt{background:#fffaf1}.error-hunt>p{max-width:900px}.error-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.error-case{display:grid;gap:12px;align-content:start;padding:16px;border:1px solid var(--line);border-radius:8px;background:#fff}.error-case h4,.error-case p{margin:0}.flawed-label{color:var(--red);font-size:.82rem;font-weight:900;text-transform:uppercase}.flawed-work{display:grid;gap:8px;padding:12px;border-left:4px solid var(--red);background:#fff3ef}.error-case details{padding:12px;border:1px solid #c8d8e1;background:#f8fbfd}@media(max-width:680px){.error-grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -115,21 +118,84 @@
           </div>
         </article>
 
-        <article class="lesson-card">
+        <article class="lesson-card wide error-hunt">
           <span class="time-chip">38-50 min</span>
           <h3>Error hunt</h3>
-          <details>
-            <summary>Inverse function checkpoint</summary>
-            <p>A common error is to swap <math><mi>x</mi></math> and <math><mi>y</mi></math> but forget to swap the domain and range. Correct the rule, then state the new domain.</p>
-          </details>
-          <details>
-            <summary>Trigonometric period checkpoint</summary>
-            <p>A common error is to multiply the period by the coefficient inside the bracket. For sine and cosine, use <math><mfrac><mrow><mn>2</mn><mi>&pi;</mi></mrow><mrow><mo>|</mo><mi>n</mi><mo>|</mo></mrow></mfrac></math>.</p>
-          </details>
-          <details>
-            <summary>Domain checkpoint</summary>
-            <p>For square-root functions, set the expression under the root greater than or equal to zero before writing interval notation.</p>
-          </details>
+          <p>For each case, complete three jobs: identify the error, explain why it is wrong, then write a corrected solution.</p>
+
+          <div class="error-grid">
+            <section class="error-case">
+              <h4>Case 1: Inverse functions</h4>
+              <p class="flawed-label">Student working</p>
+              <div class="flawed-work">
+                <p>For <math><mi>g</mi><mo>:</mo><mo>[</mo><mn>1</mn><mo>,</mo><mi>&infin;</mi><mo stretchy="false">)</mo><mo>&rarr;</mo><mi>R</mi></math>, <math><mi>g</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msup><mrow><mo stretchy="false">(</mo><mi>x</mi><mo>-</mo><mn>1</mn><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mo>+</mo><mn>4</mn></math>:</p>
+                <p><math><msup><mi>g</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>&plusmn;</mo><msqrt><mrow><mi>x</mi><mo>-</mo><mn>4</mn></mrow></msqrt></math>, domain <math><mo>[</mo><mn>1</mn><mo>,</mo><mi>&infin;</mi><mo stretchy="false">)</mo></math>, range <math><mo>[</mo><mn>4</mn><mo>,</mo><mi>&infin;</mi><mo stretchy="false">)</mo></math>.</p>
+              </div>
+              <ol>
+                <li>Circle the part of the inverse rule that does not match the restricted domain.</li>
+                <li>Correct the inverse rule.</li>
+                <li>State the correct domain and range of <math><msup><mi>g</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup></math>.</li>
+              </ol>
+              <details>
+                <summary>Reveal correction</summary>
+                <p>Because the original domain is <math><mi>x</mi><mo>&ge;</mo><mn>1</mn></math>, the inverse uses the positive branch only. The correct inverse is <math><msup><mi>g</mi><mrow><mo>-</mo><mn>1</mn></mrow></msup><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><mn>1</mn><mo>+</mo><msqrt><mrow><mi>x</mi><mo>-</mo><mn>4</mn></mrow></msqrt></math>, with domain <math><mo>[</mo><mn>4</mn><mo>,</mo><mi>&infin;</mi><mo stretchy="false">)</mo></math> and range <math><mo>[</mo><mn>1</mn><mo>,</mo><mi>&infin;</mi><mo stretchy="false">)</mo></math>.</p>
+              </details>
+            </section>
+
+            <section class="error-case">
+              <h4>Case 2: Trigonometric period</h4>
+              <p class="flawed-label">Student working</p>
+              <div class="flawed-work">
+                <p>For <math><mi>y</mi><mo>=</mo><mn>2</mn><mi>cos</mi><mo stretchy="false">(</mo><mn>3</mn><mi>x</mi><mo stretchy="false">)</mo><mo>-</mo><mn>1</mn></math>:</p>
+                <p>Period <math><mo>=</mo><mn>2</mn><mi>&pi;</mi><mo>&times;</mo><mn>3</mn><mo>=</mo><mn>6</mn><mi>&pi;</mi></math>.</p>
+              </div>
+              <ol>
+                <li>Write the correct period formula for sine and cosine.</li>
+                <li>Explain why multiplying by <math><mn>3</mn></math> gives the wrong direction of change.</li>
+                <li>State the correct period.</li>
+              </ol>
+              <details>
+                <summary>Reveal correction</summary>
+                <p>For <math><mi>y</mi><mo>=</mo><mi>a</mi><mi>cos</mi><mo stretchy="false">(</mo><mi>n</mi><mi>x</mi><mo stretchy="false">)</mo><mo>+</mo><mi>k</mi></math>, period is <math><mfrac><mrow><mn>2</mn><mi>&pi;</mi></mrow><mrow><mo>|</mo><mi>n</mi><mo>|</mo></mrow></mfrac></math>. Here <math><mi>n</mi><mo>=</mo><mn>3</mn></math>, so the period is <math><mfrac><mrow><mn>2</mn><mi>&pi;</mi></mrow><mn>3</mn></mfrac></math>.</p>
+              </details>
+            </section>
+
+            <section class="error-case">
+              <h4>Case 3: Square-root domain and range</h4>
+              <p class="flawed-label">Student working</p>
+              <div class="flawed-work">
+                <p>For <math><mi>h</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msqrt><mrow><mn>5</mn><mo>-</mo><mn>2</mn><mi>x</mi></mrow></msqrt><mo>+</mo><mn>1</mn></math>:</p>
+                <p>Domain <math><mo>=</mo><mo>[</mo><mn>5</mn><mo>,</mo><mi>&infin;</mi><mo stretchy="false">)</mo></math> and range <math><mo>=</mo><mo stretchy="false">(</mo><mo>-</mo><mi>&infin;</mi><mo>,</mo><mn>1</mn><mo>]</mo></math>.</p>
+              </div>
+              <ol>
+                <li>Set up the inequality under the square root.</li>
+                <li>Solve it carefully, including the sign change when dividing by a negative.</li>
+                <li>Correct the range after considering the smallest square-root value.</li>
+              </ol>
+              <details>
+                <summary>Reveal correction</summary>
+                <p>Require <math><mn>5</mn><mo>-</mo><mn>2</mn><mi>x</mi><mo>&ge;</mo><mn>0</mn></math>, so <math><mi>x</mi><mo>&le;</mo><mfrac><mn>5</mn><mn>2</mn></mfrac></math>. Domain: <math><mo stretchy="false">(</mo><mo>-</mo><mi>&infin;</mi><mo>,</mo><mfrac><mn>5</mn><mn>2</mn></mfrac><mo>]</mo></math>. Since the square-root part is at least <math><mn>0</mn></math>, the range is <math><mo>[</mo><mn>1</mn><mo>,</mo><mi>&infin;</mi><mo stretchy="false">)</mo></math>.</p>
+              </details>
+            </section>
+
+            <section class="error-case">
+              <h4>Case 4: Conditional probability</h4>
+              <p class="flawed-label">Student working</p>
+              <div class="flawed-work">
+                <p>Given <math><mi>Pr</mi><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0.4</mn></math> and <math><mi>Pr</mi><mo stretchy="false">(</mo><mi>B</mi><mo>|</mo><mi>A</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0.3</mn></math>:</p>
+                <p><math><mi>Pr</mi><mo stretchy="false">(</mo><mi>A</mi><mo>&cap;</mo><mi>B</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0.4</mn><mo>+</mo><mn>0.3</mn><mo>=</mo><mn>0.7</mn></math>.</p>
+              </div>
+              <ol>
+                <li>Write the conditional probability multiplication rule.</li>
+                <li>Decide whether the calculation should use addition or multiplication.</li>
+                <li>Correct the intersection probability.</li>
+              </ol>
+              <details>
+                <summary>Reveal correction</summary>
+                <p>Use <math><mi>Pr</mi><mo stretchy="false">(</mo><mi>A</mi><mo>&cap;</mo><mi>B</mi><mo stretchy="false">)</mo><mo>=</mo><mi>Pr</mi><mo stretchy="false">(</mo><mi>A</mi><mo stretchy="false">)</mo><mo>&times;</mo><mi>Pr</mi><mo stretchy="false">(</mo><mi>B</mi><mo>|</mo><mi>A</mi><mo stretchy="false">)</mo></math>. Therefore <math><mi>Pr</mi><mo stretchy="false">(</mo><mi>A</mi><mo>&cap;</mo><mi>B</mi><mo stretchy="false">)</mo><mo>=</mo><mn>0.4</mn><mo>&times;</mo><mn>0.3</mn><mo>=</mo><mn>0.12</mn></math>.</p>
+              </details>
+            </section>
+          </div>
         </article>
 
         <article class="lesson-card">
