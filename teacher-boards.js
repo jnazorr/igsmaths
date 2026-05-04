@@ -16,7 +16,7 @@ function makeBoard(card, index) {
   details.innerHTML = `
     <summary>
       Teacher demo canvas: ${title}
-      <span>Expandable infinite whiteboard. Stylus, touch, mouse, pan, zoom, text, shapes, undo, and persistence are handled by tldraw.</span>
+      <span>Expandable infinite whiteboard. Stylus, touch, mouse, pan, zoom, text, shapes, undo, and saved board state are available.</span>
     </summary>
     <div class="demo-board-shell">
       <div class="demo-board-mount" data-board-id="${index}" aria-label="Teacher demo canvas for ${title}"></div>
