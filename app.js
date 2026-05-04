@@ -150,6 +150,43 @@ const solutions = [
   }
 ];
 
+const wizardSteps = solutions.map((solution) => {
+  const matches = [...solution.answer.matchAll(/<li>([\s\S]*?)<\/li>/g)];
+  return matches.map((match, index) => ({
+    title: `Step ${index + 1}`,
+    body: match[1]
+  }));
+});
+
+function renderWizardStep(step, total) {
+  return `
+    <p class="wizard-count">Step ${step.index + 1} of ${total}</p>
+    <h4>${step.title}</h4>
+    <p>${step.body}</p>
+  `;
+}
+
+function renderWizard(index) {
+  const steps = wizardSteps[index] || [];
+  if (!steps.length) return "";
+  return `
+    <section class="solution-wizard" data-wizard="${index}" data-step="0">
+      <div class="wizard-head">
+        <h4>Worked solution wizard</h4>
+        <p>Reveal one decision at a time before checking the full solution above.</p>
+      </div>
+      <div class="wizard-panel" data-wizard-panel>
+        ${renderWizardStep({ ...steps[0], index: 0 }, steps.length)}
+      </div>
+      <div class="wizard-actions">
+        <button type="button" class="icon-button" data-wizard-action="prev" disabled>Back</button>
+        <button type="button" class="icon-button active" data-wizard-action="next">Next step</button>
+        <button type="button" class="icon-button" data-wizard-action="reset">Reset</button>
+      </div>
+    </section>
+  `;
+}
+
 function renderDrills(filter = "all") {
   const visible = drills.filter((drill) => filter === "all" || drill.mode === filter || drill.mode === "all");
   list.innerHTML = visible.map((drill) => `
@@ -162,10 +199,11 @@ function renderDrills(filter = "all") {
 
 function renderSolutions() {
   if (!solutionList) return;
-  solutionList.innerHTML = solutions.map((solution) => `
+  solutionList.innerHTML = solutions.map((solution, index) => `
     <details class="solution-card">
       <summary>${solution.topic}</summary>
       ${solution.answer}
+      ${renderWizard(index)}
     </details>
   `).join("");
 }
@@ -181,3 +219,25 @@ buttons.forEach((button) => {
 buttons[0].classList.add("active");
 renderDrills();
 renderSolutions();
+
+if (solutionList) {
+  solutionList.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-wizard-action]");
+    if (!button) return;
+
+    const wizard = button.closest("[data-wizard]");
+    const index = Number(wizard.dataset.wizard);
+    const steps = wizardSteps[index];
+    const current = Number(wizard.dataset.step);
+    let next = current;
+
+    if (button.dataset.wizardAction === "next") next = Math.min(current + 1, steps.length - 1);
+    if (button.dataset.wizardAction === "prev") next = Math.max(current - 1, 0);
+    if (button.dataset.wizardAction === "reset") next = 0;
+
+    wizard.dataset.step = String(next);
+    wizard.querySelector("[data-wizard-panel]").innerHTML = renderWizardStep({ ...steps[next], index: next }, steps.length);
+    wizard.querySelector("[data-wizard-action='prev']").disabled = next === 0;
+    wizard.querySelector("[data-wizard-action='next']").disabled = next === steps.length - 1;
+  });
+}
