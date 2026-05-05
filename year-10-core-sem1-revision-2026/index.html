@@ -85,12 +85,64 @@
       <div>
         <p class="tag">Mixed challenge</p>
         <h2>Choose your final 20 minutes</h2>
-        <p>Pick one pathway, complete the prompts on paper, then tick it off for points.</p>
+        <p>
+          Pick the pathway that best matches what you need most: speed, depth, or explanation.
+          Complete it on paper, then tick it off for points.
+        </p>
       </div>
       <div class="challenge-grid">
-        <label><input type="checkbox" data-bonus="15" data-key="challenge-speed"> Speed round: 8 short algebra and measurement questions.</label>
-        <label><input type="checkbox" data-bonus="15" data-key="challenge-depth"> Depth round: one multi-step modelling problem with a diagram.</label>
-        <label><input type="checkbox" data-bonus="15" data-key="challenge-explain"> Explain round: write a correction guide for three common mistakes.</label>
+        <article class="challenge-card">
+          <label><input type="checkbox" data-bonus="15" data-key="challenge-speed"> <strong>Speed round</strong></label>
+          <p>Complete all eight in 10 minutes, then choose two to explain to a partner.</p>
+          <ol>
+            <li>Simplify <math><mrow><mn>3</mn><mi>p</mi><mo>+</mo><mn>7</mn><mi>p</mi><mo>-</mo><mn>2</mn><mi>p</mi></mrow></math>.</li>
+            <li>Expand <math><mrow><mn>4</mn><mo>(</mo><mi>x</mi><mo>-</mo><mn>6</mn><mo>)</mo></mrow></math>.</li>
+            <li>Factorise <math><mrow><mn>9</mn><mi>a</mi><mo>+</mo><mn>12</mn></mrow></math>.</li>
+            <li>Solve <math><mrow><mn>2</mn><mi>m</mi><mo>+</mo><mn>9</mn><mo>=</mo><mn>25</mn></mrow></math>.</li>
+            <li>Find the gradient between <math><mrow><mo>(</mo><mn>1</mn><mo>,</mo><mn>4</mn><mo>)</mo></mrow></math> and <math><mrow><mo>(</mo><mn>5</mn><mo>,</mo><mn>12</mn><mo>)</mo></mrow></math>.</li>
+            <li>Calculate the area of a triangle with base 14 cm and height 9 cm.</li>
+            <li>Convert <math><mrow><mn>2.75</mn></mrow></math> L to <math><msup><mtext>cm</mtext><mn>3</mn></msup></math>.</li>
+            <li>A spinner has 3 red, 2 blue, and 5 green sectors. Find <math><mrow><mi>P</mi><mo>(</mo><mtext>not blue</mtext><mo>)</mo></mrow></math>.</li>
+          </ol>
+        </article>
+
+        <article class="challenge-card">
+          <label><input type="checkbox" data-bonus="15" data-key="challenge-depth"> <strong>Depth round</strong></label>
+          <p>Design a water tank model and show every decision.</p>
+          <div class="depth-diagram" aria-label="Rectangular tank with triangular roof diagram">
+            <span class="tank-body"></span>
+            <span class="tank-roof"></span>
+            <span class="tank-label tank-width">1.8 m</span>
+            <span class="tank-label tank-height">1.2 m</span>
+            <span class="tank-label tank-length">2.5 m long</span>
+          </div>
+          <ol>
+            <li>Find the volume of the rectangular part.</li>
+            <li>The triangular top has height 0.4 m. Find its cross-sectional area.</li>
+            <li>Find the total capacity in litres.</li>
+            <li>If the tank is 80% full, calculate the amount of water inside.</li>
+            <li>Write one sentence explaining where rounding could affect the final answer.</li>
+          </ol>
+        </article>
+
+        <article class="challenge-card">
+          <label><input type="checkbox" data-bonus="15" data-key="challenge-explain"> <strong>Explain round</strong></label>
+          <p>Write a correction guide. For each mistake, name the error, fix it, and add one prevention tip.</p>
+          <div class="mistake-list">
+            <div>
+              <span>Mistake A</span>
+              <math><mrow><msup><mrow><mo>(</mo><mi>x</mi><mo>+</mo><mn>4</mn><mo>)</mo></mrow><mn>2</mn></msup><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><mn>16</mn></mrow></math>
+            </div>
+            <div>
+              <span>Mistake B</span>
+              <math><mrow><mn>3</mn><mi>x</mi><mo>-</mo><mn>7</mn><mo>=</mo><mn>11</mn><mo>,</mo><mspace width="0.5em"></mspace><mi>x</mi><mo>=</mo><mn>11</mn><mo>-</mo><mn>7</mn><mo>&#247;</mo><mn>3</mn></mrow></math>
+            </div>
+            <div>
+              <span>Mistake C</span>
+              <math><mrow><mi>tan</mi><mo>(</mo><mi>theta</mi><mo>)</mo><mo>=</mo><mfrac><mtext>hypotenuse</mtext><mtext>opposite</mtext></mfrac></mrow></math>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </main>
