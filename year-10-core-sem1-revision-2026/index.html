@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year 10 Core Maths Revision Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Year 10 Core Maths</p>
+      <h1>Semester 1 Revision Lab</h1>
+    </div>
+    <div class="scorebox" aria-live="polite">
+      <span class="score-label">Points</span>
+      <strong id="pointsTotal">0</strong>
+      <span class="score-target">Target 120</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-grid" aria-label="Lesson overview">
+      <div class="lesson-brief">
+        <p class="tag">Double period plan</p>
+        <h2>Practise the skills, then prove readiness.</h2>
+        <p>
+          Work through six revision stations. Each station has a fast recall prompt,
+          a worked example you click through one step at a time, and a check question
+          that awards private points when you complete it.
+        </p>
+        <div class="lesson-actions">
+          <button id="startLesson" class="primary-btn">Start lesson</button>
+          <button id="resetProgress" class="ghost-btn">Reset progress</button>
+        </div>
+      </div>
+
+      <div class="visual-panel" aria-hidden="true">
+        <div class="axis-card">
+          <div class="axis"></div>
+          <div class="parabola"></div>
+          <div class="line"></div>
+        </div>
+        <div class="shape-card">
+          <div class="prism">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="sector"></div>
+        </div>
+        <div class="mini-equations">
+          <span>3x + 2y = 18</span>
+          <span>a<sup>2</sup> + b<sup>2</sup> = c<sup>2</sup></span>
+          <span>P(A) = favourable / total</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="timeline" aria-label="Suggested timing">
+      <div><strong>0-10 min</strong><span>Warm-up retrieval</span></div>
+      <div><strong>10-70 min</strong><span>Revision stations</span></div>
+      <div><strong>70-90 min</strong><span>Mixed challenge round</span></div>
+      <div><strong>90-100 min</strong><span>Readiness reflection</span></div>
+    </section>
+
+    <section class="teacher-note">
+      <strong>Assessment-safe resource:</strong>
+      this lesson is based on the topic coverage signalled by the supplied materials.
+      It does not include, reproduce, or closely paraphrase specific exam questions.
+    </section>
+
+    <section class="progress-panel" aria-label="Progress">
+      <div>
+        <h2>Readiness meter</h2>
+        <p>Earn points by revealing worked-solution reasoning, answering checks, and completing reflection targets.</p>
+      </div>
+      <div class="meter">
+        <div id="meterFill"></div>
+      </div>
+      <p id="nextMilestone" class="milestone">Next milestone: 30 points</p>
+    </section>
+
+    <section id="stations" class="stations" aria-label="Revision stations"></section>
+
+    <section class="challenge-zone" aria-label="Mixed challenge">
+      <div>
+        <p class="tag">Mixed challenge</p>
+        <h2>Choose your final 20 minutes</h2>
+        <p>Pick one pathway, complete the prompts on paper, then tick it off for points.</p>
+      </div>
+      <div class="challenge-grid">
+        <label><input type="checkbox" data-bonus="15" data-key="challenge-speed"> Speed round: 8 short algebra and measurement questions.</label>
+        <label><input type="checkbox" data-bonus="15" data-key="challenge-depth"> Depth round: one multi-step modelling problem with a diagram.</label>
+        <label><input type="checkbox" data-bonus="15" data-key="challenge-explain"> Explain round: write a correction guide for three common mistakes.</label>
+      </div>
+    </section>
+  </main>
+
+  <template id="stationTemplate">
+    <article class="station">
+      <div class="station-head">
+        <div>
+          <p class="station-number"></p>
+          <h2></h2>
+        </div>
+        <span class="station-points"></span>
+      </div>
+      <div class="station-body">
+        <div class="recall">
+          <h3>Fast recall</h3>
+          <p></p>
+        </div>
+        <div class="worked">
+          <h3>Click-through worked solution</h3>
+          <div class="worked-question"></div>
+          <div class="step-card">
+            <p class="step-counter"></p>
+            <div class="step-content"></div>
+          </div>
+          <div class="step-controls">
+            <button class="prev-step">Back</button>
+            <button class="next-step">Next step</button>
+          </div>
+        </div>
+        <div class="quick-check">
+          <h3>Check for points</h3>
+          <div class="check-question"></div>
+          <form>
+            <input type="text" autocomplete="off" aria-label="Answer">
+            <button type="submit">Check</button>
+          </form>
+          <p class="feedback" aria-live="polite"></p>
+          <button class="hint-btn" type="button">Hint</button>
+          <p class="hint" hidden></p>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
