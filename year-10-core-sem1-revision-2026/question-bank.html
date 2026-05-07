@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year 10 Core Final Revision Question Bank</title>
+  <link rel="stylesheet" href="question-bank.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Year 10 Core Mathematics</p>
+      <h1>Final Revision Question Bank</h1>
+    </div>
+    <a href="index.html" class="home-link">Revision lesson</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="tag">Exam 1 and Exam 2 topic coverage</p>
+        <h2>One question at a time, filtered by topic, depth, and CAS setting.</h2>
+        <p>This bank uses fresh questions generated from the skill profile of the two papers. It does not copy or allude to any actual exam question.</p>
+      </div>
+      <div class="stats">
+        <strong id="bankCount">0</strong>
+        <span>verified practice questions</span>
+        <p>Use this for short timed bursts or several hours of weekend revision.</p>
+      </div>
+    </section>
+
+    <section class="controls" aria-label="Question filters">
+      <label>Topic<select id="topicFilter"></select></label>
+      <label>Difficulty<select id="difficultyFilter"></select></label>
+      <label>CAS setting<select id="casFilter"></select></label>
+      <label>Timer<select id="timerSelect"><option value="0">No timer</option><option value="120">2 min</option><option value="300">5 min</option><option value="600">10 min</option><option value="1200">20 min</option></select></label>
+      <button id="shuffleBtn" type="button">Shuffle</button>
+    </section>
+
+    <section class="practice-shell">
+      <div class="practice-head">
+        <div><p id="questionMeta" class="meta"></p><h2 id="questionTitle"></h2></div>
+        <div class="timer" aria-live="polite"><span>Timer</span><strong id="timerDisplay">--:--</strong></div>
+      </div>
+      <article class="question-card">
+        <div id="questionText" class="question-text"></div>
+        <div class="actions">
+          <button id="prevQuestion" type="button">Previous</button>
+          <button id="revealSolution" type="button">Reveal worked solution</button>
+          <button id="nextQuestion" type="button">Next</button>
+        </div>
+      </article>
+      <article id="solutionPanel" class="solution-panel" hidden>
+        <h3>Worked solution</h3>
+        <div id="solutionText"></div>
+      </article>
+    </section>
+  </main>
+  <script src="question-bank.js"></script>
+</body>
+</html>
