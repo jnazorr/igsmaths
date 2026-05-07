@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exam 2 CAS Skills Trainer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Year 10 Core Mathematics</p>
+      <h1>Exam 2 CAS Skills Trainer</h1>
+    </div>
+    <div class="score">
+      <span>Confidence</span>
+      <strong id="score">0</strong>
+      <span>points</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="tag">Grounded in Exam 2 skill types</p>
+        <h2>Practise the exact CAS moves students need, without using exam questions.</h2>
+        <p>Each card isolates one CAS skill: what to type, what the calculator is doing, what to write on paper, and the syntax traps that cause most mistakes.</p>
+        <div class="actions">
+          <button id="start" class="primary">Start with solve</button>
+          <button id="reset" class="secondary">Reset progress</button>
+        </div>
+      </div>
+      <div class="cas-mock" aria-label="CAS calculator display mockup">
+        <div class="screen">
+          <span id="mockCommand">solve(3x - 7 = 20, x)</span>
+          <strong id="mockResult">x = 9</strong>
+        </div>
+        <div class="keys">
+          <span>menu</span><span>ctrl</span><span>var</span><span>enter</span>
+          <span>solve</span><span>factor</span><span>graph</span><span>tab</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="exam-map">
+      <h2>CAS moves to master for Exam 2</h2>
+      <div class="map-grid">
+        <span>solve equations</span>
+        <span>solve systems</span>
+        <span>factor and expand</span>
+        <span>make a variable the subject</span>
+        <span>quadratic forms and checks</span>
+        <span>graph and intersection tools</span>
+        <span>trig calculations in degrees</span>
+        <span>measurement and probability arithmetic</span>
+      </div>
+    </section>
+
+    <nav id="skillTabs" class="tabs" aria-label="CAS skill tabs"></nav>
+    <section id="skillPanel" class="skill-panel" aria-live="polite"></section>
+
+    <section class="workflow">
+      <h2>Exam habit checklist</h2>
+      <div class="checks">
+        <label><input type="checkbox" data-bonus="5" data-key="habit-define"> I define variables before typing a CAS command.</label>
+        <label><input type="checkbox" data-bonus="5" data-key="habit-exact"> I know when to keep an exact answer and when to approximate.</label>
+        <label><input type="checkbox" data-bonus="5" data-key="habit-copy"> I copy the CAS result into a clear mathematical sentence.</label>
+        <label><input type="checkbox" data-bonus="5" data-key="habit-check"> I substitute or estimate to check whether the answer makes sense.</label>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
