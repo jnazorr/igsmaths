@@ -20,28 +20,59 @@
       <div>
         <p class="tag">Exam 1 and Exam 2 topic coverage</p>
         <h2>One question at a time, filtered by topic, depth, and CAS setting.</h2>
-        <p>This bank uses fresh questions generated from the skill profile of the two papers. It does not copy or allude to any actual exam question.</p>
+        <p>
+          This bank uses fresh questions generated from the skill profile of the two papers.
+          It does not copy or allude to any actual exam question.
+        </p>
       </div>
-      <div class="stats">
+      <aside class="stats" aria-label="Question bank size">
         <strong id="bankCount">0</strong>
         <span>verified practice questions</span>
         <p>Use this for short timed bursts or several hours of weekend revision.</p>
-      </div>
+      </aside>
     </section>
 
     <section class="controls" aria-label="Question filters">
-      <label>Topic<select id="topicFilter"></select></label>
-      <label>Difficulty<select id="difficultyFilter"></select></label>
-      <label>CAS setting<select id="casFilter"></select></label>
-      <label>Timer<select id="timerSelect"><option value="0">No timer</option><option value="120">2 min</option><option value="300">5 min</option><option value="600">10 min</option><option value="1200">20 min</option></select></label>
-      <button id="shuffleBtn" type="button">Shuffle</button>
+      <label>
+        Topic
+        <select id="topicFilter"></select>
+      </label>
+      <label>
+        Difficulty
+        <select id="difficultyFilter"></select>
+      </label>
+      <label>
+        CAS setting
+        <select id="casFilter"></select>
+      </label>
+      <label>
+        Timer
+        <select id="timerSelect">
+          <option value="0">No timer</option>
+          <option value="120">2 min</option>
+          <option value="300">5 min</option>
+          <option value="600">10 min</option>
+          <option value="1200">20 min</option>
+        </select>
+      </label>
+      <button id="shuffleBtn" type="button">Shuffle set</button>
     </section>
 
     <section class="practice-shell">
       <div class="practice-head">
-        <div><p id="questionMeta" class="meta"></p><h2 id="questionTitle"></h2></div>
-        <div class="timer" aria-live="polite"><span>Timer</span><strong id="timerDisplay">--:--</strong></div>
+        <div>
+          <p id="questionMeta" class="meta"></p>
+          <h2 id="questionTitle"></h2>
+        </div>
+        <div class="timer" aria-live="polite">
+          <span>Timer</span>
+          <strong id="timerDisplay">--:--</strong>
+        </div>
       </div>
+      <div class="progress-track" aria-hidden="true">
+        <span id="progressBar"></span>
+      </div>
+
       <article class="question-card">
         <div id="questionText" class="question-text"></div>
         <div class="actions">
@@ -50,12 +81,20 @@
           <button id="nextQuestion" type="button">Next</button>
         </div>
       </article>
+
       <article id="solutionPanel" class="solution-panel" hidden>
-        <h3>Worked solution</h3>
+        <div class="solution-title">
+          <div>
+            <p class="tag">Click-through support</p>
+            <h3>Worked solution for Year 10</h3>
+          </div>
+          <span>Show enough working</span>
+        </div>
         <div id="solutionText"></div>
       </article>
     </section>
   </main>
+
   <script src="question-bank.js"></script>
 </body>
 </html>
