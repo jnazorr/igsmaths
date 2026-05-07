@@ -41,6 +41,14 @@ const topicCheck = (topic) => ({
 function algebra(difficulty, mode, v) {
   const a = 2 + v, b = 5 + v, c = 3 + v;
   if (difficulty === "Surface") {
+    if (v % 2 === 0) {
+      return q("Algebra fluency", difficulty, mode, `A student has <strong>${a}x</strong> points from one activity, earns another <strong>${b}x</strong> points, then loses <strong>${c}x</strong> points. Write a simplified expression for the final points.`, [
+        `The final expression is ${a}x + ${b}x - ${c}x.`,
+        `Collect like terms: (${a} + ${b} - ${c})x.`,
+        `Answer: <strong>${a + b - c}x</strong>.`,
+        casNote(mode)
+      ]);
+    }
     return q("Algebra fluency", difficulty, mode, `Simplify <strong>${a}x + ${b}x - ${c}x</strong>.`, [
       `Collect like terms: ${a}x + ${b}x - ${c}x = (${a} + ${b} - ${c})x.`,
       `The coefficient is ${a + b - c}.`,
@@ -49,6 +57,15 @@ function algebra(difficulty, mode, v) {
     ]);
   }
   if (difficulty === "Procedural") {
+    if (v % 2 === 1) {
+      return q("Algebra fluency", difficulty, mode, `A rectangular garden has length <strong>${a}x + ${b}</strong> metres and width <strong>x - ${c}</strong> metres. Write an expanded expression for its area.`, [
+        `Area = length &times; width, so area = (${a}x + ${b})(x - ${c}).`,
+        `Expand each product: ${a}x*x, ${a}x*(-${c}), ${b}*x, and ${b}*(-${c}).`,
+        `This gives ${a}x^2 - ${a * c}x + ${b}x - ${b * c}.`,
+        `Answer: <strong>${a}x^2 ${b - a * c >= 0 ? "+" : "-"} ${Math.abs(b - a * c)}x - ${b * c}</strong>.`,
+        casNote(mode)
+      ]);
+    }
     return q("Algebra fluency", difficulty, mode, `Expand and simplify <strong>(${a}x + ${b})(x - ${c})</strong>.`, [
       `Expand each product: ${a}x*x, ${a}x*(-${c}), ${b}*x, and ${b}*(-${c}).`,
       `This gives ${a}x^2 - ${a * c}x + ${b}x - ${b * c}.`,
@@ -58,18 +75,27 @@ function algebra(difficulty, mode, v) {
   }
   if (difficulty === "Reasoning") {
     const p = v + 2, r = v + 5;
+    if (v % 2 === 0) {
+      return q("Algebra fluency", difficulty, mode, `The area of a rectangular display is modelled by <strong>x^2 + ${p + r}x + ${p * r}</strong>. Write this area as a product of two linear factors.`, [
+        `Factorising writes the area expression as length &times; width.`,
+        `Find two numbers that multiply to ${p * r} and add to ${p + r}: ${p} and ${r}.`,
+        `So the factorised form is <strong>(x + ${p})(x + ${r})</strong>.`,
+        `Leave the answer in factorised form because the question asks for an expression.`,
+        casNote(mode)
+      ]);
+    }
     return q("Algebra fluency", difficulty, mode, `Factorise <strong>x^2 + ${p + r}x + ${p * r}</strong>.`, [
       `Find two numbers that multiply to ${p * r} and add to ${p + r}: ${p} and ${r}.`,
       `So the factorised form is <strong>(x + ${p})(x + ${r})</strong>.`,
-      `There is no need to solve for x here; the task is just to rewrite the expression in factorised form.`,
+      `Leave the answer in factorised form because the task is to rewrite the expression.`,
       casNote(mode)
     ]);
   }
   const n = v + 2;
-  return q("Algebra fluency", difficulty, mode, `Show that the product of <strong>${n}</strong> and the next consecutive integer, plus <strong>${n + 1}</strong>, can be written as a single simplified number.`, [
-    `The next consecutive integer is ${n + 1}.`,
-    `Product plus ${n + 1}: ${n}(${n + 1}) + ${n + 1}.`,
-    `Factor the common ${n + 1}: (${n + 1})(${n} + 1) = ${n + 1}^2.`,
+  return q("Algebra fluency", difficulty, mode, `A number pattern starts with <strong>${n}</strong>. <ol class="parts"><li>Write the next consecutive integer.</li><li>Write an expression for ${n} multiplied by the next integer, then add the next integer.</li><li>Simplify the result and explain why it is a square number.</li></ol>`, [
+    `Part a: the next consecutive integer is ${n + 1}.`,
+    `Part b: product plus ${n + 1} is ${n}(${n + 1}) + ${n + 1}.`,
+    `Part c: factor the common ${n + 1}: (${n + 1})(${n} + 1) = ${n + 1}^2.`,
     `Answer: <strong>${(n + 1) ** 2}</strong>.`
   ]);
 }
@@ -101,17 +127,25 @@ function equations(difficulty, mode, v) {
       `Answer: <strong>x = ${x}</strong>.`
     ]);
   }
-  return q("Equations and systems", difficulty, mode, `Two numbers have a sum of <strong>${2 * x + 3}</strong>. The larger number is <strong>3</strong> more than the smaller. Find both numbers.`, [
-    `Let the smaller number be n. The larger is n + 3.`,
-    `n + n + 3 = ${2 * x + 3}.`,
-    `2n = ${2 * x}, so n = ${x}.`,
-    `The numbers are <strong>${x}</strong> and <strong>${x + 3}</strong>.`
+  return q("Equations and systems", difficulty, mode, `Two numbers have a sum of <strong>${2 * x + 3}</strong>. The larger number is <strong>3</strong> more than the smaller. <ol class="parts"><li>Define a variable for the smaller number.</li><li>Write and solve an equation.</li><li>State both numbers.</li></ol>`, [
+    `Part a: let the smaller number be n. The larger number is n + 3.`,
+    `Part b: n + n + 3 = ${2 * x + 3}.`,
+    `Simplify: 2n = ${2 * x}, so n = ${x}.`,
+    `Part c: the numbers are <strong>${x}</strong> and <strong>${x + 3}</strong>.`
   ]);
 }
 
 function quadratics(difficulty, mode, v) {
   const r1 = v + 1, r2 = v + 4;
   if (difficulty === "Surface") {
+    if (v % 2 === 0) {
+      return q("Quadratics", difficulty, mode, `A rectangular logo has area expression <strong>x^2 - ${r1 + r2}x + ${r1 * r2}</strong>. Factorise the expression to show the possible side-length expressions.`, [
+        `Factorising rewrites the area as a product of two brackets.`,
+        `Find two numbers that multiply to ${r1 * r2} and add to -${r1 + r2}: -${r1} and -${r2}.`,
+        `Answer: <strong>(x - ${r1})(x - ${r2})</strong>.`,
+        casNote(mode)
+      ]);
+    }
     return q("Quadratics", difficulty, mode, `Factorise <strong>x^2 - ${r1 + r2}x + ${r1 * r2}</strong>.`, [
       `Find two numbers that multiply to ${r1 * r2} and add to -${r1 + r2}: -${r1} and -${r2}.`,
       `Answer: <strong>(x - ${r1})(x - ${r2})</strong>.`,
@@ -120,6 +154,14 @@ function quadratics(difficulty, mode, v) {
   }
   if (difficulty === "Procedural") {
     const h = v + 2, k = v + 3;
+    if (v % 2 === 1) {
+      return q("Quadratics", difficulty, mode, `The height of a decorative arch is modelled by <strong>y = (x - ${h})^2 + ${k}</strong>. State the turning point of the model.`, [
+        `Completed-square form y = (x - h)^2 + k has turning point (h, k).`,
+        `Here h = ${h} and k = ${k}.`,
+        `Answer: <strong>(${h}, ${k})</strong>.`,
+        `This is an interpretation of the form, not solving a quadratic.`
+      ]);
+    }
     return q("Quadratics", difficulty, mode, `State the turning point of <strong>y = (x - ${h})^2 + ${k}</strong>.`, [
       `Completed-square form y = (x - h)^2 + k has turning point (h, k).`,
       `Here h = ${h} and k = ${k}.`,
@@ -127,6 +169,16 @@ function quadratics(difficulty, mode, v) {
     ]);
   }
   if (difficulty === "Reasoning") {
+    if (v % 2 === 0) {
+      return q("Quadratics", difficulty, mode, `A design uses two side expressions, <strong>x - ${r1}</strong> and <strong>x - ${r2}</strong>. Expand the product to write the area expression in standard form.`, [
+        `The area expression is (x - ${r1})(x - ${r2}).`,
+        `Multiply the first terms: x*x = x^2.`,
+        `Multiply the outside and inside terms: -${r2}x and -${r1}x.`,
+        `Multiply the last terms: (-${r1})(-${r2}) = ${r1 * r2}.`,
+        `Answer: <strong>x^2 - ${r1 + r2}x + ${r1 * r2}</strong>.`,
+        casNote(mode)
+      ]);
+    }
     return q("Quadratics", difficulty, mode, `Expand and simplify <strong>(x - ${r1})(x - ${r2})</strong>.`, [
       `Multiply the first terms: x*x = x^2.`,
       `Multiply the outside and inside terms: -${r2}x and -${r1}x.`,
@@ -136,10 +188,10 @@ function quadratics(difficulty, mode, v) {
     ]);
   }
   const h = v + 2, k = v + 1;
-  return q("Quadratics", difficulty, mode, `A model has height <strong>h(t) = -(t - ${h})^2 + ${k + 8}</strong>. Find the maximum height and when it occurs.`, [
-    `The negative coefficient means the parabola opens downward.`,
-    `The turning point is (${h}, ${k + 8}).`,
-    `The maximum height is <strong>${k + 8}</strong> at <strong>t = ${h}</strong>.`,
+  return q("Quadratics", difficulty, mode, `A model has height <strong>h(t) = -(t - ${h})^2 + ${k + 8}</strong>. <ol class="parts"><li>Explain whether the graph opens up or down.</li><li>State the turning point.</li><li>Use the turning point to state the maximum height and when it occurs.</li></ol>`, [
+    `Part a: the negative coefficient means the parabola opens downward.`,
+    `Part b: the turning point is (${h}, ${k + 8}).`,
+    `Part c: the maximum height is <strong>${k + 8}</strong> at <strong>t = ${h}</strong>.`,
     casNote(mode)
   ]);
 }
@@ -147,6 +199,14 @@ function quadratics(difficulty, mode, v) {
 function graphs(difficulty, mode, v) {
   const x1 = v, y1 = 2 * v + 1, x2 = v + 3, y2 = 2 * (v + 3) + 1;
   if (difficulty === "Surface") {
+    if (v % 2 === 0) {
+      return q("Linear graphs", difficulty, mode, `A walking track profile passes through <strong>(${x1}, ${y1})</strong> and <strong>(${x2}, ${y2})</strong>, where x is distance and y is height. Find the gradient of the profile.`, [
+        `Gradient = rise/run = change in height / change in distance.`,
+        `Gradient = (${y2} - ${y1}) / (${x2} - ${x1}).`,
+        `Gradient = ${y2 - y1}/${x2 - x1}.`,
+        `Answer: <strong>${(y2 - y1) / (x2 - x1)}</strong>.`
+      ]);
+    }
     return q("Linear graphs", difficulty, mode, `Find the gradient between <strong>(${x1}, ${y1})</strong> and <strong>(${x2}, ${y2})</strong>.`, [
       `Gradient = rise/run = (${y2} - ${y1}) / (${x2} - ${x1}).`,
       `Gradient = ${y2 - y1}/${x2 - x1}.`,
@@ -154,6 +214,14 @@ function graphs(difficulty, mode, v) {
     ]);
   }
   if (difficulty === "Procedural") {
+    if (v % 2 === 1) {
+      return q("Linear graphs", difficulty, mode, `A hire company charges according to <strong>y = ${v + 2}x + ${v + 5}</strong>, where x is hours and y is dollars. What is the starting charge before any hours are added?`, [
+        `The starting charge is the y-intercept.`,
+        `In y = mx + c, the y-intercept is c.`,
+        `Here c = ${v + 5}.`,
+        `Answer: <strong>$${v + 5}</strong>.`
+      ]);
+    }
     return q("Linear graphs", difficulty, mode, `Find the y-intercept of <strong>y = ${v + 2}x + ${v + 5}</strong>.`, [
       `The y-intercept is the constant term in y = mx + c.`,
       `Answer: <strong>${v + 5}</strong>, so the point is <strong>(0, ${v + 5})</strong>.`
@@ -168,10 +236,10 @@ function graphs(difficulty, mode, v) {
       `Intersection: <strong>(${sol}, ${sol + v})</strong>.`
     ]);
   }
-  return q("Linear graphs", difficulty, mode, `A line passes through <strong>(${x1}, ${y1})</strong> and has gradient <strong>${v + 1}</strong>. Find the equation in the form y = mx + c.`, [
-    `Use y = ${v + 1}x + c.`,
-    `Substitute (${x1}, ${y1}): ${y1} = ${v + 1}(${x1}) + c.`,
-    `c = ${y1 - (v + 1) * x1}.`,
+  return q("Linear graphs", difficulty, mode, `A line passes through <strong>(${x1}, ${y1})</strong> and has gradient <strong>${v + 1}</strong>. <ol class="parts"><li>Write the equation as y = mx + c using the gradient.</li><li>Substitute the given point to find c.</li><li>State the full equation.</li></ol>`, [
+    `Part a: use y = ${v + 1}x + c.`,
+    `Part b: substitute (${x1}, ${y1}): ${y1} = ${v + 1}(${x1}) + c.`,
+    `So c = ${y1 - (v + 1) * x1}.`,
     `Answer: <strong>y = ${v + 1}x ${y1 - (v + 1) * x1 >= 0 ? "+" : "-"} ${Math.abs(y1 - (v + 1) * x1)}</strong>.`
   ]);
 }
@@ -179,6 +247,13 @@ function graphs(difficulty, mode, v) {
 function measurement(difficulty, mode, v) {
   const l = v + 6, w = v + 3, h = v + 2;
   if (difficulty === "Surface") {
+    if (v % 2 === 1) {
+      return q("Measurement", difficulty, mode, `A triangular shade cloth has base <strong>${l}</strong> m and vertical height <strong>${w}</strong> m. Find the area of the cloth.`, [
+        `Use the triangle area formula: area = 1/2 &times; base &times; height.`,
+        `Area = 1/2 &times; ${l} &times; ${w}.`,
+        `Answer: <strong>${fmt(0.5 * l * w)} m^2</strong>.`
+      ]);
+    }
     return q("Measurement", difficulty, mode, `Find the area of a triangle with base <strong>${l}</strong> cm and height <strong>${w}</strong> cm.`, [
       `Area = 1/2 &times; base &times; height.`,
       `Area = 1/2 &times; ${l} &times; ${w}.`,
@@ -186,6 +261,14 @@ function measurement(difficulty, mode, v) {
     ]);
   }
   if (difficulty === "Procedural") {
+    if (v % 2 === 0) {
+      return q("Measurement", difficulty, mode, `A storage box is <strong>${l}</strong> cm long, <strong>${w}</strong> cm wide, and <strong>${h}</strong> cm high. Find its volume.`, [
+        `Volume = length &times; width &times; height.`,
+        `Volume = ${l} &times; ${w} &times; ${h}.`,
+        `Answer: <strong>${l * w * h} cm^3</strong>.`,
+        casNote(mode)
+      ]);
+    }
     return q("Measurement", difficulty, mode, `Find the volume of a rectangular prism with dimensions <strong>${l}</strong> cm by <strong>${w}</strong> cm by <strong>${h}</strong> cm.`, [
       `Volume = length &times; width &times; height.`,
       `Volume = ${l} &times; ${w} &times; ${h}.`,
@@ -201,10 +284,10 @@ function measurement(difficulty, mode, v) {
     ]);
   }
   const r = v + 4, angle = 30 + 10 * v;
-  return q("Measurement", difficulty, mode, `Find the area of a sector with radius <strong>${r}</strong> cm and angle <strong>${angle} degrees</strong>. Round to 1 decimal place.`, [
-    `Sector area = angle/360 &times; pi &times; r^2.`,
-    `Area = ${angle}/360 &times; pi &times; ${r}^2.`,
-    `Answer: <strong>${fmt((angle / 360) * Math.PI * r * r)} cm^2</strong>.`,
+  return q("Measurement", difficulty, mode, `A circular garden bed has radius <strong>${r}</strong> cm. A sector of the garden has angle <strong>${angle} degrees</strong>. <ol class="parts"><li>Write the sector-area formula.</li><li>Substitute the radius and angle.</li><li>Find the area to 1 decimal place.</li></ol>`, [
+    `Part a: sector area = angle/360 &times; pi &times; r^2.`,
+    `Part b: area = ${angle}/360 &times; pi &times; ${r}^2.`,
+    `Part c: area = <strong>${fmt((angle / 360) * Math.PI * r * r)} cm^2</strong>.`,
     casNote(mode)
   ]);
 }
@@ -212,6 +295,13 @@ function measurement(difficulty, mode, v) {
 function probability(difficulty, mode, v) {
   const red = v + 2, blue = v + 3, green = v + 5, total = red + blue + green;
   if (difficulty === "Surface") {
+    if (v % 2 === 0) {
+      return q("Probability", difficulty, mode, `A game box contains <strong>${red}</strong> red tokens, <strong>${blue}</strong> blue tokens, and <strong>${green}</strong> green tokens. One token is selected at random. Find the probability of selecting blue.`, [
+        `Total tokens = ${red} + ${blue} + ${green} = ${total}.`,
+        `Favourable outcomes are the blue tokens: ${blue}.`,
+        `Answer: <strong>${fraction(blue, total)}</strong>.`
+      ]);
+    }
     return q("Probability", difficulty, mode, `A bag has <strong>${red}</strong> red, <strong>${blue}</strong> blue, and <strong>${green}</strong> green counters. Find P(blue).`, [
       `Total counters = ${total}.`,
       `Blue counters = ${blue}.`,
@@ -219,6 +309,14 @@ function probability(difficulty, mode, v) {
     ]);
   }
   if (difficulty === "Procedural") {
+    if (v % 2 === 1) {
+      return q("Probability", difficulty, mode, `At a fete stall, a prize tub contains <strong>${red}</strong> red tickets, <strong>${blue}</strong> blue tickets, and <strong>${green}</strong> green tickets. A ticket is drawn at random. Find the probability that it is not green.`, [
+        `Not green means red or blue.`,
+        `Favourable outcomes = ${red} + ${blue} = ${red + blue}.`,
+        `Total tickets = ${total}.`,
+        `Answer: <strong>${fraction(red + blue, total)}</strong>.`
+      ]);
+    }
     return q("Probability", difficulty, mode, `Using the same bag, find P(not green).`, [
       `Not green means red or blue.`,
       `Favourable outcomes = ${red} + ${blue} = ${red + blue}.`,
@@ -234,10 +332,10 @@ function probability(difficulty, mode, v) {
     ]);
   }
   const both = v + 2, a = v + 8, b = v + 7, classSize = v + 24;
-  return q("Probability", difficulty, mode, `In a class of <strong>${classSize}</strong>, <strong>${a}</strong> students play basketball, <strong>${b}</strong> play tennis, and <strong>${both}</strong> play both. Find P(neither).`, [
-    `At least one = ${a} + ${b} - ${both} = ${a + b - both}.`,
-    `Neither = ${classSize} - ${a + b - both} = ${classSize - (a + b - both)}.`,
-    `Answer: <strong>${fraction(classSize - (a + b - both), classSize)}</strong>.`,
+  return q("Probability", difficulty, mode, `In a class of <strong>${classSize}</strong>, <strong>${a}</strong> students play basketball, <strong>${b}</strong> play tennis, and <strong>${both}</strong> play both. <ol class="parts"><li>Find how many students play at least one of the two sports.</li><li>Find how many students play neither sport.</li><li>Find P(neither).</li></ol>`, [
+    `Part a: at least one = ${a} + ${b} - ${both} = ${a + b - both}.`,
+    `Part b: neither = ${classSize} - ${a + b - both} = ${classSize - (a + b - both)}.`,
+    `Part c: P(neither) = <strong>${fraction(classSize - (a + b - both), classSize)}</strong>.`,
     casNote(mode)
   ]);
 }
@@ -245,6 +343,13 @@ function probability(difficulty, mode, v) {
 function formula(difficulty, mode, v) {
   const b = v + 4, h = v + 3;
   if (difficulty === "Surface") {
+    if (v % 2 === 0) {
+      return q("Formula rearranging", difficulty, mode, `A triangular sign has base <strong>${b}</strong> m and height <strong>${h}</strong> m. Use <strong>A = bh/2</strong> to find its area.`, [
+        `Substitute b = ${b} and h = ${h} into A = bh/2.`,
+        `A = ${b} &times; ${h} / 2.`,
+        `Answer: <strong>${fmt(b * h / 2)} m^2</strong>.`
+      ]);
+    }
     return q("Formula rearranging", difficulty, mode, `Substitute <strong>b = ${b}</strong> and <strong>h = ${h}</strong> into A = bh/2.`, [
       `A = ${b} &times; ${h} / 2.`,
       `Answer: <strong>${fmt(b * h / 2)}</strong>.`
@@ -275,9 +380,10 @@ function formula(difficulty, mode, v) {
     ]);
   }
   const speed = v + 8, time = v + 2;
-  return q("Formula rearranging", difficulty, mode, `A trip uses <strong>d = st</strong>. If the distance is <strong>${speed * time}</strong> km and time is <strong>${time}</strong> h, make s the subject and find the speed.`, [
-    `Make s the subject: s = d/t.`,
-    `Substitute: s = ${speed * time}/${time}.`,
+  return q("Formula rearranging", difficulty, mode, `A trip uses the formula <strong>d = st</strong>. The distance is <strong>${speed * time}</strong> km and the time is <strong>${time}</strong> h. <ol class="parts"><li>Make s the subject.</li><li>Substitute the distance and time.</li><li>State the speed with units.</li></ol>`, [
+    `Part a: make s the subject: s = d/t.`,
+    `Part b: substitute: s = ${speed * time}/${time}.`,
+    `Part c: simplify the division.`,
     `Answer: <strong>${speed} km/h</strong>.`
   ]);
 }
