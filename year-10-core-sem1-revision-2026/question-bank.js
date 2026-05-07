@@ -4,7 +4,6 @@ const topics = [
   "Quadratics",
   "Linear graphs",
   "Measurement",
-  "Trigonometry",
   "Probability",
   "Formula rearranging"
 ];
@@ -17,6 +16,12 @@ const fraction = (a, b) => {
   return `${a / g}/${b / g}`;
 };
 const gcd = (a, b) => b ? gcd(b, a % b) : a;
+const formatMath = (html) => html
+  .replace(/tan\^-1/g, "tan<sup>-1</sup>")
+  .replace(/\btheta\b/g, "&theta;")
+  .replace(/\bpi\b/g, "&pi;")
+  .replace(/\bdegrees\b/g, "&deg;")
+  .replace(/([A-Za-z0-9)])\^(-?\d+)/g, "$1<sup>$2</sup>");
 const casNote = (mode) => {
   if (mode === "No CAS") return "No CAS: show the mental or written algebra steps.";
   if (mode === "CAS optional") return "CAS optional: use CAS to check after setting up the mathematics.";
@@ -26,10 +31,9 @@ const intro = (topic, difficulty) => `Read the question first and identify the s
 const topicCheck = (topic) => ({
   "Algebra fluency": "Check by expanding back, factorising back, or substituting an easy value such as x = 1.",
   "Equations and systems": "Check by substituting the solution back into the original equation or both original equations.",
-  Quadratics: "Check by expanding the factorised form, or by substituting each root into the original quadratic.",
+  Quadratics: "Check by expanding the factorised form or by comparing the equation with completed-square form.",
   "Linear graphs": "Check coordinates by substituting them into the equation. Keep answers in (x, y) order.",
   Measurement: "Check the units carefully: area uses square units, volume uses cubic units, and capacity can be written in litres.",
-  Trigonometry: "Check calculator angle mode is degrees, and make sure the side or angle size is reasonable for the triangle.",
   Probability: "Check the probability is between 0 and 1 unless it is written as a percentage. Simplify fractions where possible.",
   "Formula rearranging": "Check by substituting the rearranged expression back into the original formula."
 }[topic] || "Check the answer against the information in the question.");
@@ -54,10 +58,10 @@ function algebra(difficulty, mode, v) {
   }
   if (difficulty === "Reasoning") {
     const p = v + 2, r = v + 5;
-    return q("Algebra fluency", difficulty, mode, `Factorise <strong>x^2 + ${p + r}x + ${p * r}</strong>, then state the two values of x that make it equal to zero.`, [
+    return q("Algebra fluency", difficulty, mode, `Factorise <strong>x^2 + ${p + r}x + ${p * r}</strong>.`, [
       `Find two numbers that multiply to ${p * r} and add to ${p + r}: ${p} and ${r}.`,
       `So the factorised form is <strong>(x + ${p})(x + ${r})</strong>.`,
-      `The zero values are <strong>x = -${p}</strong> or <strong>x = -${r}</strong>.`,
+      `There is no need to solve for x here; the task is just to rewrite the expression in factorised form.`,
       casNote(mode)
     ]);
   }
@@ -123,10 +127,11 @@ function quadratics(difficulty, mode, v) {
     ]);
   }
   if (difficulty === "Reasoning") {
-    return q("Quadratics", difficulty, mode, `Solve <strong>x^2 - ${r1 + r2}x + ${r1 * r2} = 0</strong> and explain what the solutions mean on the graph.`, [
-      `Factorise: (x - ${r1})(x - ${r2}) = 0.`,
-      `So x = ${r1} or x = ${r2}.`,
-      `On the graph, these are the x-intercepts.`,
+    return q("Quadratics", difficulty, mode, `Expand and simplify <strong>(x - ${r1})(x - ${r2})</strong>.`, [
+      `Multiply the first terms: x*x = x^2.`,
+      `Multiply the outside and inside terms: -${r2}x and -${r1}x.`,
+      `Multiply the last terms: (-${r1})(-${r2}) = ${r1 * r2}.`,
+      `Answer: <strong>x^2 - ${r1 + r2}x + ${r1 * r2}</strong>.`,
       casNote(mode)
     ]);
   }
@@ -204,40 +209,6 @@ function measurement(difficulty, mode, v) {
   ]);
 }
 
-function trig(difficulty, mode, v) {
-  const hyp = v + 10, angle = 25 + 5 * v;
-  if (difficulty === "Surface") {
-    return q("Trigonometry", difficulty, mode, `Which ratio uses opposite and hypotenuse in a right triangle?`, [
-      `SOH CAH TOA: sine = opposite/hypotenuse.`,
-      `Answer: <strong>sine</strong>.`
-    ]);
-  }
-  if (difficulty === "Procedural") {
-    return q("Trigonometry", difficulty, mode, `A right triangle has hypotenuse <strong>${hyp}</strong> cm and angle <strong>${angle} degrees</strong>. Find the opposite side.`, [
-      `Use sine because opposite and hypotenuse are involved.`,
-      `sin(${angle}) = opposite/${hyp}.`,
-      `opposite = ${hyp} &times; sin(${angle}).`,
-      `Answer: <strong>${fmt(hyp * Math.sin(angle * Math.PI / 180))} cm</strong>.`
-    ]);
-  }
-  if (difficulty === "Reasoning") {
-    const opp = v + 4, adj = v + 9;
-    return q("Trigonometry", difficulty, mode, `A ramp rises <strong>${opp}</strong> m over a horizontal distance of <strong>${adj}</strong> m. Find the angle to 1 decimal place.`, [
-      `Use tangent because opposite and adjacent are known.`,
-      `tan(theta) = ${opp}/${adj}.`,
-      `theta = tan^-1(${opp}/${adj}).`,
-      `Answer: <strong>${fmt(Math.atan(opp / adj) * 180 / Math.PI)} degrees</strong>.`,
-      casNote(mode)
-    ]);
-  }
-  return q("Trigonometry", difficulty, mode, `A support cable is <strong>${hyp}</strong> m long and makes an angle of <strong>${angle}</strong> degrees with the ground. It is attached to a platform <strong>${v}</strong> m above the ground. Find the total height reached.`, [
-    `Vertical height from cable = ${hyp} &times; sin(${angle}).`,
-    `Cable height = ${fmt(hyp * Math.sin(angle * Math.PI / 180))} m.`,
-    `Add the platform height: ${fmt(hyp * Math.sin(angle * Math.PI / 180))} + ${v}.`,
-    `Answer: <strong>${fmt(hyp * Math.sin(angle * Math.PI / 180) + v)} m</strong>.`
-  ]);
-}
-
 function probability(difficulty, mode, v) {
   const red = v + 2, blue = v + 3, green = v + 5, total = red + blue + green;
   if (difficulty === "Surface") {
@@ -280,6 +251,14 @@ function formula(difficulty, mode, v) {
     ]);
   }
   if (difficulty === "Procedural") {
+    if (v % 2 === 0) {
+      return q("Formula rearranging", difficulty, mode, `Make <strong>r</strong> the subject of <strong>C = 2&pi;r</strong>.`, [
+        `Start with C = 2&pi;r.`,
+        `Divide both sides by 2&pi;.`,
+        `Answer: <strong>r = C/(2&pi;)</strong>.`,
+        casNote(mode)
+      ]);
+    }
     return q("Formula rearranging", difficulty, mode, `Make <strong>h</strong> the subject of <strong>A = bh/2</strong>.`, [
       `Multiply both sides by 2: 2A = bh.`,
       `Divide by b.`,
@@ -303,7 +282,7 @@ function formula(difficulty, mode, v) {
   ]);
 }
 
-const generators = { "Algebra fluency": algebra, "Equations and systems": equations, Quadratics: quadratics, "Linear graphs": graphs, Measurement: measurement, Trigonometry: trig, Probability: probability, "Formula rearranging": formula };
+const generators = { "Algebra fluency": algebra, "Equations and systems": equations, Quadratics: quadratics, "Linear graphs": graphs, Measurement: measurement, Probability: probability, "Formula rearranging": formula };
 
 function q(topic, difficulty, cas, text, solution) {
   const uniqueSteps = solution.filter((step) => step !== casNote(cas));
@@ -316,19 +295,19 @@ function q(topic, difficulty, cas, text, solution) {
     difficulty,
     cas,
     title: `${topic}: ${difficulty}`,
-    text,
+    text: formatMath(text),
     solution: [
       intro(topic, difficulty),
       ...uniqueSteps,
       `${topicCheck(topic)} ${casNote(cas)}`
-    ]
+    ].map(formatMath)
   };
 }
 
 function buildBank() {
   const bank = [];
-  topics.forEach((topic) => difficulties.forEach((difficulty) => casModes.forEach((cas) => {
-    for (let v = 1; v <= 3; v += 1) bank.push(generators[topic](difficulty, cas, v));
+  topics.forEach((topic) => difficulties.forEach((difficulty) => casModes.forEach((cas, casIndex) => {
+    for (let v = 1; v <= 4; v += 1) bank.push(generators[topic](difficulty, cas, v + casIndex * 4));
   })));
   return bank;
 }
