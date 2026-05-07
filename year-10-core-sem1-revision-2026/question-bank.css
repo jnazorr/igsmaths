@@ -263,6 +263,17 @@ main {
   color: var(--ink);
 }
 
+.question-text .parts {
+  margin: 12px 0 0;
+  padding-left: 24px;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.question-text .parts li {
+  margin: 5px 0;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;
