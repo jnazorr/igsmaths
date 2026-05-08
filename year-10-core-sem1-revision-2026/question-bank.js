@@ -20,7 +20,7 @@ function casNote(mode) {
 const checkNote = {
   "Algebra fluency": "Check by expanding back, factorising back, or substituting a simple value such as x = 1.",
   "Equations and systems": "Check by substituting the answer back into the original equation or equations.",
-  Quadratics: "Check by expanding the factorised form or reading the completed-square form carefully. Do not solve a quadratic equation.",
+  Quadratics: "Check by expanding the factorised form or reading the completed-square form carefully.",
   "Linear graphs": "Check coordinates by substituting them into the rule. Keep points in (x, y) order.",
   Measurement: "Check units: area uses square units, volume uses cubic units, and capacity can be converted to litres.",
   Probability: "Check that the probability is between 0 and 1 unless it is written as a percentage.",
@@ -99,7 +99,7 @@ function quadratics(difficulty, cas, v) {
     if (t === 0) return q("Quadratics", difficulty, cas, `Factorise <strong>x^2 - ${r1 + r2}x + ${r1 * r2}</strong>.`, [`Find two numbers that multiply to ${r1 * r2} and add to -${r1 + r2}.`, `Those numbers are -${r1} and -${r2}.`, `Answer: <strong>(x - ${r1})(x - ${r2})</strong>.`]);
     if (t === 1) return q("Quadratics", difficulty, cas, `Expand <strong>(x + ${r1})(x + ${r2})</strong>.`, [`Multiply each term in the first bracket by each term in the second.`, `x^2 + ${r2}x + ${r1}x + ${r1 * r2}.`, `Answer: <strong>x^2 + ${r1 + r2}x + ${r1 * r2}</strong>.`]);
     if (t === 2) return q("Quadratics", difficulty, cas, `A quadratic is written as <strong>y = (x - ${h})^2 + ${k}</strong>. State its turning point.`, [`Compare with y = (x - h)^2 + k.`, `Here h = ${h} and k = ${k}.`, `Answer: <strong>(${h}, ${k})</strong>.`]);
-    return q("Quadratics", difficulty, cas, `Identify the coefficient of x^2 in <strong>${r1}x^2 - ${r2}x + ${k}</strong>.`, [`The coefficient is the number multiplying x^2.`, `Answer: <strong>${r1}</strong>.`, `This is not a quadratic-solving question.`]);
+    return q("Quadratics", difficulty, cas, `Identify the coefficient of x^2 in <strong>${r1}x^2 - ${r2}x + ${k}</strong>.`, [`The coefficient is the number multiplying x^2.`, `Answer: <strong>${r1}</strong>.`, `This is about identifying a coefficient.`]);
   }
   if (difficulty === "Procedural") {
     if (t === 0) return q("Quadratics", difficulty, cas, `A rectangular logo has area <strong>x^2 - ${r1 + r2}x + ${r1 * r2}</strong>. Factorise it to show side expressions.`, [`Use -${r1} and -${r2}.`, `The expression factorises into two brackets.`, `Answer: <strong>(x - ${r1})(x - ${r2})</strong>.`]);
@@ -111,7 +111,7 @@ function quadratics(difficulty, cas, v) {
     if (t === 0) return q("Quadratics", difficulty, cas, `A student claims <strong>(x - ${r1})(x - ${r2}) = x^2 - ${r1 + r2 + 1}x + ${r1 * r2}</strong>. Explain and correct the error.`, [`The constant term is correct.`, `The middle coefficient should be -${r1} - ${r2} = -${r1 + r2}.`, `Correct expression: <strong>x^2 - ${r1 + r2}x + ${r1 * r2}</strong>.`]);
     if (t === 1) return q("Quadratics", difficulty, cas, `Compare <strong>y = (x - ${h})^2 + ${k}</strong> and <strong>y = (x - ${h + 2})^2 + ${k}</strong>. Describe the turning-point change.`, [`First turning point: (${h}, ${k}).`, `Second turning point: (${h + 2}, ${k}).`, `It moves <strong>2 units right</strong>.`]);
     if (t === 2) return q("Quadratics", difficulty, cas, `A rectangle has area <strong>x^2 + ${r1 + r2}x + ${r1 * r2}</strong>. One side is <strong>x + ${r1}</strong>. Find the other side expression.`, [`Factorise the area.`, `x^2 + ${r1 + r2}x + ${r1 * r2} = (x + ${r1})(x + ${r2}).`, `Other side: <strong>x + ${r2}</strong>.`]);
-    return q("Quadratics", difficulty, cas, `A model is <strong>h(t) = -(t - ${h})^2 + ${k + 8}</strong>. Interpret the turning point without solving.`, [`Completed-square form gives the turning point directly.`, `Turning point is (${h}, ${k + 8}).`, `Because it opens downward, this is the maximum height.`]);
+    return q("Quadratics", difficulty, cas, `A model is <strong>h(t) = -(t - ${h})^2 + ${k + 8}</strong>. Interpret the turning point from the form.`, [`Completed-square form gives the turning point directly.`, `Turning point is (${h}, ${k + 8}).`, `Because it opens downward, this is the maximum height.`]);
   }
   if (t === 0) return q("Quadratics", difficulty, cas, `A display panel is modelled by <strong>y = -(x - ${h})^2 + ${k + 8}</strong>. <ol class="parts"><li>State whether it opens up or down.</li><li>State the turning point.</li><li>Explain the maximum value.</li></ol>`, [`Part a: downward, because of the negative sign.`, `Part b: turning point is (${h}, ${k + 8}).`, `Part c: maximum value is <strong>${k + 8}</strong>.`]);
   if (t === 1) return q("Quadratics", difficulty, cas, `A banner area is <strong>(x + ${r1})(x + ${r2})</strong>. <ol class="parts"><li>Expand it.</li><li>State the coefficient of x.</li><li>Check with x = 2.</li></ol>`, [`Part a: x^2 + ${r1 + r2}x + ${r1 * r2}.`, `Part b: coefficient of x is <strong>${r1 + r2}</strong>.`, `Part c: both forms give ${(2 + r1) * (2 + r2)}.`]);
