@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year 10 Core Maths — Revision Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .level-hero { padding: clamp(48px, 7vw, 80px) clamp(18px, 5vw, 64px) clamp(28px, 4vw, 48px);
+      background: linear-gradient(180deg, #fff7df 0%, #fbf5ec 100%); border-bottom: 1px solid var(--line); }
+    .level-hero h1 { font-size: clamp(32px, 4.5vw, 48px); margin: 6px 0 12px 0; }
+    .level-hero p.lead { font-size: clamp(16px, 1.4vw, 18px); color: var(--muted); max-width: 720px; }
+    .res-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      padding: clamp(28px, 4vw, 48px) clamp(18px, 5vw, 64px); }
+    .res-card { padding: 22px 26px; border: 1px solid var(--line); border-radius: 10px;
+      background: var(--panel); box-shadow: 0 8px 20px rgba(38,32,26,.06);
+      display: flex; flex-direction: column; text-decoration: none; color: inherit;
+      transition: transform .15s, box-shadow .15s, border-color .15s; }
+    .res-card:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(38,32,26,.1); border-color: var(--green); }
+    .res-card .badge { display: inline-block; align-self: flex-start; font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase; font-weight: 800; padding: 3px 8px;
+      border-radius: 3px; background: #fff7df; color: #8a650d; margin-bottom: 10px; }
+    .res-card h3 { font-size: 18px; margin: 0 0 6px 0; }
+    .res-card p { color: var(--muted); margin: 0 0 12px 0; font-size: 14px; }
+    .res-card .meta { font-size: 12px; color: var(--muted); margin: 0 0 4px 0; }
+    .res-card .arrow { margin-top: auto; padding-top: 12px; font-weight: 700; color: var(--green); font-size: 14px; }
+    .res-card .arrow::after { content: " →"; }
+    .exam-notes { padding: clamp(24px, 3vw, 40px) clamp(18px, 5vw, 64px) clamp(40px, 5vw, 64px); }
+    .exam-notes .panel { padding: 22px 26px; background: var(--panel); border: 1px solid var(--line);
+      border-radius: 10px; max-width: 880px; }
+    .exam-notes h2 { font-size: 22px; margin: 0 0 12px 0; }
+    .exam-notes ul { padding-left: 20px; color: var(--ink); }
+    .exam-notes ul li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="IGS Maths home">
+      <span class="brand-mark">∑</span>
+      <span>IGS Maths</span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="./">Home</a>
+      <a href="core.html" aria-current="page">Year 10 Core</a>
+      <a href="methods.html">Year 11 Methods</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="level-hero">
+      <p class="eyebrow">Year 10 · Core Mathematics · Semester 1</p>
+      <h1>Year 10 Core Maths</h1>
+      <p class="lead">Revision resources, CAS skills practice, and worked-solution decks for the Year 10 Core Maths Semester 1 exams.</p>
+    </section>
+
+    <section class="res-grid" aria-label="Year 10 Core resources">
+      <a class="res-card" href="10core-exam-sem1-2026/">
+        <span class="badge">Exam review</span>
+        <h3>Sem 1 Exam review decks</h3>
+        <p class="meta">Q-by-Q walkthroughs · MathJax · handwritten solution pages</p>
+        <p>Per-question approach, key step, final answer, and common-error notes for Exam 1 and Exam 2. Click "Jump" inside each deck to skip to any question.</p>
+        <span class="arrow">Open decks</span>
+      </a>
+      <a class="res-card" href="year-10-core-sem1-revision-2026/">
+        <span class="badge">Revision Lab</span>
+        <h3>Semester 1 Revision Lab</h3>
+        <p class="meta">Interactive question bank · double-period lesson plan · points target</p>
+        <p>Topic-grouped revision questions with progress tracking and a structured double-lesson plan covering algebra, geometry, probability and modelling.</p>
+        <span class="arrow">Open Revision Lab</span>
+      </a>
+      <a class="res-card" href="cas-exam2/">
+        <span class="badge">CAS</span>
+        <h3>Exam 2 CAS Skills Trainer</h3>
+        <p class="meta">Step-by-step practice · grounded in Exam 2 skill types</p>
+        <p>Targeted micro-skills for the calculator-allowed paper: solving, factorising, substituting, and interpreting CAS output.</p>
+        <span class="arrow">Open trainer</span>
+      </a>
+    </section>
+
+    <section class="exam-notes">
+      <div class="panel">
+        <p class="eyebrow">Exam format reminders</p>
+        <h2>Year 10 Core Semester 1 exams</h2>
+        <ul>
+          <li><strong>Exam 1:</strong> 60 minutes writing time · NO calculator · 40 marks · 12 short-answer questions.</li>
+          <li><strong>Exam 2:</strong> 90 minutes writing time · CAS allowed · 60 marks · 20 multiple-choice + 4 extended-response.</li>
+          <li>Both exams include 15 minutes reading time and a supplied formula sheet.</li>
+          <li>Standard writing equipment in a transparent case · no phones, watches, smart devices, food, bags, headphones, or electronic dictionaries.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Year 10 Core Mathematics revision &amp; exam preparation.</p>
+  </footer>
+</body>
+</html>

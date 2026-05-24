@@ -3,59 +3,89 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Year 10 Core — Semester 1 Exam Review</title>
+  <title>Year 10 Core — Sem 1 Exam Review Decks</title>
+  <link rel="stylesheet" href="../styles.css">
   <style>
-    :root { color-scheme: light; }
-    * { box-sizing: border-box; }
-    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f5efe6; color: #2f2a28; line-height: 1.5; padding: 40px 24px; }
-    main { max-width: 720px; margin: 0 auto; }
-    h1 { font-size: 32px; margin: 0 0 8px 0; color: #1b7f79; }
-    .eyebrow { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 24px; }
-    p { color: #4a4540; }
-    .deck-grid { display: grid; gap: 14px; margin-top: 28px; }
-    .deck { display: block; padding: 18px 22px; background: white; border-radius: 8px;
-      text-decoration: none; color: inherit; border: 1px solid #ddd1c3;
-      box-shadow: 0 1px 3px rgba(0,0,0,.04); transition: transform .12s, box-shadow .12s; }
-    .deck:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,.08); border-color: #1b7f79; }
-    .deck h2 { margin: 0 0 6px 0; font-size: 18px; color: #1b7f79; }
-    .deck .meta { font-size: 13px; color: #888; margin: 0 0 8px 0; }
-    .deck p { margin: 0; font-size: 14px; color: #4a4540; }
-    .home { display: inline-block; margin-top: 36px; font-size: 13px; color: #888; text-decoration: none; }
-    .home:hover { color: #1b7f79; }
-    .controls-note { margin-top: 24px; padding: 12px 16px; background: rgba(27, 127, 121, 0.06);
-      border-left: 3px solid #1b7f79; border-radius: 4px; font-size: 13px; }
+    .deck-hero { padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 56px) clamp(28px, 4vw, 44px);
+      background: linear-gradient(180deg, #fff7df 0%, #fbf5ec 100%); border-bottom: 1px solid var(--line); }
+    .deck-hero h1 { font-size: clamp(28px, 4vw, 42px); margin: 6px 0 12px 0; }
+    .deck-hero p.lead { color: var(--muted); max-width: 720px; font-size: clamp(15px, 1.3vw, 17px); }
+    .deck-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      padding: clamp(24px, 4vw, 44px) clamp(18px, 5vw, 56px); }
+    .deck-card { padding: 22px 26px; border: 1px solid var(--line); border-radius: 10px;
+      background: var(--panel); box-shadow: 0 8px 20px rgba(38,32,26,.06);
+      display: flex; flex-direction: column; text-decoration: none; color: inherit;
+      transition: transform .15s, box-shadow .15s, border-color .15s; }
+    .deck-card:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(38,32,26,.1); border-color: var(--green); }
+    .deck-card .badge { display: inline-block; align-self: flex-start; font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase; font-weight: 800; padding: 3px 8px;
+      border-radius: 3px; background: #fff7df; color: #8a650d; margin-bottom: 10px; }
+    .deck-card h2 { font-size: 19px; margin: 0 0 6px 0; }
+    .deck-card .meta { font-size: 12px; color: var(--muted); margin: 0 0 10px 0; }
+    .deck-card p { color: var(--muted); margin: 0; font-size: 14px; }
+    .deck-card .arrow { margin-top: auto; padding-top: 14px; font-weight: 700; color: var(--green); font-size: 14px; }
+    .deck-card .arrow::after { content: " →"; }
+    .controls-panel { padding: 0 clamp(18px, 5vw, 56px) clamp(40px, 5vw, 60px); }
+    .controls-panel .panel { padding: 18px 22px; background: rgba(27,127,121,.06);
+      border-left: 3px solid var(--green); border-radius: 4px; font-size: 14px; }
+    .controls-panel kbd { display: inline-block; padding: 2px 6px; border: 1px solid var(--line);
+      border-radius: 3px; background: var(--paper); font-family: ui-monospace, Menlo, monospace; font-size: 12px; }
   </style>
 </head>
 <body>
-<main>
-  <p class="eyebrow">Year 10 Core · Semester 1 · 2026</p>
-  <h1>Exam Review Decks</h1>
-  <p>Question-by-question walk-throughs with plain-English explanations alongside the marked solution pages.</p>
-
-  <div class="controls-note">
-    <strong>Controls:</strong> ← → arrows or Space to advance · F for fullscreen · click "Jump" (top-right) to skip to a question · deep-link to a slide with <code>#5</code>.
-  </div>
-
-  <div class="deck-grid">
-    <a class="deck" href="exam-1-review.html">
-      <h2>Exam 1 review</h2>
-      <p class="meta">Tech-free · 60 min · 40 marks · 12 short-answer questions</p>
-      <p>Algebra, simultaneous equations, perpendicular lines, mensuration, sets, factorising.</p>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="IGS Maths home">
+      <span class="brand-mark">∑</span>
+      <span>IGS Maths · Year 10 Core</span>
     </a>
-    <a class="deck" href="exam-2-review.html">
-      <h2>Exam 2 review</h2>
-      <p class="meta">CAS · 90 min · 60 marks · 20 MC + 4 extended response</p>
-      <p>Includes the play-area, taxi rates, two-way table + spinner, and Mrs Cardno's expression / completing-the-square / profit-formula question.</p>
-    </a>
-    <a class="deck" href="both-exams-review.html">
-      <h2>Both exams (combined deck)</h2>
-      <p class="meta">37 slides · everything in one navigation tree</p>
-      <p>Exam 1 followed by Exam 2 — useful for a full semester review lesson.</p>
-    </a>
-  </div>
+    <nav aria-label="Year 10 sections">
+      <a href="../">Home</a>
+      <a href="../core.html">Year 10 hub</a>
+      <a href="../year-10-core-sem1-revision-2026/">Revision Lab</a>
+      <a href="../cas-exam2/">CAS Trainer</a>
+    </nav>
+  </header>
 
-  <a class="home" href="../">← All revision sites</a>
-</main>
+  <main>
+    <section class="deck-hero">
+      <p class="eyebrow">Year 10 Core · Semester 1 · 2026</p>
+      <h1>Exam review decks</h1>
+      <p class="lead">Question-by-question walk-throughs with plain-English explanations alongside the marked solution pages. Math is typeset with MathJax.</p>
+    </section>
+
+    <section class="deck-grid" aria-label="Available decks">
+      <a class="deck-card" href="exam-1-review.html">
+        <span class="badge">Exam 1 · Tech-free</span>
+        <h2>Exam 1 review</h2>
+        <p class="meta">60 minutes · 40 marks · 12 short-answer questions</p>
+        <p>Algebra, simultaneous equations, perpendicular lines, mensuration, sets, and factorising. Tech-free format.</p>
+        <span class="arrow">Open deck</span>
+      </a>
+      <a class="deck-card" href="exam-2-review.html">
+        <span class="badge">Exam 2 · CAS</span>
+        <h2>Exam 2 review</h2>
+        <p class="meta">90 minutes · 60 marks · 20 MC + 4 extended response</p>
+        <p>Play-area, taxi rates, two-way table + spinner, Mrs Cardno's expression/completing-the-square/profit question, and full MC coverage.</p>
+        <span class="arrow">Open deck</span>
+      </a>
+      <a class="deck-card" href="both-exams-review.html">
+        <span class="badge">Combined</span>
+        <h2>Both exams</h2>
+        <p class="meta">37 slides total · full semester review</p>
+        <p>Exam 1 followed by Exam 2 in one navigable deck. Good for a single comprehensive review lesson.</p>
+        <span class="arrow">Open deck</span>
+      </a>
+    </section>
+
+    <section class="controls-panel">
+      <div class="panel">
+        <strong>Controls inside each deck:</strong> <kbd>←</kbd> <kbd>→</kbd> or <kbd>Space</kbd> to advance · <kbd>F</kbd> for fullscreen · click <em>Jump</em> top-right to skip to a question · deep-link with <code>#5</code> for slide 5.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Year 10 Core Maths · Semester 1 exam review decks.</p>
+  </footer>
 </body>
 </html>
