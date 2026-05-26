@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Y11 Methods — 13B Rational Exponents</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:30px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:960px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .formula-box { background:#fff; border:2px solid var(--navy); border-radius:8px; padding:14px 24px;
+                 margin:18px auto; text-align:center; font-size:20px; max-width:520px;
+                 box-shadow:0 2px 4px rgba(30,39,97,0.1); }
+  .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin:14px 0; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0; }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:14px 16px;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .q { font-size:17px; padding-bottom:8px; border-bottom:1px dashed #ccc; margin-bottom:8px; }
+  .example .a { font-family: Calibri, Arial, sans-serif; display:none; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:2px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .example .a .step { margin:4px 0; padding-left:12px; border-left:3px solid var(--ice); }
+  .example .final { background:#E8F1E8; padding:6px 10px; border-radius:4px; margin-top:8px;
+                    border-left:4px solid var(--good); font-weight:bold; }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:14px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  @media (max-width:720px) { .grid3, .grid2 { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Year 11 Methods — Rational Exponents (13B)</h1>
+  <div class="meta">Cambridge Methods 1&amp;2, Ch 13: Section 13B &nbsp;•&nbsp; Wed 27 May 2026 &nbsp;•&nbsp; Mr Wong away today</div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Convert between <strong>radical form</strong> ($\sqrt[m]{x}$) and <strong>rational-exponent form</strong> ($x^{1/m}$)</li>
+    <li>Evaluate expressions with rational exponents like $27^{1/3}$, $16^{5/2}$, $64^{-2/3}$</li>
+    <li>Handle <strong>negative bases</strong> (odd roots only!) and <strong>negative exponents</strong></li>
+    <li>Simplify mixed expressions using <strong>all</strong> index laws together</li>
+  </ul>
+</div>
+
+<p>Work through every worked example below carefully — answers are shown so you can self-check your method. Then attempt the quiz and the Cambridge questions.</p>
+
+<h2>Part 1 — The first key rule</h2>
+
+<div class="formula-box">
+  $x^{\frac{1}{m}} = \sqrt[m]{x}$
+</div>
+
+<p style="font-family:Calibri,Arial,sans-serif;">A power of $\tfrac{1}{m}$ is the same as taking an $m$-th root. So $x^{1/2}=\sqrt{x}$, $x^{1/3}=\sqrt[3]{x}$, and so on.</p>
+
+<h3>Worked examples — Rewrite in index form</h3>
+<div class="grid3">
+  <div class="example">
+    <div class="q">$\sqrt[2]{x}$</div>
+    <div class="a">
+      <div class="step">An index of $\tfrac{1}{m}$ where $m=2$.</div>
+      <div class="final">$= x^{\frac{1}{2}}$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$\sqrt[4]{x}$</div>
+    <div class="a">
+      <div class="step">An index of $\tfrac{1}{m}$ where $m=4$.</div>
+      <div class="final">$= x^{\frac{1}{4}}$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$\sqrt[7]{x}$</div>
+    <div class="a">
+      <div class="step">An index of $\tfrac{1}{m}$ where $m=7$.</div>
+      <div class="final">$= x^{\frac{1}{7}}$</div>
+    </div>
+  </div>
+</div>
+
+<h3>Worked examples — Evaluate</h3>
+<div class="grid3">
+  <div class="example">
+    <div class="q">$9^{\frac{1}{2}}$</div>
+    <div class="a">
+      <div class="step">$= \sqrt{9}$</div>
+      <div class="final">$= 3$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$27^{\frac{1}{3}}$</div>
+    <div class="a">
+      <div class="step">$= \sqrt[3]{27}$</div>
+      <div class="step">What cubed gives 27? &nbsp; $3^3=27$</div>
+      <div class="final">$= 3$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$32^{\frac{1}{5}}$</div>
+    <div class="a">
+      <div class="step">$= \sqrt[5]{32}$</div>
+      <div class="step">What to the 5th gives 32? &nbsp; $2^5=32$</div>
+      <div class="final">$= 2$</div>
+    </div>
+  </div>
+</div>
+
+<h2>Part 2 — Extending to $x^{\frac{m}{n}}$</h2>
+
+<div class="formula-box">
+  $x^{\frac{m}{n}} \;=\; \left(x^{\frac{1}{n}}\right)^{m} \;=\; \left(\sqrt[n]{x}\right)^{m} \;=\; \sqrt[n]{x^{m}}$
+</div>
+
+<div class="callout good">
+  <strong>Pro tip:</strong> When evaluating, take the <strong>root first</strong>, then raise to the power. The numbers are much smaller and easier to handle. e.g. for $64^{2/3}$ do $(\sqrt[3]{64})^2 = 4^2 = 16$ rather than $\sqrt[3]{64^2} = \sqrt[3]{4096}$.
+</div>
+
+<h3>Worked examples — Rewrite</h3>
+<div class="grid3">
+  <div class="example">
+    <div class="q">$\sqrt[5]{x^2}$</div>
+    <div class="a">
+      <div class="step">Outside index $=m=2$, root $=n=5$.</div>
+      <div class="final">$= x^{\frac{2}{5}}$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$\left(\sqrt[3]{x}\right)^{2}$</div>
+    <div class="a">
+      <div class="step">Inside: $x^{1/3}$, then raised to 2.</div>
+      <div class="step">$=\left(x^{\frac{1}{3}}\right)^{2}$</div>
+      <div class="final">$= x^{\frac{2}{3}}$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$\sqrt[3]{x^{7}}$</div>
+    <div class="a">
+      <div class="step">$m=7$, $n=3$.</div>
+      <div class="final">$= x^{\frac{7}{3}}$</div>
+    </div>
+  </div>
+</div>
+
+<h3>Worked examples — Evaluate (root first, then power)</h3>
+<div class="grid3">
+  <div class="example">
+    <div class="q">$16^{\frac{5}{2}}$</div>
+    <div class="a">
+      <div class="step">$=\left(16^{\frac{1}{2}}\right)^{5}$</div>
+      <div class="step">$=\left(\sqrt{16}\right)^{5} = 4^{5}$</div>
+      <div class="final">$= 1024$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$49^{\frac{3}{2}}$</div>
+    <div class="a">
+      <div class="step">$=\left(\sqrt{49}\right)^{3} = 7^{3}$</div>
+      <div class="final">$= 343$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$64^{\frac{2}{3}}$</div>
+    <div class="a">
+      <div class="step">$=\left(\sqrt[3]{64}\right)^{2} = 4^{2}$</div>
+      <div class="final">$= 16$</div>
+    </div>
+  </div>
+</div>
+
+<h2>Part 3 — Negative bases &amp; negative exponents</h2>
+
+<div class="callout warn">
+  ⚠️ <strong>Negative bases:</strong> You can only take an <em>odd</em> root of a negative number in the reals. $\sqrt[3]{-8} = -2$ is fine; $\sqrt{-4}$ is undefined in $\mathbb{R}$.
+</div>
+<div class="callout">
+  <strong>Negative exponents:</strong> $a^{-n} = \dfrac{1}{a^{n}}$ — the negative sign flips it to the denominator.
+</div>
+
+<div class="grid2">
+  <div class="example">
+    <div class="q">$(-64)^{\frac{1}{3}}$</div>
+    <div class="a">
+      <div class="step">$=\sqrt[3]{-64}$ &nbsp; (odd root, so OK)</div>
+      <div class="step">What cubed gives $-64$? &nbsp; $(-4)^3 = -64$</div>
+      <div class="final">$= -4$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$(-27)^{\frac{2}{3}}$</div>
+    <div class="a">
+      <div class="step">$=\left(\sqrt[3]{-27}\right)^{2}$</div>
+      <div class="step">$=(-3)^{2}$</div>
+      <div class="final">$= 9$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$9^{-\frac{1}{2}}$</div>
+    <div class="a">
+      <div class="step">$=\dfrac{1}{9^{\frac{1}{2}}}=\dfrac{1}{\sqrt{9}}$</div>
+      <div class="final">$= \dfrac{1}{3}$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$64^{-\frac{2}{3}}$</div>
+    <div class="a">
+      <div class="step">$=\dfrac{1}{64^{\frac{2}{3}}} = \dfrac{1}{\left(\sqrt[3]{64}\right)^{2}}$</div>
+      <div class="step">$=\dfrac{1}{4^{2}}$</div>
+      <div class="final">$= \dfrac{1}{16}$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$125^{-\frac{4}{3}}$</div>
+    <div class="a">
+      <div class="step">$=\dfrac{1}{125^{\frac{4}{3}}} = \dfrac{1}{\left(\sqrt[3]{125}\right)^{4}}$</div>
+      <div class="step">$=\dfrac{1}{5^{4}}$</div>
+      <div class="final">$= \dfrac{1}{625}$</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="q">$\left(\dfrac{1}{36}\right)^{-\frac{3}{2}}$</div>
+    <div class="a">
+      <div class="step">Negative exponent flips the fraction: $=36^{\frac{3}{2}}$</div>
+      <div class="step">$=\left(\sqrt{36}\right)^{3} = 6^{3}$</div>
+      <div class="final">$= 216$</div>
+    </div>
+  </div>
+</div>
+
+<h2>Part 4 — Mixed simplification (challenge)</h2>
+
+<p style="font-family:Calibri,Arial,sans-serif;">Express your answer in <strong>positive-index form</strong>.</p>
+
+<div class="example" style="margin-top:14px;">
+  <div class="q"><strong>1.</strong> &nbsp; $\dfrac{3^{\frac{1}{4}} \times \sqrt{6}}{16^{\frac{3}{4}}} \div \dfrac{1}{\sqrt[4]{2}}$</div>
+  <div class="a">
+    <div class="step">Rewrite everything in prime-power form.</div>
+    <div class="step">$\sqrt{6} = (2\cdot 3)^{\frac{1}{2}} = 2^{\frac{1}{2}} \cdot 3^{\frac{1}{2}}$</div>
+    <div class="step">$16^{\frac{3}{4}} = (2^{4})^{\frac{3}{4}} = 2^{3}$</div>
+    <div class="step">$\sqrt[4]{2} = 2^{\frac{1}{4}}$ &nbsp; and &nbsp; $\div \tfrac{1}{2^{1/4}} = \times 2^{\frac{1}{4}}$</div>
+    <div class="step">Combine: $\dfrac{3^{\frac{1}{4}} \cdot 2^{\frac{1}{2}} \cdot 3^{\frac{1}{2}}}{2^{3}} \times 2^{\frac{1}{4}}$</div>
+    <div class="step">Powers of 3: $3^{\frac{1}{4}+\frac{1}{2}} = 3^{\frac{3}{4}}$</div>
+    <div class="step">Powers of 2: $2^{\frac{1}{2}+\frac{1}{4}-3} = 2^{\frac{3}{4}-3} = 2^{-\frac{9}{4}}$</div>
+    <div class="step">So far: $3^{\frac{3}{4}} \cdot 2^{-\frac{9}{4}} = \dfrac{3^{\frac{3}{4}}}{2^{\frac{9}{4}}}$</div>
+    <div class="step">Tidier: $\dfrac{3^{\frac{3}{4}} \cdot 2^{\frac{3}{4}}}{2^{3}} = \dfrac{(2\cdot 3)^{\frac{3}{4}}}{2^{3}} = \dfrac{6^{\frac{3}{4}}}{8}$</div>
+    <div class="final">$=\dfrac{6^{\frac{3}{4}}}{8}$</div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="q"><strong>2.</strong> &nbsp; $\left(x^{-2}y\right)^{\frac{1}{2}} \times \left(\dfrac{x}{y^{-3}}\right)^{4}$</div>
+  <div class="a">
+    <div class="step">First bracket: $\left(x^{-2}y\right)^{\frac{1}{2}} = x^{-1}y^{\frac{1}{2}}$</div>
+    <div class="step">Inside second bracket: $\dfrac{x}{y^{-3}} = x \cdot y^{3}$</div>
+    <div class="step">Second bracket: $(xy^{3})^{4} = x^{4}y^{12}$</div>
+    <div class="step">Multiply: $x^{-1}y^{\frac{1}{2}} \cdot x^{4}y^{12} = x^{-1+4} \cdot y^{\frac{1}{2}+12}$</div>
+    <div class="final">$= x^{3}y^{\frac{25}{2}}$</div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="q"><strong>3.</strong> &nbsp; $(x+4)^{2}\sqrt[3]{x+4}$</div>
+  <div class="a">
+    <div class="step">Rewrite the cube root: $\sqrt[3]{x+4} = (x+4)^{\frac{1}{3}}$</div>
+    <div class="step">$= (x+4)^{2} \cdot (x+4)^{\frac{1}{3}}$</div>
+    <div class="step">Same base — add the indices: $2 + \tfrac{1}{3} = \tfrac{7}{3}$</div>
+    <div class="final">$= (x+4)^{\frac{7}{3}}$</div>
+  </div>
+</div>
+
+<div class="example">
+  <div class="q"><strong>4.</strong> &nbsp; $\sqrt{2x+1} - \dfrac{1}{\sqrt{2x+1}}$</div>
+  <div class="a">
+    <div class="step">Common denominator $\sqrt{2x+1}$:</div>
+    <div class="step">$= \dfrac{(\sqrt{2x+1})^{2}}{\sqrt{2x+1}} - \dfrac{1}{\sqrt{2x+1}}$</div>
+    <div class="step">$= \dfrac{(2x+1) - 1}{\sqrt{2x+1}}$</div>
+    <div class="final">$= \dfrac{2x}{\sqrt{2x+1}} \;\;\text{or}\;\; 2x(2x+1)^{-\frac{1}{2}}$</div>
+  </div>
+</div>
+
+<h2>Part 5 — Quick quiz (mark yourself)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> Rewrite $\sqrt[5]{x^{3}}$ in index form.</p>
+    <label><input type="radio" name="q1" value="a"> $x^{\frac{5}{3}}$</label>
+    <label><input type="radio" name="q1" value="b"> $x^{15}$</label>
+    <label><input type="radio" name="q1" value="c"> $x^{\frac{3}{5}}$</label>
+    <label><input type="radio" name="q1" value="d"> $x^{\frac{1}{15}}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> Evaluate $81^{\frac{3}{4}}$.</p>
+    <label><input type="radio" name="q2" value="a"> $9$</label>
+    <label><input type="radio" name="q2" value="b"> $27$</label>
+    <label><input type="radio" name="q2" value="c"> $60.75$</label>
+    <label><input type="radio" name="q2" value="d"> $\dfrac{1}{27}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q3.</strong> Evaluate $8^{-\frac{2}{3}}$.</p>
+    <label><input type="radio" name="q3" value="a"> $-4$</label>
+    <label><input type="radio" name="q3" value="b"> $4$</label>
+    <label><input type="radio" name="q3" value="c"> $-\dfrac{1}{4}$</label>
+    <label><input type="radio" name="q3" value="d"> $\dfrac{1}{4}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q4.</strong> Evaluate $(-32)^{\frac{1}{5}}$.</p>
+    <label><input type="radio" name="q4" value="a"> $-2$</label>
+    <label><input type="radio" name="q4" value="b"> $2$</label>
+    <label><input type="radio" name="q4" value="c"> Undefined</label>
+    <label><input type="radio" name="q4" value="d"> $-\dfrac{1}{2}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q5.</strong> Evaluate $\left(\dfrac{1}{25}\right)^{-\frac{1}{2}}$.</p>
+    <label><input type="radio" name="q5" value="a"> $-5$</label>
+    <label><input type="radio" name="q5" value="b"> $\dfrac{1}{5}$</label>
+    <label><input type="radio" name="q5" value="c"> $5$</label>
+    <label><input type="radio" name="q5" value="d"> $-\dfrac{1}{5}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q6.</strong> Simplify $x^{\frac{2}{3}} \cdot x^{\frac{1}{6}}$ (positive-index form).</p>
+    <label><input type="radio" name="q6" value="a"> $x^{\frac{1}{9}}$</label>
+    <label><input type="radio" name="q6" value="b"> $x^{\frac{5}{6}}$</label>
+    <label><input type="radio" name="q6" value="c"> $x^{\frac{2}{18}}$</label>
+    <label><input type="radio" name="q6" value="d"> $x^{\frac{3}{9}}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q7.</strong> Simplify $(x+1)^{3}\sqrt{x+1}$.</p>
+    <label><input type="radio" name="q7" value="a"> $(x+1)^{6}$</label>
+    <label><input type="radio" name="q7" value="b"> $(x+1)^{\frac{3}{2}}$</label>
+    <label><input type="radio" name="q7" value="c"> $(x+1)^{4}$</label>
+    <label><input type="radio" name="q7" value="d"> $(x+1)^{\frac{7}{2}}$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge textbook</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">Open Cambridge Chapter 13 and complete these in your exercise book:</p>
+<table class="program">
+  <tr><th>Exercise</th><th>Set work</th></tr>
+  <tr><td><strong>13B</strong> — Rational Exponents</td><td>Q1*, Q2*, Q3*</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">* = full question, all parts. If you finish, start 13C (Exponential Graphs).</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book write:
+  <ol style="margin-top:6px;">
+    <li>The general rule for $x^{\frac{m}{n}}$ (in radical form).</li>
+    <li>Why is $(-25)^{\frac{1}{2}}$ undefined but $(-27)^{\frac{1}{3}}$ is fine?</li>
+    <li>Evaluate (no calculator): $\;\;100^{-\frac{3}{2}}$</li>
+  </ol>
+  I'll check exit tickets when I'm back. Thanks team 🙏 — Mr Wong
+</div>
+
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.example').forEach(ex => {
+    const ans = ex.querySelector(':scope > .a');
+    if(!ans) return;
+    const btn = document.createElement('button');
+    btn.className = 'show-btn';
+    btn.textContent = 'Show worked solution';
+    btn.addEventListener('click', () => {
+      ex.classList.toggle('show');
+      btn.textContent = ex.classList.contains('show') ? 'Hide worked solution' : 'Show worked solution';
+    });
+    ans.parentNode.insertBefore(btn, ans);
+  });
+});
+function markQuiz(){
+  const qs = document.querySelectorAll('#quiz .quiz-q');
+  let score = 0, total = qs.length;
+  qs.forEach((q)=>{
+    const correct = q.dataset.answer;
+    const picked = q.querySelector('input[type=radio]:checked');
+    q.querySelectorAll('label').forEach(l=>l.style.background='');
+    if(picked && picked.value === correct){
+      score++;
+      picked.parentElement.style.background='#E8F1E8';
+    } else {
+      if(picked) picked.parentElement.style.background='#FCE8E6';
+      q.querySelector('input[value="'+correct+'"]').parentElement.style.background='#E8F1E8';
+    }
+  });
+  const box = document.getElementById('scorebox');
+  box.style.display = 'block';
+  let msg = `You scored ${score} / ${total}.`;
+  if(score===total) msg += ' 🎉 Excellent — move straight to the textbook.';
+  else if(score>=5) msg += ' Good — review the wrong ones, then crack the textbook questions.';
+  else msg += ' Re-read the worked examples in Part 3 & 4 before attempting the textbook.';
+  box.textContent = msg;
+}
+</script>
+</body>
+</html>

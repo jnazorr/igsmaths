@@ -40,6 +40,20 @@
     .resource .tag.y11 { background: #edf3fb; color: var(--blue); }
     .resource h3 { font-size: 15px; margin: 0 0 4px 0; }
     .resource p { font-size: 13px; color: var(--muted); margin: 0; }
+    .crt-banner { margin: clamp(20px, 3vw, 36px) clamp(18px, 5vw, 64px) 0;
+                  background: linear-gradient(135deg, #1E2761 0%, #2F3C7E 100%); color: #fff;
+                  padding: 22px 28px; border-radius: 12px; display: flex; align-items: center;
+                  justify-content: space-between; gap: 24px; flex-wrap: wrap;
+                  box-shadow: 0 10px 28px rgba(30,39,97,.18); }
+    .crt-banner .crt-text .eyebrow { color: #CADCFC; letter-spacing: 0.14em; font-size: 11px;
+                                      text-transform: uppercase; font-weight: 800; margin-bottom: 4px; }
+    .crt-banner h2 { margin: 0 0 4px 0; font-size: 22px; color: #fff; }
+    .crt-banner p { margin: 0; color: #CADCFC; font-size: 14px; }
+    .crt-banner a.crt-cta { background: #F96167; color: #fff; padding: 10px 22px; border-radius: 8px;
+                             text-decoration: none; font-weight: 800; font-size: 14px; white-space: nowrap;
+                             transition: transform .12s, background .12s; }
+    .crt-banner a.crt-cta:hover { background: #fff; color: #1E2761; transform: translateY(-1px); }
+    .resource .tag.crt { background: #FCE8E6; color: #B85042; }
   </style>
 </head>
 <body>
@@ -60,6 +74,15 @@
       <h1>Mathematics resources</h1>
       <p class="lead">Topic-by-topic revision, worked-solution decks, CAS skills, and practice question banks for Year 10 Core and Year 11 Mathematical Methods.</p>
     </section>
+
+    <aside class="crt-banner" aria-label="CRT day plan">
+      <div class="crt-text">
+        <p class="eyebrow">Casual relief — today</p>
+        <h2>Mr Wong's lessons · Wed 27 May 2026</h2>
+        <p>Self-contained lessons for all 5 periods with topics, rooms, and links.</p>
+      </div>
+      <a class="crt-cta" href="lessons-2026-05-27/">Open CRT day plan →</a>
+    </aside>
 
     <section class="year-grid" aria-label="Year-level entry points">
       <article class="year-card">
@@ -95,6 +118,11 @@
       <p class="eyebrow">Direct links</p>
       <h2>Jump straight to a resource</h2>
       <div class="resource-grid">
+        <a class="resource" href="lessons-2026-05-27/">
+          <span class="tag crt">27 May 2026</span>
+          <h3>CRT day plan — Wed 27 May</h3>
+          <p>Period-by-period links to the 5 self-contained lessons for Mr Wong's classes.</p>
+        </a>
         <a class="resource" href="10core-exam-sem1-2026/">
           <span class="tag y10">Year 10</span>
           <h3>Sem 1 Exam review decks</h3>

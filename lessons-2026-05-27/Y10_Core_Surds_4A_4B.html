@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Year 10 Core — Surds (4A & 4B)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:30px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  .roll-strip { background:#FFFFFF; border:2px dashed var(--accent); padding:14px 18px; margin:10px 0 26px 0;
+                font-family: Calibri, Arial, sans-serif; }
+  .roll-strip h3 { margin:0 0 6px 0; color:var(--accent); }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Year 10 Mathematics Core — Surds</h1>
+  <div class="meta">Cambridge Ch 4: Sections 4A &amp; 4B &nbsp;•&nbsp; Wed 27 May 2026 &nbsp;•&nbsp; Mr Wong away today</div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>We're starting <strong>Chapter 4 — Surds</strong>. By the end of today you should be able to:</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Tell the difference between <strong>rational</strong> and <strong>irrational</strong> numbers</li>
+    <li>Decide whether a number is a <strong>surd</strong></li>
+    <li><strong>Simplify</strong> surds using square factors (e.g. $\sqrt{50} = 5\sqrt{2}$)</li>
+    <li><strong>Add and subtract</strong> like surds (e.g. $3\sqrt{2} + 5\sqrt{2} = 8\sqrt{2}$)</li>
+  </ul>
+</div>
+
+<h2>Part 1 — Rational vs irrational (Warm up, ~5 min)</h2>
+
+<p>Every real number sits somewhere on the number line. We split real numbers into two families:</p>
+
+<div class="twocol">
+  <div><strong>Rational numbers</strong><br>Can be written as a fraction $\dfrac{a}{b}$.<br>Their decimals <em>terminate</em> or <em>recur</em>.<br>e.g. $\tfrac{1}{2}=0.5$, &nbsp; $\tfrac{1}{3}=0.\overline{3}$, &nbsp; $7$, &nbsp; $-1.6$, &nbsp; $\sqrt{9}=3$</div>
+  <div><strong>Irrational numbers</strong><br>Cannot be written as a fraction.<br>Their decimals <em>never end and never repeat</em>.<br>e.g. $\pi$, &nbsp; $\sqrt{2}$, &nbsp; $\sqrt{7}$, &nbsp; $2\sqrt{3}-1$</div>
+</div>
+
+<div class="callout">
+  <strong>A surd</strong> is an irrational number written with a root sign, like $\sqrt{2}, \sqrt{15}, 1+\sqrt{5}$.<br>
+  $\sqrt{9}$ is <em>not</em> a surd because $\sqrt{9}=3$ (it simplifies to a rational number).
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — Surd or not?</span>
+  <div class="q">Decide which of the following are surds: &nbsp; $\sqrt{16}, \;\; \sqrt{20}, \;\; \sqrt{49}, \;\; \sqrt{31}, \;\; 2\sqrt{3}, \;\; \pi$</div>
+  <div class="a">
+    <p><strong>Working:</strong></p>
+    <ul style="font-family:Calibri,Arial,sans-serif;">
+      <li>$\sqrt{16}=4$ → rational, <em>not a surd</em></li>
+      <li>$\sqrt{20}$ → irrational, <strong>surd</strong></li>
+      <li>$\sqrt{49}=7$ → rational, <em>not a surd</em></li>
+      <li>$\sqrt{31}$ → irrational, <strong>surd</strong></li>
+      <li>$2\sqrt{3}$ → irrational with a root sign, <strong>surd</strong></li>
+      <li>$\pi$ → irrational but no root sign — irrational, <em>not a surd</em></li>
+    </ul>
+    <p class="callout good" style="margin-top:8px;"><strong>Trick:</strong> a square root is <em>not</em> a surd when the number under it is a <strong>perfect square</strong> (1, 4, 9, 16, 25, 36, 49, 64, 81, 100, …)</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 1.1 — Sort these into <em>SURD</em> or <em>NOT A SURD</em>:</p>
+  <p>$\sqrt{25}, \;\; \sqrt{30}, \;\; \sqrt{81}, \;\; \sqrt{12}, \;\; \sqrt{100}, \;\; \sqrt{2}, \;\; \sqrt{75}, \;\; \sqrt{1}$</p>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    <strong>Surds:</strong> $\sqrt{30}, \sqrt{12}, \sqrt{2}, \sqrt{75}$ (the number under the root is not a perfect square)<br>
+    <strong>Not surds:</strong> $\sqrt{25}=5, \sqrt{81}=9, \sqrt{100}=10, \sqrt{1}=1$
+  </div>
+</div>
+
+<h2>Part 2 — Simplifying surds (4A, ~15 min)</h2>
+
+<div class="key-ideas">
+  <h3>The rule</h3>
+  <p style="font-family:Calibri,Arial,sans-serif;">For $a, b \ge 0$:</p>
+  <p style="text-align:center; font-size:18px;">$\sqrt{a \times b} \;=\; \sqrt{a} \times \sqrt{b}$</p>
+  <p style="font-family:Calibri,Arial,sans-serif; margin-bottom:0;">To simplify a surd, find the <strong>largest perfect square factor</strong> of the number under the root, then split it.</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 2</span>
+  <div class="q">Simplify $\sqrt{50}$.</div>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Largest square factor of 50? &nbsp; $50 = 25 \times 2$ &nbsp; (25 is a perfect square)</li>
+      <li>Split it up: $\sqrt{50} = \sqrt{25 \times 2} = \sqrt{25}\times\sqrt{2}$</li>
+      <li>Simplify: $= 5\sqrt{2}$</li>
+    </ol>
+    <p class="callout"><strong>Check:</strong> $50 = 25\times 2$ ✓ &nbsp; and 25 is the <em>biggest</em> square that divides 50.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 3</span>
+  <div class="q">Simplify $\sqrt{72}$.</div>
+  <div class="a">
+    <p>$72 = 36 \times 2$ &nbsp;→&nbsp; $\sqrt{72} = \sqrt{36}\times\sqrt{2} = 6\sqrt{2}$</p>
+    <p class="callout warn"><strong>What if you didn't spot 36?</strong> You might write $72 = 9 \times 8$, getting $\sqrt{72} = 3\sqrt{8}$. That's not fully simplified! You'd then need to simplify $\sqrt{8} = 2\sqrt{2}$, giving $3 \times 2\sqrt{2} = 6\sqrt{2}$. Same answer — just more work. <strong>Try to spot the biggest square factor first.</strong></p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 4</span>
+  <div class="q">Simplify $3\sqrt{48}$.</div>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Simplify the surd part first: $48 = 16\times 3$</li>
+      <li>$\sqrt{48} = \sqrt{16}\times\sqrt{3} = 4\sqrt{3}$</li>
+      <li>Multiply by the outside number: $3\sqrt{48} = 3 \times 4\sqrt{3} = 12\sqrt{3}$</li>
+    </ol>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.1 — Simplify:</p>
+  <ol class="qlist" type="a">
+    <li>$\sqrt{8}$</li>
+    <li>$\sqrt{18}$</li>
+    <li>$\sqrt{27}$</li>
+    <li>$\sqrt{45}$</li>
+    <li>$\sqrt{75}$</li>
+    <li>$\sqrt{200}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\sqrt{8}=\sqrt{4\times 2}=2\sqrt{2}$<br>
+    b) $\sqrt{18}=\sqrt{9\times 2}=3\sqrt{2}$<br>
+    c) $\sqrt{27}=\sqrt{9\times 3}=3\sqrt{3}$<br>
+    d) $\sqrt{45}=\sqrt{9\times 5}=3\sqrt{5}$<br>
+    e) $\sqrt{75}=\sqrt{25\times 3}=5\sqrt{3}$<br>
+    f) $\sqrt{200}=\sqrt{100\times 2}=10\sqrt{2}$
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.2 — Simplify (numbers in front):</p>
+  <ol class="qlist" type="a">
+    <li>$2\sqrt{12}$</li>
+    <li>$5\sqrt{20}$</li>
+    <li>$3\sqrt{32}$</li>
+    <li>$4\sqrt{98}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $2\sqrt{12}=2\sqrt{4\times 3}=2\times 2\sqrt{3}=4\sqrt{3}$<br>
+    b) $5\sqrt{20}=5\sqrt{4\times 5}=5\times 2\sqrt{5}=10\sqrt{5}$<br>
+    c) $3\sqrt{32}=3\sqrt{16\times 2}=3\times 4\sqrt{2}=12\sqrt{2}$<br>
+    d) $4\sqrt{98}=4\sqrt{49\times 2}=4\times 7\sqrt{2}=28\sqrt{2}$
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 5</span>
+  <div class="q">Express $5\sqrt{3}$ as a single square root.</div>
+  <div class="a">
+    <p>This is the reverse of simplifying! Bring the 5 <em>inside</em> the root by squaring it:</p>
+    <p>$5\sqrt{3} = \sqrt{5^2 \times 3} = \sqrt{25 \times 3} = \sqrt{75}$</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.3 — Express as a single square root:</p>
+  <ol class="qlist" type="a">
+    <li>$2\sqrt{5}$</li>
+    <li>$3\sqrt{2}$</li>
+    <li>$4\sqrt{7}$</li>
+    <li>$6\sqrt{3}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $2\sqrt{5} = \sqrt{4\times 5} = \sqrt{20}$<br>
+    b) $3\sqrt{2} = \sqrt{9\times 2} = \sqrt{18}$<br>
+    c) $4\sqrt{7} = \sqrt{16\times 7} = \sqrt{112}$<br>
+    d) $6\sqrt{3} = \sqrt{36\times 3} = \sqrt{108}$
+  </div>
+</div>
+
+<h2>Part 3 — Adding and subtracting surds (4B, ~15 min)</h2>
+
+<div class="key-ideas">
+  <h3>The rule</h3>
+  <p style="font-family:Calibri,Arial,sans-serif;">You can only add or subtract <strong>like surds</strong> — surds with the <em>same number under the root</em>.</p>
+  <p style="text-align:center; font-size:17px;">$a\sqrt{x} + b\sqrt{x} = (a+b)\sqrt{x}$</p>
+  <p style="font-family:Calibri,Arial,sans-serif; margin-bottom:0;">Treat the surd like a pronumeral: $3\sqrt{2} + 5\sqrt{2}$ behaves exactly like $3x + 5x = 8x$.</p>
+</div>
+
+<div class="callout warn">
+  ⚠️ <strong>You CANNOT do</strong> $\sqrt{2}+\sqrt{3} = \sqrt{5}$. That is a common error — the numbers under the root must be the same to combine them.
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 6 — Easy like surds</span>
+  <div class="q">Simplify each:<br>
+    (a) $3\sqrt{5} + 7\sqrt{5}$ &nbsp; (b) $9\sqrt{2} - 4\sqrt{2}$ &nbsp; (c) $4\sqrt{3} + 2\sqrt{5} - \sqrt{3} + 6\sqrt{5}$
+  </div>
+  <div class="a">
+    <p>(a) $3\sqrt{5} + 7\sqrt{5} = 10\sqrt{5}$</p>
+    <p>(b) $9\sqrt{2} - 4\sqrt{2} = 5\sqrt{2}$</p>
+    <p>(c) $4\sqrt{3} + 2\sqrt{5} - \sqrt{3} + 6\sqrt{5} \;=\; (4-1)\sqrt{3} + (2+6)\sqrt{5} \;=\; 3\sqrt{3}+8\sqrt{5}$</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 7 — Simplify first, THEN combine</span>
+  <div class="q">Simplify $\sqrt{18} + \sqrt{50}$.</div>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>These don't look like like surds — but simplify each:</li>
+      <li>$\sqrt{18}=\sqrt{9\times 2}=3\sqrt{2}$</li>
+      <li>$\sqrt{50}=\sqrt{25\times 2}=5\sqrt{2}$</li>
+      <li>Now they ARE like surds: $3\sqrt{2}+5\sqrt{2}=8\sqrt{2}$</li>
+    </ol>
+    <p class="callout good"><strong>Golden rule:</strong> always simplify each surd first. They might secretly be like surds.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 8 — Mixed</span>
+  <div class="q">Simplify $\sqrt{48} - \sqrt{75} + \sqrt{12}$.</div>
+  <div class="a">
+    <ul style="font-family:Calibri,Arial,sans-serif;">
+      <li>$\sqrt{48}=\sqrt{16\times 3}=4\sqrt{3}$</li>
+      <li>$\sqrt{75}=\sqrt{25\times 3}=5\sqrt{3}$</li>
+      <li>$\sqrt{12}=\sqrt{4\times 3}=2\sqrt{3}$</li>
+    </ul>
+    <p>$= 4\sqrt{3} - 5\sqrt{3} + 2\sqrt{3} = (4-5+2)\sqrt{3} = \sqrt{3}$</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — Add or subtract:</p>
+  <ol class="qlist" type="a">
+    <li>$4\sqrt{3} + 5\sqrt{3}$</li>
+    <li>$8\sqrt{7} - 3\sqrt{7}$</li>
+    <li>$6\sqrt{2} + \sqrt{2} - 4\sqrt{2}$</li>
+    <li>$5\sqrt{6} + 3\sqrt{2} - 2\sqrt{6} + \sqrt{2}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $9\sqrt{3}$<br>
+    b) $5\sqrt{7}$<br>
+    c) $(6+1-4)\sqrt{2} = 3\sqrt{2}$<br>
+    d) $(5-2)\sqrt{6} + (3+1)\sqrt{2} = 3\sqrt{6}+4\sqrt{2}$
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.2 — Simplify first, then combine:</p>
+  <ol class="qlist" type="a">
+    <li>$\sqrt{8}+\sqrt{32}$</li>
+    <li>$\sqrt{27}-\sqrt{12}$</li>
+    <li>$\sqrt{45}+\sqrt{20}$</li>
+    <li>$\sqrt{72}-\sqrt{50}+\sqrt{18}$</li>
+    <li>$2\sqrt{48}+3\sqrt{27}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $2\sqrt{2}+4\sqrt{2}=6\sqrt{2}$<br>
+    b) $3\sqrt{3}-2\sqrt{3}=\sqrt{3}$<br>
+    c) $3\sqrt{5}+2\sqrt{5}=5\sqrt{5}$<br>
+    d) $6\sqrt{2}-5\sqrt{2}+3\sqrt{2}=4\sqrt{2}$<br>
+    e) $2(4\sqrt{3})+3(3\sqrt{3}) = 8\sqrt{3}+9\sqrt{3}=17\sqrt{3}$
+  </div>
+</div>
+
+<h2>Part 4 — Quick quiz (5 min, mark yourself)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each. Click <strong>Mark</strong> at the bottom.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> Which of these is a surd?</p>
+    <label><input type="radio" name="q1" value="a"> $\sqrt{36}$</label>
+    <label><input type="radio" name="q1" value="b"> $\sqrt{15}$</label>
+    <label><input type="radio" name="q1" value="c"> $\sqrt{64}$</label>
+    <label><input type="radio" name="q1" value="d"> $\sqrt{1}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q2.</strong> Simplify $\sqrt{28}$.</p>
+    <label><input type="radio" name="q2" value="a"> $2\sqrt{14}$</label>
+    <label><input type="radio" name="q2" value="b"> $4\sqrt{2}$</label>
+    <label><input type="radio" name="q2" value="c"> $2\sqrt{7}$</label>
+    <label><input type="radio" name="q2" value="d"> $7\sqrt{2}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q3.</strong> Simplify $\sqrt{98}$.</p>
+    <label><input type="radio" name="q3" value="a"> $2\sqrt{49}$</label>
+    <label><input type="radio" name="q3" value="b"> $7\sqrt{2}$</label>
+    <label><input type="radio" name="q3" value="c"> $14\sqrt{2}$</label>
+    <label><input type="radio" name="q3" value="d"> Already simplified</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> Simplify $3\sqrt{5}+7\sqrt{5}-2\sqrt{5}$.</p>
+    <label><input type="radio" name="q4" value="a"> $8\sqrt{15}$</label>
+    <label><input type="radio" name="q4" value="b"> $12\sqrt{5}$</label>
+    <label><input type="radio" name="q4" value="c"> $\sqrt{5}$</label>
+    <label><input type="radio" name="q4" value="d"> $8\sqrt{5}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q5.</strong> Simplify $\sqrt{50}+\sqrt{8}$.</p>
+    <label><input type="radio" name="q5" value="a"> $7\sqrt{2}$</label>
+    <label><input type="radio" name="q5" value="b"> $\sqrt{58}$</label>
+    <label><input type="radio" name="q5" value="c"> $5\sqrt{2}+2\sqrt{2}$ (leave it)</label>
+    <label><input type="radio" name="q5" value="d"> $10\sqrt{2}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q6.</strong> Express $4\sqrt{3}$ as a single square root.</p>
+    <label><input type="radio" name="q6" value="a"> $\sqrt{12}$</label>
+    <label><input type="radio" name="q6" value="b"> $\sqrt{24}$</label>
+    <label><input type="radio" name="q6" value="c"> $\sqrt{48}$</label>
+    <label><input type="radio" name="q6" value="d"> $\sqrt{7}$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge textbook</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After you've finished the quiz, open Cambridge Chapter 4 and complete these questions in your exercise book:</p>
+<table class="program">
+  <tr><th>Exercise</th><th>Standard pathway (set work)</th></tr>
+  <tr><td><strong>4A</strong> — Irrational numbers &amp; surds</td><td>Q11, Q12</td></tr>
+  <tr><td><strong>4B</strong> — Adding/subtracting surds</td><td>Q7, Q8*, Q10*</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">* = harder, attempt if time. If you finish early, start 4C (Multiplying &amp; Dividing Surds).</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>What is a surd?</li>
+    <li>What is the first step when simplifying a surd like $\sqrt{72}$?</li>
+    <li>Why can't you add $\sqrt{2}+\sqrt{3}$ together?</li>
+  </ol>
+  I'll check exit tickets when I'm back. Thanks team 🙏 — Mr Wong
+</div>
+
+</main>
+
+<script>
+function toggle(btn){
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('show');
+  btn.textContent = ans.classList.contains('show') ? 'Hide answer' : 'Show answer';
+}
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.example').forEach(ex => {
+    const ans = ex.querySelector(':scope > .a');
+    if(!ans) return;
+    const btn = document.createElement('button');
+    btn.className = 'show-btn';
+    btn.textContent = 'Show worked solution';
+    btn.addEventListener('click', () => {
+      ex.classList.toggle('show');
+      btn.textContent = ex.classList.contains('show') ? 'Hide worked solution' : 'Show worked solution';
+    });
+    ans.parentNode.insertBefore(btn, ans);
+  });
+});
+function markQuiz(){
+  const qs = document.querySelectorAll('#quiz .quiz-q');
+  let score = 0, total = qs.length;
+  qs.forEach((q,i)=>{
+    const correct = q.dataset.answer;
+    const picked = q.querySelector('input[type=radio]:checked');
+    q.querySelectorAll('label').forEach(l=>l.style.background='');
+    if(picked && picked.value === correct){
+      score++;
+      picked.parentElement.style.background='#E8F1E8';
+    } else {
+      if(picked) picked.parentElement.style.background='#FCE8E6';
+      q.querySelector('input[value="'+correct+'"]').parentElement.style.background='#E8F1E8';
+    }
+  });
+  const box = document.getElementById('scorebox');
+  box.style.display = 'block';
+  let msg = `You scored ${score} / ${total}.`;
+  if(score===total) msg += ' 🎉 Perfect! Move straight to the textbook questions.';
+  else if(score>=4) msg += ' Good — review any you got wrong, then do the textbook questions.';
+  else msg += ' Re-read the worked examples above before attempting the textbook questions.';
+  box.textContent = msg;
+}
+</script>
+</body>
+</html>
