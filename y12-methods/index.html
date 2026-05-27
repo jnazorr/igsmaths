@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year 12 Mathematical Methods — IGS Maths</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .hub-hero { padding: clamp(48px, 8vw, 96px) clamp(18px, 5vw, 64px) clamp(36px, 5vw, 64px);
+      background: linear-gradient(180deg, #f1eefb 0%, #fbf5ec 100%); border-bottom: 1px solid var(--line); }
+    .hub-hero .eyebrow { letter-spacing: 0.12em; color: #4b3b8f; }
+    .hub-hero h1 { font-size: clamp(36px, 5vw, 56px); margin: 6px 0 14px 0; line-height: 1.05; }
+    .hub-hero p.lead { font-size: clamp(16px, 1.5vw, 19px); color: var(--muted); max-width: 720px; }
+    .topic-section { padding: clamp(28px, 4vw, 52px) clamp(18px, 5vw, 64px); }
+    .topic-section h2 { font-size: 22px; margin: 0 0 6px 0; }
+    .topic-section .eyebrow { color: var(--muted); letter-spacing:0.1em; text-transform:uppercase;
+                              font-size:11px; font-weight:800; }
+    .topic-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                  margin-top: 22px; }
+    .topic-card { display: block; padding: 20px 22px; background: var(--panel);
+                  border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: inherit;
+                  transition: border-color .15s, transform .15s, box-shadow .15s; }
+    .topic-card:hover { border-color: #4b3b8f; transform: translateY(-2px);
+                        box-shadow: 0 10px 22px rgba(75,59,143,.10); }
+    .topic-card .ch { display:inline-block; background:#efeaff; color:#4b3b8f; font-weight:800;
+                       padding:3px 9px; border-radius:4px; font-size:11px; letter-spacing:0.6px;
+                       text-transform:uppercase; margin-bottom:8px; }
+    .topic-card h3 { margin:0 0 6px 0; font-size:17px; color:var(--ink); }
+    .topic-card p { margin:0; font-size:13.5px; color:var(--muted); }
+    .topic-card.coming-soon { opacity: 0.55; cursor: not-allowed; }
+    .topic-card.coming-soon:hover { transform: none; border-color: var(--line); box-shadow: none; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="IGS Maths home">
+      <span class="brand-mark">∑</span>
+      <span>IGS Maths</span>
+    </a>
+    <nav aria-label="Year levels">
+      <a href="../core.html">Year 10 Core</a>
+      <a href="../methods.html">Year 11 Methods</a>
+      <a href="./" aria-current="page">Year 12 Methods</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hub-hero">
+      <p class="eyebrow">VCE Mathematical Methods · Unit 3 &amp; 4</p>
+      <h1>Year 12 Methods</h1>
+      <p class="lead">Self-contained topic lessons with hideable worked solutions, iteration tables, and Cambridge working-program references. More topics are added throughout the year.</p>
+    </section>
+
+    <section class="topic-section">
+      <p class="eyebrow">Numerical methods</p>
+      <h2>Available topic lessons</h2>
+      <div class="topic-grid">
+        <a class="topic-card" href="10H-bisection-newton/">
+          <span class="ch">Ch 10H</span>
+          <h3>Bisection &amp; Newton's method</h3>
+          <p>Derive Newton's formula from a tangent, work through bisection iterations for $x^3+3x+1=0$, and learn the three classic failure modes of Newton's method.</p>
+        </a>
+        <div class="topic-card coming-soon">
+          <span class="ch">Ch 11</span>
+          <h3>Integration · more lessons coming</h3>
+          <p>Antiderivatives, area under curves, area between curves, integration by recognition.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Year 12 Mathematical Methods · <a href="../">Back to main hub</a></p>
+  </footer>
+
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+</html>
