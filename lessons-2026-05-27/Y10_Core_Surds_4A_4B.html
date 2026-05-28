@@ -68,6 +68,12 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
   .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
   .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
   .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
   @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
 </style>
 </head>
@@ -139,6 +145,14 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
   <p style="font-family:Calibri,Arial,sans-serif;">For $a, b \ge 0$:</p>
   <p style="text-align:center; font-size:18px;">$\sqrt{a \times b} \;=\; \sqrt{a} \times \sqrt{b}$</p>
   <p style="font-family:Calibri,Arial,sans-serif; margin-bottom:0;">To simplify a surd, find the <strong>largest perfect square factor</strong> of the number under the root, then split it.</p>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="Simplify50.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> simplifying $\sqrt{50}$ by pulling out the largest perfect-square factor.</p>
 </div>
 
 <div class="example">
@@ -262,6 +276,14 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
     <p>(b) $9\sqrt{2} - 4\sqrt{2} = 5\sqrt{2}$</p>
     <p>(c) $4\sqrt{3} + 2\sqrt{5} - \sqrt{3} + 6\sqrt{5} \;=\; (4-1)\sqrt{3} + (2+6)\sqrt{5} \;=\; 3\sqrt{3}+8\sqrt{5}$</p>
   </div>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="AddSurds.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> $\sqrt{18}+\sqrt{50}$ — simplify each surd first, then combine like terms.</p>
 </div>
 
 <div class="example">

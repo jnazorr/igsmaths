@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Surds 4C (Multiplying &amp; Dividing)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  /* Each page is one A4. Two .page elements = two A4 pages. */
+  .page { width: 210mm; min-height: 297mm; padding: 14mm 14mm 12mm 14mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10.8pt; line-height: 1.35; }
+  .page:last-child { page-break-after: auto; }
+
+  /* Top banner */
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 6mm; margin-bottom: 5mm; }
+  .head .title h1 { margin:0; font-size: 17pt; color: var(--navy); }
+  .head .title p  { margin:2px 0 0 0; font-size: 9.5pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 9pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 55mm; min-height: 6mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 3mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 3mm;
+        padding: 3mm 5mm; margin: 0 0 5mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9.5pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1.5mm 0 0 4mm; padding:0; }
+  .lo li { margin: 1mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 3mm;
+         padding: 3mm 5mm; margin: 0 0 5mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9.7pt; }
+  .key h3 { margin:0 0 1.5mm 0; font-size: 10.5pt; color: var(--navy); }
+  .key p { margin: 1mm 0; }
+  .key .rule { text-align:center; font-size: 12pt; margin: 1mm 0; }
+
+  .section { margin: 4mm 0 2mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1.5mm; margin: 0 0 3mm 0; font-size: 12pt; }
+
+  .q { margin: 0 0 4mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 7mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10.5pt; }
+  .qrow strong { color: var(--navy); }
+  /* Parts on one line */
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 3mm 6mm;
+           padding-left: 7mm; margin-top: 1.5mm; font-size: 10.5pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.5mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 22mm; margin-left: 2mm; }
+
+  /* Work-space — ruled lines for showing working */
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 6.4mm, #e7dfd1 6.5mm);
+          background-size: 100% 6.7mm; background-position-y: 0;
+          margin: 1.5mm 0 0 7mm; }
+  .work.s  { min-height: 22mm; }
+  .work.m  { min-height: 34mm; }
+  .work.l  { min-height: 50mm; }
+
+  .twocol { display:grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+
+  .footer { position:absolute; bottom: 6mm; left: 14mm; right: 14mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 2mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .print-btn { position:fixed; top:10mm; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Surds — Multiplying &amp; Dividing (Ex 4C)</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 4, §4C · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Multiply two surds using $\sqrt{x}\times\sqrt{y}=\sqrt{xy}$ and $a\sqrt{x}\times b\sqrt{y}=ab\sqrt{xy}$</li>
+      <li>Divide surds using $\dfrac{\sqrt{x}}{\sqrt{y}}=\sqrt{\dfrac{x}{y}}$ &nbsp;and use $\sqrt{x}\times\sqrt{x}=x$</li>
+      <li>Apply the distributive law to brackets containing surds, simplifying the result</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p class="rule">$\sqrt{x}\;\times\;\sqrt{y}\;=\;\sqrt{xy}\qquad
+                     a\sqrt{x}\;\times\;b\sqrt{y}\;=\;ab\sqrt{xy}\qquad
+                     \dfrac{a\sqrt{x}}{b\sqrt{y}}\;=\;\dfrac{a}{b}\sqrt{\dfrac{x}{y}}\qquad
+                     \sqrt{x}\;\times\;\sqrt{x}\;=\;x$</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up — fill in the gaps</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> State the missing parts.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\sqrt{15}\div\sqrt{3}=\sqrt{\underline{\phantom{xx}}}=\sqrt{\underline{\phantom{x}}}$</div>
+        <div class="p"><span class="letter">b</span> $\sqrt{42}\div\sqrt{7}=\sqrt{\underline{\phantom{xx}}}=\sqrt{\underline{\phantom{x}}}$</div>
+        <div class="p"><span class="letter">c</span> $\sqrt{6}\times\sqrt{5}=\sqrt{6\times\underline{\phantom{x}}}=\sqrt{\underline{\phantom{xx}}}$</div>
+        <div class="p"><span class="letter">d</span> $\sqrt{11}\times\sqrt{2}=\sqrt{11\times\underline{\phantom{x}}}=\sqrt{\underline{\phantom{xx}}}$</div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Use $\sqrt{x}\times\sqrt{x}=x$ to evaluate.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $\sqrt{6}\times\sqrt{6}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\sqrt{7}^{\,2}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $(\sqrt{5})^{2}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $(\sqrt{13})^{2}=$ <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Multiplying surds</h2>
+
+    <div class="q qrow">
+      <span class="num">3.</span> Multiply and simplify.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\sqrt{3}\times\sqrt{7}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\sqrt{10}\times\sqrt{2}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $4\sqrt{2}\times\sqrt{5}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $3\sqrt{2}\times 5\sqrt{3}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $2\sqrt{6}\times 5\sqrt{2}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $3\sqrt{5}\times 2\sqrt{10}=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Squares of surds — give whole-number answers.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $(\sqrt{6})^{2}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $(\sqrt{11})^{2}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $(3\sqrt{2})^{2}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $(4\sqrt{5})^{2}=$ <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Surds 4C worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Surds 4C — continued</h1>
+      <p>Part B (dividing) · Part C (distributive law) · Challenge</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Dividing surds</h2>
+
+    <div class="q qrow">
+      <span class="num">5.</span> Divide and simplify.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\sqrt{20}\div\sqrt{5}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\sqrt{30}\div\sqrt{6}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\sqrt{72}\div\sqrt{8}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\dfrac{10\sqrt{24}}{5\sqrt{6}}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $\dfrac{8\sqrt{45}}{2\sqrt{5}}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $\dfrac{6\sqrt{50}}{3\sqrt{2}}=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Distributive law</h2>
+
+    <div class="q qrow">
+      <span class="num">6.</span> Expand and simplify each. Show the multiplication-out step before simplifying surds.
+    </div>
+    <div class="parts col2">
+      <div class="p"><span class="letter">a</span> $\sqrt{2}\big(\sqrt{5}+\sqrt{7}\big)$</div>
+      <div class="p"><span class="letter">b</span> $\sqrt{3}\big(2\sqrt{3}-\sqrt{5}\big)$</div>
+      <div class="p"><span class="letter">c</span> $2\sqrt{5}\big(\sqrt{10}+3\sqrt{5}\big)$</div>
+      <div class="p"><span class="letter">d</span> $\sqrt{6}\big(\sqrt{2}+\sqrt{3}\big)$</div>
+    </div>
+    <div class="work l"></div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+
+    <div class="q qrow">
+      <span class="num">7.</span> A rectangle has length $3\sqrt{6}$ cm and width $2\sqrt{2}$ cm. <strong>(a)</strong> Find its area as a simplified surd. <strong>(b)</strong> Find its perimeter in surd form. <strong>(c)</strong> Find the length of the diagonal using Pythagoras' theorem, and simplify your answer.
+    </div>
+    <div class="work l"></div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> Show that $\big(3\sqrt{2}+\sqrt{5}\big)\big(3\sqrt{2}-\sqrt{5}\big)$ is a whole number, and state its value.
+    </div>
+    <div class="work m"></div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · check 4C answers in Cambridge</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>
