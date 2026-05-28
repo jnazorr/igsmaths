@@ -138,6 +138,14 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
 </ul>
 <p>Signs differ ⇒ a root lies somewhere in $(-2, 2)$.</p>
 
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="bisection-demo.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Animation:</strong> Bisection method on $f(x)=x^3+3x+1$ over $[-2, 2]$. Watch the orange interval halve at each step — keeping whichever half still contains the sign change — until we converge on $x \approx -0.32$.</p>
+</div>
+
 <div class="example">
   <span class="label">EXAMPLE 1</span>
   <div class="q">The equation $x^3 + 3x + 1 = 0$ has one real solution in the interval $[-2, 2]$. Use a spreadsheet with the bisection method to find this solution correct to two decimal places.</div>
@@ -268,6 +276,14 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
   <p>If $f$ has multiple roots, the tangent at $x_0$ might point you toward a different root than you wanted.</p>
 </div>
 
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="danger1-wrong-root.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Animation:</strong> Newton's method on $f(x)=x^3-6x-40$ starting at $x_0 = -1$. The real root is at $x = 4$, but the tangent at $x_0$ shoots us all the way out to $x_1 \approx -12.67$.</p>
+</div>
+
 <div class="example">
   <span class="label">DANGER 1 — wrong root</span>
   <div class="q">Find the positive $x$-intercept of $y = x^3 - 6x - 40$ using Newton's method with $x_0 = -1$. (The real root is at $x = 4$.)</div>
@@ -285,6 +301,14 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
   <p>If a tangent has a very small or zero gradient near $x_0$, dividing by $f'(x_n)$ can produce huge jumps that move further from the root each time.</p>
 </div>
 
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="danger2-cycling.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Animation:</strong> Newton's method on $f(x)=x^3-2x+2$ starting at $x_0 = 0$. Watch as the iteration cycles between $x = 0$ and $x = 1$ over and over, never approaching the actual root near $x \approx -1.77$.</p>
+</div>
+
 <div class="example">
   <span class="label">DANGER 2 — divergence near a horizontal tangent</span>
   <div class="q">Apply Newton's method to $f(x) = x^3 - 2x + 2$ starting from $x_0 = 0$.</div>
@@ -300,6 +324,14 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
 <div class="danger">
   <span class="danger-num">3</span><h4>Horizontal tangent — division by zero</h4>
   <p>If $f'(x_n) = 0$, Newton's formula is undefined: $\dfrac{f(x_n)}{0}$ is impossible. Geometrically, the tangent is horizontal and never crosses the $x$-axis.</p>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="danger3-horizontal.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Animation:</strong> Newton's method on $f(x)=x^2-4$ starting at $x_0 = 0$. The tangent at the vertex is perfectly horizontal — it never crosses the $x$-axis, so the formula produces $-4/0$ and the method can't even take its first step.</p>
 </div>
 
 <div class="example">
