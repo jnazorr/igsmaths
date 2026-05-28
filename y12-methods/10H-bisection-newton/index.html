@@ -63,6 +63,12 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
                         border-radius:50%; text-align:center; line-height:28px; font-weight:bold;
                         font-family:Calibri,Arial,sans-serif; margin-right:8px; }
   .danger h4 { display:inline; font-family:Calibri,Arial,sans-serif; color:var(--navy); font-size:16px; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
   @media (max-width:780px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
 </style>
 </head>
@@ -185,6 +191,14 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
 </div>
 
 <p>Each iteration "snaps" to where the tangent line crosses the $x$-axis, which is usually much closer to the root than $x_n$ itself.</p>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="newton-demo.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Animation:</strong> Newton's method applied to $f(x)=x^2-x-1$ starting at $x_0 = 3$. Watch each tangent (green) snap down to the $x$-axis — the red dots show where the next $x_n$ lands. After three iterations we're already at $\varphi \approx 1.618$ (the golden ratio).</p>
+</div>
 
 <div class="example">
   <span class="label">EXAMPLE 2</span>
