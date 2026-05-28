@@ -31,6 +31,37 @@
     .exam-notes h2 { font-size: 22px; margin: 0 0 12px 0; }
     .exam-notes ul { padding-left: 20px; color: var(--ink); }
     .exam-notes ul li { margin: 6px 0; }
+
+    /* Lessons section */
+    .lessons-section { padding: clamp(28px, 4vw, 48px) clamp(18px, 5vw, 64px) 0;
+                       background: linear-gradient(180deg, #fbf5ec 0%, #fff 100%); }
+    .lessons-section .head { display:flex; align-items:baseline; justify-content:space-between;
+                              gap:20px; flex-wrap:wrap; margin-bottom: 18px; }
+    .lessons-section h2 { font-size: 24px; margin: 6px 0 0 0; }
+    .lessons-section .head .eyebrow { color: #8a650d; }
+    .lessons-list { display:grid; grid-template-columns: 1fr; gap: 14px; }
+    .lesson-row { display:grid; grid-template-columns: 105px 1fr auto; gap: 16px; padding: 18px 22px;
+                  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+                  box-shadow: 0 6px 16px rgba(38,32,26,.06); align-items: center; }
+    .lesson-row .date { font-family: 'Inter',sans-serif; font-weight: 800; color: #8a650d;
+                        font-size: 13px; line-height:1.2; text-transform: uppercase; letter-spacing:.1em; }
+    .lesson-row .date small { display:block; color:var(--muted); font-weight:600; font-size:11px; margin-top:2px; }
+    .lesson-row .desc h3 { margin: 0 0 4px 0; font-size: 17px; color: var(--ink); }
+    .lesson-row .desc p { margin: 0; color: var(--muted); font-size: 13.5px; }
+    .lesson-row .chips { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .lesson-row .chip { font-size: 11.5px; padding: 4px 10px; border-radius: 14px;
+                        text-decoration: none; font-weight: 700; white-space: nowrap;
+                        font-family: 'Inter',sans-serif; transition: all .12s; }
+    .lesson-row .chip.primary { background: #1E2761; color:#fff; border:1px solid #1E2761; }
+    .lesson-row .chip.primary:hover { background:#F96167; border-color:#F96167; }
+    .lesson-row .chip.outline { background:#fff; color:#1E2761; border:1px solid #1E2761; }
+    .lesson-row .chip.outline:hover { background:#1E2761; color:#fff; }
+    .lesson-row .chip.good { background:#fff; color:#2C5F2D; border:1px solid #2C5F2D; }
+    .lesson-row .chip.good:hover { background:#2C5F2D; color:#fff; }
+    @media (max-width: 720px) {
+      .lesson-row { grid-template-columns: 1fr; }
+      .lesson-row .chips { justify-content:flex-start; }
+    }
   </style>
 </head>
 <body>
@@ -43,6 +74,7 @@
       <a href="./">Home</a>
       <a href="core.html" aria-current="page">Year 10 Core</a>
       <a href="methods.html">Year 11 Methods</a>
+      <a href="y12-methods/">Year 12 Methods</a>
     </nav>
   </header>
 
@@ -51,6 +83,55 @@
       <p class="eyebrow">Year 10 · Core Mathematics · Semester 1</p>
       <h1>Year 10 Core Maths</h1>
       <p class="lead">Revision resources, CAS skills practice, and worked-solution decks for the Year 10 Core Maths Semester 1 exams.</p>
+    </section>
+
+    <section class="lessons-section" aria-label="Year 10 topic lessons">
+      <div class="head">
+        <div>
+          <p class="eyebrow">Topic lessons · Chapter 4 Surds</p>
+          <h2>Self-contained lessons, worksheets &amp; solutions</h2>
+        </div>
+      </div>
+      <div class="lessons-list">
+
+        <article class="lesson-row">
+          <div class="date">Wed<br>27 May<small>Ex 4A &amp; 4B</small></div>
+          <div class="desc">
+            <h3>Surds — Simplifying &amp; Adding Like Surds</h3>
+            <p>Rational vs irrational, simplifying surds (e.g. √50 = 5√2), and adding/subtracting like surds. Includes 2 Manim videos.</p>
+          </div>
+          <div class="chips">
+            <a class="chip primary" href="lessons-2026-05-27/Y10_Core_Surds_4A_4B.html">Open lesson</a>
+          </div>
+        </article>
+
+        <article class="lesson-row">
+          <div class="date">Fri<br>29 May<small>Ex 4C</small></div>
+          <div class="desc">
+            <h3>Surds — Multiplying &amp; Dividing</h3>
+            <p>$\sqrt{x}\times\sqrt{y}=\sqrt{xy}$, dividing surds, squares of surds, and the distributive law. Includes 2 Manim videos.</p>
+          </div>
+          <div class="chips">
+            <a class="chip primary" href="lessons-2026-05-29/Y10_Core_Surds_4C.html">Open lesson</a>
+            <a class="chip outline" href="lessons-2026-05-29/Y10_Core_Surds_4C_worksheet.html" target="_blank">📄 Worksheet</a>
+            <a class="chip good" href="lessons-2026-05-29/Y10_Core_Surds_4C_solutions.html" target="_blank">✅ Solutions</a>
+          </div>
+        </article>
+
+        <article class="lesson-row">
+          <div class="date">Fri<br>29 May<small>Ex 4D</small></div>
+          <div class="desc">
+            <h3>Surds — Rationalising the Denominator</h3>
+            <p>Multiply by $\sqrt{y}/\sqrt{y}=1$ to turn an irrational denominator into a whole number. Includes 2 Manim videos and a bonus binomial-numerator section.</p>
+          </div>
+          <div class="chips">
+            <a class="chip primary" href="lessons-2026-05-29/Y10_Core_Surds_4D.html">Open lesson</a>
+            <a class="chip outline" href="lessons-2026-05-29/Y10_Core_Surds_4D_worksheet.html" target="_blank">📄 Worksheet</a>
+            <a class="chip good" href="lessons-2026-05-29/Y10_Core_Surds_4D_solutions.html" target="_blank">✅ Solutions</a>
+          </div>
+        </article>
+
+      </div>
     </section>
 
     <section class="res-grid" aria-label="Year 10 Core resources">

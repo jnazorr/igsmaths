@@ -5,6 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Year 11 Methods Unit 1 Revision</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .lessons-section { padding: clamp(28px, 4vw, 48px) clamp(18px, 5vw, 64px) 0;
+                       background: linear-gradient(180deg, #fbf5ec 0%, #fff 100%); }
+    .lessons-section .head { display:flex; align-items:baseline; justify-content:space-between;
+                              gap:20px; flex-wrap:wrap; margin-bottom: 18px; }
+    .lessons-section h2 { font-size: 24px; margin: 6px 0 0 0; }
+    .lessons-list { display:grid; grid-template-columns: 1fr; gap: 14px; }
+    .lesson-row { display:grid; grid-template-columns: 105px 1fr auto; gap: 16px; padding: 18px 22px;
+                  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+                  box-shadow: 0 6px 16px rgba(38,32,26,.06); align-items: center; }
+    .lesson-row .date { font-family: 'Inter',sans-serif; font-weight: 800; color: var(--blue);
+                        font-size: 13px; line-height:1.2; text-transform: uppercase; letter-spacing:.1em; }
+    .lesson-row .date small { display:block; color:var(--muted); font-weight:600; font-size:11px; margin-top:2px; }
+    .lesson-row .desc h3 { margin: 0 0 4px 0; font-size: 17px; color: var(--ink); }
+    .lesson-row .desc p { margin: 0; color: var(--muted); font-size: 13.5px; }
+    .lesson-row .chips { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .lesson-row .chip { font-size: 11.5px; padding: 4px 10px; border-radius: 14px;
+                        text-decoration: none; font-weight: 700; white-space: nowrap;
+                        font-family: 'Inter',sans-serif; transition: all .12s; }
+    .lesson-row .chip.primary { background: #1E2761; color:#fff; border:1px solid #1E2761; }
+    .lesson-row .chip.primary:hover { background:#F96167; border-color:#F96167; }
+    @media (max-width: 720px) {
+      .lesson-row { grid-template-columns: 1fr; }
+      .lesson-row .chips { justify-content:flex-start; }
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -14,14 +40,13 @@
     </a>
     <nav aria-label="Methods revision sections">
       <a href="./">Home</a>
+      <a href="core.html">Year 10</a>
+      <a href="y12-methods/">Year 12</a>
+      <a href="#topic-lessons">Topic lessons</a>
       <a href="11mm-sem1-exam/">Exam decks</a>
-      <a href="#topics">Topics</a>
-      <a href="#drills">Drills</a>
-      <a href="#homework">Homework</a>
-      <a href="double-lesson.html">Double lesson</a>
-      <a href="worksheet.html">Worksheet</a>
-      <a href="cas-skills.html">CAS skills</a>
+      <a href="#topics">Revision</a>
       <a href="final-revision.html">Final bank</a>
+      <a href="cas-skills.html">CAS skills</a>
     </nav>
   </header>
 
@@ -79,6 +104,27 @@
         <li><strong>Exam 2:</strong> 90 minutes writing time. CAS calculator and bound reference allowed.</li>
         <li><strong>Materials:</strong> standard writing equipment in a transparent case; no phones, watches, smart devices, food, bags, headphones, or electronic dictionaries.</li>
       </ul>
+    </section>
+
+    <section id="topic-lessons" class="lessons-section" aria-label="Year 11 topic lessons">
+      <div class="head">
+        <div>
+          <p class="eyebrow">Topic lessons · Cambridge Methods 1&amp;2</p>
+          <h2>Self-contained topic lessons</h2>
+        </div>
+      </div>
+      <div class="lessons-list">
+        <article class="lesson-row">
+          <div class="date">Wed<br>27 May<small>Ch 13B</small></div>
+          <div class="desc">
+            <h3>Rational Exponents</h3>
+            <p>Fractional powers $x^{m/n}$, evaluating roots, negative exponents, mixed index-law simplification. Includes 2 Manim videos.</p>
+          </div>
+          <div class="chips">
+            <a class="chip primary" href="lessons-2026-05-27/Y11_Methods_13B_Rational_Exponents.html">Open lesson</a>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="topics" class="section">

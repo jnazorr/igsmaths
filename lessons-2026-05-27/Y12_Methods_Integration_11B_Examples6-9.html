@@ -52,13 +52,40 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
   .key-ideas h3 { margin-top:0; color:var(--navy); }
   .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
   .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
   @media (max-width:780px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
 </style>
 </head>
 <body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/" class="current">Year 12</a>
+    <a href="./">All 27 May lessons</a>
+  </div>
+</nav>
 <header>
   <h1>Year 12 Methods — Antiderivatives of $e^{kx}$ &amp; trig (11B)</h1>
-  <div class="meta">Cambridge Methods 3&amp;4, Ch 11: Section 11B (Examples 6–9) &nbsp;•&nbsp; Wed 27 May 2026 &nbsp;•&nbsp; Mr Wong away today</div>
+  <div class="meta">Cambridge Methods 3&amp;4, Ch 11: Section 11B (Examples 6–9) &nbsp;•&nbsp; Wed 27 May 2026</div>
+  <div class="resources-box">
+    <strong>📚 Permanent home:</strong>
+    <a href="../y12-methods/11B-integration-examples-6-9/">Y12 Methods · 11B lesson page</a>
+  </div>
 </header>
 
 <main>

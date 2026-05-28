@@ -67,11 +67,27 @@
     table.timetable th, table.timetable td { padding:10px 8px; font-size:13px; }
     .open-btn { padding:6px 10px; font-size:12px; }
   }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: 'Helvetica Neue',Arial,sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
 </style>
 </head>
 <body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-2026-05-29/">29 May lessons</a>
+  </div>
+</nav>
 <header>
-  <p class="eyebrow">Casual relief — day plan</p>
+  <p class="eyebrow">Day plan — historical</p>
   <h1>Mr Wong's lessons — Wed 27 May 2026</h1>
   <p class="meta">Ivanhoe Grammar School &nbsp;•&nbsp; Mathematics &nbsp;•&nbsp; 5 lessons across 3 cohorts</p>
 </header>

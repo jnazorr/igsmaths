@@ -71,13 +71,29 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
   .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
                           margin:10px 4px 0 4px; text-align:center; }
   .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
   @media (max-width:720px) { .grid3, .grid2 { grid-template-columns:1fr; } main { padding:18px; } }
 </style>
 </head>
 <body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html" class="current">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./">All 27 May lessons</a>
+  </div>
+</nav>
 <header>
   <h1>Year 11 Methods — Rational Exponents (13B)</h1>
-  <div class="meta">Cambridge Methods 1&amp;2, Ch 13: Section 13B &nbsp;•&nbsp; Wed 27 May 2026 &nbsp;•&nbsp; Mr Wong away today</div>
+  <div class="meta">Cambridge Methods 1&amp;2, Ch 13: Section 13B &nbsp;•&nbsp; Wed 27 May 2026</div>
 </header>
 
 <main>

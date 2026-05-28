@@ -43,15 +43,33 @@
               padding:4px 10px; border-radius:14px; font-weight:bold;
               transition:all .15s; }
   .ws-row a:hover { background:var(--navy); color:#fff; }
+  .ws-row a.good { color:#2C5F2D; border-color:#2C5F2D; }
+  .ws-row a.good:hover { background:#2C5F2D; color:#fff; }
   .intro { background:#FFF9E6; border:2px solid #E8D88A; border-radius:8px; padding:16px 22px; margin:20px 0; }
   .intro h2 { margin:0 0 8px 0; color:#8a650d; font-size:18px; }
   .intro p { margin:4px 0; font-size:14.5px; }
   footer { padding:20px 40px; color:var(--muted); font-size:13px; border-top:1px solid #eee; }
   footer a { color:var(--navy); }
   @media (max-width:640px) { main { padding:18px; } header { padding:24px 18px; } header h1 { font-size:24px; } }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: 'Helvetica Neue',Arial,sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
 </style>
 </head>
 <body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-2026-05-27/">27 May lessons</a>
+  </div>
+</nav>
 <header>
   <p class="eyebrow">Year 10 Core · Lessons for today</p>
   <h1>Surds — Multiplying, Dividing &amp; Rationalising</h1>
@@ -83,7 +101,8 @@
       <span class="open">Open online lesson</span>
     </a>
     <div class="ws-row">
-      <a href="Y10_Core_Surds_4C_worksheet.html" target="_blank">📄 Printable worksheet (2 pp A4)</a>
+      <a href="Y10_Core_Surds_4C_worksheet.html" target="_blank">📄 Worksheet (2 pp A4)</a>
+      <a class="good" href="Y10_Core_Surds_4C_solutions.html" target="_blank">✅ Solutions</a>
     </div>
   </div>
 
@@ -101,7 +120,8 @@
       <span class="open">Open online lesson</span>
     </a>
     <div class="ws-row">
-      <a href="Y10_Core_Surds_4D_worksheet.html" target="_blank">📄 Printable worksheet (2 pp A4)</a>
+      <a href="Y10_Core_Surds_4D_worksheet.html" target="_blank">📄 Worksheet (2 pp A4)</a>
+      <a class="good" href="Y10_Core_Surds_4D_solutions.html" target="_blank">✅ Solutions</a>
     </div>
   </div>
 

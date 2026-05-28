@@ -86,7 +86,16 @@
     @page { size: A4; margin: 0; }
   }
 
-  .print-btn { position:fixed; top:10mm; right:10mm; background:var(--navy); color:#fff;
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
                border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
                font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
   .print-btn:hover { background: #F96167; }
@@ -94,6 +103,18 @@
 </style>
 </head>
 <body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">29 May lessons</a>
+    <a href="Y10_Core_Surds_4C.html">Lesson 4C</a>
+    <a href="Y10_Core_Surds_4C_solutions.html">Solutions 4C</a>
+  </div>
+</nav>
 
 <button class="print-btn" onclick="window.print()">🖨️ Print</button>
 

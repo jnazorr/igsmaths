@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions — Y10 Core Surds 4C Worksheet</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --good:#2C5F2D; --good-bg:#E8F1E8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  /* Skinny site nav strip — hidden in print */
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          position:relative; font-size: 9.8pt; line-height: 1.28; overflow: hidden; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--good); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--good); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .stamp { font-family: Calibri, Arial, sans-serif; font-size: 9.5pt;
+                  background:var(--good-bg); color:var(--good); padding: 3mm 5mm;
+                  border:1px solid var(--good); border-radius: 2mm; font-weight:bold; }
+
+  .section { margin: 0 0 3mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11pt; }
+  .section .pq { font-family: Calibri, Arial, sans-serif; font-size: 9.4pt; color:var(--muted);
+                 margin: 0 0 1.5mm 0; }
+  .section .pq strong { color: var(--navy); }
+
+  .answers { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.5mm 8mm;
+             font-family: Calibri, Arial, sans-serif; font-size: 9.8pt;
+             padding-left: 6mm; }
+  .answers.col1 { grid-template-columns: 1fr; }
+  .answers.col3 { grid-template-columns: repeat(3, 1fr); }
+  .answers .a { display:flex; align-items:baseline; gap: 2mm; padding: 0.5mm 0; }
+  .answers .a .letter { color:var(--muted); font-style:italic; min-width: 4mm; flex-shrink:0; }
+  .answers .a .ans { color:var(--good); font-weight:bold; }
+  .answers .a .work { color:var(--muted); font-size: 9pt; margin-left: 1mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+    .no-print, .lesson-nav { display:none; }
+  }
+
+  .print-btn { position:fixed; top:8mm; right:8mm; background:var(--good); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background:#1E2761; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">29 May lessons</a>
+    <a href="Y10_Core_Surds_4C.html">Lesson 4C</a>
+    <a href="Y10_Core_Surds_4C_worksheet.html">Worksheet 4C</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solutions — Surds 4C Worksheet</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 4, §4C · Mr Wong</p>
+    </div>
+    <div class="stamp">ANSWER KEY</div>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up</h2>
+    <p class="pq"><strong>Q1.</strong> Missing parts (fill the gaps):</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span> <span class="ans">$\sqrt{15\div 3}=\sqrt{5}$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$\sqrt{42\div 7}=\sqrt{6}$</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$\sqrt{6\times 5}=\sqrt{30}$</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$\sqrt{11\times 2}=\sqrt{22}$</span></div>
+    </div>
+    <p class="pq" style="margin-top:2mm"><strong>Q2.</strong> Squares of surds:</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$6$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$7$</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$5$</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$13$</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Multiplying surds</h2>
+    <p class="pq"><strong>Q3.</strong> Multiply and simplify:</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$\sqrt{21}$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$2\sqrt{5}$</span> <span class="work">($\sqrt{20}=\sqrt{4\cdot 5}$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$4\sqrt{10}$</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$15\sqrt{6}$</span></div>
+      <div class="a"><span class="letter">e</span> <span class="ans">$20\sqrt{3}$</span> <span class="work">($10\sqrt{12}=10\cdot 2\sqrt{3}$)</span></div>
+      <div class="a"><span class="letter">f</span> <span class="ans">$30\sqrt{2}$</span> <span class="work">($6\sqrt{50}=6\cdot 5\sqrt{2}$)</span></div>
+    </div>
+    <p class="pq" style="margin-top:2mm"><strong>Q4.</strong> Squares of surds (whole-number answers):</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$6$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$11$</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$18$</span> <span class="work">($9\times 2$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$80$</span> <span class="work">($16\times 5$)</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Dividing surds</h2>
+    <p class="pq"><strong>Q5.</strong> Divide and simplify:</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$2$</span> <span class="work">($\sqrt{4}$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$\sqrt{5}$</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$3$</span> <span class="work">($\sqrt{9}$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$4$</span> <span class="work">($2\sqrt{4}$)</span></div>
+      <div class="a"><span class="letter">e</span> <span class="ans">$12$</span> <span class="work">($4\sqrt{9}$)</span></div>
+      <div class="a"><span class="letter">f</span> <span class="ans">$10$</span> <span class="work">($2\sqrt{25}$)</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Distributive law</h2>
+    <p class="pq"><strong>Q6.</strong> Expand and simplify:</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$\sqrt{10}+\sqrt{14}$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$6-\sqrt{15}$</span> <span class="work">($\sqrt{3}\cdot 2\sqrt{3}=6$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$10\sqrt{2}+30$</span> <span class="work">($2\sqrt{50}+6\cdot 5$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$2\sqrt{3}+3\sqrt{2}$</span> <span class="work">($\sqrt{12}+\sqrt{18}$)</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+    <p class="pq"><strong>Q7.</strong> Rectangle with length $3\sqrt{6}$ cm and width $2\sqrt{2}$ cm:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span>
+        <span><b>Area</b> $= 3\sqrt{6}\times 2\sqrt{2}=6\sqrt{12}=$ <span class="ans">$12\sqrt{3}\;\text{cm}^2$</span></span>
+      </div>
+      <div class="a"><span class="letter">b</span>
+        <span><b>Perimeter</b> $= 2(3\sqrt{6}+2\sqrt{2})=$ <span class="ans">$6\sqrt{6}+4\sqrt{2}\;\text{cm}$</span></span>
+      </div>
+      <div class="a"><span class="letter">c</span>
+        <span><b>Diagonal</b> $d^{2}=(3\sqrt{6})^{2}+(2\sqrt{2})^{2}=54+8=62$, so <span class="ans">$d=\sqrt{62}\;\text{cm}$</span></span>
+      </div>
+    </div>
+    <p class="pq" style="margin-top:2mm"><strong>Q8.</strong> $\big(3\sqrt{2}+\sqrt{5}\big)\big(3\sqrt{2}-\sqrt{5}\big)$:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">·</span>
+        <span>Difference of squares: $(3\sqrt{2})^{2}-(\sqrt{5})^{2}=18-5=$ <span class="ans">$13$</span> (a whole number ✓)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Surds 4C · Solutions</span>
+    <span>Page 1 of 1 · Hand back to Mr Wong</span>
+  </div>
+</section>
+
+</body>
+</html>
