@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Multiplying &amp; Dividing Surds (4C)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Year 10 Mathematics Core — Multiplying &amp; Dividing Surds</h1>
+  <div class="meta">Cambridge Ch 4 — Section 4C &nbsp;•&nbsp; Fri 29 May 2026</div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>We're continuing Chapter 4 — Surds. By the end of today you should be able to:</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li><strong>Multiply</strong> two surds using $\sqrt{x}\times\sqrt{y}=\sqrt{xy}$</li>
+    <li><strong>Divide</strong> two surds using $\dfrac{\sqrt{x}}{\sqrt{y}}=\sqrt{\dfrac{x}{y}}$</li>
+    <li>Use the fact that $\sqrt{x}\times\sqrt{x}=x$ to simplify squares of surds</li>
+    <li>Apply the <strong>distributive law</strong> to brackets involving surds</li>
+  </ul>
+</div>
+
+<h2>Part 1 — The key rule (warm up, ~5 min)</h2>
+
+<p>When you add surds you can only combine <em>like</em> surds (e.g. $3\sqrt{2}+5\sqrt{2}=8\sqrt{2}$). Multiplying is different — it works for <strong>any</strong> two surds. Watch:</p>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="Rule4C.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Key rule:</strong> why $\sqrt{x}\times\sqrt{y}=\sqrt{xy}$ — with a calculator check.</p>
+</div>
+
+<div class="key-ideas">
+  <h3>The two rules</h3>
+  <p style="font-family:Calibri,Arial,sans-serif; text-align:center; font-size:18px;">
+    $\sqrt{x}\times\sqrt{y}=\sqrt{xy}$ &nbsp;&nbsp; and &nbsp;&nbsp; $\dfrac{\sqrt{x}}{\sqrt{y}}=\sqrt{\dfrac{x}{y}}$
+  </p>
+  <p style="font-family:Calibri,Arial,sans-serif; text-align:center;">
+    More generally: $a\sqrt{x}\times b\sqrt{y}=ab\sqrt{xy}$ &nbsp; and &nbsp; $\dfrac{a\sqrt{x}}{b\sqrt{y}}=\dfrac{a}{b}\sqrt{\dfrac{x}{y}}$
+  </p>
+  <p style="font-family:Calibri,Arial,sans-serif; margin-bottom:0;">
+    And, crucially, $\sqrt{x}\times\sqrt{x}=x$ &nbsp; (a surd squared just removes the root).
+  </p>
+</div>
+
+<div class="practice">
+  <p class="qnum">Building understanding — state the missing parts:</p>
+  <ol class="qlist" type="a">
+    <li>$\sqrt{15}\div\sqrt{3}=\sqrt{\underline{\phantom{15/3}}}=\sqrt{\underline{\phantom{5}}}$</li>
+    <li>$\sqrt{42}\div\sqrt{7}=\sqrt{\underline{\phantom{42/7}}}=\sqrt{\underline{\phantom{6}}}$</li>
+    <li>$\sqrt{6}\times\sqrt{5}=\sqrt{6\times\underline{\phantom{5}}}=\sqrt{\underline{\phantom{30}}}$</li>
+    <li>$\sqrt{6}\times\sqrt{6}=\underline{\phantom{6}}$ &nbsp;&nbsp; $\sqrt{7}^{\,2}=\underline{\phantom{7}}$ &nbsp;&nbsp; $(\sqrt{5})^{2}=\underline{\phantom{5}}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\sqrt{15/3}=\sqrt{5}$<br>
+    b) $\sqrt{42/7}=\sqrt{6}$<br>
+    c) $\sqrt{6\times 5}=\sqrt{30}$<br>
+    d) $\sqrt{6}\times\sqrt{6}=6$, &nbsp; $\sqrt{7}^{\,2}=7$, &nbsp; $(\sqrt{5})^{2}=5$
+  </div>
+</div>
+
+<h2>Part 2 — Multiplying surds (Example 6, ~12 min)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 6a</span>
+  <div class="q">Simplify $\sqrt{2}\times\sqrt{3}$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p>Use the rule $\sqrt{x}\times\sqrt{y}=\sqrt{xy}$:</p>
+    <p>$\sqrt{2}\times\sqrt{3}=\sqrt{2\times 3}=\sqrt{6}$</p>
+    <p class="callout"><strong>Now you try:</strong> $\sqrt{5}\times\sqrt{3}=\;?$ &nbsp; Answer: $\sqrt{15}$</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 6b — Watch the walkthrough first</span>
+  <div class="q">Simplify $2\sqrt{3}\times 3\sqrt{15}$.</div>
+  <div class="video-block">
+    <video controls preload="metadata" playsinline>
+      <source src="Example6b.mp4" type="video/mp4">
+      Your browser doesn't support embedded video.
+    </video>
+    <p class="caption">📺 Step-by-step: multiply the whole numbers, multiply the radicands, then simplify.</p>
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show written solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Group whole numbers and surds: $2\sqrt{3}\times 3\sqrt{15}=(2\times 3)\sqrt{3\times 15}=6\sqrt{45}$</li>
+      <li>Simplify $\sqrt{45}$: &nbsp; $45=9\times 5$, so $\sqrt{45}=3\sqrt{5}$</li>
+      <li>$=6\times 3\sqrt{5}=\boxed{18\sqrt{5}}$</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> $3\sqrt{2}\times 4\sqrt{6}=\;?$ &nbsp; Answer: $24\sqrt{3}$</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 6c</span>
+  <div class="q">Simplify $(2\sqrt{5})^{2}$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p>$(2\sqrt{5})^{2}=2\sqrt{5}\times 2\sqrt{5}=4\times(\sqrt{5})^{2}=4\times 5=\boxed{20}$</p>
+    <p class="callout"><strong>Now you try:</strong> $(3\sqrt{7})^{2}=\;?$ &nbsp; Answer: $9\times 7=63$</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.1 — Multiply and simplify:</p>
+  <ol class="qlist" type="a">
+    <li>$\sqrt{3}\times\sqrt{7}$</li>
+    <li>$\sqrt{10}\times\sqrt{2}$</li>
+    <li>$4\sqrt{2}\times\sqrt{5}$</li>
+    <li>$3\sqrt{2}\times 5\sqrt{3}$</li>
+    <li>$2\sqrt{6}\times 5\sqrt{2}$</li>
+    <li>$3\sqrt{5}\times 2\sqrt{10}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\sqrt{21}$<br>
+    b) $\sqrt{20}=\sqrt{4\times 5}=2\sqrt{5}$<br>
+    c) $4\sqrt{10}$<br>
+    d) $15\sqrt{6}$<br>
+    e) $10\sqrt{12}=10\sqrt{4\times 3}=20\sqrt{3}$<br>
+    f) $6\sqrt{50}=6\sqrt{25\times 2}=30\sqrt{2}$
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.2 — Squares of surds:</p>
+  <ol class="qlist" type="a">
+    <li>$(\sqrt{6})^{2}$</li>
+    <li>$(\sqrt{11})^{2}$</li>
+    <li>$(3\sqrt{2})^{2}$</li>
+    <li>$(4\sqrt{5})^{2}$</li>
+    <li>$(5\sqrt{3})^{2}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $6$<br>
+    b) $11$<br>
+    c) $9\times 2=18$<br>
+    d) $16\times 5=80$<br>
+    e) $25\times 3=75$
+  </div>
+</div>
+
+<h2>Part 3 — Dividing surds (Example 7, ~10 min)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 7a</span>
+  <div class="q">Simplify $-\sqrt{10}\div\sqrt{2}$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p>Use $\dfrac{\sqrt{x}}{\sqrt{y}}=\sqrt{\dfrac{x}{y}}$:</p>
+    <p>$-\sqrt{10}\div\sqrt{2}=-\sqrt{\dfrac{10}{2}}=-\sqrt{5}$</p>
+    <p class="callout"><strong>Now you try:</strong> $-\sqrt{15}\div\sqrt{5}=\;?$ &nbsp; Answer: $-\sqrt{3}$</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 7b</span>
+  <div class="q">Simplify $\dfrac{12\sqrt{18}}{3\sqrt{3}}$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Split the whole numbers from the surds: $\dfrac{12\sqrt{18}}{3\sqrt{3}}=\dfrac{12}{3}\sqrt{\dfrac{18}{3}}$</li>
+      <li>$=4\sqrt{6}$</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> $\dfrac{14\sqrt{22}}{7\sqrt{11}}=\;?$ &nbsp; Answer: $2\sqrt{2}$</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — Divide and simplify:</p>
+  <ol class="qlist" type="a">
+    <li>$\sqrt{20}\div\sqrt{5}$</li>
+    <li>$\sqrt{30}\div\sqrt{6}$</li>
+    <li>$\sqrt{72}\div\sqrt{8}$</li>
+    <li>$\dfrac{10\sqrt{24}}{5\sqrt{6}}$</li>
+    <li>$\dfrac{8\sqrt{45}}{2\sqrt{5}}$</li>
+    <li>$\dfrac{6\sqrt{50}}{3\sqrt{2}}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\sqrt{4}=2$<br>
+    b) $\sqrt{5}$<br>
+    c) $\sqrt{9}=3$<br>
+    d) $\dfrac{10}{5}\sqrt{\dfrac{24}{6}}=2\sqrt{4}=4$<br>
+    e) $4\sqrt{9}=12$<br>
+    f) $2\sqrt{25}=10$
+  </div>
+</div>
+
+<h2>Part 4 — The distributive law (Example 8, ~12 min)</h2>
+
+<div class="callout">
+  Same as with letters: $a(b+c)=ab+ac$. Multiply the term outside the bracket through to <strong>each</strong> term inside, then simplify any surds you can.
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 8a</span>
+  <div class="q">Expand and simplify $\sqrt{3}(3\sqrt{5}-\sqrt{6})$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Distribute the $\sqrt{3}$: $\sqrt{3}(3\sqrt{5}-\sqrt{6})=3\sqrt{15}-\sqrt{18}$</li>
+      <li>Simplify $\sqrt{18}=\sqrt{9\times 2}=3\sqrt{2}$</li>
+      <li>$=3\sqrt{15}-3\sqrt{2}$</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> $\sqrt{2}(5\sqrt{3}-\sqrt{7})=\;?$ &nbsp; Answer: $5\sqrt{6}-\sqrt{14}$</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 8b</span>
+  <div class="q">Expand and simplify $3\sqrt{6}(2\sqrt{10}-4\sqrt{6})$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Distribute: $3\sqrt{6}\times 2\sqrt{10}=6\sqrt{60}$ &nbsp; and &nbsp; $3\sqrt{6}\times 4\sqrt{6}=12\times 6=72$</li>
+      <li>So $3\sqrt{6}(2\sqrt{10}-4\sqrt{6})=6\sqrt{60}-72$</li>
+      <li>Simplify $\sqrt{60}=\sqrt{4\times 15}=2\sqrt{15}$</li>
+      <li>$=6\times 2\sqrt{15}-72=12\sqrt{15}-72$</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> $5\sqrt{3}(2\sqrt{6}-3\sqrt{3})=\;?$ &nbsp; Answer: $30\sqrt{2}-45$</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 4.1 — Expand and simplify:</p>
+  <ol class="qlist" type="a">
+    <li>$\sqrt{2}(\sqrt{5}+\sqrt{7})$</li>
+    <li>$\sqrt{3}(2\sqrt{3}-\sqrt{5})$</li>
+    <li>$2\sqrt{5}(\sqrt{10}+3\sqrt{5})$</li>
+    <li>$\sqrt{6}(\sqrt{2}+\sqrt{3})$</li>
+    <li>$4\sqrt{2}(3\sqrt{8}-\sqrt{5})$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\sqrt{10}+\sqrt{14}$<br>
+    b) $2\times 3-\sqrt{15}=6-\sqrt{15}$<br>
+    c) $2\sqrt{50}+6\times 5=2\times 5\sqrt{2}+30=10\sqrt{2}+30$<br>
+    d) $\sqrt{12}+\sqrt{18}=2\sqrt{3}+3\sqrt{2}$<br>
+    e) $12\sqrt{16}-4\sqrt{10}=12\times 4-4\sqrt{10}=48-4\sqrt{10}$
+  </div>
+</div>
+
+<h2>Part 5 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> Simplify $\sqrt{6}\times\sqrt{2}$.</p>
+    <label><input type="radio" name="q1" value="a"> $\sqrt{8}$</label>
+    <label><input type="radio" name="q1" value="b"> $2\sqrt{3}$</label>
+    <label><input type="radio" name="q1" value="c"> $\sqrt{4}$</label>
+    <label><input type="radio" name="q1" value="d"> $\sqrt{12}$ (cannot simplify)</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q2.</strong> Simplify $4\sqrt{3}\times 2\sqrt{6}$.</p>
+    <label><input type="radio" name="q2" value="a"> $8\sqrt{18}$</label>
+    <label><input type="radio" name="q2" value="b"> $6\sqrt{18}$</label>
+    <label><input type="radio" name="q2" value="c"> $24\sqrt{2}$</label>
+    <label><input type="radio" name="q2" value="d"> $8\sqrt{2}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> Simplify $(2\sqrt{6})^{2}$.</p>
+    <label><input type="radio" name="q3" value="a"> $24$</label>
+    <label><input type="radio" name="q3" value="b"> $12$</label>
+    <label><input type="radio" name="q3" value="c"> $2\sqrt{36}$</label>
+    <label><input type="radio" name="q3" value="d"> $4\sqrt{6}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q4.</strong> Simplify $\dfrac{15\sqrt{40}}{3\sqrt{10}}$.</p>
+    <label><input type="radio" name="q4" value="a"> $5\sqrt{30}$</label>
+    <label><input type="radio" name="q4" value="b"> $10$</label>
+    <label><input type="radio" name="q4" value="c"> $5\sqrt{4}$</label>
+    <label><input type="radio" name="q4" value="d"> $\sqrt{50}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q5.</strong> Expand $\sqrt{2}(\sqrt{8}+\sqrt{3})$.</p>
+    <label><input type="radio" name="q5" value="a"> $\sqrt{10}+\sqrt{5}$</label>
+    <label><input type="radio" name="q5" value="b"> $2\sqrt{2}+\sqrt{6}$</label>
+    <label><input type="radio" name="q5" value="c"> $\sqrt{16}+\sqrt{6}$</label>
+    <label><input type="radio" name="q5" value="d"> $4+\sqrt{6}$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 4C</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 4 and complete the following:</p>
+<table class="program">
+  <tr><th>Section</th><th>Foundation</th><th>Standard (set work)</th><th>Advanced</th></tr>
+  <tr><td>Fluency 1–7</td><td>1–7 (½)</td><td>1–7 (½)</td><td>1–7 (⅓)</td></tr>
+  <tr><td>Problem-solving 8–10</td><td>8</td><td>8, 9 (½)</td><td>8, 9 (½), 10</td></tr>
+  <tr><td>Reasoning 11–13</td><td>11</td><td>11, 12</td><td>12, 13</td></tr>
+  <tr><td>Enrichment 14–15</td><td>—</td><td>—</td><td>14–15 (½)</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">If you finish early, start <strong>Ex 4D — Rationalising the Denominator</strong> using the other lesson page.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>What is the rule for multiplying two surds?</li>
+    <li>Why does $\sqrt{6}\times\sqrt{6}=6$?</li>
+    <li>What's the first step when you expand $3\sqrt{2}(\sqrt{5}-\sqrt{2})$?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      // highlight correct
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the rule video, then try again.';
+    else msg += '  Re-read Part 1 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>
