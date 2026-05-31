@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Trig 6A (Trigonometric Ratios)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .key .rule { text-align:center; font-size: 11pt; margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+
+  .tri-row { display:flex; gap: 6mm; flex-wrap:wrap; margin: 1mm 0 1mm 6mm; align-items:flex-start; }
+  .tri { text-align:center; }
+  .tri svg { display:block; margin: 0 auto; }
+  .tri .cap { font-family: Calibri, Arial, sans-serif; color: var(--muted); font-size: 8.5pt; margin-top: 1mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">01 June lessons</a>
+    <a href="Y10_Core_Trig_6A.html">Lesson 6A</a>
+    <a href="Y10_Core_Trig_6A_solutions.html">Solutions 6A</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Trigonometric Ratios (Ex 6A)</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 6, §6A · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Label the hypotenuse, opposite and adjacent sides of a right triangle relative to a given angle</li>
+      <li>Choose the correct trig ratio (sin, cos or tan) for the information you have</li>
+      <li>Solve for an unknown side length when the unknown is in the numerator or the denominator</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results — SOHCAHTOA</h3>
+    <p class="rule">$\sin\theta=\dfrac{O}{H}\qquad \cos\theta=\dfrac{A}{H}\qquad \tan\theta=\dfrac{O}{A}$</p>
+    <p style="text-align:center; font-size:9pt;">$O$ = opposite &nbsp; · &nbsp; $A$ = adjacent &nbsp; · &nbsp; $H$ = hypotenuse (opposite the right angle)</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up — calculator and ratio choice</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Use a calculator (degree mode), correct to 3 d.p.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $\cos 37^\circ=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\sin 72^\circ=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\tan 50^\circ=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\cos 21.4^\circ=$ <span class="ans"></span></div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> For each triangle, state which ratio (sin / cos / tan) you would use to find $x$. <em>Do not</em> solve.
+      <div class="tri-row">
+        <div class="tri">
+          <svg width="150" height="100" viewBox="0 0 150 100">
+            <polygon points="20,80 130,80 130,25" fill="none" stroke="#1E2761" stroke-width="2"/>
+            <polygon points="120,80 120,70 130,70 130,80" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+            <path d="M 50,80 A 30,30 0 0 0 41,64" fill="none" stroke="#8a650d" stroke-width="2"/>
+            <text x="42" y="73" font-size="11" fill="#8a650d">29°</text>
+            <text x="60" y="46" font-size="11" fill="#1E2761">7</text>
+            <text x="8" y="68" font-size="11" fill="#1E2761">x</text>
+          </svg>
+          <p class="cap">a) ratio = ______</p>
+        </div>
+        <div class="tri">
+          <svg width="100" height="130" viewBox="0 0 100 130">
+            <polygon points="30,15 90,15 90,115" fill="none" stroke="#1E2761" stroke-width="2"/>
+            <polygon points="80,15 80,25 90,25 90,15" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+            <path d="M 60,15 A 20,20 0 0 1 68,28" fill="none" stroke="#8a650d" stroke-width="2"/>
+            <text x="58" y="38" font-size="10" fill="#8a650d">53°</text>
+            <text x="52" y="10" font-size="11" fill="#1E2761">2</text>
+            <text x="93" y="72" font-size="11" fill="#1E2761">x</text>
+          </svg>
+          <p class="cap">b) ratio = ______</p>
+        </div>
+        <div class="tri">
+          <svg width="170" height="80" viewBox="0 0 170 80">
+            <polygon points="20,60 160,60 160,18" fill="none" stroke="#1E2761" stroke-width="2"/>
+            <polygon points="150,60 150,50 160,50 160,60" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+            <path d="M 130,60 A 30,30 0 0 0 134,50" fill="none" stroke="#8a650d" stroke-width="2"/>
+            <text x="118" y="56" font-size="10" fill="#8a650d">75°</text>
+            <text x="80" y="13" font-size="11" fill="#1E2761">10.3</text>
+            <text x="163" y="42" font-size="11" fill="#1E2761">x</text>
+          </svg>
+          <p class="cap">c) ratio = ______</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Unknown is the numerator</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">For each, set up the trig equation and solve for $x$ to <strong>2 d.p.</strong></p>
+
+    <div class="q qrow">
+      <span class="num">3.</span> Solve the following.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\sin 35^\circ=\dfrac{x}{12}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\cos 42^\circ=\dfrac{x}{9}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\tan 28^\circ=\dfrac{x}{5}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\cos 61^\circ=\dfrac{x}{8.4}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $\sin 70^\circ=\dfrac{x}{15}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $\tan 54^\circ=\dfrac{x}{4.6}$ &nbsp; $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Trig 6A worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Trig 6A — continued</h1>
+      <p>Part B (unknown in the denominator) · Application</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Unknown is the denominator</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">Cross-multiply first, then divide. Answers to <strong>2 d.p.</strong></p>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Solve the following.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\sin 40^\circ=\dfrac{14}{x}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\cos 38^\circ=\dfrac{25}{x}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\tan 52^\circ=\dfrac{9}{x}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\sin 72^\circ=\dfrac{30}{x}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $\cos 45^\circ=\dfrac{18}{x}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $\tan 67^\circ=\dfrac{12.5}{x}$ &nbsp; $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Triangles (draw the equation from the picture)</h2>
+
+    <div class="q qrow">
+      <span class="num">5.</span> Find $x$ in each. <strong>Set up the trig equation first</strong>, then solve to 2 d.p.
+      <div class="tri-row">
+        <div class="tri">
+          <svg width="160" height="120" viewBox="0 0 160 120">
+            <polygon points="20,100 140,100 20,30" fill="none" stroke="#1E2761" stroke-width="2"/>
+            <polygon points="30,100 30,90 20,90 20,100" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+            <path d="M 110,100 A 30,30 0 0 0 106,88" fill="none" stroke="#8a650d" stroke-width="2"/>
+            <text x="95" y="95" font-size="11" fill="#8a650d">27°</text>
+            <text x="55" y="60" font-size="11" fill="#1E2761">11 cm</text>
+            <text x="60" y="115" font-size="11" fill="#1E2761">x cm</text>
+          </svg>
+          <p class="cap">(a) find $x$</p>
+        </div>
+        <div class="tri">
+          <svg width="170" height="120" viewBox="0 0 170 120">
+            <polygon points="20,100 150,100 150,20" fill="none" stroke="#1E2761" stroke-width="2"/>
+            <polygon points="140,100 140,90 150,90 150,100" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+            <path d="M 50,100 A 30,30 0 0 0 41,82" fill="none" stroke="#8a650d" stroke-width="2"/>
+            <text x="40" y="93" font-size="11" fill="#8a650d">69°</text>
+            <text x="60" y="60" font-size="11" fill="#1E2761">x mm</text>
+            <text x="153" y="62" font-size="11" fill="#1E2761">38 mm</text>
+          </svg>
+          <p class="cap">(b) find $x$</p>
+        </div>
+        <div class="tri">
+          <svg width="140" height="140" viewBox="0 0 140 140">
+            <polygon points="20,20 130,20 130,125" fill="none" stroke="#1E2761" stroke-width="2"/>
+            <polygon points="120,20 120,30 130,30 130,20" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+            <path d="M 50,20 A 30,30 0 0 1 56,40" fill="none" stroke="#8a650d" stroke-width="2"/>
+            <text x="45" y="42" font-size="11" fill="#8a650d">33°</text>
+            <text x="75" y="14" font-size="11" fill="#1E2761">x m</text>
+            <text x="105" y="82" font-size="11" fill="#1E2761">21 m</text>
+          </svg>
+          <p class="cap">(c) find $x$ (hypotenuse)</p>
+        </div>
+      </div>
+      <div class="work l"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge — apply the ratio</h2>
+
+    <div class="q qrow">
+      <span class="num">6.</span> A right triangle has a $40^\circ$ angle, with the side opposite that angle measuring $7$ cm. <strong>(a)</strong> Find the length of the hypotenuse to 2 d.p. <strong>(b)</strong> Find the length of the third side (adjacent) to 2 d.p.
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">7.</span> A ladder of length $4.5$ m leans against a wall and makes an angle of $72^\circ$ with the ground. How far up the wall does the top of the ladder reach? Answer to 2 d.p.
+    </div>
+    <div class="work s"></div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · check 6A answers in Cambridge</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

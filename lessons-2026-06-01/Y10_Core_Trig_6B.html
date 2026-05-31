@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Finding Unknown Angles (6B)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  .tri-row { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; margin:8px 0 0 0; }
+  .tri { background:#fff; border:1px solid #ddd; border-radius:6px; padding:8px 10px;
+         font-family:Calibri,Arial,sans-serif; }
+  .tri svg { display:block; }
+  .tri .cap { color:var(--muted); font-size:12px; text-align:center; margin-top:2px; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./">All 01 June lessons</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Mathematics Core — Finding Unknown Angles</h1>
+  <div class="meta">Cambridge Ch 6 — Section 6B &nbsp;•&nbsp; Mon 01 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y10_Core_Trig_6B_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y10_Core_Trig_6B_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="Y10_Core_Trig_6A.html">← Back: Ex 6A Trig ratios</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>In 6A you used sin, cos and tan to find unknown <em>sides</em>. In 6B you use the <strong>inverse</strong> trig functions ($\sin^{-1}$, $\cos^{-1}$, $\tan^{-1}$) to find unknown <em>angles</em>. By the end of today you should be able to:</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Know that <strong>inverse trig functions</strong> reverse sin / cos / tan to give you the angle</li>
+    <li>Use $\sin^{-1}$, $\cos^{-1}$ and $\tan^{-1}$ on the calculator (often the SHIFT or 2nd key)</li>
+    <li>Find an unknown angle in a right-angled triangle given any two side lengths</li>
+    <li>Apply this to short worded problems (ramps, ladders, tunnels)</li>
+  </ul>
+</div>
+
+<h2>Part 1 — The inverse idea (warm up, ~5 min)</h2>
+
+<p>If $\sin 30^\circ=\tfrac{1}{2}$, then the inverse is $\sin^{-1}\!\left(\tfrac{1}{2}\right)=30^\circ$. The inverse function takes a <em>ratio</em> and gives you back the <em>angle</em>.</p>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="InverseTrig.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> from $\cos\theta=\tfrac{1.5}{2.5}$ to $\theta=\cos^{-1}(0.6)\approx 53.13^\circ$.</p>
+</div>
+
+<div class="key-ideas">
+  <h3>The three inverse rules</h3>
+  <p style="font-family:Calibri,Arial,sans-serif; text-align:center; font-size:17px;">
+    If $\sin\theta=k$ then $\theta=\sin^{-1}(k)$ <br>
+    If $\cos\theta=k$ then $\theta=\cos^{-1}(k)$ <br>
+    If $\tan\theta=k$ then $\theta=\tan^{-1}(k)$
+  </p>
+  <p style="font-family:Calibri,Arial,sans-serif; margin-bottom:0;">
+    For $\sin^{-1}$ and $\cos^{-1}$, the input $k$ must satisfy $-1\le k\le 1$. For $\tan^{-1}$, $k$ can be any real number.
+  </p>
+</div>
+
+<div class="callout warn">
+  <strong>Calculator tip.</strong> The inverse functions live above the sin / cos / tan keys, usually as <code>SHIFT</code> then <code>sin</code>. Always check you're in <strong>degree mode</strong> (DEG, not RAD) — most calculator marks come down to this.
+</div>
+
+<div class="practice">
+  <p class="qnum">Building understanding — find $\theta$ to 2 d.p. where necessary.</p>
+  <ol class="qlist" type="a">
+    <li>$\sin\theta=0.4$</li>
+    <li>$\cos\theta=0.5$</li>
+    <li>$\tan\theta=0.2$</li>
+    <li>$\sin\theta=0.1$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\theta=\sin^{-1}(0.4)\approx 23.58^\circ$<br>
+    b) $\theta=\cos^{-1}(0.5)=60^\circ$<br>
+    c) $\theta=\tan^{-1}(0.2)\approx 11.31^\circ$<br>
+    d) $\theta=\sin^{-1}(0.1)\approx 5.74^\circ$
+  </div>
+</div>
+
+<h2>Part 2 — Finding an angle in a triangle (Example 3, ~12 min)</h2>
+
+<p>Step 1: name the two sides you've been given (opp / adj / hyp). Step 2: pick the matching ratio. Step 3: apply the inverse.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 3a</span>
+  <div class="q">
+    Find $\theta$ for this triangle (opp $=1$, hyp $=2$).
+    <div class="tri-row">
+      <div class="tri">
+        <svg width="190" height="120" viewBox="0 0 190 120">
+          <polygon points="20,100 170,100 170,30" fill="none" stroke="#1E2761" stroke-width="2"/>
+          <polygon points="160,100 160,90 170,90 170,100" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+          <path d="M 60,100 A 30,30 0 0 0 56,86" fill="none" stroke="#f5d142" stroke-width="2"/>
+          <text x="48" y="93" font-size="13" fill="#8a650d">θ</text>
+          <text x="85" y="62" font-size="13" fill="#1E2761">2</text>
+          <text x="175" y="68" font-size="13" fill="#1E2761">1</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Opp $=1$ and hyp $=2$ &rarr; use $\sin$.</li>
+      <li>$\sin\theta=\dfrac{1}{2}$</li>
+      <li>$\theta=\sin^{-1}\!\left(\dfrac{1}{2}\right)=\boxed{30^\circ}$</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> opp $=3$, hyp $=6$. &nbsp; Answer: $\theta=\sin^{-1}(\tfrac{1}{2})=30^\circ$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 3b — Watch the walkthrough first</span>
+  <div class="q">
+    Find $\theta$ (adj $=1.5$, hyp $=2.5$). Round to 2 d.p.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show written solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Adj $=1.5$ and hyp $=2.5$ &rarr; use $\cos$.</li>
+      <li>$\cos\theta=\dfrac{1.5}{2.5}=0.6$</li>
+      <li>$\theta=\cos^{-1}(0.6)=\boxed{53.13^\circ}$ (2 d.p.)</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> adj $=7$, hyp $=9$. &nbsp; Answer: $\theta=\cos^{-1}(\tfrac{7}{9})\approx 38.94^\circ$.</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.1 — find $\theta$ to 2 d.p.</p>
+  <ol class="qlist" type="a">
+    <li>$\sin\theta=\dfrac{3}{5}$</li>
+    <li>$\cos\theta=\dfrac{8}{17}$</li>
+    <li>$\tan\theta=\dfrac{7}{24}$</li>
+    <li>$\sin\theta=\dfrac{9}{15}$</li>
+    <li>$\cos\theta=\dfrac{2.4}{6}$</li>
+    <li>$\tan\theta=\dfrac{5}{12}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\theta\approx 36.87^\circ$<br>
+    b) $\theta\approx 61.93^\circ$<br>
+    c) $\theta\approx 16.26^\circ$<br>
+    d) $\theta\approx 36.87^\circ$<br>
+    e) $\theta\approx 66.42^\circ$<br>
+    f) $\theta\approx 22.62^\circ$
+  </div>
+</div>
+
+<h2>Part 3 — A worded application (Example 4, ~10 min)</h2>
+
+<p>When you get a worded problem, <strong>draw the triangle first</strong> with all the lengths and the angle you want to find. Then pick the ratio.</p>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="MineTunnel.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> drawing a right triangle for a mine-tunnel problem, then using $\tan^{-1}$ to find the angle.</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 4 — Mine tunnel</span>
+  <div class="q">
+    A long, straight mine tunnel is dug into the ground. Its final depth is $120$ m and the end of the tunnel is $100$ m horizontally from the entrance. Find the angle $\theta$ the tunnel makes with the horizontal, to 1 d.p.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Draw a right triangle: horizontal leg $=100$, vertical leg $=120$, angle $\theta$ between the tunnel and the horizontal at the entrance.</li>
+      <li>Opp $=120$, adj $=100$ &rarr; use $\tan$.</li>
+      <li>$\tan\theta=\dfrac{120}{100}$</li>
+      <li>$\theta=\tan^{-1}\!\left(\dfrac{120}{100}\right)=\boxed{50.2^\circ}$ (1 d.p.)</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> a rabbit burrow has depth $4$ m and horizontal run $5$ m. &nbsp; Answer: $\theta=\tan^{-1}(\tfrac{4}{5})\approx 38.66^\circ$ ($\approx 38.7^\circ$ to 1 d.p.).</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — short applications, answer to 1 d.p.</p>
+  <ol class="qlist" type="a">
+    <li>A ladder of length $4$ m has its base $1.2$ m from a wall. What angle does the ladder make with the ground?</li>
+    <li>A skateboard ramp rises $0.8$ m over a horizontal run of $5$ m. What is the angle of the ramp?</li>
+    <li>A right triangle has opposite side $9$ and hypotenuse $11$. What is the angle?</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\cos\theta=\tfrac{1.2}{4}\Rightarrow\theta\approx 72.5^\circ$<br>
+    b) $\tan\theta=\tfrac{0.8}{5}\Rightarrow\theta\approx 9.1^\circ$<br>
+    c) $\sin\theta=\tfrac{9}{11}\Rightarrow\theta\approx 54.9^\circ$
+  </div>
+</div>
+
+<h2>Part 4 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> If $\sin\theta=k$, then $\theta=$</p>
+    <label><input type="radio" name="q1" value="a"> $\dfrac{1}{\sin k}$</label>
+    <label><input type="radio" name="q1" value="b"> $\sin(-k)$</label>
+    <label><input type="radio" name="q1" value="c"> $\sin^{-1}(k)$</label>
+    <label><input type="radio" name="q1" value="d"> $k - \sin$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> $\cos^{-1}(0.5) =$</p>
+    <label><input type="radio" name="q2" value="a"> $30^\circ$</label>
+    <label><input type="radio" name="q2" value="b"> $60^\circ$</label>
+    <label><input type="radio" name="q2" value="c"> $45^\circ$</label>
+    <label><input type="radio" name="q2" value="d"> $90^\circ$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q3.</strong> In a right triangle, opp $=4$ and hyp $=8$. Find $\theta$.</p>
+    <label><input type="radio" name="q3" value="a"> $60^\circ$</label>
+    <label><input type="radio" name="q3" value="b"> $30^\circ$</label>
+    <label><input type="radio" name="q3" value="c"> $45^\circ$</label>
+    <label><input type="radio" name="q3" value="d"> $0.5^\circ$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q4.</strong> Solve $\tan\theta=\dfrac{5}{8}$ to 2 d.p.</p>
+    <label><input type="radio" name="q4" value="a"> $\theta\approx 32.01^\circ$</label>
+    <label><input type="radio" name="q4" value="b"> $\theta\approx 57.99^\circ$</label>
+    <label><input type="radio" name="q4" value="c"> $\theta\approx 1.60^\circ$</label>
+    <label><input type="radio" name="q4" value="d"> $\theta\approx 38.66^\circ$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q5.</strong> Which calculator-mode error would give the wildest wrong answers in this topic?</p>
+    <label><input type="radio" name="q5" value="a"> Mixing up sin and cos</label>
+    <label><input type="radio" name="q5" value="b"> Not pressing SHIFT</label>
+    <label><input type="radio" name="q5" value="c"> Calculator in RAD mode instead of DEG</label>
+    <label><input type="radio" name="q5" value="d"> Forgetting brackets</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 6B</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 6 and complete the following:</p>
+<table class="program">
+  <tr><th>Section</th><th>Foundation</th><th>Standard (set work)</th><th>Advanced</th></tr>
+  <tr><td>Fluency 1–3</td><td>1–2 (½)</td><td>1–3 (½)</td><td>1–3 (⅓)</td></tr>
+  <tr><td>Problem-solving 4–7</td><td>4, 5</td><td>5, 6</td><td>6, 7</td></tr>
+  <tr><td>Reasoning 8–10</td><td>8</td><td>8, 9</td><td>9, 10</td></tr>
+  <tr><td>Enrichment 11</td><td>—</td><td>—</td><td>11</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">If you finish early, get started on <strong>Ex 6C — Applications in two dimensions</strong> (angle of elevation / depression). We'll cover that one on Wednesday.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>What does $\sin^{-1}$ do in plain English?</li>
+    <li>If your calculator is in radians, what will $\cos^{-1}(0.5)$ give you instead of $60^\circ$?</li>
+    <li>If you know the opposite and the adjacent sides, which inverse function finds the angle?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Part 1 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

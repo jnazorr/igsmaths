@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Trigonometric Ratios (6A)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  /* Inline triangle SVGs */
+  .tri-row { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; margin:8px 0 0 0; }
+  .tri { background:#fff; border:1px solid #ddd; border-radius:6px; padding:8px 10px;
+         font-family:Calibri,Arial,sans-serif; }
+  .tri svg { display:block; }
+  .tri .cap { color:var(--muted); font-size:12px; text-align:center; margin-top:2px; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./">All 01 June lessons</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Mathematics Core — Trigonometric Ratios</h1>
+  <div class="meta">Cambridge Ch 6 — Section 6A &nbsp;•&nbsp; Mon 01 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y10_Core_Trig_6A_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y10_Core_Trig_6A_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="Y10_Core_Trig_6B.html">→ Next: Ex 6B Finding angles</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>We're starting Chapter 6 — Trigonometry. By the end of today you should be able to:</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Identify the <strong>hypotenuse</strong>, <strong>opposite</strong> and <strong>adjacent</strong> sides relative to a given angle in a right-angled triangle</li>
+    <li>Know the three trig ratios — sine, cosine and tangent — and the <strong>SOHCAHTOA</strong> mnemonic</li>
+    <li>Pick the right ratio for a given triangle based on which sides and angles you know</li>
+    <li>Find an <strong>unknown side length</strong> in a right-angled triangle using a trig ratio</li>
+  </ul>
+</div>
+
+<h2>Part 1 — The three ratios (warm up, ~6 min)</h2>
+
+<p>In any right-angled triangle, label the three sides relative to a chosen angle $\theta$:</p>
+<ul>
+  <li>the <strong>hypotenuse</strong> is the long side opposite the right angle (it never changes)</li>
+  <li>the <strong>opposite</strong> side is across from $\theta$</li>
+  <li>the <strong>adjacent</strong> side is the remaining side, next to $\theta$</li>
+</ul>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="SOHCAHTOA.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> labelling the sides of a right triangle, then the three SOHCAHTOA ratios.</p>
+</div>
+
+<div class="key-ideas">
+  <h3>The three ratios — SOHCAHTOA</h3>
+  <p style="font-family:Calibri,Arial,sans-serif; text-align:center; font-size:18px;">
+    $\sin\theta=\dfrac{\text{opposite}}{\text{hypotenuse}}=\dfrac{O}{H}$ &nbsp;&nbsp;
+    $\cos\theta=\dfrac{\text{adjacent}}{\text{hypotenuse}}=\dfrac{A}{H}$ &nbsp;&nbsp;
+    $\tan\theta=\dfrac{\text{opposite}}{\text{adjacent}}=\dfrac{O}{A}$
+  </p>
+  <p style="font-family:Calibri,Arial,sans-serif; margin-bottom:0;">
+    <strong>SOH-CAH-TOA</strong> &mdash; <em>S</em>ine = <em>O</em>pp/<em>H</em>yp, <em>C</em>os = <em>A</em>dj/<em>H</em>yp, <em>T</em>an = <em>O</em>pp/<em>A</em>dj.
+  </p>
+</div>
+
+<div class="practice">
+  <p class="qnum">Building understanding — use a calculator (degree mode), 3 d.p.</p>
+  <ol class="qlist" type="a">
+    <li>$\cos 37^\circ$</li>
+    <li>$\sin 72^\circ$</li>
+    <li>$\tan 50^\circ$</li>
+    <li>$\cos 21.4^\circ$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $0.799$<br>
+    b) $0.951$<br>
+    c) $1.192$<br>
+    d) $0.931$
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Building understanding — choose the ratio for each triangle (don't solve yet):</p>
+  <div class="tri-row">
+    <div class="tri">
+      <svg width="150" height="110" viewBox="0 0 150 110">
+        <polygon points="20,90 130,90 130,30" fill="none" stroke="#1E2761" stroke-width="2"/>
+        <polygon points="120,90 120,80 130,80 130,90" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+        <path d="M 50,90 A 30,30 0 0 0 39,73" fill="none" stroke="#f5d142" stroke-width="2"/>
+        <text x="40" y="83" font-size="11" fill="#8a650d">29°</text>
+        <text x="60" y="56" font-size="12" fill="#1E2761">7</text>
+        <text x="6" y="78" font-size="12" fill="#1E2761">x</text>
+      </svg>
+      <p class="cap">a) angle 29°, hyp 7, find x (adj)</p>
+    </div>
+    <div class="tri">
+      <svg width="120" height="140" viewBox="0 0 120 140">
+        <polygon points="40,20 100,20 100,120" fill="none" stroke="#1E2761" stroke-width="2"/>
+        <polygon points="90,20 90,30 100,30 100,20" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+        <path d="M 70,20 A 20,20 0 0 1 80,32" fill="none" stroke="#f5d142" stroke-width="2"/>
+        <text x="70" y="40" font-size="11" fill="#8a650d">53°</text>
+        <text x="60" y="14" font-size="12" fill="#1E2761">2</text>
+        <text x="105" y="78" font-size="12" fill="#1E2761">x</text>
+      </svg>
+      <p class="cap">b) angle 53°, adj 2, find x (opp)</p>
+    </div>
+    <div class="tri">
+      <svg width="170" height="80" viewBox="0 0 170 80">
+        <polygon points="20,60 160,60 160,20" fill="none" stroke="#1E2761" stroke-width="2"/>
+        <polygon points="150,60 150,50 160,50 160,60" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+        <path d="M 130,60 A 30,30 0 0 0 134,50" fill="none" stroke="#f5d142" stroke-width="2"/>
+        <text x="118" y="56" font-size="11" fill="#8a650d">75°</text>
+        <text x="85" y="14" font-size="12" fill="#1E2761">10.3</text>
+        <text x="163" y="44" font-size="12" fill="#1E2761">x</text>
+      </svg>
+      <p class="cap">c) angle 75°, hyp 10.3, find x (opp)</p>
+    </div>
+  </div>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) hyp + adj &rarr; use $\cos$ &nbsp;&nbsp; b) adj + opp &rarr; use $\tan$ &nbsp;&nbsp; c) hyp + opp &rarr; use $\sin$
+  </div>
+</div>
+
+<h2>Part 2 — Solving for the numerator (Example 1, ~12 min)</h2>
+
+<p>When the unknown is on top of the fraction (i.e. $\cos 27^\circ=\dfrac{x}{11}$), you can solve in one step by multiplying both sides by the bottom number.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 1a — Watch the walkthrough first</span>
+  <div class="q">
+    Find $x$, correct to 2 d.p.
+    <div class="tri-row">
+      <div class="tri">
+        <svg width="200" height="140" viewBox="0 0 200 140">
+          <polygon points="20,110 180,110 20,40" fill="none" stroke="#1E2761" stroke-width="2"/>
+          <polygon points="30,110 30,100 20,100 20,110" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+          <path d="M 150,110 A 30,30 0 0 0 145,96" fill="none" stroke="#f5d142" stroke-width="2"/>
+          <text x="135" y="105" font-size="11" fill="#8a650d">27°</text>
+          <text x="80" y="65" font-size="13" fill="#1E2761">11 cm</text>
+          <text x="80" y="125" font-size="13" fill="#1E2761">x cm</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="video-block">
+    <video controls preload="metadata" playsinline>
+      <source src="Example1a.mp4" type="video/mp4">
+      Your browser doesn't support embedded video.
+    </video>
+    <p class="caption">📺 Pick the right ratio (cos), set up the equation, multiply through.</p>
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show written solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>$x$ is adjacent to $27^\circ$, and $11$ is the hypotenuse &rarr; use $\cos$.</li>
+      <li>$\cos 27^\circ=\dfrac{x}{11}$</li>
+      <li>$x=11\times\cos 27^\circ=\boxed{9.80\text{ cm}}$ (2 d.p.)</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> Hyp 3 cm, angle 24°, find adjacent $x$. &nbsp; Answer: $x=3\cos 24^\circ\approx 2.74$ cm.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 1b</span>
+  <div class="q">
+    Find $x$ where the side $38$ mm is adjacent to a $69^\circ$ angle, and $x$ mm is the opposite side. Round to 2 d.p.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>$x$ is opposite, $38$ is adjacent &rarr; use $\tan$.</li>
+      <li>$\tan 69^\circ=\dfrac{x}{38}$</li>
+      <li>$x=38\times\tan 69^\circ=\boxed{98.99\text{ mm}}$ (2 d.p.)</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> Adj 21 m, angle 50°, find opposite $x$. &nbsp; Answer: $x=21\tan 50^\circ\approx 25.03$ m.</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.1 — find $x$ (unknown is the numerator), 2 d.p.</p>
+  <ol class="qlist" type="a">
+    <li>$\sin 35^\circ=\dfrac{x}{12}$</li>
+    <li>$\cos 42^\circ=\dfrac{x}{9}$</li>
+    <li>$\tan 28^\circ=\dfrac{x}{5}$</li>
+    <li>$\cos 61^\circ=\dfrac{x}{8.4}$</li>
+    <li>$\sin 70^\circ=\dfrac{x}{15}$</li>
+    <li>$\tan 54^\circ=\dfrac{x}{4.6}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $x=12\sin 35^\circ\approx 6.88$<br>
+    b) $x=9\cos 42^\circ\approx 6.69$<br>
+    c) $x=5\tan 28^\circ\approx 2.66$<br>
+    d) $x=8.4\cos 61^\circ\approx 4.07$<br>
+    e) $x=15\sin 70^\circ\approx 14.10$<br>
+    f) $x=4.6\tan 54^\circ\approx 6.33$
+  </div>
+</div>
+
+<h2>Part 3 — Solving for the denominator (Example 2, ~10 min)</h2>
+
+<p>If the unknown is on the <em>bottom</em> of the fraction, you need two steps: cross-multiply first, then divide.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 2a</span>
+  <div class="q">$\sin 33^\circ=\dfrac{21}{x}$ &nbsp;(opposite 21 m, hypotenuse $x$ m). Find $x$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>$\sin 33^\circ=\dfrac{21}{x}$</li>
+      <li>Multiply both sides by $x$: &nbsp; $x\times\sin 33^\circ=21$</li>
+      <li>Divide both sides by $\sin 33^\circ$: &nbsp; $x=\dfrac{21}{\sin 33^\circ}=\boxed{38.56\text{ m}}$ (2 d.p.)</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> $\sin 31^\circ=\dfrac{6}{x}$. &nbsp; Answer: $x=\dfrac{6}{\sin 31^\circ}\approx 11.65$ m.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 2b</span>
+  <div class="q">$\tan 53^\circ=\dfrac{71.3}{x}$. Find $x$, 2 d.p.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>$\tan 53^\circ=\dfrac{71.3}{x}$</li>
+      <li>$x\times\tan 53^\circ=71.3$</li>
+      <li>$x=\dfrac{71.3}{\tan 53^\circ}=\boxed{53.73}$ (2 d.p.)</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> $\tan 46^\circ=\dfrac{27.2}{x}$. &nbsp; Answer: $x\approx 26.27$.</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — find $x$ (unknown is the denominator), 2 d.p.</p>
+  <ol class="qlist" type="a">
+    <li>$\sin 40^\circ=\dfrac{14}{x}$</li>
+    <li>$\cos 38^\circ=\dfrac{25}{x}$</li>
+    <li>$\tan 52^\circ=\dfrac{9}{x}$</li>
+    <li>$\sin 72^\circ=\dfrac{30}{x}$</li>
+    <li>$\cos 45^\circ=\dfrac{18}{x}$</li>
+    <li>$\tan 67^\circ=\dfrac{12.5}{x}$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $x=14/\sin 40^\circ\approx 21.78$<br>
+    b) $x=25/\cos 38^\circ\approx 31.73$<br>
+    c) $x=9/\tan 52^\circ\approx 7.03$<br>
+    d) $x=30/\sin 72^\circ\approx 31.54$<br>
+    e) $x=18/\cos 45^\circ\approx 25.46$<br>
+    f) $x=12.5/\tan 67^\circ\approx 5.31$
+  </div>
+</div>
+
+<h2>Part 4 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> In a right triangle, the side <em>opposite the right angle</em> is called the:</p>
+    <label><input type="radio" name="q1" value="a"> opposite side</label>
+    <label><input type="radio" name="q1" value="b"> adjacent side</label>
+    <label><input type="radio" name="q1" value="c"> hypotenuse</label>
+    <label><input type="radio" name="q1" value="d"> base</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> $\sin\theta$ equals which ratio?</p>
+    <label><input type="radio" name="q2" value="a"> adjacent / hypotenuse</label>
+    <label><input type="radio" name="q2" value="b"> opposite / hypotenuse</label>
+    <label><input type="radio" name="q2" value="c"> opposite / adjacent</label>
+    <label><input type="radio" name="q2" value="d"> hypotenuse / opposite</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> A triangle has hypotenuse 10 and you know the angle 60°. Which ratio finds the opposite side?</p>
+    <label><input type="radio" name="q3" value="a"> $\sin 60^\circ=\dfrac{x}{10}$</label>
+    <label><input type="radio" name="q3" value="b"> $\cos 60^\circ=\dfrac{x}{10}$</label>
+    <label><input type="radio" name="q3" value="c"> $\tan 60^\circ=\dfrac{x}{10}$</label>
+    <label><input type="radio" name="q3" value="d"> $\sin 60^\circ=\dfrac{10}{x}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> Solve $\cos 40^\circ=\dfrac{x}{15}$ to 2 d.p.</p>
+    <label><input type="radio" name="q4" value="a"> $x\approx 9.64$</label>
+    <label><input type="radio" name="q4" value="b"> $x\approx 19.58$</label>
+    <label><input type="radio" name="q4" value="c"> $x\approx 0.77$</label>
+    <label><input type="radio" name="q4" value="d"> $x\approx 11.49$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> Solve $\tan 35^\circ=\dfrac{8}{x}$ to 2 d.p.</p>
+    <label><input type="radio" name="q5" value="a"> $x\approx 5.60$</label>
+    <label><input type="radio" name="q5" value="b"> $x\approx 11.43$</label>
+    <label><input type="radio" name="q5" value="c"> $x\approx 4.59$</label>
+    <label><input type="radio" name="q5" value="d"> $x\approx 13.94$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 6A</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 6 and complete the following:</p>
+<table class="program">
+  <tr><th>Section</th><th>Foundation</th><th>Standard (set work)</th><th>Advanced</th></tr>
+  <tr><td>Fluency 1–3</td><td>1–2 (½)</td><td>1–2 (½)</td><td>1–2 (⅓), 3</td></tr>
+  <tr><td>Problem-solving 4–9</td><td>4, 5</td><td>5–7</td><td>6–9</td></tr>
+  <tr><td>Reasoning 10–11</td><td>10</td><td>10</td><td>10, 11</td></tr>
+  <tr><td>Enrichment 12</td><td>—</td><td>—</td><td>12</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">If you finish early, start <strong>Ex 6B — Finding unknown angles</strong> using the other lesson page.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>Which side of a right triangle is the hypotenuse?</li>
+    <li>What does the C and the H in CAH stand for?</li>
+    <li>In a right triangle you know the hypotenuse and an angle. Which ratio finds the side opposite that angle?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Part 1 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

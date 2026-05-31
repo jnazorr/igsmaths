@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Trig 6B (Finding Unknown Angles)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .key .rule { text-align:center; font-size: 11pt; margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+
+  .tri-row { display:flex; gap: 6mm; flex-wrap:wrap; margin: 1mm 0 1mm 6mm; align-items:flex-start; }
+  .tri { text-align:center; }
+  .tri svg { display:block; margin: 0 auto; }
+  .tri .cap { font-family: Calibri, Arial, sans-serif; color: var(--muted); font-size: 8.5pt; margin-top: 1mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">01 June lessons</a>
+    <a href="Y10_Core_Trig_6B.html">Lesson 6B</a>
+    <a href="Y10_Core_Trig_6B_solutions.html">Solutions 6B</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Finding Unknown Angles (Ex 6B)</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 6, §6B · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Use $\sin^{-1}$, $\cos^{-1}$ and $\tan^{-1}$ to undo a trig ratio and find an angle</li>
+      <li>Choose the correct ratio from the two sides you've been given</li>
+      <li>Apply this to short worded problems by drawing the triangle first</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results — inverse trig functions</h3>
+    <p class="rule">If $\sin\theta=k$ then $\theta=\sin^{-1}(k)$ &nbsp;·&nbsp; If $\cos\theta=k$ then $\theta=\cos^{-1}(k)$ &nbsp;·&nbsp; If $\tan\theta=k$ then $\theta=\tan^{-1}(k)$</p>
+    <p style="text-align:center; font-size:9pt;">Check your calculator is in <strong>degree mode (DEG)</strong>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up — calculator</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> State the missing part of each sentence.
+      <div class="parts col1">
+        <div class="p"><span class="letter">a</span> If $\cos 60^\circ=0.5$, then $\cos^{-1}(0.5)=$ <span class="ans"></span> °.</div>
+        <div class="p"><span class="letter">b</span> If $\sin 30^\circ=\tfrac{1}{2}$, then $\sin^{-1}\!\big(\;\,$ <span class="ans"></span> $\;\big)=30^\circ$.</div>
+        <div class="p"><span class="letter">c</span> If $\tan 37^\circ\approx 0.75$, then $\tan^{-1}\!\big(\;\,$ <span class="ans"></span> $\;\big)\approx 37^\circ$.</div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Find $\theta$ to 2 d.p. where necessary.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $\sin\theta=0.4$ &nbsp; $\theta=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\cos\theta=0.5$ &nbsp; $\theta=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\tan\theta=0.2$ &nbsp; $\theta=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\sin\theta=0.1$ &nbsp; $\theta=$ <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Find the angle from a fraction of sides</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">Set up the inverse and write $\theta$ to <strong>2 d.p.</strong></p>
+
+    <div class="q qrow">
+      <span class="num">3.</span> Solve.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\sin\theta=\dfrac{3}{5}$ &nbsp; $\theta=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\cos\theta=\dfrac{8}{17}$ &nbsp; $\theta=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\tan\theta=\dfrac{7}{24}$ &nbsp; $\theta=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\sin\theta=\dfrac{9}{15}$ &nbsp; $\theta=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $\cos\theta=\dfrac{2.4}{6}$ &nbsp; $\theta=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $\tan\theta=\dfrac{5}{12}$ &nbsp; $\theta=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Trig 6B worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Trig 6B — continued</h1>
+      <p>Part B (triangles) · Part C (applications)</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — From the diagram</h2>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Find $\theta$ in each. <strong>Pick the ratio first</strong> from the two labelled sides, then apply the inverse. Round to 2 d.p.
+      <div class="tri-row">
+        <div class="tri">
+          <svg width="180" height="120" viewBox="0 0 180 120">
+            <polygon points="20,100 160,100 20,30" fill="none" stroke="#1E2761" stroke-width="2"/>
+            <polygon points="30,100 30,90 20,90 20,100" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+            <path d="M 60,100 A 30,30 0 0 0 55,86" fill="none" stroke="#8a650d" stroke-width="2"/>
+            <text x="50" y="93" font-size="13" fill="#8a650d">θ</text>
+            <text x="80" y="60" font-size="11" fill="#1E2761">2</text>
+            <text x="170" y="68" font-size="11" fill="#1E2761">1</text>
+          </svg>
+          <p class="cap">(a) opp 1, hyp 2</p>
+        </div>
+        <div class="tri">
+          <svg width="160" height="130" viewBox="0 0 160 130">
+            <polygon points="20,110 140,110 140,30" fill="none" stroke="#1E2761" stroke-width="2"/>
+            <polygon points="130,110 130,100 140,100 140,110" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+            <path d="M 60,110 A 30,30 0 0 0 51,93" fill="none" stroke="#8a650d" stroke-width="2"/>
+            <text x="45" y="103" font-size="13" fill="#8a650d">θ</text>
+            <text x="70" y="125" font-size="11" fill="#1E2761">1.5</text>
+            <text x="145" y="76" font-size="11" fill="#1E2761">2.5</text>
+            <text x="50" y="74" font-size="9" fill="#777">hyp 2.5</text>
+          </svg>
+          <p class="cap">(b) adj 1.5, hyp 2.5</p>
+        </div>
+        <div class="tri">
+          <svg width="160" height="130" viewBox="0 0 160 130">
+            <polygon points="20,110 140,110 140,30" fill="none" stroke="#1E2761" stroke-width="2"/>
+            <polygon points="130,110 130,100 140,100 140,110" fill="none" stroke="#1E2761" stroke-width="1.5"/>
+            <path d="M 60,110 A 30,30 0 0 0 51,93" fill="none" stroke="#8a650d" stroke-width="2"/>
+            <text x="45" y="103" font-size="13" fill="#8a650d">θ</text>
+            <text x="70" y="125" font-size="11" fill="#1E2761">5</text>
+            <text x="145" y="76" font-size="11" fill="#1E2761">3</text>
+          </svg>
+          <p class="cap">(c) adj 5, opp 3</p>
+        </div>
+      </div>
+      <div class="work l"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Applications</h2>
+
+    <div class="q qrow">
+      <span class="num">5.</span> A long, straight mine tunnel is dug into the ground. Its final depth is $120$ m and the end of the tunnel is $100$ m horizontally from the entrance. Find the angle $\theta$ the tunnel makes with the horizontal, to <strong>1 d.p.</strong>
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">6.</span> A $4$ m ladder rests against a vertical wall, with its base $1.2$ m from the wall. Find the angle the ladder makes with the ground, to <strong>1 d.p.</strong>
+    </div>
+    <div class="work s"></div>
+
+    <div class="q qrow">
+      <span class="num">7.</span> A skateboard ramp rises $0.8$ m over a horizontal run of $5$ m. Find the angle of the ramp, to <strong>1 d.p.</strong>
+    </div>
+    <div class="work s"></div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> <strong>Challenge.</strong> A kite is at the end of a $35$ m straight string. The kite is $28$ m vertically above the person holding the string. Find the angle the string makes with the ground, to 1 d.p. (Assume the string is straight.)
+    </div>
+    <div class="work s"></div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · check 6B answers in Cambridge</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

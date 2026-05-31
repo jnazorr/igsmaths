@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions — Y10 Core Trig 6B Worksheet</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --good:#2C5F2D; --good-bg:#E8F1E8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          position:relative; font-size: 9.8pt; line-height: 1.28; overflow: hidden; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--good); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--good); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .stamp { font-family: Calibri, Arial, sans-serif; font-size: 9.5pt;
+                  background:var(--good-bg); color:var(--good); padding: 3mm 5mm;
+                  border:1px solid var(--good); border-radius: 2mm; font-weight:bold; }
+
+  .section { margin: 0 0 3mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11pt; }
+  .section .pq { font-family: Calibri, Arial, sans-serif; font-size: 9.4pt; color:var(--muted);
+                 margin: 0 0 1.5mm 0; }
+  .section .pq strong { color: var(--navy); }
+
+  .answers { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.5mm 8mm;
+             font-family: Calibri, Arial, sans-serif; font-size: 9.6pt;
+             padding-left: 6mm; }
+  .answers.col1 { grid-template-columns: 1fr; }
+  .answers.col3 { grid-template-columns: repeat(3, 1fr); }
+  .answers .a { display:flex; align-items:baseline; gap: 2mm; padding: 0.5mm 0; }
+  .answers .a .letter { color:var(--muted); font-style:italic; min-width: 4mm; flex-shrink:0; }
+  .answers .a .ans { color:var(--good); font-weight:bold; }
+  .answers .a .work { color:var(--muted); font-size: 9pt; margin-left: 1mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+    .no-print, .lesson-nav { display:none; }
+  }
+
+  .print-btn { position:fixed; top:50px; right:8mm; background:var(--good); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background:#1E2761; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">01 June lessons</a>
+    <a href="Y10_Core_Trig_6B.html">Lesson 6B</a>
+    <a href="Y10_Core_Trig_6B_worksheet.html">Worksheet 6B</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solutions — Trig 6B Worksheet</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 6, §6B · Mr Wong</p>
+    </div>
+    <div class="stamp">ANSWER KEY</div>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up</h2>
+    <p class="pq"><strong>Q1.</strong> Missing parts:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span> <span class="ans">$60$</span> <span class="work">($\cos^{-1}(0.5)=60^\circ$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$\tfrac{1}{2}$</span> <span class="work">($\sin^{-1}(\tfrac{1}{2})=30^\circ$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$0.75$</span> <span class="work">($\tan^{-1}(0.75)\approx 36.87^\circ$)</span></div>
+    </div>
+    <p class="pq" style="margin-top:2mm"><strong>Q2.</strong> Inverse trig (2 d.p.):</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$23.58^\circ$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$60^\circ$</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$11.31^\circ$</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$5.74^\circ$</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Find the angle</h2>
+    <p class="pq"><strong>Q3.</strong> Apply the inverse, 2 d.p.</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$36.87^\circ$</span> <span class="work">($\sin^{-1}(\tfrac{3}{5})$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$61.93^\circ$</span> <span class="work">($\cos^{-1}(\tfrac{8}{17})$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$16.26^\circ$</span> <span class="work">($\tan^{-1}(\tfrac{7}{24})$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$36.87^\circ$</span> <span class="work">($\tfrac{9}{15}=0.6$)</span></div>
+      <div class="a"><span class="letter">e</span> <span class="ans">$66.42^\circ$</span> <span class="work">($\cos^{-1}(0.4)$)</span></div>
+      <div class="a"><span class="letter">f</span> <span class="ans">$22.62^\circ$</span> <span class="work">($\tan^{-1}(\tfrac{5}{12})$)</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — From the diagrams</h2>
+    <p class="pq"><strong>Q4.</strong> Pick the ratio, then invert.</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span>
+        <span>opp + hyp &rarr; $\sin\theta=\tfrac{1}{2}\;\Rightarrow\;\theta=\sin^{-1}(0.5)=$ <span class="ans">$30^\circ$</span></span>
+      </div>
+      <div class="a"><span class="letter">b</span>
+        <span>adj + hyp &rarr; $\cos\theta=\tfrac{1.5}{2.5}=0.6\;\Rightarrow\;\theta=\cos^{-1}(0.6)\approx$ <span class="ans">$53.13^\circ$</span></span>
+      </div>
+      <div class="a"><span class="letter">c</span>
+        <span>opp + adj &rarr; $\tan\theta=\tfrac{3}{5}\;\Rightarrow\;\theta=\tan^{-1}(0.6)\approx$ <span class="ans">$30.96^\circ$</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Applications</h2>
+    <p class="pq"><strong>Q5.</strong> Mine tunnel:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">·</span>
+        <span>opp = 120, adj = 100 &rarr; $\tan\theta=\tfrac{120}{100}\;\Rightarrow\;\theta=\tan^{-1}(1.2)\approx$ <span class="ans">$50.2^\circ$</span></span>
+      </div>
+    </div>
+    <p class="pq" style="margin-top:2mm"><strong>Q6.</strong> Ladder:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">·</span>
+        <span>adj $=1.2$, hyp $=4$ &rarr; $\cos\theta=\tfrac{1.2}{4}=0.3\;\Rightarrow\;\theta=\cos^{-1}(0.3)\approx$ <span class="ans">$72.5^\circ$</span></span>
+      </div>
+    </div>
+    <p class="pq" style="margin-top:2mm"><strong>Q7.</strong> Ramp:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">·</span>
+        <span>opp $=0.8$, adj $=5$ &rarr; $\tan\theta=\tfrac{0.8}{5}=0.16\;\Rightarrow\;\theta=\tan^{-1}(0.16)\approx$ <span class="ans">$9.1^\circ$</span></span>
+      </div>
+    </div>
+    <p class="pq" style="margin-top:2mm"><strong>Q8.</strong> Kite (string is hypotenuse $35$, height is opposite $28$):</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">·</span>
+        <span>$\sin\theta=\tfrac{28}{35}=0.8\;\Rightarrow\;\theta=\sin^{-1}(0.8)\approx$ <span class="ans">$53.1^\circ$</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Trig 6B · Solutions</span>
+    <span>Page 1 of 1 · Hand back to Mr Wong</span>
+  </div>
+</section>
+
+</body>
+</html>
