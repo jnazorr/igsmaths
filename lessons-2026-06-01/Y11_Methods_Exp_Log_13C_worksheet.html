@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y11 Methods Exp/Log 13C (Graphs of Exponential Functions)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .key .rule { text-align:center; font-size: 10.5pt; margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+
+  .vals { display:grid; grid-template-columns: repeat(2, 1fr); gap: 3mm 6mm; margin: 1mm 0 0 6mm; }
+  .vals table { border-collapse: collapse; font-family: Calibri, Arial, sans-serif; font-size: 9.5pt; }
+  .vals th, .vals td { border:1px solid #999; padding: 1mm 4mm; text-align:center; min-width: 8mm; }
+  .vals th { background:#eef3fb; color:var(--navy); }
+
+  .grid-row { display:flex; gap:6mm; flex-wrap:wrap; margin: 1mm 0 0 6mm; }
+  .grid-box { border:1px solid #999; padding: 0; width: 60mm; height: 50mm;
+              background-image:
+                linear-gradient(#e7dfd1 1px, transparent 1px),
+                linear-gradient(90deg, #e7dfd1 1px, transparent 1px);
+              background-size: 5mm 5mm; position:relative; }
+  .grid-box::before { content:""; position:absolute; left: 50%; top: 0; bottom: 0; border-left: 1px solid #333; }
+  .grid-box::after  { content:""; position:absolute; top: 50%; left: 0; right: 0; border-top:  1px solid #333; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">01 June lessons</a>
+    <a href="Y11_Methods_Exp_Log_13C.html">Lesson 13C</a>
+    <a href="Y11_Methods_Exp_Log_13C_solutions.html">Solutions 13C</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Graphs of Exponential Functions (Ex 13C)</h1>
+      <p>Year 11 Mathematical Methods Unit 1 · Cambridge §13C · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Sketch $y=a^x$ for $a&gt;1$ and for $0&lt;a&lt;1$, with asymptote, $y$-intercept and range</li>
+      <li>Apply dilations, translations and reflections to produce $y=k\,a^{nx}+c$ style functions</li>
+      <li>State the asymptote, $y$-intercept and range for a transformed exponential</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results — $y=a^x$ ($a&gt;0,\;a\ne 1$)</h3>
+    <p class="rule">Domain $\mathbb{R}$ · Range $\mathbb{R}^+$ · $y$-int $(0,1)$ · Asymptote $y=0$</p>
+    <p style="text-align:center; font-size:9pt;">Vertical shift by $c$ moves the asymptote to $y=c$. A leading minus reflects in the $x$-axis.</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up — table of values</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Complete the tables.
+      <div class="vals">
+        <div>
+          <p style="margin:0 0 1mm 0;">$y=2^x$</p>
+          <table>
+            <tr><th>$x$</th><td>$-2$</td><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td></tr>
+            <tr><th>$y$</th><td></td><td></td><td></td><td></td><td></td></tr>
+          </table>
+        </div>
+        <div>
+          <p style="margin:0 0 1mm 0;">$y=5^x$</p>
+          <table>
+            <tr><th>$x$</th><td>$-2$</td><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td></tr>
+            <tr><th>$y$</th><td></td><td></td><td></td><td></td><td></td></tr>
+          </table>
+        </div>
+        <div>
+          <p style="margin:0 0 1mm 0;">$y=\left(\tfrac{1}{2}\right)^x$</p>
+          <table>
+            <tr><th>$x$</th><td>$-2$</td><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td></tr>
+            <tr><th>$y$</th><td></td><td></td><td></td><td></td><td></td></tr>
+          </table>
+        </div>
+        <div>
+          <p style="margin:0 0 1mm 0;">$y=3^x$</p>
+          <table>
+            <tr><th>$x$</th><td>$-2$</td><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td></tr>
+            <tr><th>$y$</th><td></td><td></td><td></td><td></td><td></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> For $y=a^x$ (any allowed base), state: domain = <span style="display:inline-block; border-bottom:1px solid #aaa; min-width:30mm">&nbsp;</span> &nbsp;&nbsp; range = <span style="display:inline-block; border-bottom:1px solid #aaa; min-width:30mm">&nbsp;</span> &nbsp;&nbsp; asymptote: $y=$ <span style="display:inline-block; border-bottom:1px solid #aaa; min-width:14mm">&nbsp;</span> &nbsp;&nbsp; $y$-int: <span style="display:inline-block; border-bottom:1px solid #aaa; min-width:18mm">&nbsp;</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — State the asymptote, $y$-intercept and range</h2>
+
+    <div class="q qrow">
+      <span class="num">3.</span> For each, fill in the table. <em>Do not</em> sketch yet.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $y=2^x+5$: asy ____ · y-int ____ · range ____</div>
+        <div class="p"><span class="letter">b</span> $y=2^x-3$: asy ____ · y-int ____ · range ____</div>
+        <div class="p"><span class="letter">c</span> $y=3\times 2^x$: asy ____ · y-int ____ · range ____</div>
+        <div class="p"><span class="letter">d</span> $y=-2^x+1$: asy ____ · y-int ____ · range ____</div>
+        <div class="p"><span class="letter">e</span> $y=4\times 5^{-x}-2$: asy ____ · y-int ____ · range ____</div>
+        <div class="p"><span class="letter">f</span> $y=-3\times 2^{-4x}+5$: asy ____ · y-int ____ · range ____</div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y11 Methods · Exp/Log 13C worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Exp Graphs 13C — continued</h1>
+      <p>Part B (sketching) · Application</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Sketch on the axes</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">Sketch each graph on the grid. Label the asymptote (dashed line) and the $y$-intercept.</p>
+
+    <div class="q qrow">
+      <span class="num">4.</span> $y=2^x+3$
+      <div class="grid-row">
+        <div class="grid-box"></div>
+      </div>
+      <p style="margin: 1mm 0 0 6mm; font-size: 9pt;">Asymptote: $y=$ ____ · $y$-intercept: ____ · Range: ____</p>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">5.</span> $y=2\times 3^{2x}+1$
+      <div class="grid-row">
+        <div class="grid-box"></div>
+      </div>
+      <p style="margin: 1mm 0 0 6mm; font-size: 9pt;">Asymptote: $y=$ ____ · $y$-intercept: ____ · Range: ____</p>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">6.</span> $y=-3^{2x}+4$  &nbsp;<em>(use CAS for any $x$-intercept)</em>
+      <div class="grid-row">
+        <div class="grid-box"></div>
+      </div>
+      <p style="margin: 1mm 0 0 6mm; font-size: 9pt;">Asymptote: $y=$ ____ · $y$-intercept: ____ · Range: ____</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Identify and apply</h2>
+
+    <div class="q qrow">
+      <span class="num">7.</span> Match each rule to its asymptote and $y$-intercept (one row per function).
+      <table style="width:100%; border-collapse:collapse; font-family:Calibri,Arial,sans-serif; font-size:9.5pt; margin-top: 1mm;">
+        <tr style="background:#eef3fb;"><th style="border:1px solid #999; padding:1mm 3mm;">Function</th><th style="border:1px solid #999; padding:1mm 3mm;">Asymptote</th><th style="border:1px solid #999; padding:1mm 3mm;">$y$-intercept</th><th style="border:1px solid #999; padding:1mm 3mm;">Range</th></tr>
+        <tr><td style="border:1px solid #999; padding:1.5mm 3mm;">$y=3^x-4$</td><td style="border:1px solid #999;"></td><td style="border:1px solid #999;"></td><td style="border:1px solid #999;"></td></tr>
+        <tr><td style="border:1px solid #999; padding:1.5mm 3mm;">$y=5\times 2^x$</td><td style="border:1px solid #999;"></td><td style="border:1px solid #999;"></td><td style="border:1px solid #999;"></td></tr>
+        <tr><td style="border:1px solid #999; padding:1.5mm 3mm;">$y=-4^x+6$</td><td style="border:1px solid #999;"></td><td style="border:1px solid #999;"></td><td style="border:1px solid #999;"></td></tr>
+        <tr><td style="border:1px solid #999; padding:1.5mm 3mm;">$y=2\times 3^{-x}+1$</td><td style="border:1px solid #999;"></td><td style="border:1px solid #999;"></td><td style="border:1px solid #999;"></td></tr>
+      </table>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> A population $P$ (in thousands) is modelled by $P=4\times 2^{0.5\,t}$ where $t$ is years from now. <strong>(a)</strong> What is the current population? <strong>(b)</strong> What is the population after $4$ years? <strong>(c)</strong> Does this model have an upper bound? Briefly explain.
+    </div>
+    <div class="work m"></div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · then attempt Cambridge Ex 13C set work</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

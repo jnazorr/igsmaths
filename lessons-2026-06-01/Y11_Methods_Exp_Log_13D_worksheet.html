@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y11 Methods Exp/Log 13D (Solving Exponential Equations)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .key .rule { text-align:center; font-size: 10.5pt; margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">01 June lessons</a>
+    <a href="Y11_Methods_Exp_Log_13D.html">Lesson 13D</a>
+    <a href="Y11_Methods_Exp_Log_13D_solutions.html">Solutions 13D</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solving Exponential Equations &amp; Inequalities (Ex 13D)</h1>
+      <p>Year 11 Mathematical Methods Unit 1 · Cambridge §13D · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Solve $a^{f(x)}=a^{g(x)}$ by rewriting both sides with the same base and equating indices</li>
+      <li>Recognise and solve "quadratic in $a^x$" problems using a substitution $u=a^x$</li>
+      <li>Solve simple exponential inequalities, choosing the correct direction for the base</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p class="rule">If $a&gt;0,\;a\ne 1$:&nbsp; $a^x=a^y \;\Leftrightarrow\; x=y$</p>
+    <p class="rule">If $a&gt;1$: &nbsp;$a^x&gt;a^y \Leftrightarrow x&gt;y$ &nbsp;|&nbsp; If $0&lt;a&lt;1$: &nbsp;$a^x&gt;a^y \Leftrightarrow x&lt;y$</p>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Basic same base</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Solve each equation. Show one line of "rewrite with same base" working.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $2^x=32$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $5^x=625$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $3^x=81$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $2^x=\tfrac{1}{8}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $4^{x+1}=8$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $16^x=\tfrac{1}{2}$ &nbsp; $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Rewriting both sides</h2>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Solve each equation.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $2^x=4^{x+1}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $3^x=9^{x-2}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $9^x=27^{x-1}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $25^{x-1}=125$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $7\times 7^{x-2}=49^{4-x}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $25\times 5^x=125^{2-x}$ &nbsp; $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work l"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">3.</span> Reciprocals and surds.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $9^{3-x}=\dfrac{1}{27^{3x}}$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $25^{2x-1}=\dfrac{1}{\sqrt{5}}$ &nbsp; $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y11 Methods · Exp/Log 13D worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Exp Equations 13D — continued</h1>
+      <p>Part C (quadratics in disguise) · Part D (inequalities)</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Quadratic in $a^x$</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">Use the substitution $u=a^x$. Show the quadratic step.</p>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Solve.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $4^x+2^x-20=0$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $25^x-23(5^x)-50=0$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $9^x-4(3^x)+3=0$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $4^x-9(2^x)+8=0$ &nbsp; $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work l"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part D — Inequalities</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">State each solution as a simple inequality in $x$.</p>
+
+    <div class="q qrow">
+      <span class="num">5.</span> Solve.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $16^x &gt; 2$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $3^{2x-1}\le 9$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $2^{-3x+1}&lt;\tfrac{1}{16}$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\left(\tfrac{1}{3}\right)^x\ge 9$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $2^x &gt; 8$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $\left(\tfrac{1}{4}\right)^x &gt; 32$ &nbsp; <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+
+    <div class="q qrow">
+      <span class="num">6.</span> A bacterial colony grows so that the number of cells $N$ satisfies $N=200\times 2^{t/3}$, with $t$ in hours. Find $t$ when $N=12\,800$. <em>(Force the same base.)</em>
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">7.</span> Use CAS to solve $5^x=10$ correct to 2 decimal places, then write the exact answer in the form $x=\dfrac{\ln 10}{\ln 5}$.
+    </div>
+    <div class="work s"></div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · then attempt Cambridge Ex 13D set work</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>
