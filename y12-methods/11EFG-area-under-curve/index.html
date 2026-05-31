@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 12 Methods — Area Under a Curve (11E/F/G)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:980px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .formula-box { background:#EAF2FB; border:2px solid var(--navy); border-radius:8px; padding:14px 24px;
+                 margin:18px 0; font-size:17px; box-shadow:0 2px 4px rgba(30,39,97,0.1); }
+  .formula-box .label { display:block; font-family:Calibri,Arial,sans-serif; font-size:12px; color:var(--navy);
+                        font-weight:bold; letter-spacing:0.5px; margin-bottom:4px; }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:18px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 12px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:10px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc;
+                font-family: Calibri, Arial, sans-serif; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .example .step { margin:6px 0; padding:4px 10px; border-left:3px solid var(--ice); }
+  .example .final { background:#E8F1E8; padding:8px 12px; border-radius:4px; margin-top:10px;
+                    border-left:4px solid var(--good); font-weight:bold; font-size:15px; }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:14px 0; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:780px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../../core.html">Year 10</a>
+    <a href="../../methods.html">Year 11</a>
+    <a href="../" class="current">Year 12</a>
+    <a href="../11I-area-between-curves/">Next topic: §11I →</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 12 Methods Unit 3 — Area Under a Curve (11E/F/G)</h1>
+  <div class="meta">Cambridge Methods 3&amp;4, Ch 11 §11E/F/G &nbsp;•&nbsp; Mr Wong</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="../../lessons-2026-06-01/Y12_Methods_Integration_AreaUnderCurve_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="../../lessons-2026-06-01/Y12_Methods_Integration_AreaUnderCurve_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="../11I-area-between-curves/">→ Next: §11I Area between curves</a>
+    <a href="../">🏠 All Y12 Methods topics</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>You can already antidifferentiate (Chapter 11B). Today we turn that into a number: the <strong>definite integral</strong>, which gives the <em>exact</em> area under a curve.</p>
+
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Evaluate a definite integral using the <strong>Fundamental Theorem of Calculus</strong></li>
+    <li>Use the <strong>properties</strong> of definite integrals (sum, swap limits, constant multiple)</li>
+    <li>Recognise that the integral gives the <strong>signed</strong> area — regions below the $x$-axis contribute a negative amount</li>
+    <li>Compute the <strong>total</strong> (geometric) area of a region that crosses the $x$-axis by splitting at every $x$-intercept</li>
+  </ul>
+</div>
+
+<h2>Part 1 — The Fundamental Theorem of Calculus</h2>
+
+<div class="formula-box">
+  <span class="label">FUNDAMENTAL THEOREM OF CALCULUS</span>
+  If $f$ is continuous on $[a,b]$ and $G$ is <em>any</em> antiderivative of $f$, then
+  $$\int_a^b f(x)\,dx \;=\; \Bigl[G(x)\Bigr]_a^b \;=\; G(b) - G(a).$$
+</div>
+
+<p>The square-bracket notation $\bigl[G(x)\bigr]_a^b$ just means "evaluate at the top minus evaluate at the bottom". The $+c$ <strong>cancels</strong> when you subtract, so leave it out of definite integrals.</p>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="FTCDemo.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> evaluating $\displaystyle\int_1^3 \left(\tfrac{x^2}{2}+1\right) dx$ as the shaded area, working from the antiderivative to the answer $\tfrac{22}{3}$.</p>
+</div>
+
+<h2>Part 2 — Warm-up evaluations</h2>
+
+<p>Use the antiderivative tables you already know from §11B.</p>
+
+<div class="twocol">
+  <div class="example">
+    <span class="label">WARM-UP (a)</span>
+    <div class="q">Evaluate $\displaystyle\int_2^3 x^2\, dx$.</div>
+    <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+    <div class="a">
+      <div class="step">$=\left[\tfrac{x^3}{3}\right]_2^3$</div>
+      <div class="step">$=\tfrac{27}{3} - \tfrac{8}{3}$</div>
+      <div class="final">$=\dfrac{19}{3}$</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <span class="label">WARM-UP (b)</span>
+    <div class="q">Evaluate $\displaystyle\int_0^4 \bigl(e^{2x}+1\bigr) dx$.</div>
+    <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+    <div class="a">
+      <div class="step">$=\left[\tfrac{1}{2}e^{2x} + x\right]_0^4$</div>
+      <div class="step">$=\left(\tfrac{1}{2}e^8 + 4\right) - \left(\tfrac{1}{2}e^0 + 0\right)$</div>
+      <div class="step">$=\tfrac{1}{2}e^8 + 4 - \tfrac{1}{2}$</div>
+      <div class="final">$=\dfrac{1}{2}e^{8} + \dfrac{7}{2}$</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <span class="label">WARM-UP (c)</span>
+    <div class="q">Evaluate $\displaystyle\int_6^8 \dfrac{1}{x-5}\, dx$.</div>
+    <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+    <div class="a">
+      <div class="step">$=\bigl[\log_e(x-5)\bigr]_6^8$ &nbsp;(since $x-5>0$)</div>
+      <div class="step">$=\log_e 3 - \log_e 1$</div>
+      <div class="final">$=\log_e 3$</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <span class="label">WARM-UP (d)</span>
+    <div class="q">Evaluate $\displaystyle\int_0^{\pi/4} \sin(2x)\, dx$.</div>
+    <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+    <div class="a">
+      <div class="step">$=\left[-\tfrac{1}{2}\cos(2x)\right]_0^{\pi/4}$</div>
+      <div class="step">$=-\tfrac{1}{2}\cos\!\left(\tfrac{\pi}{2}\right) - \!\left(-\tfrac{1}{2}\cos 0\right)$</div>
+      <div class="step">$=-\tfrac{1}{2}(0) + \tfrac{1}{2}(1)$</div>
+      <div class="final">$=\dfrac{1}{2}$</div>
+    </div>
+  </div>
+</div>
+
+<h2>Part 3 — Properties of the definite integral</h2>
+
+<div class="key-ideas">
+  <h3>Five useful properties</h3>
+  <ul>
+    <li><strong>Split the interval:</strong> $\displaystyle\int_a^b f\,dx = \int_a^c f\,dx + \int_c^b f\,dx$</li>
+    <li><strong>Same endpoints:</strong> $\displaystyle\int_a^a f\,dx = 0$</li>
+    <li><strong>Constant multiple:</strong> $\displaystyle\int_a^b k f(x)\,dx = k\int_a^b f(x)\,dx$</li>
+    <li><strong>Sum/difference:</strong> $\displaystyle\int_a^b \bigl[f \pm g\bigr]\,dx = \int_a^b f\,dx \pm \int_a^b g\,dx$</li>
+    <li><strong>Swap limits — change sign:</strong> $\displaystyle\int_a^b f\,dx = -\int_b^a f\,dx$</li>
+  </ul>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 5(a) — using properties</span>
+  <div class="q">Given $\displaystyle\int_1^4 f(x)\, dx = 3$, find $\displaystyle\int_1^4 \bigl[2f(x) + 4\bigr] dx$ <em>without</em> knowing what $f$ is.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step">Split using sum and constant-multiple properties:</div>
+    <div class="step">$= 2\displaystyle\int_1^4 f(x)\, dx + \int_1^4 4\, dx$</div>
+    <div class="step">$= 2(3) + 4(4-1)$ &nbsp;(the $\int 4\,dx$ over an interval of length $3$ is $12$)</div>
+    <div class="step">$= 6 + 12$</div>
+    <div class="final">$= 18$</div>
+  </div>
+</div>
+
+<div class="twocol">
+  <div class="example">
+    <span class="label">SIMILAR EXAMPLE 6</span>
+    <div class="q">If $\displaystyle\int_{-1}^{2} g(x)\, dx = 5$, find $\displaystyle\int_{-1}^{2} \bigl[x + 2g(x)\bigr] dx$.</div>
+    <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+    <div class="a">
+      <div class="step">Split: $=\displaystyle\int_{-1}^{2} x\, dx + 2\!\int_{-1}^{2} g(x)\, dx$</div>
+      <div class="step">$=\left[\tfrac{x^2}{2}\right]_{-1}^{2} + 2(5)$</div>
+      <div class="step">$=\left(\tfrac{4}{2} - \tfrac{1}{2}\right) + 10 = \tfrac{3}{2} + 10$</div>
+      <div class="final">$=\dfrac{23}{2}$</div>
+    </div>
+  </div>
+
+  <div class="example">
+    <span class="label">SIMILAR EXAMPLE 7</span>
+    <div class="q">If $\displaystyle\int_{-2}^{1} f(x)\, dx = 2$ and $\displaystyle\int_{1}^{3} f(x)\, dx = -6$, find $\displaystyle\int_{3}^{-2} f(x)\, dx$.</div>
+    <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+    <div class="a">
+      <div class="step">Join the two known pieces: &nbsp;$\displaystyle\int_{-2}^{3} f = \int_{-2}^{1} f + \int_{1}^{3} f = 2 + (-6) = -4$</div>
+      <div class="step">Now swap the limits (changes the sign):</div>
+      <div class="step">$\displaystyle\int_{3}^{-2} f = -\int_{-2}^{3} f = -(-4)$</div>
+      <div class="final">$= 4$</div>
+    </div>
+  </div>
+</div>
+
+<h2>Part 4 — Signed area vs total area</h2>
+
+<p>The definite integral gives the <strong>signed</strong> area — anything below the $x$-axis counts as <em>negative</em>. For the <strong>geometric</strong> (total) area you must take absolute values of any below-axis pieces.</p>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="SignedVsTotal.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> $y=\sin x$ over $[-\pi,\pi]$. Signed area is $0$ (the bits cancel); total area is $4$ (flip the negative bit up).</p>
+</div>
+
+<div class="callout warn">
+  ⚠️ <strong>"Find the area" vs "evaluate the integral".</strong> If the question says <em>find the area</em> (or talks about an enclosed region), you must give a positive number — split at every $x$-intercept inside the interval and add absolute values.
+</div>
+
+<div class="formula-box">
+  <span class="label">TOTAL AREA RECIPE</span>
+  For a region bounded by $y=f(x)$, the $x$-axis and the lines $x=a$, $x=b$:
+  <ol style="margin:6px 0 0 18px;">
+    <li>Find every $x$-intercept of $f$ that lies in $(a,b)$ — call them $c_1, c_2, \ldots$</li>
+    <li>On each sub-interval, take $\left|\displaystyle\int f\, dx\right|$</li>
+    <li><strong>Total area</strong> = sum of those absolute values</li>
+  </ol>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — area above the axis</span>
+  <div class="q">Find $\displaystyle\int_4^9 \bigl(\sqrt{x}+1\bigr) dx$ and illustrate the result as an area under the graph.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step">$\sqrt{x} = x^{1/2}$, so antiderivative is $\tfrac{2}{3}x^{3/2} + x$.</div>
+    <div class="step">$=\left[\tfrac{2}{3}x^{3/2} + x\right]_4^9$</div>
+    <div class="step">$=\left(\tfrac{2}{3}\cdot 27 + 9\right) - \left(\tfrac{2}{3}\cdot 8 + 4\right)$</div>
+    <div class="step">$=(18+9) - \!\left(\tfrac{16}{3}+4\right) = 27 - \tfrac{28}{3} = \tfrac{81-28}{3}$</div>
+    <div class="final">$=\dfrac{53}{3}$ &nbsp;(the entire curve is above the axis on $[4,9]$, so signed area = total area).</div>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — area below the axis</span>
+  <div class="q">Calculate the shaded area bounded by $y = x^2 - 4x$, the $x$-axis and the lines $x=1$ and $x=3$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>Check sign first.</strong> $y = x(x-4)$ has roots at $0$ and $4$. Between $x=1$ and $x=3$ the curve is <em>below</em> the $x$-axis (try $x=2$: $y = 4 - 8 = -4$).</div>
+    <div class="step">So the signed integral will be negative. Take an absolute value at the end.</div>
+    <div class="step">$\displaystyle\int_1^3 (x^2 - 4x)\, dx = \left[\tfrac{x^3}{3} - 2x^2\right]_1^3$</div>
+    <div class="step">$=\left(9 - 18\right) - \left(\tfrac{1}{3} - 2\right) = -9 - \tfrac{1}{3} + 2 = -\tfrac{22}{3}$</div>
+    <div class="step"><strong>Area</strong> (positive) $= \left|-\tfrac{22}{3}\right|$</div>
+    <div class="final">Area $= \dfrac{22}{3}$ &nbsp;square units</div>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 3 — region crossing the axis</span>
+  <div class="q">Let $f(x) = x^2 - 1$ for $x \in [0,2]$.
+    <strong>(a)</strong> Find the area bounded by the graph of $f$, the $x$-axis, the $y$-axis and the line $x=2$, by hand.
+    <strong>(b)</strong> Explain why $\displaystyle\int_0^2 (x^2-1)\,dx = \tfrac{2}{3}$ on CAS is the <em>wrong</em> answer for this area.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>(a)</strong> $f$ has an $x$-intercept at $x=1$. From $0$ to $1$, $f<0$; from $1$ to $2$, $f>0$. Split there.</div>
+    <div class="step">Below-axis piece (take absolute value):
+      $\left|\displaystyle\int_0^1 (x^2-1)\,dx\right| = \left|\left[\tfrac{x^3}{3} - x\right]_0^1\right| = \left|\tfrac{1}{3} - 1\right| = \tfrac{2}{3}$
+    </div>
+    <div class="step">Above-axis piece:
+      $\displaystyle\int_1^2 (x^2-1)\,dx = \left[\tfrac{x^3}{3} - x\right]_1^2 = \!\left(\tfrac{8}{3}-2\right) - \!\left(\tfrac{1}{3}-1\right) = \tfrac{2}{3} + \tfrac{2}{3} = \tfrac{4}{3}$
+    </div>
+    <div class="step"><strong>Total area</strong> $= \tfrac{2}{3} + \tfrac{4}{3}$
+    </div>
+    <div class="final">Area $= 2$ square units</div>
+    <div class="step" style="margin-top:8px;"><strong>(b)</strong> CAS just evaluated $\displaystyle\int_0^2 (x^2-1)\,dx = \tfrac{4}{3} - \tfrac{2}{3} = \tfrac{2}{3}$ &mdash; the <em>signed</em> area. The negative bit from $[0,1]$ has cancelled most of the positive bit from $[1,2]$. For a geometric area you must split at $x=1$ and add absolute values, as in part (a).</div>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 4.1 — definite integrals (tech-free).</p>
+  <ol class="qlist" type="a">
+    <li>$\displaystyle\int_0^2 (3x^2 + 2)\,dx$</li>
+    <li>$\displaystyle\int_0^{\pi} \cos x\,dx$</li>
+    <li>$\displaystyle\int_{1}^{e} \dfrac{1}{x}\,dx$</li>
+    <li>$\displaystyle\int_0^1 e^{2x}\,dx$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\left[x^3 + 2x\right]_0^2 = 8 + 4 = 12$<br>
+    b) $\left[\sin x\right]_0^\pi = \sin\pi - \sin 0 = 0 - 0 = 0$ &nbsp;(the positive bump on $[0,\pi/2]$ cancels the negative one on $[\pi/2,\pi]$).<br>
+    c) $\left[\log_e x\right]_1^e = 1 - 0 = 1$<br>
+    d) $\left[\tfrac{1}{2}e^{2x}\right]_0^1 = \tfrac{1}{2}(e^2 - 1)$
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 4.2 — area, not signed integral.</p>
+  <p>Find the <strong>total area</strong> bounded by $y = x^2 - 9$ and the $x$-axis between $x = 0$ and $x = 5$.</p>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    $x$-intercept at $x = 3$ (in the interval). Split at $3$.<br>
+    $\displaystyle\int_0^3 (x^2-9)\,dx = \left[\tfrac{x^3}{3} - 9x\right]_0^3 = 9 - 27 = -18$ &nbsp;&rarr;&nbsp; take absolute value: $18$<br>
+    $\displaystyle\int_3^5 (x^2-9)\,dx = \left[\tfrac{x^3}{3} - 9x\right]_3^5 = \!\left(\tfrac{125}{3}-45\right) - (-18) = -\tfrac{10}{3} + 18 = \tfrac{44}{3}$<br>
+    <strong>Total area</strong> $= 18 + \tfrac{44}{3} = \dfrac{98}{3}$ square units.
+  </div>
+</div>
+
+<h2>Part 5 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> $\displaystyle\int_0^2 (4x-3)\,dx \;=$</p>
+    <label><input type="radio" name="q1" value="a"> $14$</label>
+    <label><input type="radio" name="q1" value="b"> $5$</label>
+    <label><input type="radio" name="q1" value="c"> $2$</label>
+    <label><input type="radio" name="q1" value="d"> $8$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> If $\displaystyle\int_1^5 f(x)\,dx = 8$, then $\displaystyle\int_5^1 f(x)\,dx \;=$</p>
+    <label><input type="radio" name="q2" value="a"> $8$</label>
+    <label><input type="radio" name="q2" value="b"> $-8$</label>
+    <label><input type="radio" name="q2" value="c"> $0$</label>
+    <label><input type="radio" name="q2" value="d"> $\tfrac{1}{8}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> $\displaystyle\int_0^{\pi/2} \sin x\,dx \;=$</p>
+    <label><input type="radio" name="q3" value="a"> $1$</label>
+    <label><input type="radio" name="q3" value="b"> $0$</label>
+    <label><input type="radio" name="q3" value="c"> $-1$</label>
+    <label><input type="radio" name="q3" value="d"> $\tfrac{\pi}{2}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> Which equals the <em>area</em> bounded by $y = x^2 - 4$, the $x$-axis between $x=0$ and $x=2$?</p>
+    <label><input type="radio" name="q4" value="a"> $\displaystyle\int_0^2 (x^2-4)\,dx$</label>
+    <label><input type="radio" name="q4" value="b"> $\tfrac{8}{3}$</label>
+    <label><input type="radio" name="q4" value="c"> $-\tfrac{16}{3}$</label>
+    <label><input type="radio" name="q4" value="d"> $\tfrac{16}{3}$ (since the region lies entirely below the axis)</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q5.</strong> Given $\displaystyle\int_0^3 f = 5$ and $\displaystyle\int_0^3 g = 2$, $\displaystyle\int_0^3 \bigl[3f - 2g\bigr] dx \;=$</p>
+    <label><input type="radio" name="q5" value="a"> $1$</label>
+    <label><input type="radio" name="q5" value="b"> $13$</label>
+    <label><input type="radio" name="q5" value="c"> $11$</label>
+    <label><input type="radio" name="q5" value="d"> $7$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge §11E, 11F, 11G</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Chapter 11 and work through these:</p>
+<table class="program">
+  <tr><th>Exercise</th><th>Set work</th></tr>
+  <tr><td><strong>11E</strong> — The definite integral</td><td>Q1 acef, Q2 ace, Q3, Q5</td></tr>
+  <tr><td><strong>11F</strong> — Properties of definite integrals</td><td>Q1, Q3, Q5, Q7</td></tr>
+  <tr><td><strong>11G</strong> — Area under a curve</td><td>Q1 ace, Q2, Q3, Q5</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">Next topic: <a href="../11I-area-between-curves/"><strong>11I — Area between curves</strong></a>.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book:
+  <ol style="margin-top:6px;">
+    <li>State the Fundamental Theorem of Calculus in your own words (one sentence).</li>
+    <li>Evaluate $\displaystyle\int_0^1 (3x^2 + 2x)\,dx$.</li>
+    <li>True or false: "$\displaystyle\int_a^b f(x)\,dx$ is always the area between the graph and the $x$-axis." Explain.</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — move into Cambridge 11E/F/G or the next lesson 11I.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the signed-vs-total walkthrough, then try again.';
+    else msg += '  Re-read Parts 1, 3 and 4 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

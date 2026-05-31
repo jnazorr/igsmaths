@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y12 Methods Integration: Area between curves (11I)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 14.5pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .key .rule { text-align:center; font-size: 10.5pt; margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.2pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 9.8pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.5mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 9.8pt; }
+  .parts.col1 { grid-template-columns: 1fr; }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+  .work.xl { min-height: 42mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">01 June lessons</a>
+    <a href="Y12_Methods_Integration_AreaBetweenCurves.html">Lesson 11I</a>
+    <a href="Y12_Methods_Integration_AreaBetweenCurves_solutions.html">Solutions</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Area Between Two Curves (Ex 11I)</h1>
+      <p>Year 12 Mathematical Methods Unit 3 · Cambridge §11I · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Find the area enclosed between two curves using $\displaystyle\int_a^b [\text{top}-\text{bottom}]\,dx$</li>
+      <li>Find limits of integration by solving $f(x)=g(x)$</li>
+      <li>Split at every cross-over point when the upper curve swaps</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key result</h3>
+    <p class="rule">If $f(x) \ge g(x)$ on $[a,b]$, then $\displaystyle A = \int_a^b \bigl[f(x)-g(x)\bigr]\,dx$.</p>
+    <p style="text-align:center; font-size:9pt;">4-step recipe: <strong>(1)</strong> sketch &nbsp;·&nbsp; <strong>(2)</strong> intersections $f=g$ for the limits &nbsp;·&nbsp; <strong>(3)</strong> test which is on top &nbsp;·&nbsp; <strong>(4)</strong> integrate $\int (\text{top}-\text{bot})\,dx$.</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up — finding intersections</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Find the $x$-coordinates of the intersection points of each pair.
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> $y=x+1$ and $y=x^2-x-2$</div>
+        <div class="p"><span class="letter">b</span> $y=x^2$ and $y=2x$</div>
+        <div class="p"><span class="letter">c</span> $y=4-x^2$ and $y=x+2$</div>
+        <div class="p"><span class="letter">d</span> $y=x^2$ and $y=8-x^2$</div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Straight area-between-curves calculations</h2>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Find the area enclosed by $y = x+1$ and $y = x^2 - x - 2$.
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">3.</span> Find the area enclosed by $y = 4 - x^2$ and $y = x+2$.
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Find the area enclosed by $y = x^2$ and $y = x + 2$.
+    </div>
+    <div class="work m"></div>
+  </div>
+
+  <div class="footer">
+    <span>Y12 Methods · Area between curves worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Area Between Curves — continued</h1>
+      <p>Part B (curves that swap) · Part C (VCAA-style)</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Curves that cross inside the region</h2>
+
+    <div class="q qrow">
+      <span class="num">5.</span> Find the <strong>total area</strong> enclosed between $y = x^3$ and $y = x$ on $-1 \le x \le 1$. <em>(Hint: where do they cross? Top function swaps at $x = 0$.)</em>
+    </div>
+    <div class="work l"></div>
+
+    <div class="q qrow">
+      <span class="num">6.</span> Find the area enclosed by $y = \sin x$ and $y = \cos x$ on $\tfrac{\pi}{4} \le x \le \tfrac{5\pi}{4}$. Give an exact answer.
+    </div>
+    <div class="work m"></div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Application &amp; VCAA-style</h2>
+
+    <div class="q qrow">
+      <span class="num">7.</span> Find the area of the region bounded by $y = e^x$, $y = x$, the $y$-axis and the line $x = 1$. Give an exact answer.
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> The two parabolas $y = x^2$ and $y = 8 - x^2$ enclose a region. Sketch and find its area.
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">9.</span> <strong>Extension.</strong> The line $y = mx$ cuts a chord from the parabola $y = 4 - x^2$, enclosing a region (above the line, below the parabola) of area $\tfrac{125}{6}$. Find $m$, with $m > 0$. <em>(Hint: intersections at $x = \tfrac{-m \pm \sqrt{m^2+16}}{2}$, then integrate top − bottom; you should reach $(m^2+16)^{3/2}/6 = \tfrac{125}{6}$.)</em>
+    </div>
+    <div class="work l"></div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · then attempt Cambridge Ex 11I set work + Ch 11 Review</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

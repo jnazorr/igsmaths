@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions — Y12 Methods Integration: Area between curves (11I)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --good:#2C5F2D; --good-bg:#E8F1E8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+
+  .page { width: 210mm; height: 297mm; padding: 9mm 12mm 8mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          position:relative; font-size: 9.3pt; line-height: 1.25; overflow: hidden; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--good); padding-bottom: 2.5mm; margin-bottom: 2.5mm; }
+  .head .title h1 { margin:0; font-size: 14.5pt; color: var(--good); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .stamp { font-family: Calibri, Arial, sans-serif; font-size: 9.5pt;
+                  background:var(--good-bg); color:var(--good); padding: 3mm 5mm;
+                  border:1px solid var(--good); border-radius: 2mm; font-weight:bold; }
+
+  .section { margin: 0 0 2.5mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 1.5mm 0; font-size: 10.8pt; }
+  .section .pq { font-family: Calibri, Arial, sans-serif; font-size: 9.2pt; color:var(--muted);
+                 margin: 0 0 1.2mm 0; }
+  .section .pq strong { color: var(--navy); }
+
+  .answers { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1mm 6mm;
+             font-family: Calibri, Arial, sans-serif; font-size: 9.3pt;
+             padding-left: 5mm; }
+  .answers.col1 { grid-template-columns: 1fr; }
+  .answers .a { display:flex; align-items:baseline; gap: 1.5mm; padding: 0.3mm 0; }
+  .answers .a .letter { color:var(--muted); font-style:italic; min-width: 4mm; flex-shrink:0; }
+  .answers .a .ans { color:var(--good); font-weight:bold; }
+  .answers .a .work { color:var(--muted); font-size: 8.8pt; margin-left: 1mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+    .no-print, .lesson-nav { display:none; }
+  }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--good); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background:#1E2761; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">01 June lessons</a>
+    <a href="Y12_Methods_Integration_AreaBetweenCurves.html">Lesson 11I</a>
+    <a href="Y12_Methods_Integration_AreaBetweenCurves_worksheet.html">Worksheet</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solutions — Area Between Two Curves (Ex 11I)</h1>
+      <p>Year 12 Mathematical Methods Unit 3 · Cambridge §11I · Mr Wong</p>
+    </div>
+    <div class="stamp">ANSWER KEY</div>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up — intersections</h2>
+    <p class="pq"><strong>Q1.</strong> Solve each $f(x)=g(x)$:</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$x=-1, 3$</span> <span class="work">$x^2-2x-3=(x-3)(x+1)$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$x=0, 2$</span> <span class="work">$x(x-2)=0$</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$x=-2, 1$</span> <span class="work">$x^2+x-2=(x+2)(x-1)$</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$x=\pm 2$</span> <span class="work">$2x^2=8$</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Straight area between curves</h2>
+    <div class="answers col1">
+      <div class="a"><span class="letter">2</span>
+        <span>Line on top. $\int_{-1}^{3}[(x+1)-(x^2-x-2)]\,dx = \int_{-1}^{3}(-x^2+2x+3)\,dx = [-\tfrac{x^3}{3}+x^2+3x]_{-1}^{3} = 9-(-\tfrac{5}{3}) =$ <span class="ans">$\dfrac{32}{3}$ sq units</span></span>
+      </div>
+      <div class="a"><span class="letter">3</span>
+        <span>Parabola on top. $\int_{-2}^{1}[(4-x^2)-(x+2)]\,dx = \int_{-2}^{1}(2-x-x^2)\,dx = [2x-\tfrac{x^2}{2}-\tfrac{x^3}{3}]_{-2}^{1} = \tfrac{7}{6} - (-\tfrac{10}{3}) =$ <span class="ans">$\dfrac{9}{2}$ sq units</span></span>
+      </div>
+      <div class="a"><span class="letter">4</span>
+        <span>Intersections $x^2=x+2 \Rightarrow x=-1,2$. Line on top. $\int_{-1}^{2}[(x+2)-x^2]\,dx = [\tfrac{x^2}{2}+2x-\tfrac{x^3}{3}]_{-1}^{2} = \tfrac{10}{3}-(-\tfrac{7}{6}) =$ <span class="ans">$\dfrac{9}{2}$ sq units</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Curves that swap</h2>
+    <div class="answers col1">
+      <div class="a"><span class="letter">5</span>
+        <span>Roots of $x^3-x=0$ at $-1,0,1$. On $[-1,0]$ cubic is above; on $[0,1]$ line is above. $\int_{-1}^{0}(x^3-x)\,dx = \tfrac{1}{4}$ and $\int_{0}^{1}(x-x^3)\,dx = \tfrac{1}{4}$. <span class="ans">Total area $= \dfrac{1}{2}$ sq units</span></span>
+      </div>
+      <div class="a"><span class="letter">6</span>
+        <span>On $[\tfrac{\pi}{4},\tfrac{5\pi}{4}]$, $\sin x \ge \cos x$. $\int_{\pi/4}^{5\pi/4}(\sin x - \cos x)\,dx = [-\cos x - \sin x]_{\pi/4}^{5\pi/4} = (\tfrac{\sqrt 2}{2}+\tfrac{\sqrt 2}{2}) - (-\tfrac{\sqrt 2}{2}-\tfrac{\sqrt 2}{2}) =$ <span class="ans">$2\sqrt{2}$ sq units</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Application &amp; VCAA-style</h2>
+    <div class="answers col1">
+      <div class="a"><span class="letter">7</span>
+        <span>On $[0,1]$, $e^x \ge x$. $\int_0^1(e^x - x)\,dx = [e^x - \tfrac{x^2}{2}]_0^1 = (e-\tfrac{1}{2}) - 1 =$ <span class="ans">$e - \dfrac{3}{2}$ sq units</span> ($\approx 1.218$).</span>
+      </div>
+      <div class="a"><span class="letter">8</span>
+        <span>Intersections $x^2 = 8-x^2 \Rightarrow x = \pm 2$. The inverted parabola $y=8-x^2$ is on top. $\int_{-2}^{2}[(8-x^2)-x^2]\,dx = \int_{-2}^{2}(8-2x^2)\,dx = [8x-\tfrac{2x^3}{3}]_{-2}^{2} = (16-\tfrac{16}{3}) - (-16+\tfrac{16}{3}) =$ <span class="ans">$\dfrac{64}{3}$ sq units</span></span>
+      </div>
+      <div class="a"><span class="letter">9</span>
+        <span>Intersections: $4-x^2 = mx \Rightarrow x = \tfrac{-m\pm\sqrt{m^2+16}}{2}$. With $a, b$ the smaller and larger root, $b-a = \sqrt{m^2+16}$. The integral simplifies to $\displaystyle\int_a^b (4 - mx - x^2)\,dx = \dfrac{(m^2+16)^{3/2}}{6}$. Set $=\tfrac{125}{6}$: $(m^2+16)^{3/2} = 125 \Rightarrow m^2+16 = 25 \Rightarrow m^2 = 9$. With $m>0$, <span class="ans">$m = 3$</span>.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y12 Methods · §11I · Solutions</span>
+    <span>Page 1 of 1 · Hand back to Mr Wong</span>
+  </div>
+</section>
+
+</body>
+</html>
