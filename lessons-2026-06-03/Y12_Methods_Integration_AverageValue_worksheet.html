@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y12 Methods Integration: Average Value (11J)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 14.5pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .key .rule { text-align:center; font-size: 10.5pt; margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.2pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 9.8pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.5mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 9.8pt; }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">03 June lessons</a>
+    <a href="Y12_Methods_Integration_AverageValue.html">Lesson 11J</a>
+    <a href="Y12_Methods_Integration_AverageValue_solutions.html">Solutions</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Average Value of a Function (Ex 11J)</h1>
+      <p>Year 12 Mathematical Methods Unit 3 · Cambridge §11J · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Use $\bar y = \dfrac{1}{b-a}\int_a^b f(x)\,dx$ to compute the average value of a function</li>
+      <li>Interpret $\bar y$ as the height of the rectangle with the same area as the region under $y=f(x)$</li>
+      <li>Use a graphical / period argument to short-cut averages of sinusoids over a whole period</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key formula</h3>
+    <p class="rule">$\bar y = \dfrac{1}{b-a}\displaystyle\int_a^b f(x)\,dx$</p>
+    <p style="text-align:center; font-size:9pt;">Geometrically: $\bar y$ is the height of the rectangle on $[a,b]$ with the same area as the region under the curve. Over a whole number of periods, $a\sin(\omega x) + k$ has average $k$.</p>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Straight averages</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Find the average value of each function over the given interval.
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> $f(x) = x^2$ on $[0, 3]$</div>
+        <div class="p"><span class="letter">b</span> $f(x) = 2x + 1$ on $[0, 4]$</div>
+        <div class="p"><span class="letter">c</span> $f(x) = \sin x$ on $[0, \pi]$</div>
+        <div class="p"><span class="letter">d</span> $f(x) = e^x$ on $[0, 1]$</div>
+      </div>
+      <div class="work l"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Find the average value of $f(x) = \dfrac{1}{x}$ on $[1, e]$. Leave your answer in exact form.
+    </div>
+    <div class="work s"></div>
+
+    <div class="q qrow">
+      <span class="num">3.</span> Find the average value of $g(x) = \sqrt{x - 5}$ on $[25, 36]$, giving an exact simplified surd form and a decimal answer to 2 d.p.
+    </div>
+    <div class="work m"></div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Graphical / period arguments</h2>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Without integrating, write down the average value of $y = 3\sin(5x) + 4$ over the interval $\left[0, \tfrac{2\pi}{5}\right]$. Justify in one sentence.
+    </div>
+    <div class="work s"></div>
+
+    <div class="q qrow">
+      <span class="num">5.</span> Without integrating, find the average value of $y = 5\cos(3x) - 2$ over $\left[0, \tfrac{2\pi}{3}\right]$.
+    </div>
+    <div class="work s"></div>
+  </div>
+
+  <div class="footer">
+    <span>Y12 Methods · Average-value worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Average Value — continued</h1>
+      <p>Part C (application modelling) · VCAA-style</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Application contexts</h2>
+
+    <div class="q qrow">
+      <span class="num">6.</span> The depth of water (m) at a jetty at time $t$ hours after midnight is $D(t) = 2\sin\!\left(\tfrac{\pi t}{6}\right) + 5$, $0 \le t \le 12$. Find the average depth over the 12-hour period.
+    </div>
+    <div class="work s"></div>
+
+    <div class="q qrow">
+      <span class="num">7.</span> The temperature (°C) in a room $t$ minutes after the air-conditioning is turned on is $T(t) = t\sin\!\left(\tfrac{\pi t}{4}\right) + 20$ for $0 \le t \le 14$. Find the average temperature in the room over these 14 minutes (exact and decimal).
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> Two stocks are modelled over 8 months by
+      <br>&nbsp;&nbsp;&nbsp;&nbsp;Orange: $S(t) = 0.4t + 1$ &nbsp;&nbsp;&nbsp; Blue: $B(t) = -0.3t^2 + 2.7t - 0.83 + 2\sin(2t)$.
+      <br>Find the average price of each stock over $[0,8]$. Which performed better on average?
+    </div>
+    <div class="work m"></div>
+  </div>
+
+  <div class="section">
+    <h2>Part D — VCAA-style</h2>
+
+    <div class="q qrow">
+      <span class="num">9.</span> <strong>Based on VCAA 2014 Tech-Active (adapted).</strong> The function $h$ is defined piecewise on $[1, 11]$ as $h(x) = \begin{cases} x + 1 & 1 \le x \le 5\\ 6 & 5 < x \le 8 \\ 14 - x & 8 < x \le 11 \end{cases}$
+      <div class="parts" style="grid-template-columns:1fr;">
+        <div class="p"><span class="letter">a</span> Find the average value of $h$ over $[1, 11]$.</div>
+        <div class="p"><span class="letter">b</span> Find the average rate of change of $h$ over $[1, 11]$ &mdash; compare it to the answer in (a).</div>
+      </div>
+    </div>
+    <div class="work l"></div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · then attempt Cambridge Ex 11J Q1, 2acef, 3, 5, 7</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

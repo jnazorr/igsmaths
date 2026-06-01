@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y12 Methods Integration: Integration by Recognition (11H)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 14.5pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .key .rule { text-align:center; font-size: 10.5pt; margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.2pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 9.8pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1.5mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 9.8pt; }
+  .parts.col3 { grid-template-columns: repeat(3, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">02 June lessons</a>
+    <a href="Y12_Methods_Integration_ByRecognition.html">Lesson 11H</a>
+    <a href="Y12_Methods_Integration_ByRecognition_solutions.html">Solutions</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Integration by Recognition (Ex 11H)</h1>
+      <p>Year 12 Mathematical Methods Unit 3 · Cambridge §11H · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Differentiate a given function and rearrange to read off a related antiderivative</li>
+      <li>Handle the missing scalar that almost always appears (e.g. $\tfrac{1}{k}$ out the front)</li>
+      <li>Apply recognition to product-rule integrals like $\int x\cos(kx)\,dx$ and $\int xe^{kx}\,dx$</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key rule</h3>
+    <p class="rule">If $\dfrac{d}{dx}\bigl[F(x)\bigr] = g(x)$ &nbsp;then&nbsp; $\displaystyle\int g(x)\,dx = F(x) + c$.</p>
+    <p style="text-align:center; font-size:9pt;">Differentiate the given function, then <em>compare</em> to the target integrand. Pull out the scalar needed to match. Always sanity-check by differentiating your final answer.</p>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Chain-rule recognition</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Let $f(x) = \log_e(x^3 + 2)$.
+      <div class="parts" style="grid-template-columns:1fr;">
+        <div class="p"><span class="letter">a</span> Find $f'(x)$.</div>
+        <div class="p"><span class="letter">b</span> Hence find $\displaystyle\int \dfrac{x^2}{x^3+2}\,dx$.</div>
+      </div>
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Let $f(x) = \log_e(3x^2 + 7)$.
+      <div class="parts" style="grid-template-columns:1fr;">
+        <div class="p"><span class="letter">a</span> Find $f'(x)$.</div>
+        <div class="p"><span class="letter">b</span> Hence evaluate $\displaystyle\int_0^2 \dfrac{x}{3x^2+7}\,dx$ exactly.</div>
+      </div>
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">3.</span> Let $f(x) = e^{x^2+1}$.
+      <div class="parts" style="grid-template-columns:1fr;">
+        <div class="p"><span class="letter">a</span> Find $f'(x)$.</div>
+        <div class="p"><span class="letter">b</span> Hence find $\displaystyle\int xe^{x^2+1}\,dx$.</div>
+      </div>
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Let $f(x) = \sin(x^2)$. Find $f'(x)$, then find $\displaystyle\int x\cos(x^2)\,dx$.
+    </div>
+    <div class="work s"></div>
+  </div>
+
+  <div class="footer">
+    <span>Y12 Methods · Integration by recognition worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Integration by Recognition — continued</h1>
+      <p>Part B (product-rule recognition) · VCAA-style application</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Product-rule recognition</h2>
+
+    <div class="q qrow">
+      <span class="num">5.</span> Let $f(x) = x\sin(3x)$.
+      <div class="parts" style="grid-template-columns:1fr;">
+        <div class="p"><span class="letter">a</span> Find $f'(x)$.</div>
+        <div class="p"><span class="letter">b</span> Hence find $\displaystyle\int_0^{\pi/6} x\cos(3x)\,dx$ in exact form.</div>
+      </div>
+    </div>
+    <div class="work l"></div>
+
+    <div class="q qrow">
+      <span class="num">6.</span> Let $f(x) = xe^x$. Find $f'(x)$, hence find $\displaystyle\int xe^x\,dx$.
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">7.</span> Let $f(x) = x^2 e^x$. Find $f'(x)$, hence find $\displaystyle\int (x^2 + 2x)e^x\,dx$.
+    </div>
+    <div class="work s"></div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> Let $f(x) = (x^2 + 1)^5$. Find $f'(x)$, hence find $\displaystyle\int x(x^2 + 1)^4\,dx$.
+    </div>
+    <div class="work s"></div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — VCAA-style</h2>
+
+    <div class="q qrow">
+      <span class="num">9.</span> <strong>VCAA 2013 Exam 1 (Tech-Free, adapted).</strong>
+      Let $g(x) = \dfrac{x}{\sqrt{x^2+1}}$.
+      <div class="parts" style="grid-template-columns:1fr;">
+        <div class="p"><span class="letter">a</span> Show that $\dfrac{d}{dx}\bigl[\sqrt{x^2+1}\bigr] = g(x)$.</div>
+        <div class="p"><span class="letter">b</span> Hence evaluate $\displaystyle\int_0^{\sqrt{3}} \dfrac{x}{\sqrt{x^2+1}}\,dx$.</div>
+      </div>
+    </div>
+    <div class="work m"></div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · then attempt Cambridge Ex 11H Q1, 3, 5, 7, 9</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

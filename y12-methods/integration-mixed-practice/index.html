@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 12 Methods — Integration Mixed Practice (11E–11J)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:980px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .formula-box { background:#EAF2FB; border:2px solid var(--navy); border-radius:8px; padding:14px 24px;
+                 margin:18px 0; font-size:17px; box-shadow:0 2px 4px rgba(30,39,97,0.1); }
+  .formula-box .label { display:block; font-family:Calibri,Arial,sans-serif; font-size:12px; color:var(--navy);
+                        font-weight:bold; letter-spacing:0.5px; margin-bottom:4px; }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:18px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 12px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:10px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc;
+                font-family: Calibri, Arial, sans-serif; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .example .step { margin:6px 0; padding:4px 10px; border-left:3px solid var(--ice); }
+  .example .final { background:#E8F1E8; padding:8px 12px; border-radius:4px; margin-top:10px;
+                    border-left:4px solid var(--good); font-weight:bold; font-size:15px; }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:14px 0; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:780px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../../core.html">Year 10</a>
+    <a href="../../methods.html">Year 11</a>
+    <a href="../" class="current">Year 12</a>
+    <a href="../11J-average-value/">← Prev: §11J</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 12 Methods Unit 3 — Integration Mixed Practice (11E–11J)</h1>
+  <div class="meta">Cambridge Methods 3&amp;4, Ch 11 review &nbsp;•&nbsp; Mr Wong</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="../../lessons-2026-06-04/Y12_Methods_Integration_MixedPractice_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="../../lessons-2026-06-04/Y12_Methods_Integration_MixedPractice_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="../11J-average-value/">← Prev: §11J Average value</a>
+    <a href="../">🏠 All Y12 Methods topics</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson — pull it all together</h2>
+<p>This week you've covered the whole integration story: definite integrals (11E/F), areas under curves (11G), areas between curves (11I), integration by recognition (11H), and average value (11J). Today is a <strong>mixed-question session</strong> with all five topics jumbled together — exactly how the exam asks them.</p>
+
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li><strong>Identify</strong> which integration tool the question is asking for</li>
+    <li>Move fluently between <strong>area, signed integral, average value, and recognition</strong></li>
+    <li>Set out solutions in the standard tech-free format expected on Exam 1</li>
+  </ul>
+</div>
+
+<h2>How to read an integration question — flowchart</h2>
+
+<div class="formula-box">
+  <span class="label">DECISION TREE</span>
+  <ol style="margin:6px 0 0 18px;">
+    <li>Does the question say <em>"find $\int \ldots dx$"</em> with no diagram? → <strong>Evaluate the integral</strong> (signed). Use FTC.</li>
+    <li>Does it say <em>"find the area"</em> bounded by a curve and the $x$-axis? → <strong>Split at every $x$-intercept inside the interval</strong>; take absolute values on below-axis pieces.</li>
+    <li>Does it say <em>"area enclosed by two curves"</em>? → <strong>Find intersections; integrate top − bottom</strong>; split if upper curve swaps.</li>
+    <li>Does it give you a function and say <em>"hence find $\int\ldots dx$"</em>? → <strong>Recognition</strong>: differentiate, then rearrange.</li>
+    <li>Does it ask for the <em>"average value"</em> of $f$ on $[a,b]$? → <strong>$\bar y = \tfrac{1}{b-a}\int_a^b f(x)\,dx$</strong>. Watch for the shortcut on sinusoids over a full period.</li>
+  </ol>
+</div>
+
+<h2>Recap walkthrough — definite integral as signed area</h2>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="RecapAreaUnder.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> $y = x^2 - 2x$ on $[0, 3]$ — signed integral is $0$ (red below the axis cancels green above), but the <em>area</em> is $\tfrac{4}{3} + \tfrac{2}{3} = 2$.</p>
+</div>
+
+<h2>Worked examples — mixed</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE A — total area</span>
+  <div class="q">Find the <strong>total area</strong> bounded by $y = x^3 - 4x$ and the $x$-axis between $x = -2$ and $x = 2$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step">$y = x(x^2 - 4) = x(x-2)(x+2)$ has roots at $x = -2, 0, 2$.</div>
+    <div class="step">Test $x = -1$: $-1 + 4 = 3 > 0$ — positive on $(-2, 0)$. Test $x = 1$: $1 - 4 = -3 < 0$ — negative on $(0, 2)$.</div>
+    <div class="step">By odd symmetry, $\bigl|\int_{-2}^0 y\,dx\bigr| = \bigl|\int_0^2 y\,dx\bigr|$. Compute one piece:</div>
+    <div class="step">$\displaystyle\int_0^2 (x^3 - 4x)\,dx = \left[\tfrac{x^4}{4} - 2x^2\right]_0^2 = 4 - 8 = -4$</div>
+    <div class="step">So each piece has area $4$. Total area $= 4 + 4$</div>
+    <div class="final">$= 8$ square units</div>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE B — area between curves</span>
+  <div class="q">Find the area enclosed by $y = 4 - x^2$ and $y = x + 2$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step">Intersect: $4 - x^2 = x + 2 \Rightarrow x^2 + x - 2 = 0 \Rightarrow (x+2)(x-1) = 0$. So $x = -2$ and $x = 1$.</div>
+    <div class="step">Test $x = 0$: parabola gives $4$, line gives $2$. Parabola on top.</div>
+    <div class="step">$A = \displaystyle\int_{-2}^{1} \bigl[(4 - x^2) - (x + 2)\bigr]\,dx = \int_{-2}^{1} (2 - x - x^2)\,dx$</div>
+    <div class="step">$= \left[2x - \tfrac{x^2}{2} - \tfrac{x^3}{3}\right]_{-2}^{1} = \left(2 - \tfrac{1}{2} - \tfrac{1}{3}\right) - \left(-4 - 2 + \tfrac{8}{3}\right)$</div>
+    <div class="step">$= \tfrac{7}{6} - \left(-\tfrac{10}{3}\right) = \tfrac{7}{6} + \tfrac{20}{6}$</div>
+    <div class="final">$A = \dfrac{27}{6} = \dfrac{9}{2}$ square units</div>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE C — integration by recognition</span>
+  <div class="q">Let $f(x) = \log_e(x^2 + 1)$.
+    <strong>(a)</strong> Find $f'(x)$.
+    <strong>(b)</strong> Hence find $\displaystyle\int_0^1 \dfrac{x}{x^2 + 1}\,dx$ exactly.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>(a)</strong> $f'(x) = \dfrac{2x}{x^2 + 1}$.</div>
+    <div class="step"><strong>(b)</strong> $\displaystyle\int \dfrac{2x}{x^2+1}\,dx = \log_e(x^2 + 1) + c$. Divide by 2:</div>
+    <div class="step">$\displaystyle\int_0^1 \dfrac{x}{x^2 + 1}\,dx = \tfrac{1}{2}\bigl[\log_e(x^2+1)\bigr]_0^1 = \tfrac{1}{2}(\log_e 2 - \log_e 1)$</div>
+    <div class="final">$= \dfrac{1}{2}\log_e 2$</div>
+  </div>
+</div>
+
+<h2>Recap walkthrough — average value</h2>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="RecapAverageLine.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> $f(x) = x^2$ on $[0, 3]$ — the gold rectangle at height $\bar y = 3$ has the same area as the region under the curve.</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE D — average velocity (kinematics)</span>
+  <div class="q">A particle's velocity (m/s) at time $t$ seconds is $v(t) = 3t^2$ for $0 \le t \le 4$. Find:
+    <strong>(a)</strong> the displacement of the particle over the interval, and
+    <strong>(b)</strong> the average velocity over the same interval.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>(a)</strong> Displacement $= \displaystyle\int_0^4 v(t)\,dt = \int_0^4 3t^2\,dt = [t^3]_0^4 = 64$ &nbsp; <strong>m</strong>.</div>
+    <div class="step"><strong>(b)</strong> Average velocity $= \bar v = \dfrac{1}{4 - 0}\displaystyle\int_0^4 v(t)\,dt = \dfrac{64}{4}$</div>
+    <div class="final">$\bar v = 16$ m/s</div>
+    <div class="step" style="margin-top:8px;"><em>Sanity check:</em> at $t=0$, $v=0$; at $t=4$, $v=48$. Average velocity is weighted toward the larger speeds at the end of the interval — $16$ feels right (much more than $\tfrac{0+48}{2} = 24$? actually less — that's because $v$ grows fast, the time spent at small velocities is significant).</div>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE E — average value of a sinusoid</span>
+  <div class="q">Find the average value of $f(x) = 7\sin\!\left(\tfrac{x}{2}\right) - 3$ over the interval $[0, 4\pi]$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step">Period of $\sin\!\left(\tfrac{x}{2}\right)$ is $\dfrac{2\pi}{1/2} = 4\pi$ — exactly one full period.</div>
+    <div class="step">Over one full period the sine bit averages to $0$. So only the constant $-3$ remains.</div>
+    <div class="final">$\bar y = -3$</div>
+  </div>
+</div>
+
+<h2>Practice — pick the right tool</h2>
+
+<div class="practice">
+  <p class="qnum">Practice P1 — area or signed integral?</p>
+  <p>(a) Evaluate $\displaystyle\int_{-1}^{2} (x^2 - 1)\,dx$. &nbsp; (b) Find the <em>total area</em> bounded by $y = x^2 - 1$, the $x$-axis, $x = -1$ and $x = 2$.</p>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    (a) $\left[\tfrac{x^3}{3} - x\right]_{-1}^{2} = \left(\tfrac{8}{3} - 2\right) - \left(-\tfrac{1}{3} + 1\right) = \tfrac{2}{3} - \tfrac{2}{3} = 0$.<br>
+    (b) Roots at $x = \pm 1$. Inside the interval, only $x = 1$ is a root (and $x = -1$ is an endpoint). Below-axis on $[-1, 1]$: $\bigl|\int_{-1}^1 (x^2-1)\,dx\bigr| = \bigl|-\tfrac{4}{3}\bigr| = \tfrac{4}{3}$. Above-axis on $[1, 2]$: $\int_1^2 (x^2-1)\,dx = \tfrac{4}{3}$. Total area $= \dfrac{8}{3}$.
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice P2 — recognition.</p>
+  <p>Let $f(x) = \sin^2(x)$. Find $f'(x)$, hence find $\displaystyle\int_0^{\pi/2} \sin x \cos x\,dx$.</p>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    $f'(x) = 2\sin x \cos x$. Hence $\int 2\sin x\cos x\,dx = \sin^2 x + c$, so $\int \sin x \cos x\,dx = \tfrac{1}{2}\sin^2 x + c$.<br>
+    $\int_0^{\pi/2} \sin x\cos x\,dx = \tfrac{1}{2}\bigl[\sin^2 x\bigr]_0^{\pi/2} = \tfrac{1}{2}(1 - 0) = \dfrac{1}{2}$.
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice P3 — average value.</p>
+  <p>The velocity of a car (m/s) is $v(t) = 20 - 2t$ for $0 \le t \le 10$. Find (a) the distance travelled, and (b) the average velocity.</p>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    (a) $v \ge 0$ on the whole interval (since $v(10) = 0$). Distance $= \int_0^{10} (20 - 2t)\,dt = [20t - t^2]_0^{10} = 200 - 100 = 100$ m.<br>
+    (b) $\bar v = \dfrac{100}{10} = 10$ m/s. <em>Equivalently:</em> $v$ is linear from $20$ to $0$, average $= \tfrac{20+0}{2} = 10$ ✓.
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice P4 — area between curves.</p>
+  <p>Find the area enclosed by $y = x^2$ and $y = 4x - x^2$.</p>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    Intersect: $x^2 = 4x - x^2 \Rightarrow 2x^2 = 4x \Rightarrow x = 0, 2$. Test $x = 1$: top curve $= 4 - 1 = 3$, bottom $= 1$. The "upside-down" parabola $4x - x^2$ is on top.<br>
+    $A = \int_0^2 \bigl[(4x - x^2) - x^2\bigr]\,dx = \int_0^2 (4x - 2x^2)\,dx = \bigl[2x^2 - \tfrac{2x^3}{3}\bigr]_0^2 = 8 - \tfrac{16}{3} = \dfrac{8}{3}$ sq units.
+  </div>
+</div>
+
+<h2>Quick quiz (5 min) — mixed</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> $\displaystyle\int_0^1 \bigl(3x^2 + e^x\bigr)\,dx \;=$</p>
+    <label><input type="radio" name="q1" value="a"> $1 + e$</label>
+    <label><input type="radio" name="q1" value="b"> $3 + e$</label>
+    <label><input type="radio" name="q1" value="c"> $e$</label>
+    <label><input type="radio" name="q1" value="d"> $e - 2$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q2.</strong> The area enclosed by $y = x^2$ and $y = 4x - x^2$ is</p>
+    <label><input type="radio" name="q2" value="a"> $\tfrac{8}{3}$</label>
+    <label><input type="radio" name="q2" value="b"> $\tfrac{16}{3}$</label>
+    <label><input type="radio" name="q2" value="c"> $4$</label>
+    <label><input type="radio" name="q2" value="d"> $8$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q3.</strong> Given $f(x) = e^{x^2}$, $f'(x) = 2xe^{x^2}$. Therefore $\displaystyle\int xe^{x^2}\,dx \;=$</p>
+    <label><input type="radio" name="q3" value="a"> $e^{x^2} + c$</label>
+    <label><input type="radio" name="q3" value="b"> $\tfrac{x^2}{2}e^{x^2} + c$</label>
+    <label><input type="radio" name="q3" value="c"> $2e^{x^2} + c$</label>
+    <label><input type="radio" name="q3" value="d"> $\tfrac{1}{2}e^{x^2} + c$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q4.</strong> The average value of $f(x) = 4 - x$ on $[0, 4]$ is</p>
+    <label><input type="radio" name="q4" value="a"> $4$</label>
+    <label><input type="radio" name="q4" value="b"> $2$</label>
+    <label><input type="radio" name="q4" value="c"> $8$</label>
+    <label><input type="radio" name="q4" value="d"> $1$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q5.</strong> The <em>total area</em> bounded by $y = x^3 - 4x$ and the $x$-axis from $x = -2$ to $x = 2$ is</p>
+    <label><input type="radio" name="q5" value="a"> $8$</label>
+    <label><input type="radio" name="q5" value="b"> $4$</label>
+    <label><input type="radio" name="q5" value="c"> $0$</label>
+    <label><input type="radio" name="q5" value="d"> $16$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ch 11 review</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Chapter 11 review pages:</p>
+<table class="program">
+  <tr><th>Section</th><th>Set work</th></tr>
+  <tr><td><strong>Chapter 11 review</strong> — Technology-free</td><td>Multiple-choice Q1–6, Short-answer Q1, Q3, Q5</td></tr>
+  <tr><td><strong>Chapter 11 review</strong> — Technology-active</td><td>Extended-response Q1, Q2 (areas, average value applications)</td></tr>
+  <tr><td>Past VCAA Exam 1 questions</td><td>2007 Q9, 2013 (recognition), 2016 Q? (area)</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">This wraps the Integration chapter. Next week we move to the next chapter — bring your CAS and a clean exercise book.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book:
+  <ol style="margin-top:6px;">
+    <li>Write the <em>five</em> integration "tools" you've learned this chapter, one sentence each.</li>
+    <li>One question that's still bothering you — bring it to next lesson.</li>
+    <li>Self-rate (1 → 5) your confidence on (a) areas, (b) recognition, (c) average value. Honest answers, please.</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — chapter mastered. Try the VCAA past papers next.';
+    else if(pct >= 80) msg += '  Solid — work the Chapter 11 review section.';
+    else if(pct >= 60) msg += '  Re-watch both recap walkthroughs, then try again.';
+    else msg += '  Revisit the specific lesson page for any tool that tripped you up.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

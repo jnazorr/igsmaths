@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions — Y12 Methods Integration: Integration by Recognition (11H)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --good:#2C5F2D; --good-bg:#E8F1E8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+
+  .page { width: 210mm; height: 297mm; padding: 9mm 12mm 8mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          position:relative; font-size: 9.4pt; line-height: 1.25; overflow: hidden; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--good); padding-bottom: 2.5mm; margin-bottom: 2.5mm; }
+  .head .title h1 { margin:0; font-size: 14.5pt; color: var(--good); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .stamp { font-family: Calibri, Arial, sans-serif; font-size: 9.5pt;
+                  background:var(--good-bg); color:var(--good); padding: 3mm 5mm;
+                  border:1px solid var(--good); border-radius: 2mm; font-weight:bold; }
+
+  .section { margin: 0 0 2.5mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 1.5mm 0; font-size: 10.8pt; }
+  .section .pq { font-family: Calibri, Arial, sans-serif; font-size: 9.2pt; color:var(--muted);
+                 margin: 0 0 1.2mm 0; }
+  .section .pq strong { color: var(--navy); }
+
+  .answers { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1mm 6mm;
+             font-family: Calibri, Arial, sans-serif; font-size: 9.4pt;
+             padding-left: 5mm; }
+  .answers.col1 { grid-template-columns: 1fr; }
+  .answers .a { display:flex; align-items:baseline; gap: 1.5mm; padding: 0.3mm 0; }
+  .answers .a .letter { color:var(--muted); font-style:italic; min-width: 4mm; flex-shrink:0; }
+  .answers .a .ans { color:var(--good); font-weight:bold; }
+  .answers .a .work { color:var(--muted); font-size: 8.8pt; margin-left: 1mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+    .no-print, .lesson-nav { display:none; }
+  }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--good); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background:#1E2761; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">02 June lessons</a>
+    <a href="Y12_Methods_Integration_ByRecognition.html">Lesson 11H</a>
+    <a href="Y12_Methods_Integration_ByRecognition_worksheet.html">Worksheet</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solutions — Integration by Recognition (Ex 11H)</h1>
+      <p>Year 12 Mathematical Methods Unit 3 · Cambridge §11H · Mr Wong</p>
+    </div>
+    <div class="stamp">ANSWER KEY</div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Chain-rule recognition</h2>
+    <div class="answers col1">
+      <div class="a"><span class="letter">1a</span>
+        <span>$f'(x) =$ <span class="ans">$\dfrac{3x^2}{x^3+2}$</span></span>
+      </div>
+      <div class="a"><span class="letter">1b</span>
+        <span>$\int \tfrac{3x^2}{x^3+2}\,dx = \ln(x^3+2)+c$, divide by 3:
+          <span class="ans">$\int \tfrac{x^2}{x^3+2}\,dx = \tfrac{1}{3}\ln(x^3+2) + c$</span></span>
+      </div>
+      <div class="a"><span class="letter">2a</span>
+        <span>$f'(x) =$ <span class="ans">$\dfrac{6x}{3x^2+7}$</span></span>
+      </div>
+      <div class="a"><span class="letter">2b</span>
+        <span>$\int_0^2 \tfrac{x}{3x^2+7}\,dx = \tfrac{1}{6}\bigl[\ln(3x^2+7)\bigr]_0^2 = \tfrac{1}{6}(\ln 19 - \ln 7) =$
+          <span class="ans">$\tfrac{1}{6}\ln\!\left(\tfrac{19}{7}\right)$</span></span>
+      </div>
+      <div class="a"><span class="letter">3a</span>
+        <span>$f'(x) =$ <span class="ans">$2xe^{x^2+1}$</span></span>
+      </div>
+      <div class="a"><span class="letter">3b</span>
+        <span>$\int 2xe^{x^2+1}\,dx = e^{x^2+1}+c$, divide by 2:
+          <span class="ans">$\int xe^{x^2+1}\,dx = \tfrac{1}{2}e^{x^2+1} + c$</span></span>
+      </div>
+      <div class="a"><span class="letter">4</span>
+        <span>$f'(x) = 2x\cos(x^2)$. Hence
+          <span class="ans">$\int x\cos(x^2)\,dx = \tfrac{1}{2}\sin(x^2) + c$</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Product-rule recognition</h2>
+    <div class="answers col1">
+      <div class="a"><span class="letter">5a</span>
+        <span>Product rule: $f'(x) =$ <span class="ans">$\sin(3x) + 3x\cos(3x)$</span></span>
+      </div>
+      <div class="a"><span class="letter">5b</span>
+        <span>$\int 3x\cos(3x)\,dx = x\sin(3x) - \int\sin(3x)\,dx = x\sin(3x) + \tfrac{1}{3}\cos(3x) + c$.
+          Divide by 3: $\int x\cos(3x)\,dx = \tfrac{1}{3}x\sin(3x) + \tfrac{1}{9}\cos(3x) + c$.
+          Evaluate: at $\tfrac{\pi}{6}$ gives $\tfrac{\pi}{18}\sin\tfrac{\pi}{2} + \tfrac{1}{9}\cos\tfrac{\pi}{2} = \tfrac{\pi}{18}$; at $0$ gives $\tfrac{1}{9}$.
+          <span class="ans">$\int_0^{\pi/6} x\cos(3x)\,dx = \dfrac{\pi - 2}{18}$</span></span>
+      </div>
+      <div class="a"><span class="letter">6</span>
+        <span>$f'(x) = e^x + xe^x$. So $\int (e^x + xe^x)\,dx = xe^x + c$, hence $\int xe^x\,dx = xe^x - e^x + c =$
+          <span class="ans">$(x-1)e^x + c$</span></span>
+      </div>
+      <div class="a"><span class="letter">7</span>
+        <span>$f'(x) = 2xe^x + x^2 e^x = (x^2 + 2x)e^x$. Hence
+          <span class="ans">$\int (x^2 + 2x)e^x\,dx = x^2 e^x + c$</span></span>
+      </div>
+      <div class="a"><span class="letter">8</span>
+        <span>$f'(x) = 10x(x^2+1)^4$. Divide by 10:
+          <span class="ans">$\int x(x^2+1)^4\,dx = \tfrac{1}{10}(x^2+1)^5 + c$</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — VCAA-style</h2>
+    <div class="answers col1">
+      <div class="a"><span class="letter">9a</span>
+        <span>Let $u = x^2+1$, $u' = 2x$. $\tfrac{d}{dx}\sqrt{u} = \tfrac{u'}{2\sqrt{u}} = \tfrac{2x}{2\sqrt{x^2+1}} =$
+          <span class="ans">$\dfrac{x}{\sqrt{x^2+1}} = g(x)$ ✓</span></span>
+      </div>
+      <div class="a"><span class="letter">9b</span>
+        <span>By part (a), $\int_0^{\sqrt{3}} g(x)\,dx = \bigl[\sqrt{x^2+1}\bigr]_0^{\sqrt{3}} = \sqrt{4} - \sqrt{1} = 2 - 1 =$
+          <span class="ans">$1$</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y12 Methods · §11H · Solutions</span>
+    <span>Page 1 of 1 · Hand back to Mr Wong</span>
+  </div>
+</section>
+
+</body>
+</html>

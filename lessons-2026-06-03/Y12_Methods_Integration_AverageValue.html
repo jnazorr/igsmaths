@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 12 Methods — Average Value of a Function (11J)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:980px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .formula-box { background:#EAF2FB; border:2px solid var(--navy); border-radius:8px; padding:14px 24px;
+                 margin:18px 0; font-size:17px; box-shadow:0 2px 4px rgba(30,39,97,0.1); }
+  .formula-box .label { display:block; font-family:Calibri,Arial,sans-serif; font-size:12px; color:var(--navy);
+                        font-weight:bold; letter-spacing:0.5px; margin-bottom:4px; }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:18px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 12px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:10px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc;
+                font-family: Calibri, Arial, sans-serif; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .example .step { margin:6px 0; padding:4px 10px; border-left:3px solid var(--ice); }
+  .example .final { background:#E8F1E8; padding:8px 12px; border-radius:4px; margin-top:10px;
+                    border-left:4px solid var(--good); font-weight:bold; font-size:15px; }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:14px 0; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:780px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/" class="current">Year 12</a>
+    <a href="./">All 03 June lessons</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 12 Methods Unit 3 — Average Value of a Function (11J)</h1>
+  <div class="meta">Cambridge Methods 3&amp;4, Ch 11 §11J &nbsp;•&nbsp; Wed 03 June 2026 &nbsp;•&nbsp; Mr Wong</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y12_Methods_Integration_AverageValue_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y12_Methods_Integration_AverageValue_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="../y12-methods/11J-average-value/">🏠 Permanent topic home</a>
+    <a href="../y12-methods/11H-integration-by-recognition/">← Prev: §11H</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>You already know how to average a <em>list</em> of numbers: add them up, divide by how many. Today we average a whole continuous function. The trick: <strong>add them up</strong> becomes an integral.</p>
+
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Compute the <strong>average value</strong> of $f$ on $[a,b]$ using $\bar y = \dfrac{1}{b-a}\displaystyle\int_a^b f(x)\,dx$</li>
+    <li>Interpret the average value as the <strong>height of the rectangle</strong> with the same area as the region under the curve</li>
+    <li>Use a <strong>graphical argument</strong> to find the average of a vertically-shifted sine curve (no calculus required)</li>
+    <li>Apply average value to <strong>real contexts</strong> — temperature in a room, stock prices over a period</li>
+  </ul>
+</div>
+
+<h2>Warm-up — averaging four numbers</h2>
+
+<div class="callout">
+  Find the average of $4, 7, 10, 3$. &nbsp; Stuck? &nbsp; $\bar y = \dfrac{4+7+10+3}{4} = \dfrac{24}{4} = 6$.
+  <br><br>
+  Picture the four numbers as towers of heights 4, 7, 10, 3 next to each other. The "average" is the height you'd get by levelling all four towers to the same height: $6$. The <em>total stuff</em> stays the same; you just spread it evenly.
+</div>
+
+<h2>Part 1 — From discrete to continuous</h2>
+
+<p>For a continuous function we replace "add up the heights" with "integrate" and "divide by how many" with "divide by the length of the interval":</p>
+
+<div class="formula-box">
+  <span class="label">AVERAGE VALUE OF A FUNCTION</span>
+  The average value of $f$ on $[a,b]$ is
+  $$\bar y \;=\; \frac{1}{b-a}\int_a^b f(x)\,dx.$$
+</div>
+
+<p>Geometrically, $\bar y$ is the height of the horizontal line that traps <em>exactly the same area</em> over $[a,b]$ as the curve itself. The region above $\bar y$ (where $f>\bar y$) and the region below $\bar y$ (where $f<\bar y$) are <strong>equal in area</strong>.</p>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="AvgValueConcept.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> a curve $y=\tfrac{1}{2}x^2+1$ on $[1,4]$, its average value $\bar y = 4.5$, and the gold rectangle that holds the same area.</p>
+</div>
+
+<h2>Part 2 — Worked Example 1 (CAS)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 1</span>
+  <div class="q">Sketch $g(x) = \sqrt{x-5}$ and find the average value of $g(x)$ over the interval $[25, 36]$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>Sketch.</strong> Square-root translated right by $5$. Defined for $x \ge 5$. At $x=25$, $g = \sqrt{20} = 2\sqrt 5 \approx 4.47$. At $x=36$, $g = \sqrt{31} \approx 5.57$.</div>
+    <div class="step">$\bar y = \dfrac{1}{36-25}\displaystyle\int_{25}^{36} \sqrt{x-5}\,dx$</div>
+    <div class="step">$= \dfrac{1}{11}\left[\tfrac{2}{3}(x-5)^{3/2}\right]_{25}^{36}$</div>
+    <div class="step">$= \dfrac{2}{33}\bigl(31^{3/2} - 20^{3/2}\bigr) = \dfrac{2}{33}\bigl(31\sqrt{31} - 20\sqrt{20}\bigr)$</div>
+    <div class="step">Simplify $20\sqrt{20} = 20\cdot 2\sqrt 5 = 40\sqrt 5$:</div>
+    <div class="final">$\bar y = \dfrac{2}{33}\bigl(31\sqrt{31} - 40\sqrt 5\bigr) \approx 5.04$</div>
+  </div>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="AvgSqrtExample.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> Example 1 step-by-step — antiderivative of $\sqrt{x-5}$, evaluation on $[25, 36]$, exact form and decimal value.</p>
+</div>
+
+<div class="callout warn">
+  ⚠️ <strong>Watch the domain.</strong> Asked for the average of $\sqrt{x-5}$ on $[0, 25]$? The function isn't even <em>defined</em> on $[0, 5)$. Restrict to $[5, 25]$ before integrating — or note that the question is ill-posed.
+</div>
+
+<h2>Part 3 — Worked Example 2 (graphical — no calculus)</h2>
+
+<p>A bumpy curve that oscillates symmetrically around some horizontal line $y = k$ has $\bar y = k$ — no integration needed.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 (graphical)</span>
+  <div class="q">Find the average value of $y = 3\sin(5x) + 4$ over the interval $\left[0, \tfrac{2\pi}{5}\right]$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>Period.</strong> $T = \dfrac{2\pi}{5}$ — so the interval is exactly <em>one full period</em>.</div>
+    <div class="step">$y = 3\sin(5x) + 4$ is a sine wave oscillating between $4 - 3 = 1$ and $4 + 3 = 7$, centred on $y = 4$.</div>
+    <div class="step">Over one full period the "bumps above $y=4$" and "bumps below $y=4$" are equal in area &mdash; they cancel.</div>
+    <div class="final">$\bar y = 4$ &nbsp;(no calculation needed!)</div>
+  </div>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="AvgSineExample.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> $y = 3\sin(5x) + 4$ over one period — green/red bumps cancel, so $\bar y$ = the vertical translation $= 4$.</p>
+</div>
+
+<div class="callout good">
+  💡 <strong>Trick to memorise.</strong> Over a <strong>whole number of periods</strong>, the average of $a\sin(\omega x + \varphi) + k$ (or $a\cos$) is just $k$ — the vertical shift. The sine bit averages to zero.
+</div>
+
+<h2>Part 4 — Worked Example 3 (CAS context)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 3 — Air-conditioning temperature</span>
+  <div class="q">The temperature in degrees in a room $t$ minutes after air-conditioning is turned on is given by $T(t) = t\sin\!\left(\tfrac{\pi t}{4}\right) + 20$ for $0 \le t \le 14$. Find the average temperature over these 14 minutes.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step">$\bar T = \dfrac{1}{14}\displaystyle\int_0^{14} \left[t\sin\!\left(\tfrac{\pi t}{4}\right) + 20\right] dt$</div>
+    <div class="step">CAS gives $\displaystyle\int_0^{14} t\sin\!\left(\tfrac{\pi t}{4}\right) dt = -\dfrac{16}{\pi^2}$ &nbsp;(exact).</div>
+    <div class="step">$\displaystyle\int_0^{14} 20\, dt = 280$. So the total integral $= 280 - \dfrac{16}{\pi^2}$.</div>
+    <div class="step">$\bar T = \dfrac{1}{14}\left(280 - \dfrac{16}{\pi^2}\right) = 20 - \dfrac{8}{7\pi^2}$</div>
+    <div class="final">$\bar T \approx 19.88\,°$C</div>
+  </div>
+</div>
+
+<h2>Part 5 — Worked Example 4 (CAS — stocks comparison)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 4 — Comparing stocks</span>
+  <div class="q">Over an 8-month period, two stock prices (in $\$$) are modelled by
+    $\text{Orange: } S(t) = 0.4t + 1$ and $\text{Blue: } B(t) = -0.3t^2 + 2.7t - 0.83 + 2\sin(2t)$.
+    Compare the average price of each stock over the 8 months.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>Orange:</strong> $\bar S = \dfrac{1}{8}\displaystyle\int_0^8 (0.4t + 1)\, dt = \dfrac{1}{8}\bigl[0.2t^2 + t\bigr]_0^8 = \dfrac{1}{8}(12.8 + 8)$</div>
+    <div class="step">$= \dfrac{20.8}{8}$</div>
+    <div class="final">$\bar S = \$2.60$</div>
+    <div class="step"><strong>Blue (CAS):</strong> $\bar B = \dfrac{1}{8}\displaystyle\int_0^8 \bigl[-0.3t^2 + 2.7t - 0.83 + 2\sin(2t)\bigr] dt$</div>
+    <div class="step">$= \dfrac{1}{8}\left[-0.1t^3 + 1.35t^2 - 0.83t - \cos(2t)\right]_0^8$ &nbsp;(careful: $\cos$ is exact, not periodic-cancelling)</div>
+    <div class="step">$=\dfrac{1}{8}\!\left[(-51.2 + 86.4 - 6.64 - \cos 16) - (0 + 0 - 0 - 1)\right]$</div>
+    <div class="step">$=\dfrac{1}{8}\!\left[28.56 + 1 - \cos 16\right] = \dfrac{29.56 - \cos 16}{8}$</div>
+    <div class="final">$\bar B \approx \$3.81$ &nbsp; — Blue stock averaged higher than Orange.</div>
+  </div>
+</div>
+
+<h2>Part 6 — Practice</h2>
+
+<div class="practice">
+  <p class="qnum">Practice 6.1 — straight averages.</p>
+  <ol class="qlist" type="a">
+    <li>Average value of $f(x) = x^2$ on $[0, 3]$.</li>
+    <li>Average value of $f(x) = 2x + 1$ on $[0, 4]$.</li>
+    <li>Average value of $f(x) = \sin x$ on $[0, \pi]$.</li>
+    <li>Average value of $f(x) = e^x$ on $[0, 1]$.</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\bar y = \dfrac{1}{3}\bigl[\tfrac{x^3}{3}\bigr]_0^3 = \dfrac{1}{3}\cdot 9 = 3$.<br>
+    b) $\bar y = \dfrac{1}{4}\bigl[x^2 + x\bigr]_0^4 = \dfrac{20}{4} = 5$.<br>
+    c) $\bar y = \dfrac{1}{\pi}\bigl[-\cos x\bigr]_0^{\pi} = \dfrac{1}{\pi}(1 - (-1)) = \dfrac{2}{\pi} \approx 0.637$.<br>
+    d) $\bar y = \dfrac{1}{1}\bigl[e^x\bigr]_0^1 = e - 1 \approx 1.718$.
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 6.2 — graphical shortcut.</p>
+  <p>Find the average value of $y = 5\cos(3x) - 2$ over the interval $\left[0, \tfrac{2\pi}{3}\right]$ <em>without</em> integrating.</p>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    Period $T = \tfrac{2\pi}{3}$ — the interval is exactly one period. Over one full period, $\cos$ averages to $0$, so the only thing left is the constant: $\bar y = -2$.
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 6.3 — application.</p>
+  <p>The depth (m) of water at a jetty at time $t$ hours is $D(t) = 2\sin\!\left(\tfrac{\pi t}{6}\right) + 5$ for $0 \le t \le 12$. Find the average depth over the 12-hour period.</p>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    Period of $\sin\!\left(\tfrac{\pi t}{6}\right)$ is $T = \dfrac{2\pi}{\pi/6} = 12$ — exactly one period. So the sine bit averages to $0$ and $\bar D = 5$ m.
+  </div>
+</div>
+
+<h2>Part 7 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> The average value of $f$ on $[a,b]$ is</p>
+    <label><input type="radio" name="q1" value="a"> $\dfrac{f(a) + f(b)}{2}$</label>
+    <label><input type="radio" name="q1" value="b"> $\dfrac{1}{b-a}\int_a^b f(x)\,dx$</label>
+    <label><input type="radio" name="q1" value="c"> $\int_a^b f(x)\,dx$</label>
+    <label><input type="radio" name="q1" value="d"> $\dfrac{f(a) + f(b)}{b - a}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q2.</strong> The average value of $y = x^2$ on $[0, 3]$ is</p>
+    <label><input type="radio" name="q2" value="a"> $9$</label>
+    <label><input type="radio" name="q2" value="b"> $\tfrac{9}{2}$</label>
+    <label><input type="radio" name="q2" value="c"> $3$</label>
+    <label><input type="radio" name="q2" value="d"> $1$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q3.</strong> The average value of $y = 4\sin(2x) + 7$ over one full period is</p>
+    <label><input type="radio" name="q3" value="a"> $11$</label>
+    <label><input type="radio" name="q3" value="b"> $4$</label>
+    <label><input type="radio" name="q3" value="c"> $0$</label>
+    <label><input type="radio" name="q3" value="d"> $7$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q4.</strong> Geometrically, the average value $\bar y$ is the height of a rectangle on $[a,b]$ that has</p>
+    <label><input type="radio" name="q4" value="a"> the same area as the region between $y=f(x)$ and the $x$-axis</label>
+    <label><input type="radio" name="q4" value="b"> the same perimeter as the curve</label>
+    <label><input type="radio" name="q4" value="c"> half the area of the region</label>
+    <label><input type="radio" name="q4" value="d"> twice the area of the region</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> The average value of $f(x) = \dfrac{1}{x}$ on $[1, e]$ is</p>
+    <label><input type="radio" name="q5" value="a"> $\dfrac{1}{e}$</label>
+    <label><input type="radio" name="q5" value="b"> $\dfrac{1}{e - 1}$</label>
+    <label><input type="radio" name="q5" value="c"> $\dfrac{e}{e-1}$</label>
+    <label><input type="radio" name="q5" value="d"> $\log_e(e-1)$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge §11J</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Chapter 11 and work through these:</p>
+<table class="program">
+  <tr><th>Exercise</th><th>Set work</th></tr>
+  <tr><td><strong>11J</strong> — Average value of a function</td><td>Q1, Q2 acef, Q3, Q5, Q7</td></tr>
+  <tr><td>Application questions</td><td>Q8, Q9 (modelling contexts)</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">Tomorrow we mix everything together — areas, integrals, average value — in a recap practice set.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book:
+  <ol style="margin-top:6px;">
+    <li>State the average-value formula in your own words (one sentence, no symbols).</li>
+    <li>Find the average value of $f(x) = 6x$ on $[0, 4]$ — try to do it without integrating (linear function: where is the "balance height"?).</li>
+    <li>Why does $y = a\sin(\omega x) + k$ have average $k$ over any whole number of periods?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — straight into Cambridge 11J.';
+    else if(pct >= 80) msg += '  Solid — go to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the average-value concept walkthrough, then try again.';
+    else msg += '  Re-read Parts 1 and 3 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

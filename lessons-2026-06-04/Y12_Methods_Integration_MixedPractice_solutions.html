@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions — Y12 Methods Integration Mixed Practice (11E–11J)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --good:#2C5F2D; --good-bg:#E8F1E8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+
+  .page { width: 210mm; height: 297mm; padding: 9mm 12mm 8mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          position:relative; font-size: 9.2pt; line-height: 1.22; overflow: hidden; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--good); padding-bottom: 2.5mm; margin-bottom: 2.5mm; }
+  .head .title h1 { margin:0; font-size: 14.5pt; color: var(--good); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .stamp { font-family: Calibri, Arial, sans-serif; font-size: 9.5pt;
+                  background:var(--good-bg); color:var(--good); padding: 3mm 5mm;
+                  border:1px solid var(--good); border-radius: 2mm; font-weight:bold; }
+
+  .section { margin: 0 0 2.5mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 1.5mm 0; font-size: 10.5pt; }
+  .section .pq { font-family: Calibri, Arial, sans-serif; font-size: 9pt; color:var(--muted);
+                 margin: 0 0 1mm 0; }
+
+  .answers { display:grid; grid-template-columns: repeat(2, 1fr); gap: 0.6mm 6mm;
+             font-family: Calibri, Arial, sans-serif; font-size: 9.1pt;
+             padding-left: 5mm; }
+  .answers.col1 { grid-template-columns: 1fr; }
+  .answers .a { display:flex; align-items:baseline; gap: 1.5mm; padding: 0.2mm 0; }
+  .answers .a .letter { color:var(--muted); font-style:italic; min-width: 4mm; flex-shrink:0; }
+  .answers .a .ans { color:var(--good); font-weight:bold; }
+  .answers .a .work { color:var(--muted); font-size: 8.6pt; margin-left: 1mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+    .no-print, .lesson-nav { display:none; }
+  }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--good); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background:#1E2761; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">04 June lessons</a>
+    <a href="Y12_Methods_Integration_MixedPractice.html">Lesson</a>
+    <a href="Y12_Methods_Integration_MixedPractice_worksheet.html">Worksheet</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solutions — Integration Mixed Practice (Ch 11 review)</h1>
+      <p>Year 12 Mathematical Methods Unit 3 · §11E–11J · Mr Wong</p>
+    </div>
+    <div class="stamp">ANSWER KEY</div>
+  </div>
+
+  <div class="section">
+    <h2>Section A — Definite integrals and areas</h2>
+    <p class="pq"><strong>Q1.</strong> Evaluate.</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$e$</span> <span class="work">$[x^3 + e^x]_0^1 = (1+e)-(0+1)$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$1$</span> <span class="work">$[\tan x]_0^{\pi/4} = 1 - 0$</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$2$</span> <span class="work">$[2\sqrt x]_1^4 = 4 - 2$</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$0$</span> <span class="work">$[\tfrac{x^3}{3}-x]_{-1}^{2} = \tfrac{2}{3} - \tfrac{2}{3}$ — signed cancellation</span></div>
+    </div>
+    <div class="answers col1" style="margin-top:1mm;">
+      <div class="a"><span class="letter">2</span>
+        <span>$x$-intercept of $y=x^2-1$ at $x=1$ inside $(-1,2)$. $\left|\int_{-1}^{1}(x^2-1)\,dx\right| = \tfrac{4}{3}$; $\int_1^2(x^2-1)\,dx = \tfrac{4}{3}$. Total area $=$
+          <span class="ans">$\dfrac{8}{3}$ sq units</span></span>
+      </div>
+      <div class="a"><span class="letter">3</span>
+        <span>$y=x(x-2)(x+2)$ has roots at $-2,0,2$. Positive on $(-2,0)$, negative on $(0,2)$, and odd-symmetric. $\int_0^2 (x^3-4x)\,dx = -4$, so each piece has area $4$. Total $=$
+          <span class="ans">$8$ sq units</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section B — Between curves &amp; recognition</h2>
+    <div class="answers col1">
+      <div class="a"><span class="letter">4</span>
+        <span>$4-x^2 = x+2 \Rightarrow x=-2$ or $1$. Test $x=0$: parabola gives $4 >$ line $2$, so parabola on top. $\int_{-2}^{1}(2-x-x^2)\,dx = \tfrac{7}{6}-(-\tfrac{10}{3}) =$
+          <span class="ans">$\dfrac{9}{2}$ sq units</span></span>
+      </div>
+      <div class="a"><span class="letter">5</span>
+        <span>$x^2 = 4x-x^2 \Rightarrow 2x^2 = 4x \Rightarrow x=0,2$. Test $x=1$: top $= 3$, bottom $= 1$, so $4x-x^2$ on top. $\int_0^2(4x-2x^2)\,dx = [2x^2-\tfrac{2x^3}{3}]_0^2 = 8 - \tfrac{16}{3} =$
+          <span class="ans">$\dfrac{8}{3}$ sq units</span></span>
+      </div>
+      <div class="a"><span class="letter">6a</span>
+        <span>$f'(x) =$ <span class="ans">$\dfrac{2x}{x^2+1}$</span></span>
+      </div>
+      <div class="a"><span class="letter">6b</span>
+        <span>$\int_0^1 \tfrac{x}{x^2+1}\,dx = \tfrac{1}{2}[\ln(x^2+1)]_0^1 = \tfrac{1}{2}(\ln 2 - 0) =$
+          <span class="ans">$\dfrac{1}{2}\ln 2$</span></span>
+      </div>
+      <div class="a"><span class="letter">7</span>
+        <span>$f'(x) = 2\sin x \cos x$. So $\int \sin x\cos x\,dx = \tfrac{1}{2}\sin^2 x + c$. Eval: $\tfrac{1}{2}[\sin^2 x]_0^{\pi/2} =$
+          <span class="ans">$\dfrac{1}{2}$</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section C — Average value &amp; application</h2>
+    <div class="answers col1">
+      <div class="a"><span class="letter">8a</span>
+        <span>Displacement $= \int_0^4 3t^2\,dt = [t^3]_0^4 =$ <span class="ans">$64$ m</span></span>
+      </div>
+      <div class="a"><span class="letter">8b</span>
+        <span>$\bar v = \tfrac{1}{4}\cdot 64 =$ <span class="ans">$16$ m/s</span></span>
+      </div>
+      <div class="a"><span class="letter">9</span>
+        <span>Period of $\sin(\tfrac{x}{2})$ is $4\pi$ — exactly the interval. Sine averages to $0$, so
+          <span class="ans">$\bar y = -3$</span></span>
+      </div>
+      <div class="a"><span class="letter">10a</span>
+        <span>$v \ge 0$ on $[0,10]$ (since $v(10)=0$). Distance $=\int_0^{10}(20-2t)\,dt = [20t-t^2]_0^{10} =$
+          <span class="ans">$100$ m</span></span>
+      </div>
+      <div class="a"><span class="letter">10b</span>
+        <span>$\bar v = \tfrac{100}{10} =$ <span class="ans">$10$ m/s</span> (also visible as the midpoint of the linear velocity from $20$ to $0$).</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y12 Methods · Mixed practice · Solutions</span>
+    <span>Page 1 of 1 · Hand back to Mr Wong</span>
+  </div>
+</section>
+
+</body>
+</html>

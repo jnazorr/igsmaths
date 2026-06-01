@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 12 Methods — Integration by Recognition (11H)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:980px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .formula-box { background:#EAF2FB; border:2px solid var(--navy); border-radius:8px; padding:14px 24px;
+                 margin:18px 0; font-size:17px; box-shadow:0 2px 4px rgba(30,39,97,0.1); }
+  .formula-box .label { display:block; font-family:Calibri,Arial,sans-serif; font-size:12px; color:var(--navy);
+                        font-weight:bold; letter-spacing:0.5px; margin-bottom:4px; }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:18px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 12px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:10px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc;
+                font-family: Calibri, Arial, sans-serif; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .example .step { margin:6px 0; padding:4px 10px; border-left:3px solid var(--ice); }
+  .example .final { background:#E8F1E8; padding:8px 12px; border-radius:4px; margin-top:10px;
+                    border-left:4px solid var(--good); font-weight:bold; font-size:15px; }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:14px 0; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:780px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/" class="current">Year 12</a>
+    <a href="./">All 02 June lessons</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 12 Methods Unit 3 — Integration by Recognition (11H)</h1>
+  <div class="meta">Cambridge Methods 3&amp;4, Ch 11 §11H &nbsp;•&nbsp; Tue 02 June 2026 &nbsp;•&nbsp; Mr Wong</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y12_Methods_Integration_ByRecognition_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y12_Methods_Integration_ByRecognition_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="../y12-methods/11H-integration-by-recognition/">🏠 Permanent topic home</a>
+    <a href="../y12-methods/11I-area-between-curves/">← Prev: §11I</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>So far, every antiderivative you've found has had a simple template — power, exponential, sine, cosine, $\tfrac{1}{x}$. But what about integrals like $\displaystyle\int x\cos(3x)\,dx$ that don't sit on any standard list? Today's trick: <strong>differentiate a related function</strong> and <em>read off</em> the integral.</p>
+
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Recognise that <strong>integration is the reverse of differentiation</strong>: if $\dfrac{d}{dx}\bigl[F(x)\bigr] = g(x)$, then $\displaystyle\int g(x)\,dx = F(x) + c$</li>
+    <li>Differentiate a given function, then <strong>rearrange</strong> to find a related integral</li>
+    <li>Handle integrals that need a <strong>constant multiplier</strong> tidy-up (e.g. $\tfrac{1}{3}$ out the front)</li>
+    <li>Use this method on <strong>product-rule</strong> recognitions to integrate things like $x\cos(3x)$ and $xe^x$</li>
+  </ul>
+</div>
+
+<h2>Part 1 — The recognition idea</h2>
+
+<div class="formula-box">
+  <span class="label">RECOGNITION RULE</span>
+  If $\dfrac{d}{dx}\bigl[F(x)\bigr] = g(x)$, then
+  $$\int g(x)\,dx = F(x) + c.$$
+  In a "hence find" question, the examiner has done the differentiation work for you — your job is to <em>rearrange</em>.
+</div>
+
+<div class="callout">
+  💡 <strong>How to spot it.</strong> If the question gives you a function and says <em>"Find $f'(x)$. Hence find $\int \ldots\,dx$"</em>, your $f'(x)$ from part (a) is going to look <em>almost</em> exactly like the integrand in part (b). Match them up, then fix any constants.
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="RecognitionConcept.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> the recognition pattern — from $f(x)=\log_e(x^3+2)$ to $\int \tfrac{x^2}{x^3+2}\,dx$. Differentiate, then fix the constant.</p>
+</div>
+
+<h2>Part 2 — Worked Example 1 (log-derivative pattern)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 1</span>
+  <div class="q">Let $f(x) = \log_e(x^3 + 2)$.
+  <strong>(a)</strong> Find $f'(x)$.
+  <strong>(b)</strong> Hence find $\displaystyle\int \dfrac{x^2}{x^3+2}\,dx$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>(a)</strong> Chain rule: $\dfrac{d}{dx}\log_e(u) = \dfrac{u'}{u}$ with $u = x^3+2$, $u' = 3x^2$.</div>
+    <div class="step">$\therefore f'(x) = \dfrac{3x^2}{x^3+2}$</div>
+    <div class="step"><strong>(b)</strong> Reverse part (a): $\displaystyle\int \dfrac{3x^2}{x^3+2}\,dx = \log_e(x^3+2) + c$.</div>
+    <div class="step">But we want $\dfrac{x^2}{x^3+2}$ — that's $\tfrac{1}{3}$ of the integrand we just integrated. So pull the $\tfrac{1}{3}$ out:</div>
+    <div class="final">$\displaystyle\int \dfrac{x^2}{x^3+2}\,dx = \dfrac{1}{3}\log_e(x^3+2) + c$</div>
+  </div>
+</div>
+
+<div class="callout warn">
+  ⚠️ <strong>Watch the constant.</strong> Almost every recognition question has a missing scalar — usually $\tfrac{1}{k}$ where $k$ comes from a chain-rule "inside derivative". Always sanity-check by differentiating your answer.
+</div>
+
+<div class="example">
+  <span class="label">SIMILAR EXAMPLE 1</span>
+  <div class="q">Let $f(x) = \log_e(3x^2 + 7)$.
+  <strong>(a)</strong> Find $f'(x)$.
+  <strong>(b)</strong> Hence evaluate $\displaystyle\int_0^2 \dfrac{x}{3x^2+7}\,dx$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>(a)</strong> $f'(x) = \dfrac{6x}{3x^2+7}$.</div>
+    <div class="step"><strong>(b)</strong> Reverse: $\displaystyle\int \dfrac{6x}{3x^2+7}\,dx = \log_e(3x^2+7) + c$.</div>
+    <div class="step">We want $\dfrac{x}{3x^2+7}$ — that's $\tfrac{1}{6}$ of the integrand above.</div>
+    <div class="step">$\displaystyle\int_0^2 \dfrac{x}{3x^2+7}\,dx = \tfrac{1}{6}\bigl[\log_e(3x^2+7)\bigr]_0^2 = \tfrac{1}{6}\bigl(\log_e 19 - \log_e 7\bigr)$</div>
+    <div class="final">$= \dfrac{1}{6}\log_e\!\left(\dfrac{19}{7}\right)$</div>
+  </div>
+</div>
+
+<h2>Part 3 — Recognising the chain rule (worked walkthrough)</h2>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="RecogLog.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> Example 1 line-by-line — differentiating $\log_e(x^3+2)$ and using the result to integrate $\dfrac{x^2}{x^3+2}$.</p>
+</div>
+
+<h2>Part 4 — Worked Example 2 (product-rule pattern)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 2</span>
+  <div class="q">Let $f(x) = x\sin(3x)$.
+  <strong>(a)</strong> Find $f'(x)$.
+  <strong>(b)</strong> Hence find $\displaystyle\int_0^{\pi/6} x\cos(3x)\,dx$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>(a)</strong> Product rule: $f'(x) = \sin(3x) + x\cdot 3\cos(3x) = \sin(3x) + 3x\cos(3x)$.</div>
+    <div class="step"><strong>(b)</strong> Reverse: $\displaystyle\int \bigl[\sin(3x) + 3x\cos(3x)\bigr]\,dx = x\sin(3x) + c$.</div>
+    <div class="step">Split off the easy bit: $\displaystyle\int \sin(3x)\,dx = -\tfrac{1}{3}\cos(3x) + c$.</div>
+    <div class="step">$\therefore \displaystyle\int 3x\cos(3x)\,dx = x\sin(3x) - \!\left(-\tfrac{1}{3}\cos(3x)\right) + c = x\sin(3x) + \tfrac{1}{3}\cos(3x) + c$</div>
+    <div class="step">Divide by $3$: $\displaystyle\int x\cos(3x)\,dx = \tfrac{1}{3}x\sin(3x) + \tfrac{1}{9}\cos(3x) + c$.</div>
+    <div class="step">Evaluate on $[0, \tfrac{\pi}{6}]$:
+      $\left[\tfrac{1}{3}x\sin(3x) + \tfrac{1}{9}\cos(3x)\right]_0^{\pi/6}$</div>
+    <div class="step">$=\!\left(\tfrac{1}{3}\cdot\tfrac{\pi}{6}\cdot\sin\tfrac{\pi}{2} + \tfrac{1}{9}\cos\tfrac{\pi}{2}\right) - \!\left(0 + \tfrac{1}{9}\right)$</div>
+    <div class="step">$= \tfrac{\pi}{18}\cdot 1 + 0 - \tfrac{1}{9}$</div>
+    <div class="final">$=\dfrac{\pi}{18} - \dfrac{1}{9} = \dfrac{\pi - 2}{18}$</div>
+  </div>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="RecogProduct.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> Example 2 in detail — product-rule recognition then evaluation on $[0, \tfrac{\pi}{6}]$ to land at $\tfrac{\pi-2}{18}$.</p>
+</div>
+
+<div class="example">
+  <span class="label">SIMILAR EXAMPLE 2</span>
+  <div class="q">Let $f(x) = xe^x$.
+  <strong>(a)</strong> Find $f'(x)$.
+  <strong>(b)</strong> Hence find $\displaystyle\int xe^x\,dx$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>(a)</strong> Product rule: $f'(x) = e^x + xe^x$.</div>
+    <div class="step"><strong>(b)</strong> Reverse: $\displaystyle\int (e^x + xe^x)\,dx = xe^x + c$.</div>
+    <div class="step">$\displaystyle\int e^x\,dx = e^x + c$, so $\displaystyle\int xe^x\,dx = xe^x - e^x + c$</div>
+    <div class="final">$= (x-1)e^x + c$</div>
+  </div>
+</div>
+
+<h2>Part 5 — Setting-out template</h2>
+
+<div class="formula-box">
+  <span class="label">RECIPE</span>
+  <ol style="margin:6px 0 0 18px;">
+    <li><strong>Differentiate</strong> the function given in part (a). Show every chain/product step.</li>
+    <li><strong>Reverse</strong> the result: $\int f'(x)\,dx = f(x) + c$.</li>
+    <li><strong>Compare</strong> your reversed integrand to the target integrand in part (b). Look for a missing scalar.</li>
+    <li>If the target has <em>extra</em> easy pieces (e.g. a stand-alone $\sin(3x)$), <strong>integrate those separately</strong> and subtract.</li>
+    <li><strong>Sanity check:</strong> differentiate your final answer and confirm you get back the target integrand.</li>
+  </ol>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 5.1 — chain-rule recognition.</p>
+  <ol class="qlist" type="a">
+    <li>Let $f(x) = e^{x^2+1}$. Find $f'(x)$, hence find $\displaystyle\int xe^{x^2+1}\,dx$.</li>
+    <li>Let $f(x) = \sin(x^2)$. Find $f'(x)$, hence find $\displaystyle\int x\cos(x^2)\,dx$.</li>
+    <li>Let $f(x) = (x^2+1)^5$. Find $f'(x)$, hence find $\displaystyle\int x(x^2+1)^4\,dx$.</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $f'(x) = 2x\,e^{x^2+1}$, so $\displaystyle\int 2x\,e^{x^2+1}\,dx = e^{x^2+1} + c$. Hence $\displaystyle\int xe^{x^2+1}\,dx = \dfrac{1}{2}e^{x^2+1} + c$.<br>
+    b) $f'(x) = 2x\cos(x^2)$. Hence $\displaystyle\int x\cos(x^2)\,dx = \dfrac{1}{2}\sin(x^2) + c$.<br>
+    c) $f'(x) = 10x(x^2+1)^4$. Hence $\displaystyle\int x(x^2+1)^4\,dx = \dfrac{1}{10}(x^2+1)^5 + c$.
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 5.2 — product-rule recognition.</p>
+  <p>Let $f(x) = x^2 e^x$.
+    <strong>(a)</strong> Find $f'(x)$.
+    <strong>(b)</strong> Hence find $\displaystyle\int (x^2 + 2x)e^x\,dx$.</p>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    (a) $f'(x) = 2xe^x + x^2 e^x = (x^2 + 2x)e^x$.<br>
+    (b) Reverse directly: $\displaystyle\int (x^2 + 2x)e^x\,dx = x^2 e^x + c$.
+  </div>
+</div>
+
+<h2>Part 6 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> If $\dfrac{d}{dx}\bigl[F(x)\bigr] = g(x)$, then $\displaystyle\int g(x)\,dx \;=$</p>
+    <label><input type="radio" name="q1" value="a"> $g(x) + c$</label>
+    <label><input type="radio" name="q1" value="b"> $F'(x) + c$</label>
+    <label><input type="radio" name="q1" value="c"> $F(x) + c$</label>
+    <label><input type="radio" name="q1" value="d"> $g'(x) + c$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> Given $\dfrac{d}{dx}\bigl[\log_e(x^2+1)\bigr] = \dfrac{2x}{x^2+1}$, $\displaystyle\int \dfrac{x}{x^2+1}\,dx \;=$</p>
+    <label><input type="radio" name="q2" value="a"> $\log_e(x^2+1) + c$</label>
+    <label><input type="radio" name="q2" value="b"> $\tfrac{1}{2}\log_e(x^2+1) + c$</label>
+    <label><input type="radio" name="q2" value="c"> $2\log_e(x^2+1) + c$</label>
+    <label><input type="radio" name="q2" value="d"> $\tfrac{x^2}{x^2+1} + c$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> If $f(x) = \sin(2x)$, then $f'(x) = 2\cos(2x)$. Therefore $\displaystyle\int \cos(2x)\,dx \;=$</p>
+    <label><input type="radio" name="q3" value="a"> $\tfrac{1}{2}\sin(2x) + c$</label>
+    <label><input type="radio" name="q3" value="b"> $2\sin(2x) + c$</label>
+    <label><input type="radio" name="q3" value="c"> $-\tfrac{1}{2}\sin(2x) + c$</label>
+    <label><input type="radio" name="q3" value="d"> $\sin(2x) + c$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> Let $f(x) = xe^{2x}$. Then $f'(x) =$</p>
+    <label><input type="radio" name="q4" value="a"> $e^{2x}$</label>
+    <label><input type="radio" name="q4" value="b"> $2xe^{2x}$</label>
+    <label><input type="radio" name="q4" value="c"> $2e^{2x}$</label>
+    <label><input type="radio" name="q4" value="d"> $e^{2x} + 2xe^{2x}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> Using Q4, $\displaystyle\int xe^{2x}\,dx \;=$</p>
+    <label><input type="radio" name="q5" value="a"> $\tfrac{1}{2}xe^{2x} + c$</label>
+    <label><input type="radio" name="q5" value="b"> $\tfrac{1}{2}xe^{2x} - \tfrac{1}{4}e^{2x} + c$</label>
+    <label><input type="radio" name="q5" value="c"> $xe^{2x} - e^{2x} + c$</label>
+    <label><input type="radio" name="q5" value="d"> $\tfrac{x^2}{2}e^{2x} + c$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge §11H</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Chapter 11 and work through these:</p>
+<table class="program">
+  <tr><th>Exercise</th><th>Set work</th></tr>
+  <tr><td><strong>11H</strong> — Integration by recognition</td><td>Q1, Q3, Q5, Q7, Q9</td></tr>
+  <tr><td>VCAA 2013 Exam 1</td><td>Hence-style integration question (see notes)</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">Tomorrow we look at <strong>11J — Average value of a function</strong>. Bring your CAS.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book:
+  <ol style="margin-top:6px;">
+    <li>State the recognition rule in one sentence: <em>"If the derivative of $F(x)$ is …, then the integral of … is …"</em></li>
+    <li>$f(x) = e^{3x}$. Find $f'(x)$. Hence find $\displaystyle\int e^{3x}\,dx$.</li>
+    <li>Why does almost every "hence find" recognition question end with a fractional constant out the front of the integral?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — straight into Cambridge 11H.';
+    else if(pct >= 80) msg += '  Solid — go to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the product-rule walkthrough, then try again.';
+    else msg += '  Re-read Parts 1, 2 and 4 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>
