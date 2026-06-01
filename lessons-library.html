@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lesson library — IGS Maths</title>
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <style>
+    .lib-hero { padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 64px) clamp(20px, 3vw, 32px);
+      background: linear-gradient(180deg, #eef4f8 0%, #fbf5ec 100%); border-bottom: 1px solid var(--line); }
+    .lib-hero .eyebrow { letter-spacing:0.14em; font-size:11px; text-transform:uppercase;
+                          color:var(--green); font-weight:800; }
+    .lib-hero h1 { font-size: clamp(28px, 4vw, 44px); margin: 8px 0 10px 0; line-height:1.1; }
+    .lib-hero p.lead { font-size: clamp(15px, 1.3vw, 17px); color: var(--muted); max-width: 720px; }
+
+    /* Jump-to-year nav */
+    .lib-jump { display:flex; gap:10px; flex-wrap:wrap; margin-top: 18px; }
+    .lib-jump a { display:inline-block; padding: 6px 14px; border-radius: 16px;
+                  background:#fff; border:1px solid var(--line); color: var(--ink);
+                  text-decoration:none; font-weight:700; font-size: 13px;
+                  transition: all .12s; }
+    .lib-jump a:hover { border-color: var(--green); color: var(--green); transform: translateY(-1px); }
+    .lib-jump a.y10:hover { border-color: #8a650d; color: #8a650d; }
+    .lib-jump a.y11:hover { border-color: var(--blue); color: var(--blue); }
+    .lib-jump a.y12:hover { border-color: #4b3b8f; color: #4b3b8f; }
+
+    /* Year sections */
+    .year-section { padding: clamp(28px, 4vw, 48px) clamp(18px, 5vw, 64px) clamp(8px, 2vw, 16px); }
+    .year-section .head { display:flex; align-items:baseline; gap: 14px; flex-wrap:wrap;
+                          margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--line); }
+    .year-section .head .pill { display:inline-block; padding: 3px 10px; border-radius: 4px;
+                                font-size: 11px; font-weight: 800; letter-spacing: 0.1em;
+                                text-transform: uppercase; }
+    .year-section.y10 .head .pill { background:#fff7df; color:#8a650d; }
+    .year-section.y11 .head .pill { background:#edf3fb; color:var(--blue); }
+    .year-section.y12 .head .pill { background:#efeaff; color:#4b3b8f; }
+    .year-section h2 { margin: 0; font-size: 24px; }
+    .year-section .subtitle { color: var(--muted); font-size: 14px; }
+    .year-section .anchor-target { display:block; position:relative; top: -20px; visibility:hidden; }
+
+    /* Chapter blocks */
+    .chapter { background: #fff; border: 1px solid var(--line); border-radius: 10px;
+               padding: 18px 22px; margin: 14px 0;
+               box-shadow: 0 6px 16px rgba(38,32,26,.05); }
+    .chapter h3 { margin: 0 0 4px 0; font-size: 18px; color: var(--ink); }
+    .chapter .ch-meta { color: var(--muted); font-size: 13px; margin: 0 0 14px 0; }
+
+    /* Per-section row */
+    .sec-list { display: grid; grid-template-columns: 1fr; gap: 10px; }
+    .sec-row { display: grid; grid-template-columns: 80px 1fr auto; gap: 14px;
+               align-items: center; padding: 10px 14px;
+               background: #fbf6ec; border: 1px solid #e8dfcf; border-radius: 8px;
+               transition: background .12s, border-color .12s; }
+    .sec-row:hover { background: #fff7df; border-color: #d4c590; }
+    .sec-row .sec-code { font-family: 'Inter', sans-serif; font-weight: 800;
+                          font-size: 14px; color: #1E2761; line-height: 1.1; }
+    .sec-row .sec-code small { display: block; color: var(--muted); font-weight: 600;
+                                font-size: 11px; margin-top: 2px; letter-spacing: 0.04em; }
+    .sec-row .sec-desc h4 { margin: 0 0 2px 0; font-size: 14.5px; color: var(--ink); }
+    .sec-row .sec-desc p { margin: 0; color: var(--muted); font-size: 12.5px; }
+    .sec-row .sec-chips { display: flex; gap: 5px; flex-wrap: wrap; justify-content: flex-end; }
+    .sec-row .chip { font-family: 'Inter', sans-serif; font-size: 11px;
+                      padding: 4px 10px; border-radius: 12px;
+                      text-decoration: none; font-weight: 700; white-space: nowrap;
+                      transition: all .12s; }
+    .sec-row .chip.lesson { background: #1E2761; color: #fff; border: 1px solid #1E2761; }
+    .sec-row .chip.lesson:hover { background: #F96167; border-color: #F96167; }
+    .sec-row .chip.ws { background: #fff; color: #8a650d; border: 1px solid #d4c590; }
+    .sec-row .chip.ws:hover { background: #8a650d; color: #fff; }
+    .sec-row .chip.soln { background: #fff; color: #2C5F2D; border: 1px solid #b5d4b5; }
+    .sec-row .chip.soln:hover { background: #2C5F2D; color: #fff; }
+    .sec-row .chip.perm { background: #fff; color: #4b3b8f; border: 1px solid #d3c8eb; }
+    .sec-row .chip.perm:hover { background: #4b3b8f; color: #fff; }
+
+    @media (max-width: 720px) {
+      .sec-row { grid-template-columns: 1fr; }
+      .sec-row .sec-chips { justify-content: flex-start; }
+    }
+
+    /* Footer note */
+    .lib-footer-note { padding: 24px clamp(18px, 5vw, 64px) 40px;
+                        color: var(--muted); font-size: 13px; max-width: 900px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="IGS Maths home">
+      <span class="brand-mark">∑</span>
+      <span>IGS Maths</span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="./">Home</a>
+      <a href="core.html">Year 10 Core</a>
+      <a href="methods.html">Year 11 Methods</a>
+      <a href="y12-methods/">Year 12 Methods</a>
+      <a href="lessons-library.html" aria-current="page">Library</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="lib-hero">
+      <p class="eyebrow">Lesson library</p>
+      <h1>Every lesson, by year and chapter</h1>
+      <p class="lead">One page to find any lesson, worksheet or solutions sheet from the term. Grouped by year level and Cambridge chapter, with the date each section was taught.</p>
+      <div class="lib-jump" aria-label="Jump to year">
+        <a class="y10" href="#y10">Year 10 Core</a>
+        <a class="y11" href="#y11">Year 11 Methods Unit 1</a>
+        <a class="y12" href="#y12">Year 12 Methods Unit 3 &amp; 4</a>
+      </div>
+    </section>
+
+    <!-- ============================== YEAR 10 ============================== -->
+    <section class="year-section y10" aria-label="Year 10 Core lessons">
+      <span class="anchor-target" id="y10"></span>
+      <div class="head">
+        <span class="pill">Year 10</span>
+        <h2>Year 10 Core Mathematics</h2>
+        <span class="subtitle">Cambridge Year 10 textbook</span>
+      </div>
+
+      <article class="chapter">
+        <h3>Chapter 4 — Surds</h3>
+        <p class="ch-meta">Rational vs irrational numbers, simplifying surds, the four operations on surds, rationalising the denominator.</p>
+        <div class="sec-list">
+
+          <div class="sec-row">
+            <div class="sec-code">§4A &amp; §4B<small>Wed 27 May</small></div>
+            <div class="sec-desc">
+              <h4>Simplifying surds &amp; adding like surds</h4>
+              <p>Rational vs irrational, simplifying with the largest perfect-square factor, combining like surds.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-05-27/Y10_Core_Surds_4A_4B.html">Lesson</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§4C<small>Fri 29 May</small></div>
+            <div class="sec-desc">
+              <h4>Multiplying &amp; dividing surds</h4>
+              <p>Product and quotient rules, squares of surds, the distributive law on brackets containing surds.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-05-29/Y10_Core_Surds_4C.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-05-29/Y10_Core_Surds_4C_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-05-29/Y10_Core_Surds_4C_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§4D<small>Fri 29 May</small></div>
+            <div class="sec-desc">
+              <h4>Rationalising the denominator</h4>
+              <p>Multiply top and bottom by the surd in the denominator. Bonus binomial-numerator section.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-05-29/Y10_Core_Surds_4D.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-05-29/Y10_Core_Surds_4D_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-05-29/Y10_Core_Surds_4D_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <article class="chapter">
+        <h3>Chapter 6 — Trigonometry</h3>
+        <p class="ch-meta">Right-angled triangle trig: SOHCAHTOA, finding unknown sides and angles, real-world applications in two and three dimensions, bearings.</p>
+        <div class="sec-list">
+
+          <div class="sec-row">
+            <div class="sec-code">§6A<small>Mon 01 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Trigonometric ratios</h4>
+              <p>Labelling opposite, adjacent and hypotenuse; SOHCAHTOA; solving for an unknown side length.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-01/Y10_Core_Trig_6A.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-01/Y10_Core_Trig_6A_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-01/Y10_Core_Trig_6A_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§6B<small>Mon 01 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Finding unknown angles</h4>
+              <p>Inverse trig functions to find an angle from two sides. Short worded applications.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-01/Y10_Core_Trig_6B.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-01/Y10_Core_Trig_6B_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-01/Y10_Core_Trig_6B_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§6C<small>Wed 03 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Applications in two dimensions</h4>
+              <p>Angles of elevation and depression, choosing the right ratio, ramps and buildings.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-03/Y10_Core_Trig_6C.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-03/Y10_Core_Trig_6C_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-03/Y10_Core_Trig_6C_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§6D<small>Thu 04 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Directions &amp; bearings</h4>
+              <p>Cardinal compass points, true bearings (clockwise from N), multi-leg journeys, final position.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-04/Y10_Core_Trig_6D.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-04/Y10_Core_Trig_6D_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-04/Y10_Core_Trig_6D_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§6E<small>Fri 05 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Applications in three dimensions</h4>
+              <p>Cube diagonals, masts with cables, square pyramids, rectangular boxes — the two-triangle method.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-05/Y10_Core_Trig_6E.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-05/Y10_Core_Trig_6E_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-05/Y10_Core_Trig_6E_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================== YEAR 11 ============================== -->
+    <section class="year-section y11" aria-label="Year 11 Methods Unit 1 lessons">
+      <span class="anchor-target" id="y11"></span>
+      <div class="head">
+        <span class="pill">Year 11</span>
+        <h2>Year 11 Mathematical Methods · Unit 1</h2>
+        <span class="subtitle">Cambridge Methods 1&amp;2 textbook</span>
+      </div>
+
+      <article class="chapter">
+        <h3>Chapter 13 — Exponentials &amp; Logarithms</h3>
+        <p class="ch-meta">Rational exponents, graphs of exponential functions, solving exponential equations and inequalities, logarithms and the log laws, graphs of logarithmic functions.</p>
+        <div class="sec-list">
+
+          <div class="sec-row">
+            <div class="sec-code">§13B<small>Wed 27 May</small></div>
+            <div class="sec-desc">
+              <h4>Rational exponents</h4>
+              <p>Fractional powers, evaluating roots, negative exponents, combining all index laws in one expression.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-05-27/Y11_Methods_13B_Rational_Exponents.html">Lesson</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§13C<small>Mon 01 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Graphs of exponential functions</h4>
+              <p>Shape of $y=a^x$, dilations, translations and reflections, asymptote, y-intercept and range.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13C.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13C_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13C_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§13D<small>Mon 01 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Solving exponential equations &amp; inequalities</h4>
+              <p>Same-base method, quadratic-in-disguise via substitution, exponential inequalities, CAS for awkward bases.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13D.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13D_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13D_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§13E<small>Tue 02 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Logarithms</h4>
+              <p>Definition, converting between exponential and log form, the seven log laws (product, quotient, power, change-of-base).</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-02/Y11_Methods_Exp_Log_13E.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-02/Y11_Methods_Exp_Log_13E_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-02/Y11_Methods_Exp_Log_13E_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§13F<small>Tue 02 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Using logarithms to solve exponentials</h4>
+              <p>Take a log of both sides for awkward bases, exact vs decimal answers, inequality-direction with bases less than 1.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-02/Y11_Methods_Exp_Log_13F.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-02/Y11_Methods_Exp_Log_13F_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-02/Y11_Methods_Exp_Log_13F_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§13G<small>Wed 03 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Graphs of logarithmic functions</h4>
+              <p>Reflection of $y=a^x$ in $y=x$, translations on log graphs, finding the inverse of an exponential or a log function.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-03/Y11_Methods_Exp_Log_13G.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-03/Y11_Methods_Exp_Log_13G_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-03/Y11_Methods_Exp_Log_13G_solutions.html" target="_blank">✅ Solutions</a>
+            </div>
+          </div>
+
+        </div>
+      </article>
+    </section>
+
+    <!-- ============================== YEAR 12 ============================== -->
+    <section class="year-section y12" aria-label="Year 12 Methods Unit 3 lessons">
+      <span class="anchor-target" id="y12"></span>
+      <div class="head">
+        <span class="pill">Year 12</span>
+        <h2>Year 12 Mathematical Methods · Unit 3 &amp; 4</h2>
+        <span class="subtitle">Cambridge Methods 3&amp;4 textbook · each topic has a permanent home in addition to the dated lesson</span>
+      </div>
+
+      <article class="chapter">
+        <h3>Chapter 10 — Numerical methods</h3>
+        <p class="ch-meta">Solving $f(x)=0$ when no algebraic technique works: bisection and Newton's method.</p>
+        <div class="sec-list">
+
+          <div class="sec-row">
+            <div class="sec-code">§10H</div>
+            <div class="sec-desc">
+              <h4>Bisection &amp; Newton's method</h4>
+              <p>Derive Newton's formula from a tangent, iterate bisection on $x^3+3x+1=0$, learn the three classic failure modes.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip perm" href="y12-methods/10H-bisection-newton/">Topic home</a>
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <article class="chapter">
+        <h3>Chapter 11 — Integration</h3>
+        <p class="ch-meta">Antiderivatives, the definite integral and the Fundamental Theorem of Calculus, area under a curve, area between curves, integration by recognition, average value.</p>
+        <div class="sec-list">
+
+          <div class="sec-row">
+            <div class="sec-code">§11B<small>Wed 27 May</small></div>
+            <div class="sec-desc">
+              <h4>Antiderivatives of $e^{kx}$ &amp; trig (Ex 6–9)</h4>
+              <p>Exponential antiderivatives with initial conditions, trig antiderivatives, and the stationary-point method.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-05-27/Y12_Methods_Integration_11B_Examples6-9.html">Lesson</a>
+              <a class="chip perm" href="y12-methods/11B-integration-examples-6-9/">Topic home</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§11E/F/G<small>Mon 01 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Area under a curve · the definite integral</h4>
+              <p>The Fundamental Theorem of Calculus, the five properties of the definite integral, signed vs total area, and a VCAA-style application.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-01/Y12_Methods_Integration_AreaUnderCurve.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-01/Y12_Methods_Integration_AreaUnderCurve_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-01/Y12_Methods_Integration_AreaUnderCurve_solutions.html" target="_blank">✅ Solutions</a>
+              <a class="chip perm" href="y12-methods/11EFG-area-under-curve/">Topic home</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§11I<small>Mon 01 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Area between two curves</h4>
+              <p>The "top minus bottom" rule, the 4-step recipe, intersections as limits, and splitting at curve cross-overs.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-01/Y12_Methods_Integration_AreaBetweenCurves.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-01/Y12_Methods_Integration_AreaBetweenCurves_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-01/Y12_Methods_Integration_AreaBetweenCurves_solutions.html" target="_blank">✅ Solutions</a>
+              <a class="chip perm" href="y12-methods/11I-area-between-curves/">Topic home</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§11H<small>Tue 02 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Integration by recognition</h4>
+              <p>Differentiate a given function and read off the antiderivative — the "hence find" pattern with chain-rule and product-rule examples.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-02/Y12_Methods_Integration_ByRecognition.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-02/Y12_Methods_Integration_ByRecognition_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-02/Y12_Methods_Integration_ByRecognition_solutions.html" target="_blank">✅ Solutions</a>
+              <a class="chip perm" href="y12-methods/11H-integration-by-recognition/">Topic home</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">§11J<small>Wed 03 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Average value of a function</h4>
+              <p>Average value as the height of the balancing rectangle, with calculus examples, the full-period shortcut for sin/cos, and a kinematics application.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-03/Y12_Methods_Integration_AverageValue.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-03/Y12_Methods_Integration_AverageValue_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-03/Y12_Methods_Integration_AverageValue_solutions.html" target="_blank">✅ Solutions</a>
+              <a class="chip perm" href="y12-methods/11J-average-value/">Topic home</a>
+            </div>
+          </div>
+
+          <div class="sec-row">
+            <div class="sec-code">Ch 11 review<small>Thu 04 Jun</small></div>
+            <div class="sec-desc">
+              <h4>Integration mixed practice</h4>
+              <p>"Which technique?" decision tree plus mixed worked examples spanning §11E/F/G, §11I, §11H and §11J.</p>
+            </div>
+            <div class="sec-chips">
+              <a class="chip lesson" href="lessons-2026-06-04/Y12_Methods_Integration_MixedPractice.html">Lesson</a>
+              <a class="chip ws" href="lessons-2026-06-04/Y12_Methods_Integration_MixedPractice_worksheet.html" target="_blank">📄 Worksheet</a>
+              <a class="chip soln" href="lessons-2026-06-04/Y12_Methods_Integration_MixedPractice_solutions.html" target="_blank">✅ Solutions</a>
+              <a class="chip perm" href="y12-methods/integration-mixed-practice/">Topic home</a>
+            </div>
+          </div>
+
+        </div>
+      </article>
+    </section>
+
+    <p class="lib-footer-note">
+      Looking for revision instead of a specific lesson? Try the
+      <a href="10core-exam-sem1-2026/">Year 10 Sem 1 exam review decks</a>,
+      the <a href="year-10-core-sem1-revision-2026/">Year 10 Revision Lab</a>,
+      the <a href="cas-exam2/">Year 10 CAS skills trainer</a>,
+      the <a href="11mm-sem1-exam/">Year 11 Unit 1 exam decks</a>, or the
+      <a href="final-revision.html">Year 11 final revision question bank</a>.
+    </p>
+  </main>
+
+  <footer>
+    <p>IGS Maths · lesson library — <a href="./">Back to home</a></p>
+  </footer>
+</body>
+</html>

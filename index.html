@@ -57,6 +57,17 @@
                              text-decoration: none; font-weight: 800; font-size: 14px; white-space: nowrap;
                              transition: transform .12s, background .12s; }
     .crt-banner a.crt-cta:hover { background: #fff; color: #1E2761; transform: translateY(-1px); }
+    .crt-banner .day-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+    .crt-banner .day-chips a { background: rgba(255,255,255,0.12); color: #fff; padding: 6px 12px;
+                                border-radius: 14px; text-decoration: none; font-weight: 700;
+                                font-size: 12.5px; border: 1px solid rgba(255,255,255,0.28);
+                                transition: all .12s; white-space: nowrap; }
+    .crt-banner .day-chips a:hover { background: #F96167; border-color: #F96167; transform: translateY(-1px); }
+    .crt-banner .day-chips a.today { background: #fff; color: #1E2761; border-color: #fff; }
+    .crt-banner .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .crt-banner a.crt-cta.secondary { background: transparent; color: #fff;
+                                       border: 1px solid rgba(255,255,255,0.45); padding: 9px 18px; }
+    .crt-banner a.crt-cta.secondary:hover { background: #fff; color: #1E2761; border-color: #fff; }
     .resource .tag.crt { background: #FCE8E6; color: #B85042; }
     .resource .tag.y12 { background: #efeaff; color: #4b3b8f; }
     .resource .tag.ws { background: #fff7df; color: #8a650d; }
@@ -76,6 +87,7 @@
       <a href="core.html">Year 10 Core</a>
       <a href="methods.html">Year 11 Methods</a>
       <a href="y12-methods/">Year 12 Methods</a>
+      <a href="lessons-library.html">Library</a>
     </nav>
   </header>
 
@@ -91,9 +103,29 @@
         <p class="eyebrow">This week's lessons</p>
         <h2>Mon 01 – Fri 05 June 2026</h2>
         <p>Y10 Trig (6A–6E) · Y11 Exp &amp; Log (13C–13G) · Y12 Integration (11E–11J + recap) — open any day for the lesson, worksheet, solutions and video walkthroughs.</p>
+        <div class="day-chips" aria-label="Jump to day">
+          <a href="lessons-2026-06-01/" data-day="2026-06-01">Mon 01</a>
+          <a href="lessons-2026-06-02/" data-day="2026-06-02">Tue 02</a>
+          <a href="lessons-2026-06-03/" data-day="2026-06-03">Wed 03</a>
+          <a href="lessons-2026-06-04/" data-day="2026-06-04">Thu 04</a>
+          <a href="lessons-2026-06-05/" data-day="2026-06-05">Fri 05</a>
+        </div>
       </div>
-      <a class="crt-cta" href="lessons-2026-06-01/">Open Monday's lessons →</a>
+      <div class="actions">
+        <a class="crt-cta secondary" href="lessons-library.html">Lesson library</a>
+      </div>
     </aside>
+    <script>
+      // Highlight the current day chip if today falls within this week.
+      (function () {
+        var today = new Date();
+        var iso = today.getFullYear() + '-' +
+          String(today.getMonth() + 1).padStart(2, '0') + '-' +
+          String(today.getDate()).padStart(2, '0');
+        var chip = document.querySelector('.day-chips a[data-day="' + iso + '"]');
+        if (chip) chip.classList.add('today');
+      })();
+    </script>
 
     <section class="year-grid" aria-label="Year-level entry points">
       <article class="year-card">
@@ -169,115 +201,20 @@
           <h3>Friday — Y10 Trig in 3D</h3>
           <p>Day landing for Friday — Y10 trig applications in 3D (6E): cube diagonals, masts and cables, square pyramids, rectangular boxes.</p>
         </a>
-        <a class="resource" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13C.html">
-          <span class="tag y11">Year 11</span>
-          <h3>Today — Exp graphs (13C)</h3>
-          <p>Shape, dilations and translations of exponential graphs, with asymptote and range for each transformed function.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13C_worksheet.html">
-          <span class="tag ws">Worksheet</span>
-          <h3>13C printable worksheet (2 pp A4)</h3>
-          <p>Print-ready handout: tables of values, asymptote/intercept/range for transformed exponentials, sketching, and a population model.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13C_solutions.html">
-          <span class="tag soln">Solutions</span>
-          <h3>13C answer key (1 pp A4)</h3>
-          <p>Compact teacher-ready solutions matching the 13C worksheet numbering.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13D.html">
-          <span class="tag y11">Year 11</span>
-          <h3>Today — Exp equations (13D)</h3>
-          <p>Same-base method, quadratic-in-disguise substitutions, and exponential inequalities with worked examples and a video walkthrough.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13D_worksheet.html">
-          <span class="tag ws">Worksheet</span>
-          <h3>13D printable worksheet (2 pp A4)</h3>
-          <p>Print-ready handout: same-base, products of powers, surd bases, quadratic-in-disguise, inequalities, and a growth model.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y11_Methods_Exp_Log_13D_solutions.html">
-          <span class="tag soln">Solutions</span>
-          <h3>13D answer key (1 pp A4)</h3>
-          <p>Compact teacher-ready solutions matching the 13D worksheet numbering.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y12_Methods_Integration_AreaUnderCurve.html">
-          <span class="tag y12">Year 12</span>
-          <h3>Today — Area under a curve (11E/F/G)</h3>
-          <p>The Fundamental Theorem of Calculus, properties of definite integrals, signed vs total area, and a VCAA-style application.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y12_Methods_Integration_AreaUnderCurve_worksheet.html">
-          <span class="tag ws">Worksheet</span>
-          <h3>11E/F/G printable worksheet (2 pp A4)</h3>
-          <p>Print-ready handout: warm-up evaluations, properties of definite integrals, signed-vs-total area, and a VCAA-style application.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y12_Methods_Integration_AreaUnderCurve_solutions.html">
-          <span class="tag soln">Solutions</span>
-          <h3>11E/F/G answer key (1 pp A4)</h3>
-          <p>Compact teacher-ready solutions matching the 11E/F/G worksheet numbering.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y12_Methods_Integration_AreaBetweenCurves.html">
-          <span class="tag y12">Year 12</span>
-          <h3>Today — Area between curves (11I)</h3>
-          <p>"Top minus bottom" rule, four-step recipe, and how to split when the upper curve swaps. Includes line vs parabola, two parabolas, and exponential vs line.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y12_Methods_Integration_AreaBetweenCurves_worksheet.html">
-          <span class="tag ws">Worksheet</span>
-          <h3>11I printable worksheet (2 pp A4)</h3>
-          <p>Print-ready handout: finding intersections, straight area-between-curves calculations, curves that swap, and an extension with a line and parabola.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y12_Methods_Integration_AreaBetweenCurves_solutions.html">
-          <span class="tag soln">Solutions</span>
-          <h3>11I answer key (1 pp A4)</h3>
-          <p>Compact teacher-ready solutions matching the 11I worksheet numbering.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y10_Core_Trig_6A_worksheet.html">
-          <span class="tag ws">Worksheet</span>
-          <h3>6A printable worksheet (2 pp A4)</h3>
-          <p>Print-ready handout: warm-up, numerator and denominator unknowns, triangle setups, ladder application.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y10_Core_Trig_6A_solutions.html">
-          <span class="tag soln">Solutions</span>
-          <h3>6A answer key (1 pp A4)</h3>
-          <p>Compact teacher-ready solutions matching the 6A worksheet numbering.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y10_Core_Trig_6B_worksheet.html">
-          <span class="tag ws">Worksheet</span>
-          <h3>6B printable worksheet (2 pp A4)</h3>
-          <p>Print-ready handout: inverse trig warm-up, finding angles, ramp / ladder / tunnel applications.</p>
-        </a>
-        <a class="resource" href="lessons-2026-06-01/Y10_Core_Trig_6B_solutions.html">
-          <span class="tag soln">Solutions</span>
-          <h3>6B answer key (1 pp A4)</h3>
-          <p>Compact teacher-ready solutions matching the 6B worksheet numbering.</p>
-        </a>
         <a class="resource" href="lessons-2026-05-29/">
           <span class="tag y10">29 May 2026</span>
-          <h3>Surds 4C &amp; 4D</h3>
-          <p>Year 10 Core: multiplying and dividing surds, and rationalising the denominator, with video walkthroughs.</p>
-        </a>
-        <a class="resource" href="lessons-2026-05-29/Y10_Core_Surds_4C_worksheet.html">
-          <span class="tag ws">Worksheet</span>
-          <h3>4C printable worksheet (2 pp A4)</h3>
-          <p>Print-ready handout: warm-up, multiplying, dividing, distributive law, challenge.</p>
-        </a>
-        <a class="resource" href="lessons-2026-05-29/Y10_Core_Surds_4C_solutions.html">
-          <span class="tag soln">Solutions</span>
-          <h3>4C answer key (1 pp A4)</h3>
-          <p>Compact teacher-ready solutions matching the 4C worksheet numbering.</p>
-        </a>
-        <a class="resource" href="lessons-2026-05-29/Y10_Core_Surds_4D_worksheet.html">
-          <span class="tag ws">Worksheet</span>
-          <h3>4D printable worksheet (2 pp A4)</h3>
-          <p>Print-ready handout: warm-up, rationalising, binomial numerators, challenge.</p>
-        </a>
-        <a class="resource" href="lessons-2026-05-29/Y10_Core_Surds_4D_solutions.html">
-          <span class="tag soln">Solutions</span>
-          <h3>4D answer key (1 pp A4)</h3>
-          <p>Compact teacher-ready solutions matching the 4D worksheet numbering.</p>
+          <h3>Day plan — Fri 29 May</h3>
+          <p>Year 10 Core surds: multiplying &amp; dividing (4C) and rationalising the denominator (4D), each with worksheet, solutions and video walkthroughs.</p>
         </a>
         <a class="resource" href="lessons-2026-05-27/">
           <span class="tag crt">27 May 2026</span>
           <h3>Day plan — Wed 27 May</h3>
-          <p>Period-by-period links to the 5 lessons across Y10, Y11 &amp; Y12.</p>
+          <p>Period-by-period links to the 5 lessons across Y10, Y11 &amp; Y12 (Surds 4A/4B, Rational exponents 13B, Integration 11B).</p>
+        </a>
+        <a class="resource" href="lessons-library.html" style="border-color: var(--green); background: #f6fbf6;">
+          <span class="tag" style="background:#E8F1E8; color:#2C5F2D;">All lessons</span>
+          <h3>📚 Lesson library</h3>
+          <p>Every lesson, worksheet and solutions sheet from the term, grouped by year level and Cambridge chapter. The fastest way to find a specific topic.</p>
         </a>
         <a class="resource" href="10core-exam-sem1-2026/">
           <span class="tag y10">Year 10</span>
