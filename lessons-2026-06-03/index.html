@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lessons — Wed 03 June 2026 · Y10 Trig, Y11 Log Graphs &amp; Y12 Average Value</title>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family:'Helvetica Neue',Arial,sans-serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.5; }
+  header { background:var(--navy); color:#fff; padding:32px 40px; border-bottom:6px solid var(--accent); }
+  header .eyebrow { letter-spacing:0.14em; font-size:12px; color:var(--ice); margin-bottom:6px;
+                    text-transform:uppercase; font-weight:bold; }
+  header h1 { margin:0 0 8px 0; font-size:30px; font-family:Georgia,serif; }
+  header .meta { color:var(--ice); font-size:15px; }
+  main { max-width:1000px; margin:0 auto; padding:24px 40px 60px 40px; }
+  h2.section { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px;
+               margin-top:32px; font-size:22px; font-family:Georgia,serif; }
+  .lesson-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr));
+                 gap:18px; margin-top:18px; }
+  .lesson-card { background:#fff; border:1px solid #ddd; border-radius:10px; padding:22px 24px;
+                 text-decoration:none; color:inherit; display:flex; flex-direction:column;
+                 box-shadow:0 2px 6px rgba(0,0,0,0.04); transition:all .15s; }
+  .lesson-card:hover { border-color:var(--accent); transform:translateY(-2px);
+                       box-shadow:0 8px 18px rgba(0,0,0,0.08); }
+  .lesson-card .tag { display:inline-block; background:var(--ice); color:var(--navy); padding:3px 10px;
+                      border-radius:12px; font-size:11px; font-weight:bold; letter-spacing:0.5px;
+                      margin-bottom:10px; width:max-content; text-transform:uppercase; }
+  .lesson-card h3 { margin:0 0 6px 0; font-size:19px; color:var(--navy); font-family:Georgia,serif; }
+  .lesson-card .sub { color:var(--muted); font-size:13.5px; margin-bottom:14px; }
+  .lesson-card ul { margin:0; padding-left:20px; font-size:14px; }
+  .lesson-card ul li { margin:3px 0; }
+  .lesson-card .open { margin-top:auto; padding-top:16px; font-weight:bold; color:var(--accent);
+                       font-size:14px; }
+  .lesson-card .open::after { content:"  →"; }
+  .ws-row { display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; }
+  .ws-row a { font-family:'Helvetica Neue',Arial,sans-serif; font-size:12.5px; color:var(--navy);
+              text-decoration:none; background:#fff; border:1px solid var(--navy);
+              padding:4px 10px; border-radius:14px; font-weight:bold;
+              transition:all .15s; }
+  .ws-row a:hover { background:var(--navy); color:#fff; }
+  .ws-row a.good { color:#2C5F2D; border-color:#2C5F2D; }
+  .ws-row a.good:hover { background:#2C5F2D; color:#fff; }
+  .intro { background:#FFF9E6; border:2px solid #E8D88A; border-radius:8px; padding:16px 22px; margin:20px 0; }
+  .intro h2 { margin:0 0 8px 0; color:#8a650d; font-size:18px; }
+  .intro p { margin:4px 0; font-size:14.5px; }
+  footer { padding:20px 40px; color:var(--muted); font-size:13px; border-top:1px solid #eee; }
+  footer a { color:var(--navy); }
+  @media (max-width:640px) { main { padding:18px; } header { padding:24px 18px; } header h1 { font-size:24px; } }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: 'Helvetica Neue',Arial,sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-2026-06-02/">← Tue 02 June</a>
+    <a href="../lessons-2026-06-04/">Thu 04 June →</a>
+  </div>
+</nav>
+<header>
+  <p class="eyebrow">Lessons for today</p>
+  <h1>Trig Applications (Y10), Log Graphs (Y11) &amp; Average Value (Y12)</h1>
+  <p class="meta">Wed 03 June 2026 &nbsp;•&nbsp; Cambridge Ch 6 §6C &nbsp;·&nbsp; Cambridge Methods 1&amp;2 §13G &nbsp;·&nbsp; Cambridge Methods 3&amp;4 §11J</p>
+</header>
+
+<main>
+
+<div class="intro">
+  <h2>📚 What you're doing today</h2>
+  <p>Three lessons across all year groups. Each has worked examples (click <strong>Show solution</strong>), a video walkthrough, a quick auto-marked quiz, and a Cambridge working program at the bottom.</p>
+  <p>Bring your <strong>Cambridge textbook</strong>, your <strong>exercise book</strong>, and your calculator — Y10 in degree mode, Y12 CAS in radian mode.</p>
+</div>
+
+<h2 class="section">Year 10 Core · Lesson for today</h2>
+<div class="lesson-grid">
+
+  <div class="lesson-card">
+    <a href="Y10_Core_Trig_6C.html" style="color:inherit; text-decoration:none; display:flex; flex-direction:column; flex:1;">
+      <span class="tag">Ex 6C</span>
+      <h3>Applications in Two Dimensions</h3>
+      <p class="sub">Angles of elevation and depression &nbsp;·&nbsp; choosing the right ratio for the problem</p>
+      <ul>
+        <li>Reading a worded problem and drawing the right-triangle diagram</li>
+        <li>Helicopter elevation — finding the horizontal distance</li>
+        <li>Two-elevation building height (top of building from two points)</li>
+        <li>Lighthouse depression with an extension on ramps</li>
+        <li>Two video walkthroughs &nbsp;·&nbsp; 5-question quiz &nbsp;·&nbsp; Ex 6C working program</li>
+      </ul>
+      <span class="open">Open online lesson</span>
+    </a>
+    <div class="ws-row">
+      <a href="Y10_Core_Trig_6C_worksheet.html" target="_blank">📄 Worksheet (2 pp A4)</a>
+      <a class="good" href="Y10_Core_Trig_6C_solutions.html" target="_blank">✅ Solutions</a>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="section">Year 11 Methods · Lesson for today</h2>
+<div class="lesson-grid">
+
+  <div class="lesson-card">
+    <a href="Y11_Methods_Exp_Log_13G.html" style="color:inherit; text-decoration:none; display:flex; flex-direction:column; flex:1;">
+      <span class="tag">§13G</span>
+      <h3>Graphs of Logarithmic Functions</h3>
+      <p class="sub">Reflection of the exponential in $y=x$ &nbsp;·&nbsp; translations &nbsp;·&nbsp; finding inverses</p>
+      <ul>
+        <li>Sketching $y=\log_a(x)$ as the reflection of $y=a^x$</li>
+        <li>Applying translations and reflections to log graphs</li>
+        <li>Finding the inverse of an exponential or a logarithmic function</li>
+        <li>Vertical asymptotes, domain, and range</li>
+        <li>Video walkthrough &nbsp;·&nbsp; 5-question quiz &nbsp;·&nbsp; Ex 13G working program</li>
+      </ul>
+      <span class="open">Open online lesson</span>
+    </a>
+    <div class="ws-row">
+      <a href="Y11_Methods_Exp_Log_13G_worksheet.html" target="_blank">📄 Worksheet (2 pp A4)</a>
+      <a class="good" href="Y11_Methods_Exp_Log_13G_solutions.html" target="_blank">✅ Solutions</a>
+    </div>
+  </div>
+
+</div>
+
+<h2 class="section">Year 12 Methods · Lesson for today</h2>
+<div class="lesson-grid">
+
+  <div class="lesson-card">
+    <a href="Y12_Methods_Integration_AverageValue.html" style="color:inherit; text-decoration:none; display:flex; flex-direction:column; flex:1;">
+      <span class="tag">§11J</span>
+      <h3>Average Value of a Function</h3>
+      <p class="sub">Average value as the height of the balancing rectangle &nbsp;·&nbsp; calculus + graphical shortcuts</p>
+      <ul>
+        <li>The definition $\bar{f} = \dfrac{1}{b-a}\int_a^b f(x)\,dx$</li>
+        <li>Worked example with $\sqrt{x}$ on a closed interval</li>
+        <li>The "full-period mean = 0" shortcut for sine and cosine</li>
+        <li>A kinematics application (mean velocity from a velocity-time curve)</li>
+        <li>Three video walkthroughs &nbsp;·&nbsp; 5-question quiz &nbsp;·&nbsp; Ex 11J working program</li>
+      </ul>
+      <span class="open">Open online lesson</span>
+    </a>
+    <div class="ws-row">
+      <a href="Y12_Methods_Integration_AverageValue_worksheet.html" target="_blank">📄 Worksheet (2 pp A4)</a>
+      <a class="good" href="Y12_Methods_Integration_AverageValue_solutions.html" target="_blank">✅ Solutions</a>
+    </div>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  <p>IGS Maths &nbsp;•&nbsp; <a href="../">Back to main hub</a> &nbsp;•&nbsp; — Mr Wong</p>
+</footer>
+
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+</html>
