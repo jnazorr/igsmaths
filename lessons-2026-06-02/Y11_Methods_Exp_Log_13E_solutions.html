@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions — Y11 Methods Exp/Log 13E Worksheet</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --good:#2C5F2D; --good-bg:#E8F1E8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          position:relative; font-size: 9.5pt; line-height: 1.26; overflow: hidden; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--good); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--good); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .stamp { font-family: Calibri, Arial, sans-serif; font-size: 9.5pt;
+                  background:var(--good-bg); color:var(--good); padding: 3mm 5mm;
+                  border:1px solid var(--good); border-radius: 2mm; font-weight:bold; }
+
+  .section { margin: 0 0 2.5mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 1.5mm 0; font-size: 10.8pt; }
+  .section .pq { font-family: Calibri, Arial, sans-serif; font-size: 9.2pt; color:var(--muted);
+                 margin: 0 0 1mm 0; }
+  .section .pq strong { color: var(--navy); }
+
+  .answers { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1mm 8mm;
+             font-family: Calibri, Arial, sans-serif; font-size: 9.2pt;
+             padding-left: 6mm; }
+  .answers.col1 { grid-template-columns: 1fr; }
+  .answers.col3 { grid-template-columns: repeat(3, 1fr); }
+  .answers .a { display:flex; align-items:baseline; gap: 2mm; padding: 0.3mm 0; }
+  .answers .a .letter { color:var(--muted); font-style:italic; min-width: 4mm; flex-shrink:0; }
+  .answers .a .ans { color:var(--good); font-weight:bold; }
+  .answers .a .work { color:var(--muted); font-size: 8.6pt; margin-left: 1mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+    .no-print, .lesson-nav { display:none; }
+  }
+
+  .print-btn { position:fixed; top:50px; right:8mm; background:var(--good); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background:#1E2761; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">02 June lessons</a>
+    <a href="Y11_Methods_Exp_Log_13E.html">Lesson 13E</a>
+    <a href="Y11_Methods_Exp_Log_13E_worksheet.html">Worksheet 13E</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solutions — Exp/Log 13E Worksheet</h1>
+      <p>Year 11 Methods Unit 1 · Cambridge §13E · Mr Wong</p>
+    </div>
+    <div class="stamp">ANSWER KEY</div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Exp / Log form swap</h2>
+    <p class="pq"><strong>Q1.</strong> Rewrite each as a log.</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$\log_5(625)=4$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$\log_7\!\left(\tfrac{1}{49}\right)=-2$</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$\log_{1/3}\!\left(\tfrac{1}{27}\right)=3$</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$\log_{10}(1)=0$</span></div>
+    </div>
+    <p class="pq" style="margin-top:1.5mm"><strong>Q2.</strong> Fill in the blanks.</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$4$</span> <span class="work">($16=2^4$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$2$</span> <span class="work">($36=6^2$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$-3$</span> <span class="work">($10^{-3}$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">arg $=125$</span> <span class="work">($5^3$)</span></div>
+      <div class="a"><span class="letter">e</span> <span class="ans">arg $=\tfrac{1}{2}$</span> <span class="work">($2^{-1}$)</span></div>
+      <div class="a"><span class="letter">f</span> <span class="ans">base $=9$</span> <span class="work">($9^2=81$)</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Evaluating logarithms</h2>
+    <p class="pq"><strong>Q3.</strong> Rewrite the argument as a power of the base.</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$3$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$2$</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$\tfrac{1}{2}$</span> <span class="work">($5=25^{1/2}$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$\tfrac{1}{4}$</span> <span class="work">($2=16^{1/4}$)</span></div>
+      <div class="a"><span class="letter">e</span> <span class="ans">$-3$</span></div>
+      <div class="a"><span class="letter">f</span> <span class="ans">$-4$</span></div>
+    </div>
+    <p class="pq" style="margin-top:1.5mm"><strong>Q4.</strong> Fractional powers.</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$\tfrac{3}{2}$</span> <span class="work">($8=4^{3/2}$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$\tfrac{4}{3}$</span> <span class="work">($81=27^{4/3}$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$-\tfrac{1}{2}$</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$-\tfrac{1}{4}$</span></div>
+    </div>
+    <p class="pq" style="margin-top:1.5mm"><strong>Q5.</strong> Undefined: <span class="ans" style="color:var(--good);font-weight:bold">$\log_2(-2)$ and $\log_2(0)$</span> &nbsp;(argument must be $&gt;0$). The other two are defined.</p>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Laws of logarithms</h2>
+    <p class="pq"><strong>Q6.</strong> Single-value simplification.</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$2$</span> <span class="work">($\log_2(4)$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$4$</span> <span class="work">($4+0$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$\log_9\!\left(\tfrac{729}{4}\right)$</span> <span class="work">($2-\log_9(\tfrac{4}{9})$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$\log_2(5x)$</span></div>
+    </div>
+    <p class="pq" style="margin-top:1.5mm"><strong>Q7.</strong> Single logarithm.</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span> $\log_a(x^3)+\log_a(20)=$ <span class="ans">$\log_a(20x^3)$</span></div>
+      <div class="a"><span class="letter">b</span> $\log_2(x^2)-\log_2(x+5)=$ <span class="ans">$\log_2\!\left(\dfrac{x^2}{x+5}\right)$</span></div>
+      <div class="a"><span class="letter">c</span> $\log_{10}(x^9y^{18})-\log_{10}(x^5)=$ <span class="ans">$\log_{10}(x^4y^{18})$</span></div>
+      <div class="a"><span class="letter">d</span> $\log_7(x^2y^3)-\log_7(y^2)=$ <span class="ans">$\log_7(x^2y)$</span></div>
+    </div>
+    <p class="pq" style="margin-top:1.5mm"><strong>Q8.</strong> Change of base: $\log_2(8)=\dfrac{\log_{10}(8)}{\log_{10}(2)}=\dfrac{3\log_{10}(2)}{\log_{10}(2)}=$ <span class="ans" style="color:var(--good);font-weight:bold">$3$</span>.</p>
+  </div>
+
+  <div class="section">
+    <h2>Part D — Solving log equations</h2>
+    <p class="pq"><strong>Q9.</strong> Always check the domain (every log argument $&gt;0$).</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span>
+        $\log_2(x(x+2))=3\Rightarrow x^2+2x-8=0\Rightarrow (x+4)(x-2)=0$. Reject $x=-4$. &nbsp; <span class="ans">$x=2$</span>
+      </div>
+      <div class="a"><span class="letter">b</span>
+        $\log_{10}\!\left(\tfrac{x+2}{x}\right)=\log_{10}(16)\Rightarrow \tfrac{x+2}{x}=16\Rightarrow 15x=2$. &nbsp; <span class="ans">$x=\tfrac{2}{15}$</span>
+      </div>
+      <div class="a"><span class="letter">c</span>
+        $\log_5(x(x-4))=1\Rightarrow x^2-4x-5=0\Rightarrow (x-5)(x+1)=0$. Domain $x&gt;4$, reject $-1$. &nbsp; <span class="ans">$x=5$</span>
+      </div>
+      <div class="a"><span class="letter">d</span>
+        $\log_{10}(x^2)=\log_{10}(9)\Rightarrow x^2=9$. Domain $x&gt;0$, reject $-3$. &nbsp; <span class="ans">$x=3$</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y11 Methods · Exp/Log 13E · Solutions</span>
+    <span>Page 1 of 1 · Hand back to Mr Wong</span>
+  </div>
+</section>
+
+</body>
+</html>

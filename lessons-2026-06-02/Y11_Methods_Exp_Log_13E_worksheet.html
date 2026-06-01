@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y11 Methods Exp/Log 13E (Logarithms)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .key .rule { text-align:center; font-size: 10.5pt; margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">02 June lessons</a>
+    <a href="Y11_Methods_Exp_Log_13E.html">Lesson 13E</a>
+    <a href="Y11_Methods_Exp_Log_13E_solutions.html">Solutions 13E</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Logarithms (Ex 13E)</h1>
+      <p>Year 11 Mathematical Methods Unit 1 · Cambridge §13E · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Translate between exponential and logarithm form</li>
+      <li>Evaluate logarithms by rewriting the argument as a power of the base</li>
+      <li>Apply the three log laws (product, quotient, power) and the change-of-base rule</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p class="rule">$a^x=y \;\Longleftrightarrow\; \log_a(y)=x$ &nbsp;($a&gt;0,\;a\ne 1,\;y&gt;0$)</p>
+    <p class="rule">Product: $\log_a(m)+\log_a(n)=\log_a(mn)$ &nbsp;|&nbsp; Quotient: $\log_a(m)-\log_a(n)=\log_a(m/n)$</p>
+    <p class="rule">Power: $\log_a(m^p)=p\log_a(m)$ &nbsp;|&nbsp; $\log_a(1)=0$, $\log_a(a)=1$</p>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Exp / Log form swap</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Rewrite each exponential statement in log form.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $5^4=625$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $7^{-2}=\tfrac{1}{49}$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\left(\tfrac{1}{3}\right)^3=\tfrac{1}{27}$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $10^0=1$ &nbsp; <span class="ans"></span></div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Fill in the blanks.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\log_2(16)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\log_6(36)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\log_{10}\!\left(\tfrac{1}{1000}\right)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\log_5(\;\;\;)=3$, so arg $=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $\log_2(\;\;\;)=-1$, arg $=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $\log_{\;\;\;}(81)=2$, base $=$ <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Evaluating logarithms</h2>
+
+    <div class="q qrow">
+      <span class="num">3.</span> Evaluate.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\log_2(8)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\log_3(9)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\log_{25}(5)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\log_{16}(2)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $\log_2\!\left(\tfrac{1}{8}\right)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $\log_3\!\left(\tfrac{1}{81}\right)=$ <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Evaluate (fractional answers).
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\log_4(8)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\log_{27}(81)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\log_{25}\!\left(\tfrac{1}{5}\right)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\log_{81}\!\left(\tfrac{1}{3}\right)=$ <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">5.</span> Which of the following are <em>undefined</em>? Circle them. &nbsp;
+      $\log_2(-2)$ &nbsp;·&nbsp; $\log_2(0)$ &nbsp;·&nbsp; $\log_5(1)$ &nbsp;·&nbsp; $\log_{10}(0.001)$
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y11 Methods · Exp/Log 13E worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Logarithms 13E — continued</h1>
+      <p>Part C (laws of logs) · Part D (solve log equations)</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Laws of logarithms</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">Use the product / quotient / power laws to simplify.</p>
+
+    <div class="q qrow">
+      <span class="num">6.</span> Simplify (write your answer as a single number where possible).
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\log_2(32)-\log_2(8)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\log_2(16)+\log_3(1)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $2\log_9(9)-\log_9\!\left(\tfrac{4}{9}\right)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\log_2(5)+\log_2(x)=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">7.</span> Write each as a single logarithm.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $3\log_a(x)+\log_a(20)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $2\log_2(x)-\log_2(x+5)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $3\log_{10}(x^3y^6)-5\log_{10}(x)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\tfrac{1}{2}\log_7(x^4y^6)-2\log_7(y)=$ <span class="ans"></span></div>
+      </div>
+      <div class="work l"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> Change of base. Express $\log_2(8)$ in terms of base-$10$ logarithms and evaluate. &nbsp;
+      <span class="ans" style="min-width:30mm"></span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part D — Solving log equations</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">Combine logs, rewrite in exponential form, solve, then check the domain.</p>
+
+    <div class="q qrow">
+      <span class="num">9.</span> Solve for $x$.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $\log_2(x)+\log_2(x+2)=3$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\log_{10}(x+2)-\log_{10}(x)=2\log_{10}(4)$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\log_5(x)+\log_5(x-4)=1$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $2\log_{10}(x)=\log_{10}(9)$ &nbsp; $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work l"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · then attempt Cambridge Ex 13E set work</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

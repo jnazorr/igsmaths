@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y11 Methods Exp/Log 13F (Using Logs to Solve Exponentials)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .key .rule { text-align:center; font-size: 10.5pt; margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">02 June lessons</a>
+    <a href="Y11_Methods_Exp_Log_13F.html">Lesson 13F</a>
+    <a href="Y11_Methods_Exp_Log_13F_solutions.html">Solutions 13F</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Using Logarithms to Solve Exponentials (Ex 13F)</h1>
+      <p>Year 11 Mathematical Methods Unit 1 · Cambridge §13F · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Solve $a^{f(x)}=b$ by taking $\log_{10}$ of both sides and applying the power rule</li>
+      <li>Give answers in exact form and to two decimal places</li>
+      <li>Solve exponential inequalities — flip the sign when the base is between $0$ and $1$</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p class="rule">$a^x=b \;\Rightarrow\; x=\dfrac{\log_{10}(b)}{\log_{10}(a)}$ &nbsp;(also written $\log_a(b)$)</p>
+    <p class="rule">Inequality: dividing by $\log_{10}(b)$ <strong>flips</strong> the direction if $0&lt;b&lt;1$ (since $\log_{10}(b)&lt;0$)</p>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Solve $a^x=b$</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Give the exact answer (a single fraction of logs) and then to 2 d.p.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $2^x=5$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $7^{-x}=6$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $3^x=10$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $0.5^x=7$ &nbsp; $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Bracketed exponents — to 2 d.p.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $5^{2x-1}=7$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $0.3^{1-x}=12$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $2^{x+1}=15$ &nbsp; $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $4^{2x}=20$ &nbsp; $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work l"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Inequalities (mind the flip)</h2>
+
+    <div class="q qrow">
+      <span class="num">3.</span> Solve to 2 d.p.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $4^x\le 10$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $5^x &gt; 12$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $2^x \le 100$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $0.4^x &lt; 5$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $0.7^x &gt; 3$ &nbsp; <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $\left(\tfrac{1}{3}\right)^x \le 8$ &nbsp; <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y11 Methods · Exp/Log 13F worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Logs to Solve Exponentials 13F — continued</h1>
+      <p>Part C (exp graphs revisited) · Challenge</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Exponential graphs revisited</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">Use logs to find the $x$-intercept that you couldn't get in §13C.</p>
+
+    <div class="q qrow">
+      <span class="num">4.</span> For $f(x)=2\times 10^x-4$, state the asymptote and find both axis intercepts (give the $x$-intercept exactly and to 2 d.p.).
+      <div class="parts col2" style="margin-top: 1mm;">
+        <div class="p"><span class="letter">·</span> asymptote: $y=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">·</span> $y$-int: $(0,$ <span class="ans"></span> $)$</div>
+        <div class="p"><span class="letter">·</span> $x$-int exact: $x=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">·</span> $x$-int 2 d.p.: $x\approx$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">5.</span> For $g(x)=3\times 2^x-12$, state the asymptote and find both axis intercepts (exact $x$-intercept).
+      <div class="parts col2" style="margin-top: 1mm;">
+        <div class="p"><span class="letter">·</span> asymptote: $y=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">·</span> $y$-int: $(0,$ <span class="ans"></span> $)$</div>
+        <div class="p"><span class="letter">·</span> $x$-int: $x=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+
+    <div class="q qrow">
+      <span class="num">6.</span> A radioactive sample of mass $M_0=200$ g decays so that $M=M_0\,(0.5)^{t/12}$ grams, with $t$ in hours. How long until only $25$ g remains? &nbsp; (Hint: same-base trick first, no logs needed.)
+    </div>
+    <div class="work m"></div>
+
+    <div class="q qrow">
+      <span class="num">7.</span> A different sample obeys $M=200\,(0.5)^{t/12}$. How long until $M=30$ g? Give an exact form and an answer to 2 d.p.
+    </div>
+    <div class="work m"></div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · then attempt Cambridge Ex 13F set work</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 11 Methods — Logarithms (13E)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html" class="current">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./">All 02 June lessons</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 11 Methods Unit 1 — Logarithms</h1>
+  <div class="meta">Cambridge Methods 1&amp;2, §13E &nbsp;•&nbsp; Tue 02 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y11_Methods_Exp_Log_13E_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y11_Methods_Exp_Log_13E_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="../lessons-2026-06-01/Y11_Methods_Exp_Log_13D.html">← Back: §13D Solving exponentials</a>
+    <a href="Y11_Methods_Exp_Log_13F.html">→ Next: §13F Logs to solve exponentials</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>So far you've solved $2^x=8$ by spotting that $8=2^3$. But what about $2^x=5$? The base $5$ <em>isn't</em> a "nice" power of $2$ — so we need a new tool. That tool is the <strong>logarithm</strong>. By the end of the lesson you should be able to:</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Translate between <strong>exponential form</strong> $a^x=y$ and <strong>logarithm form</strong> $\log_a(y)=x$</li>
+    <li>Evaluate logarithms by rewriting the argument as a power of the base (e.g. $\log_2(8)=3$)</li>
+    <li>Apply the three <strong>laws of logarithms</strong> — product, quotient, power — to simplify expressions</li>
+    <li>Use the <strong>change-of-base</strong> rule when the calculator only has $\log_{10}$ or $\ln$</li>
+    <li>Solve simple logarithmic equations like $\log_2(x)+\log_2(x+2)=3$ (and check the domain $x&gt;0$)</li>
+  </ul>
+</div>
+
+<h2>Part 1 — What is a logarithm?</h2>
+
+<div class="callout">
+  <strong>Definition.</strong> For $a&gt;0$, $a\ne 1$ and $y&gt;0$:
+  $$ a^x=y \quad \Longleftrightarrow \quad \log_a(y) = x. $$
+  In plain English: <em>"the logarithm of $y$, to the base $a$, is the exponent that turns $a$ into $y$."</em>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="LogDefinition.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> the exponential form $2^3=8$ as the equivalent logarithm form $\log_2(8)=3$, colour-coded so you can see which number plays which role.</p>
+</div>
+
+<div class="twocol">
+  <div><strong>Exponential form</strong><br>$2^3 = 8$<br>$5^4 = 625$<br>$7^{-2} = \tfrac{1}{49}$<br>$\left(\tfrac{1}{3}\right)^3 = \tfrac{1}{27}$</div>
+  <div><strong>Logarithm form</strong><br>$\log_2(8) = 3$<br>$\log_5(625) = 4$<br>$\log_7\!\left(\tfrac{1}{49}\right) = -2$<br>$\log_{1/3}\!\left(\tfrac{1}{27}\right) = 3$</div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — fill in the blanks</span>
+  <div class="q">Complete each statement.<br>
+  (a) $\log_2(16) = \underline{\;\;\;}$ &nbsp; (b) $\log_6(36) = \underline{\;\;\;}$ &nbsp; (c) $\log_{10}\!\left(\tfrac{1}{1000}\right) = \underline{\;\;\;}$<br>
+  (d) $\log_5(\underline{\;\;\;}) = 3$ &nbsp; (e) $\log_2(\underline{\;\;\;}) = -1$ &nbsp; (f) $\log_{\underline{\;\;\;}}(81)=2$</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>(a) $2^?=16=2^4$, so $\boxed{\log_2(16)=4}$.</li>
+      <li>(b) $6^?=36=6^2$, so $\boxed{\log_6(36)=2}$.</li>
+      <li>(c) $10^?=\tfrac{1}{1000}=10^{-3}$, so $\boxed{\log_{10}\!\left(\tfrac{1}{1000}\right)=-3}$.</li>
+      <li>(d) $5^3=125$, so $\boxed{\log_5(125)=3}$.</li>
+      <li>(e) $2^{-1}=\tfrac{1}{2}$, so $\boxed{\log_2\!\left(\tfrac{1}{2}\right)=-1}$.</li>
+      <li>(f) $?^2=81$ ⇒ $?=9$, so $\boxed{\log_9(81)=2}$.</li>
+    </ol>
+  </div>
+</div>
+
+<h2>Part 2 — Evaluating logarithms</h2>
+
+<p>To evaluate $\log_a(N)$ without a calculator: <em>ask yourself "what power of $a$ gives me $N$?"</em> Rewrite $N$ as a power of $a$, then read off the exponent.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — straight powers</span>
+  <div class="q">Evaluate <strong>(a)</strong> $\log_2(8)$ &nbsp; <strong>(b)</strong> $\log_3(9)$ &nbsp; <strong>(c)</strong> $\log_2\!\left(\tfrac{1}{8}\right)$ &nbsp; <strong>(d)</strong> $\log_3\!\left(\tfrac{1}{81}\right)$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>(a) $8=2^3$, so $\boxed{\log_2(8)=3}$.</li>
+      <li>(b) $9=3^2$, so $\boxed{\log_3(9)=2}$.</li>
+      <li>(c) $\tfrac{1}{8}=2^{-3}$, so $\boxed{\log_2\!\left(\tfrac{1}{8}\right)=-3}$.</li>
+      <li>(d) $\tfrac{1}{81}=3^{-4}$, so $\boxed{\log_3\!\left(\tfrac{1}{81}\right)=-4}$.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 3 — fractional answers</span>
+  <div class="q">Evaluate <strong>(a)</strong> $\log_{25}(5)$ &nbsp; <strong>(b)</strong> $\log_{16}(2)$ &nbsp; <strong>(c)</strong> $\log_4(8)$ &nbsp; <strong>(d)</strong> $\log_{27}(81)$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>(a) $5 = 25^{1/2}$, so $\boxed{\log_{25}(5)=\tfrac{1}{2}}$.</li>
+      <li>(b) $2 = 16^{1/4}$, so $\boxed{\log_{16}(2)=\tfrac{1}{4}}$.</li>
+      <li>(c) Convert to base 2: $\log_4(8)=\log_4(4^{3/2})=\tfrac{3}{2}$. So $\boxed{\log_4(8)=\tfrac{3}{2}}$.</li>
+      <li>(d) Convert to base 3: $\log_{27}(81)=\log_{27}(27^{4/3})=\tfrac{4}{3}$. So $\boxed{\log_{27}(81)=\tfrac{4}{3}}$.</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> $\log_{25}\!\left(\tfrac{1}{5}\right)$ and $\log_{81}\!\left(\tfrac{1}{3}\right)$. &nbsp; Answers: $-\tfrac{1}{2}$ and $-\tfrac{1}{4}$.</p>
+  </div>
+</div>
+
+<div class="callout warn">
+  <strong>What can't a log do?</strong> $\log_a(N)$ is only defined for $N&gt;0$. So $\log_2(-2)$ and $\log_2(0)$ are <em>both undefined</em> — no power of $2$ gives you a negative number or zero. Domain matters when you solve log equations later.
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.1 — evaluate.</p>
+  <ol class="qlist" type="a">
+    <li>$\log_2(32)$</li>
+    <li>$\log_3(27)$</li>
+    <li>$\log_5(125)$</li>
+    <li>$\log_{10}(0.01)$</li>
+    <li>$\log_4(2)$</li>
+    <li>$\log_{16}(4)$</li>
+    <li>$\log_a(a^2)$</li>
+    <li>$\log_a(1)$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $5$ &nbsp; b) $3$ &nbsp; c) $3$ &nbsp; d) $-2$ &nbsp; e) $\tfrac{1}{2}$ &nbsp; f) $\tfrac{1}{2}$ &nbsp; g) $2$ &nbsp; h) $0$ (any base — $a^0=1$).
+  </div>
+</div>
+
+<h2>Part 3 — The three laws of logarithms</h2>
+
+<div class="callout good">
+  <strong>The laws.</strong> For $a&gt;0,\;a\ne 1$ and $m,n&gt;0$:
+  <ul style="margin:6px 0 0 18px;">
+    <li><strong>Product:</strong> $\log_a(m)+\log_a(n) = \log_a(mn)$</li>
+    <li><strong>Quotient:</strong> $\log_a(m)-\log_a(n) = \log_a\!\left(\tfrac{m}{n}\right)$</li>
+    <li><strong>Power:</strong> $\log_a(m^p) = p\cdot\log_a(m)$</li>
+  </ul>
+  <strong>Two freebies:</strong> &nbsp;$\log_a(1)=0$ &nbsp;and&nbsp; $\log_a(a)=1$.
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="LogLaws.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> the three log laws side-by-side — add becomes multiply, subtract becomes divide, and the exponent jumps down out the front.</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 4 — sanity check on $\log_2(8)+\log_2(4)$</span>
+  <div class="q">Verify the product rule by computing $\log_2(8)+\log_2(4)$ two different ways.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li><strong>Direct:</strong> $\log_2(8)+\log_2(4)=3+2=5$.</li>
+      <li><strong>Using the product rule:</strong> $\log_2(8\cdot 4)=\log_2(32)=\log_2(2^5)=5$. ✓</li>
+    </ol>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 5 — simplify</span>
+  <div class="q">Simplify <strong>(a)</strong> $\log_2(32)-\log_2(8)$ &nbsp; <strong>(b)</strong> $2\log_9(9)-\log_9\!\left(\tfrac{4}{9}\right)$ &nbsp; <strong>(c)</strong> $3\log_a(x)+\log_a(20)$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>(a) Quotient: $\log_2\!\left(\tfrac{32}{8}\right)=\log_2(4)=\boxed{2}$.</li>
+      <li>(b) $2\log_9(9)=2(1)=2$. Then $2-\log_9\!\left(\tfrac{4}{9}\right)=\log_9(81)-\log_9\!\left(\tfrac{4}{9}\right)=\log_9\!\left(\tfrac{81\cdot 9}{4}\right)=\boxed{\log_9\!\left(\tfrac{729}{4}\right)}$.</li>
+      <li>(c) Power first: $3\log_a(x)=\log_a(x^3)$. Then add: $\log_a(x^3)+\log_a(20)=\boxed{\log_a(20x^3)}$.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 6 — combine into a single log</span>
+  <div class="q">Write each as a single logarithm.<br>(a) $3\log_{10}(x^3y^6)-5\log_{10}(x)$ &nbsp; (b) $\tfrac{1}{2}\log_7(x^4y^6)-2\log_7(y)$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>(a) $\log_{10}(x^3y^6)^3-\log_{10}(x^5)=\log_{10}(x^9y^{18})-\log_{10}(x^5)=\log_{10}\!\left(\tfrac{x^9y^{18}}{x^5}\right)=\boxed{\log_{10}(x^4y^{18})}$.</li>
+      <li>(b) $\log_7\!\left((x^4y^6)^{1/2}\right)-\log_7(y^2)=\log_7(x^2y^3)-\log_7(y^2)=\log_7\!\left(\tfrac{x^2y^3}{y^2}\right)=\boxed{\log_7(x^2y)}$.</li>
+    </ol>
+  </div>
+</div>
+
+<h2>Part 4 — Change of base</h2>
+
+<div class="callout">
+  <strong>Change-of-base rule.</strong> For any allowable bases $a,b$ and argument $x&gt;0$:
+  $$ \log_a(x) = \frac{\log_b(x)}{\log_b(a)}. $$
+  This is how your calculator handles, say, $\log_2(8)$ when it only has $\log_{10}$ (= LOG) and $\log_e$ (= LN):
+  $$ \log_2(8) = \frac{\log_{10}(8)}{\log_{10}(2)} = \frac{0.9031\ldots}{0.3010\ldots} = 3. \;\checkmark $$
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 7 — change of base on the CAS</span>
+  <div class="q">Use the change-of-base rule to evaluate $\log_2(8)$ via base $10$, and confirm with your TI-Nspire.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>$\log_2(8)=\dfrac{\log_{10}(8)}{\log_{10}(2)}=\dfrac{3\log_{10}(2)}{\log_{10}(2)}=3.$</li>
+      <li>On the Nspire: type <code>log(8,2)</code> directly, or <code>log(8)/log(2)</code> — both return $3$.</li>
+    </ol>
+  </div>
+</div>
+
+<h2>Part 5 — Solving simple log equations</h2>
+
+<p>Combine multiple logs into one using the laws, then either equate the arguments or rewrite in exponential form. <strong>Always check the domain</strong> — the argument of every log must be positive.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 8 — $\log_2(x)+\log_2(x+2)=3$</span>
+  <div class="q">Solve $\log_2(x)+\log_2(x+2)=3$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Combine with the product rule: $\log_2\!\big(x(x+2)\big)=3$.</li>
+      <li>Rewrite in exponential form: $x(x+2)=2^3=8$.</li>
+      <li>Expand and rearrange: $x^2+2x-8=0\Rightarrow (x+4)(x-2)=0$ ⇒ $x=-4$ or $x=2$.</li>
+      <li><strong>Domain check.</strong> $\log_2(x)$ requires $x&gt;0$, so reject $x=-4$.</li>
+      <li>Answer: $\boxed{x=2}$. Check: $\log_2(2)+\log_2(4)=1+2=3$ ✓.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 9 — $\log_{10}(x+2)-\log_{10}(x)=2\log_{10}(4)$</span>
+  <div class="q">Solve $\log_{10}(x+2)-\log_{10}(x)=2\log_{10}(4)$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Tidy the RHS first: $2\log_{10}(4)=\log_{10}(16)$.</li>
+      <li>Tidy the LHS with the quotient rule: $\log_{10}\!\left(\tfrac{x+2}{x}\right)=\log_{10}(16)$.</li>
+      <li>Same base ⇒ equate arguments: $\dfrac{x+2}{x}=16\Rightarrow x+2=16x\Rightarrow 15x=2$.</li>
+      <li>$\boxed{x=\tfrac{2}{15}}$. &nbsp; (Domain: $x&gt;0$ ✓.)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 5.1 — solve for $x$.</p>
+  <ol class="qlist" type="a">
+    <li>$\log_2(x)+\log_2(3)=4$</li>
+    <li>$\log_3(x)-\log_3(2)=2$</li>
+    <li>$\log_5(x)+\log_5(x-4)=1$</li>
+    <li>$2\log_{10}(x)=\log_{10}(9)$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\log_2(3x)=4\Rightarrow 3x=16\Rightarrow x=\tfrac{16}{3}$<br>
+    b) $\log_3\!\left(\tfrac{x}{2}\right)=2\Rightarrow \tfrac{x}{2}=9 \Rightarrow x=18$<br>
+    c) $\log_5(x(x-4))=1 \Rightarrow x^2-4x-5=0 \Rightarrow (x-5)(x+1)=0$. Domain $x&gt;4$, so $x=5$.<br>
+    d) $\log_{10}(x^2)=\log_{10}(9) \Rightarrow x^2=9 \Rightarrow x=3$ (reject $-3$ as $x&gt;0$).
+  </div>
+</div>
+
+<h2>Part 6 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> Which is the same statement as $5^3=125$?</p>
+    <label><input type="radio" name="q1" value="a"> $\log_3(125)=5$</label>
+    <label><input type="radio" name="q1" value="b"> $\log_{125}(5)=3$</label>
+    <label><input type="radio" name="q1" value="c"> $\log_5(125)=3$</label>
+    <label><input type="radio" name="q1" value="d"> $\log_5(3)=125$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> Evaluate $\log_4(8)$.</p>
+    <label><input type="radio" name="q2" value="a"> $2$</label>
+    <label><input type="radio" name="q2" value="b"> $\tfrac{3}{2}$</label>
+    <label><input type="radio" name="q2" value="c"> $\tfrac{2}{3}$</label>
+    <label><input type="radio" name="q2" value="d"> $3$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> $\log_a(20)+3\log_a(x)$ equals</p>
+    <label><input type="radio" name="q3" value="a"> $\log_a(20x^3)$</label>
+    <label><input type="radio" name="q3" value="b"> $\log_a(60x)$</label>
+    <label><input type="radio" name="q3" value="c"> $\log_a((20x)^3)$</label>
+    <label><input type="radio" name="q3" value="d"> $3\log_a(20x)$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> Solve $\log_2(x)+\log_2(x+2)=3$.</p>
+    <label><input type="radio" name="q4" value="a"> $x=-4$ or $x=2$</label>
+    <label><input type="radio" name="q4" value="b"> $x=4$</label>
+    <label><input type="radio" name="q4" value="c"> $x=1$</label>
+    <label><input type="radio" name="q4" value="d"> $x=2$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q5.</strong> Which expression is <strong>undefined</strong>?</p>
+    <label><input type="radio" name="q5" value="a"> $\log_2(0.25)$</label>
+    <label><input type="radio" name="q5" value="b"> $\log_5(1)$</label>
+    <label><input type="radio" name="q5" value="c"> $\log_2(-4)$</label>
+    <label><input type="radio" name="q5" value="d"> $\log_{10}(100)$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 13E</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 13 and work through Exercise 13E:</p>
+<table class="program">
+  <tr><th>Question</th><th>Foundation</th><th>Standard (set work)</th><th>Advanced</th></tr>
+  <tr><td>Q1 — exp/log form swap</td><td>1 (a,c,e)</td><td>1*</td><td>1*</td></tr>
+  <tr><td>Q2 — evaluate log</td><td>2 (a,c,e)</td><td>2*</td><td>2*</td></tr>
+  <tr><td>Q3 — fractional answers</td><td>3 (a,c)</td><td>3*</td><td>3*</td></tr>
+  <tr><td>Q4 — apply the three laws</td><td>4 (a)</td><td>4*</td><td>4*</td></tr>
+  <tr><td>Q5 — combine into a single log</td><td>—</td><td>5*</td><td>5*</td></tr>
+  <tr><td>Q6 — solve log equations</td><td>—</td><td>6*</td><td>6 + extension</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">Next lesson (13F): using logs to solve exponential equations like $2^x=5$.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>How do you read the statement $\log_5(125)=3$ in plain English?</li>
+    <li>State the product rule for logarithms in words.</li>
+    <li>Why must we always check the domain $x&gt;0$ after solving a log equation?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — go straight to the advanced column.';
+    else if(pct >= 80) msg += '  Solid — work through the set Ex 13E column.';
+    else if(pct >= 60) msg += '  Re-watch the log-laws walkthrough, then try again.';
+    else msg += '  Re-read Parts 1–5 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>
