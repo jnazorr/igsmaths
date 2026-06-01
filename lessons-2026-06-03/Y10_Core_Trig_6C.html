@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Applications in 2D (6C)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  .tri-row { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; margin:8px 0 0 0; }
+  .tri { background:#fff; border:1px solid #ddd; border-radius:6px; padding:8px 10px;
+         font-family:Calibri,Arial,sans-serif; }
+  .tri svg { display:block; }
+  .tri .cap { color:var(--muted); font-size:12px; text-align:center; margin-top:2px; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./">All 03 June lessons</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Mathematics Core — Applications in Two Dimensions</h1>
+  <div class="meta">Cambridge Ch 6 — Section 6C &nbsp;•&nbsp; Wed 03 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y10_Core_Trig_6C_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y10_Core_Trig_6C_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="../lessons-2026-06-01/Y10_Core_Trig_6B.html">← Recap: Ex 6B Finding angles</a>
+    <a href="../lessons-2026-06-04/Y10_Core_Trig_6D.html">→ Next: Ex 6D Bearings</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>So far we've used trig to find sides and angles when a triangle is already drawn for us. Today's job is to <strong>read a word problem</strong>, draw your own right-angled triangle, and use the same SOHCAHTOA tools to answer the question.</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Know how the <strong>angle of elevation</strong> is measured <em>up</em> from the horizontal</li>
+    <li>Know how the <strong>angle of depression</strong> is measured <em>down</em> from the horizontal</li>
+    <li>Read a word problem and draw a labelled right-angled triangle</li>
+    <li>Pick the right trig ratio and answer the question <strong>in a sentence</strong></li>
+  </ul>
+</div>
+
+<h2>Part 1 — Elevation vs depression (~6 min)</h2>
+
+<div class="key-ideas">
+  <h3>Two angles, measured from the horizontal</h3>
+  <ul>
+    <li><strong>Angle of elevation</strong> — looking <em>up</em> from horizontal to a point above you (e.g. looking at a kite, a helicopter, the top of a tower).</li>
+    <li><strong>Angle of depression</strong> — looking <em>down</em> from horizontal to a point below you (e.g. lighthouse keeper looking down at a boat).</li>
+    <li>On the <strong>same diagram</strong>, elevation and depression between two points are <strong>equal</strong> — they are alternate angles in parallel lines (one horizontal at the top, one at the bottom).</li>
+  </ul>
+</div>
+
+<div class="callout">
+  <strong>Setup checklist for every word problem:</strong>
+  <ol style="margin:6px 0 0 0;">
+    <li>Draw a clean diagram with the horizontal ground line and the vertical object.</li>
+    <li>Mark the <strong>angle</strong> from the horizontal (elevation up, depression down).</li>
+    <li>Label what you know and put a letter on what you want.</li>
+    <li>Decide which sides you know/want → pick sin, cos, or tan.</li>
+    <li>Solve, then <strong>write the answer in a full sentence</strong> with units.</li>
+  </ol>
+</div>
+
+<h2>Part 2 — Angle of elevation (Example 5, ~12 min)</h2>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="HelipadElevation.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> a helicopter hovers 250 m up; the angle of elevation from the helipad is 35°. Find the horizontal distance.</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 5 — angle of elevation</span>
+  <div class="q">
+    A helicopter is hovering at an altitude of <strong>250 m</strong>. The angle of elevation from the helipad to the helicopter is <strong>35°</strong>. Find the horizontal distance from the helipad to the helicopter, to the nearest centimetre.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show written solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Draw the right triangle: 250 m is vertical (opposite the 35° angle), $x$ m is horizontal (adjacent), and the slant is the line of sight.</li>
+      <li>$x$ is adjacent, $250$ is opposite &rarr; use $\tan$.</li>
+      <li>$\tan 35^\circ=\dfrac{250}{x}$</li>
+      <li>$x\tan 35^\circ=250$</li>
+      <li>$x=\dfrac{250}{\tan 35^\circ}=\boxed{357.04\text{ m}}$ (to the nearest cm)</li>
+      <li>The horizontal distance from the helipad to the helicopter is <strong>357.04 m</strong>.</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> A bird is hovering at 100 m. The angle of elevation from an observation point to the bird is 55°. Find the horizontal distance. &nbsp; Answer: $x=\dfrac{100}{\tan 55^\circ}\approx 70.02$ m.</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.1 — elevation problems (2 d.p.)</p>
+  <ol class="qlist" type="a">
+    <li>A kite is flying directly above a point on the ground. The string is 80 m long and makes an angle of elevation of 62° with the ground. How high is the kite?</li>
+    <li>The angle of elevation from a point on the ground to the top of a 45 m tall flagpole is 38°. How far is the point from the base of the pole?</li>
+    <li>A 45 m guy-wire is anchored from the ground to the top of a communications mast at an elevation of 60°. How tall is the mast?</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) height = $80\sin 62^\circ\approx 70.64$ m<br>
+    b) distance = $\dfrac{45}{\tan 38^\circ}\approx 57.59$ m<br>
+    c) mast = $45\sin 60^\circ\approx 38.97$ m
+  </div>
+</div>
+
+<h2>Part 3 — Angle of depression (Example 6, ~12 min)</h2>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="BuildingDepression.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> two buildings 57 m apart, 237 m and 158 m tall — find the angle of depression from the taller to the shorter.</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 6 — angle of depression</span>
+  <div class="q">
+    Two vertical buildings <strong>57 m apart</strong> are <strong>158 m</strong> and <strong>237 m</strong> high. Find the angle of depression from the <em>top of the taller</em> building to the <em>top of the shorter</em> building, to 2 d.p.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Draw a horizontal line at the top of the taller building, and the line of sight down to the top of the shorter.</li>
+      <li>Height difference $=237-158=79$ m. This is the <em>opposite</em> side of the right triangle (vertical drop).</li>
+      <li>The horizontal gap $57$ m is the <em>adjacent</em> side.</li>
+      <li>$\tan\theta=\dfrac{79}{57}$</li>
+      <li>$\theta=\tan^{-1}\!\left(\dfrac{79}{57}\right)=\boxed{54.19^\circ}$ (to 2 d.p.)</li>
+      <li>The angle of depression is <strong>54.19°</strong>.</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> Two vertical poles 32 m apart are 62 m and 79 m high. Find the angle of depression from the top of the taller pole to the top of the shorter. &nbsp; Answer: $\theta=\tan^{-1}\!\left(\dfrac{17}{32}\right)\approx 27.98°$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE — depression to a boat</span>
+  <div class="q">
+    Find the angle of depression from a lighthouse beacon that is $112$ m above sea level to a boat at a horizontal distance of $1.5$ km from the lighthouse. Round to 2 d.p.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Convert 1.5 km to 1500 m so units match.</li>
+      <li>Vertical drop (opposite) = 112 m; horizontal (adjacent) = 1500 m.</li>
+      <li>$\tan\theta=\dfrac{112}{1500}$</li>
+      <li>$\theta=\tan^{-1}\!\left(\dfrac{112}{1500}\right)=\boxed{4.27°}$ (to 2 d.p.)</li>
+    </ol>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — depression problems (2 d.p.)</p>
+  <ol class="qlist" type="a">
+    <li>From the top of a 25 m tall viewing tower, the angle of depression to a crocodile on the ground is 62°. Find the direct (slant) distance from the top of the tower to the crocodile.</li>
+    <li>Two towers, 80 m apart, are 30 m and 50 m tall. Find the angle of depression from the top of the taller tower to the top of the shorter tower.</li>
+    <li>A drone is 60 m above a flat oval. The angle of depression from the drone to a player on the ground is 18°. How far away (horizontally) is the player from a point directly below the drone?</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) slant = $\dfrac{25}{\sin 62^\circ}\approx 28.31$ m<br>
+    b) $\theta=\tan^{-1}\!\left(\dfrac{20}{80}\right)\approx 14.04°$<br>
+    c) distance = $\dfrac{60}{\tan 18^\circ}\approx 184.66$ m
+  </div>
+</div>
+
+<h2>Part 4 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> The angle of elevation is measured…</p>
+    <label><input type="radio" name="q1" value="a"> down from the horizontal</label>
+    <label><input type="radio" name="q1" value="b"> up from the horizontal</label>
+    <label><input type="radio" name="q1" value="c"> from the vertical wall</label>
+    <label><input type="radio" name="q1" value="d"> always from the ground at 45°</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q2.</strong> On the same diagram with two horizontal lines, the angle of elevation from A to B is equal to the angle of depression from B to A because they are…</p>
+    <label><input type="radio" name="q2" value="a"> co-interior angles</label>
+    <label><input type="radio" name="q2" value="b"> vertically opposite angles</label>
+    <label><input type="radio" name="q2" value="c"> alternate angles in parallel lines</label>
+    <label><input type="radio" name="q2" value="d"> corresponding angles</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> A helicopter is 200 m up. The angle of elevation from the ground is 40°. Horizontal distance is found by:</p>
+    <label><input type="radio" name="q3" value="a"> $\dfrac{200}{\tan 40^\circ}$</label>
+    <label><input type="radio" name="q3" value="b"> $200\tan 40^\circ$</label>
+    <label><input type="radio" name="q3" value="c"> $\dfrac{200}{\sin 40^\circ}$</label>
+    <label><input type="radio" name="q3" value="d"> $200\cos 40^\circ$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> From a 40 m cliff, the angle of depression to a boat is 25°. The horizontal distance from the cliff base to the boat (2 d.p.) is:</p>
+    <label><input type="radio" name="q4" value="a"> $40\sin 25^\circ\approx 16.91$ m</label>
+    <label><input type="radio" name="q4" value="b"> $40\tan 25^\circ\approx 18.65$ m</label>
+    <label><input type="radio" name="q4" value="c"> $\dfrac{40}{\sin 25^\circ}\approx 94.64$ m</label>
+    <label><input type="radio" name="q4" value="d"> $\dfrac{40}{\tan 25^\circ}\approx 85.78$ m</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> Two trees 12 m apart on flat ground are 8 m and 14 m tall. The angle of depression from the top of the taller tree to the top of the shorter is (2 d.p.):</p>
+    <label><input type="radio" name="q5" value="a"> $\approx 33.69°$</label>
+    <label><input type="radio" name="q5" value="b"> $\approx 26.57°$</label>
+    <label><input type="radio" name="q5" value="c"> $\approx 49.40°$</label>
+    <label><input type="radio" name="q5" value="d"> $\approx 56.31°$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 6C</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 6 and complete the following:</p>
+<table class="program">
+  <tr><th>Section</th><th>Foundation</th><th>Standard (set work)</th><th>Advanced</th></tr>
+  <tr><td>Fluency 1–6</td><td>1–5</td><td>1–5</td><td>2, 4–6</td></tr>
+  <tr><td>Problem-solving 7–9</td><td>7</td><td>7, 8</td><td>8, 9</td></tr>
+  <tr><td>Reasoning 10–13</td><td>10</td><td>10, 11</td><td>11–13</td></tr>
+  <tr><td>Enrichment 14</td><td>—</td><td>—</td><td>14</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">If you finish early, preview <strong>Ex 6D — Directions and bearings</strong> (tomorrow's lesson).</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, write a one-sentence answer to each:
+  <ol style="margin-top:6px;">
+    <li>From which line (horizontal or vertical) is the angle of elevation measured?</li>
+    <li>If the angle of elevation from A to B is 40°, what is the angle of depression from B to A? Why?</li>
+    <li>You're at the top of a 30 m tower and see a person at a depression of 20°. Which trig ratio gives you their horizontal distance from the base?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Part 1 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Directions and Bearings (6D)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  .compass-svg { display:block; margin:8px auto; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./">All 04 June lessons</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Mathematics Core — Directions and Bearings</h1>
+  <div class="meta">Cambridge Ch 6 — Section 6D &nbsp;•&nbsp; Thu 04 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y10_Core_Trig_6D_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y10_Core_Trig_6D_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="../lessons-2026-06-03/Y10_Core_Trig_6C.html">← Recap: Ex 6C 2D applications</a>
+    <a href="../lessons-2026-06-05/Y10_Core_Trig_6E.html">→ Next: Ex 6E 3D applications</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>Bearings are how navigators, pilots, surveyors and orienteers describe a direction. By the end of today you should be able to read, write, and apply <strong>true bearings</strong> in trig word problems.</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Know how a <strong>true bearing</strong> is measured — clockwise from due north, written with 3 digits and a $°$T</li>
+    <li>State the bearing of one point from another (and the reverse bearing — they differ by $180°$)</li>
+    <li>Combine bearings with right-triangle trig to find east/west and north/south distances</li>
+  </ul>
+</div>
+
+<h2>Part 1 — What is a true bearing? (~6 min)</h2>
+
+<div class="key-ideas">
+  <h3>The rules for true bearings</h3>
+  <ul>
+    <li>Always measured <strong>clockwise from due north</strong> (north = $000°$T).</li>
+    <li>Always written with <strong>3 digits</strong> &mdash; e.g. $048°$T not $48°$T.</li>
+    <li>Range is $000°$ to $360°$ (or $000°$T equivalently to $360°$T).</li>
+    <li>The <strong>reverse</strong> (back) bearing differs by $180°$. If $A$ is on bearing $070°$T from $B$, then $B$ is on bearing $250°$T from $A$.</li>
+  </ul>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="BearingsCompass.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> the eight cardinal directions and their three-digit true bearings.</p>
+</div>
+
+<div class="practice">
+  <p class="qnum">Building understanding — write each direction as a true bearing</p>
+  <ol class="qlist" type="a">
+    <li>N</li>
+    <li>NE</li>
+    <li>E</li>
+    <li>SE</li>
+    <li>S</li>
+    <li>SW</li>
+    <li>W</li>
+    <li>NW</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $000°$T &nbsp;&nbsp; b) $045°$T &nbsp;&nbsp; c) $090°$T &nbsp;&nbsp; d) $135°$T<br>
+    e) $180°$T &nbsp;&nbsp; f) $225°$T &nbsp;&nbsp; g) $270°$T &nbsp;&nbsp; h) $315°$T
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Building understanding — opposite (reverse) bearings: add or subtract $180°$</p>
+  <ol class="qlist" type="a">
+    <li>$020°$T</li>
+    <li>$262°$T</li>
+    <li>$155°$T</li>
+    <li>$344°$T</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $200°$T &nbsp;&nbsp; b) $082°$T (262−180) &nbsp;&nbsp; c) $335°$T (155+180) &nbsp;&nbsp; d) $164°$T (344−180)
+  </div>
+</div>
+
+<h2>Part 2 — Stating a direction from a diagram (Example 7, ~10 min)</h2>
+
+<p>When you see an angle drawn at a point relative to N/S/E/W, convert it to a true bearing by starting from north and going clockwise.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 7 — bearings from a compass diagram</span>
+  <div class="q">
+    From point $O$, point $A$ is drawn $35°$ above east (i.e. $35°$ measured up from the east axis toward north). Point $B$ is $45°$ below east. Point $C$ is $30°$ below west. Point $D$ is $70°$ above west. Find the true bearing of each point from $O$.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>$A$ — start at $090°$T (east), turn $35°$ <em>back</em> toward N (anticlockwise): $A=90°-35°=\boxed{055°}$T.</li>
+      <li>$B$ — east + $45°$ clockwise toward S: $B=90°+45°=\boxed{135°}$T.</li>
+      <li>$C$ — west = $270°$T, then $30°$ further clockwise toward S: $C=270°-30°=\boxed{240°}$T.</li>
+      <li>$D$ — west $270°$, then $70°$ back toward N: $D=270°+70°=\boxed{340°}$T.</li>
+    </ol>
+    <p class="callout"><strong>Reverse bearings:</strong> bearing of $O$ from $A$ = $055°+180°=\boxed{235°}$T. Bearing of $O$ from $D$ = $340°-180°=\boxed{160°}$T.</p>
+  </div>
+</div>
+
+<h2>Part 3 — Using bearings with trig (Example 8, ~14 min)</h2>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="ShipBearing.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> a ship sails 5 km due south, then 11 km on bearing 120°T. Find the east and south components.</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 8 — ship on a bearing</span>
+  <div class="q">
+    A ship travels due south for $5$ km, then on a bearing of $120°$T for $11$ km.<br>
+    <strong>(a)</strong> Find how far east the ship is from its starting point (to 2 d.p.).<br>
+    <strong>(b)</strong> Find how far south the ship is from its starting point.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Draw the diagram. Bearing $120°$T from the turning point is $30°$ east of south (since $120°-90°=30°$).</li>
+      <li>Draw the right triangle with the 11 km leg as the hypotenuse, $x$ = east component, $y$ = south component, $30°$ at the turning point measured from south. Then $x$ is opposite $30°$? Actually with $30°$ from the south axis, the east leg is the side <em>opposite</em> 60° (or adjacent to 30° if you measure from south down). Easiest: just use the angle from the south axis.</li>
+      <li><strong>(a)</strong> East component: $\sin 30°=\dfrac{x}{11}$ if $30°$ is measured between south and the path. But Cambridge takes $30°$ as the angle between south-axis and the 11 km leg, so the leg perpendicular to south (i.e. east leg) sits opposite the angle $90°-30°=60°$, which gives $\cos 30°=\dfrac{x}{11}$ &rArr; $x=11\cos 30°\approx \boxed{9.53\text{ km east}}$.</li>
+      <li><strong>(b)</strong> South component of leg 2: $\sin 30°=\dfrac{y}{11}$ &rArr; $y=11\sin 30°=5.5$ km. Total south from start = $5+5.5=\boxed{10.5\text{ km}}$.</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> Ship goes due south 8 km, then bearing $160°$T for 12 km. East = $12\sin 20°\approx 4.10$ km; total south = $8+12\cos 20°\approx 19.28$ km.</p>
+  </div>
+</div>
+
+<div class="callout warn">
+  <strong>Drawing tip.</strong> Always sketch a small north arrow at the point where the bearing is measured. Then convert the bearing into an angle inside the right triangle (often $\text{bearing}-90°$, $180°-\text{bearing}$, etc.). The clean way: measure how far the path is from the nearest cardinal direction (N/S/E/W) and put that inside the triangle.
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — bearings & components</p>
+  <ol class="qlist" type="a">
+    <li>A plane flies $100$ km on a true bearing of $070°$T. How far <em>east</em> and how far <em>north</em> of the start? (2 d.p.)</li>
+    <li>A hiker walks $6$ km on a bearing of $215°$T. How far <em>west</em> and how far <em>south</em>? (2 d.p.)</li>
+    <li>A boat sails $4$ km due north, then $5$ km on bearing $050°$T. How far east of the start, and how far north of the start? (2 d.p.)</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) east = $100\sin 70°\approx 93.97$ km; &nbsp; north = $100\cos 70°\approx 34.20$ km<br>
+    b) west = $6\sin 35°\approx 3.44$ km; &nbsp; south = $6\cos 35°\approx 4.91$ km &nbsp; <em>(215°T is 35° west of south)</em><br>
+    c) east = $5\sin 50°\approx 3.83$ km; &nbsp; total north = $4+5\cos 50°\approx 7.21$ km
+  </div>
+</div>
+
+<h2>Part 4 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> True bearings are measured…</p>
+    <label><input type="radio" name="q1" value="a"> anticlockwise from north</label>
+    <label><input type="radio" name="q1" value="b"> clockwise from north</label>
+    <label><input type="radio" name="q1" value="c"> clockwise from east</label>
+    <label><input type="radio" name="q1" value="d"> from whichever cardinal point is closest</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q2.</strong> The direction "south-east" is which true bearing?</p>
+    <label><input type="radio" name="q2" value="a"> $045°$T</label>
+    <label><input type="radio" name="q2" value="b"> $90°$T</label>
+    <label><input type="radio" name="q2" value="c"> $135°$T</label>
+    <label><input type="radio" name="q2" value="d"> $225°$T</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> The opposite (reverse) bearing of $048°$T is:</p>
+    <label><input type="radio" name="q3" value="a"> $228°$T</label>
+    <label><input type="radio" name="q3" value="b"> $132°$T</label>
+    <label><input type="radio" name="q3" value="c"> $312°$T</label>
+    <label><input type="radio" name="q3" value="d"> $048°$T (same)</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> A ship sails $10$ km on bearing $060°$T. How far east of the start? (2 d.p.)</p>
+    <label><input type="radio" name="q4" value="a"> $10\cos 60°=5.00$ km</label>
+    <label><input type="radio" name="q4" value="b"> $10\tan 60°\approx 17.32$ km</label>
+    <label><input type="radio" name="q4" value="c"> $10\sin 30°=5.00$ km</label>
+    <label><input type="radio" name="q4" value="d"> $10\sin 60°\approx 8.66$ km</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> The same ship (Q4) is how far north of the start? (2 d.p.)</p>
+    <label><input type="radio" name="q5" value="a"> $10\sin 60°\approx 8.66$ km</label>
+    <label><input type="radio" name="q5" value="b"> $10\cos 60°=5.00$ km</label>
+    <label><input type="radio" name="q5" value="c"> $10\tan 60°\approx 17.32$ km</label>
+    <label><input type="radio" name="q5" value="d"> $0$ — bearing is east of north so zero north component</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 6D</h2>
+<table class="program">
+  <tr><th>Section</th><th>Foundation</th><th>Standard (set work)</th><th>Advanced</th></tr>
+  <tr><td>Fluency 1–7</td><td>1–5</td><td>1, 2, 4–6</td><td>2, 4, 5, 7</td></tr>
+  <tr><td>Problem-solving 8–11</td><td>8, 9</td><td>8–10</td><td>10, 11</td></tr>
+  <tr><td>Reasoning 12–14</td><td>12</td><td>12, 13</td><td>12–14</td></tr>
+  <tr><td>Enrichment 15–16</td><td>—</td><td>—</td><td>15, 16</td></tr>
+</table>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, write a one-line answer to each:
+  <ol style="margin-top:6px;">
+    <li>What does the bearing $030°$T mean in plain English?</li>
+    <li>If $B$ is on bearing $112°$T from $A$, what is the bearing of $A$ from $B$?</li>
+    <li>You walk $20$ m on bearing $090°$T then $20$ m on bearing $180°$T. Sketch the path and state where you are relative to start.</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Part 1 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

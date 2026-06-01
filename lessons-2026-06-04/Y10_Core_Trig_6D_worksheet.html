@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Trig 6D (Directions and Bearings)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 12mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 32mm; }
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+  .compass-mini svg { display:block; margin: 0 auto; }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">04 June lessons</a>
+    <a href="Y10_Core_Trig_6D.html">Lesson 6D</a>
+    <a href="Y10_Core_Trig_6D_solutions.html">Solutions 6D</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Directions and Bearings (Ex 6D)</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 6, §6D · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Read and write true bearings (clockwise from north, 3 digits, °T)</li>
+      <li>State the reverse bearing of a given direction (±180°)</li>
+      <li>Combine bearings with right-triangle trig to find east/north distances</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results — true bearings</h3>
+    <p style="text-align:center; font-size:10pt;">Measured <strong>clockwise from due north</strong> · written as 3 digits + °T · range 000°–360° · reverse differs by 180°</p>
+    <p style="text-align:center; font-size:9pt;">$N=000°T,\;NE=045°T,\;E=090°T,\;SE=135°T,\;S=180°T,\;SW=225°T,\;W=270°T,\;NW=315°T$</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Write each cardinal direction as a true bearing.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> N = <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> NE = <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> E = <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> SE = <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> S = <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> SW = <span class="ans"></span></div>
+        <div class="p"><span class="letter">g</span> W = <span class="ans"></span></div>
+        <div class="p"><span class="letter">h</span> NW = <span class="ans"></span></div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> State the reverse (opposite) bearing.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $020°$T &rarr; <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $262°$T &rarr; <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $155°$T &rarr; <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $344°$T &rarr; <span class="ans"></span></div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">3.</span> $A$, $B$, $C$, $D$ lie around origin $O$ as shown. Give the true bearing of each from $O$.
+      <div class="compass-mini">
+        <svg width="180" height="180" viewBox="0 0 180 180">
+          <line x1="90" y1="20" x2="90" y2="160" stroke="#666" stroke-width="1.2"/>
+          <line x1="20" y1="90" x2="160" y2="90" stroke="#666" stroke-width="1.2"/>
+          <text x="86" y="14" font-size="10" fill="#1E2761">N</text>
+          <text x="86" y="172" font-size="10" fill="#1E2761">S</text>
+          <text x="163" y="93" font-size="10" fill="#1E2761">E</text>
+          <text x="10" y="93" font-size="10" fill="#1E2761">W</text>
+          <!-- A: 35° east of north -->
+          <line x1="90" y1="90" x2="130" y2="35" stroke="#1E2761" stroke-width="1.5"/>
+          <circle cx="130" cy="35" r="2.5" fill="#1E2761"/>
+          <text x="133" y="33" font-size="10" fill="#1E2761">A</text>
+          <text x="93" y="55" font-size="9" fill="#8a650d">35°</text>
+          <!-- B: 45° south of east -->
+          <line x1="90" y1="90" x2="140" y2="140" stroke="#1E2761" stroke-width="1.5"/>
+          <circle cx="140" cy="140" r="2.5" fill="#1E2761"/>
+          <text x="143" y="143" font-size="10" fill="#1E2761">B</text>
+          <text x="115" y="105" font-size="9" fill="#8a650d">45°</text>
+          <!-- C: 30° south of west -->
+          <line x1="90" y1="90" x2="35" y2="120" stroke="#1E2761" stroke-width="1.5"/>
+          <circle cx="35" cy="120" r="2.5" fill="#1E2761"/>
+          <text x="20" y="125" font-size="10" fill="#1E2761">C</text>
+          <text x="55" y="105" font-size="9" fill="#8a650d">30°</text>
+          <!-- D: 70° west of north -->
+          <line x1="90" y1="90" x2="35" y2="50" stroke="#1E2761" stroke-width="1.5"/>
+          <circle cx="35" cy="50" r="2.5" fill="#1E2761"/>
+          <text x="22" y="48" font-size="10" fill="#1E2761">D</text>
+          <text x="60" y="75" font-size="9" fill="#8a650d">70°</text>
+        </svg>
+      </div>
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $A=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $B=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $C=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $D=$ <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Stating a direction</h2>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Using the diagram in Q3, state the true bearing of $O$ from each point.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $O$ from $A=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $O$ from $B=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $O$ from $C=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $O$ from $D=$ <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Trig 6D worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Trig 6D — continued</h1>
+      <p>Part B — Bearings with trigonometry</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Bearings with trigonometry</h2>
+    <p class="qrow" style="margin: 0 0 1mm 0;">Draw a labelled diagram with a north arrow at the start. Then form a right triangle and solve to <strong>2 d.p.</strong></p>
+
+    <div class="q qrow">
+      <span class="num">5.</span> A ship sails due south for $5$ km and then on a bearing of $120°$T for $11$ km. <strong>(a)</strong> How far east of the start? <strong>(b)</strong> How far south of the start?
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">6.</span> A plane flies $100$ km on a bearing of $070°$T. <strong>(a)</strong> How far east of the start? <strong>(b)</strong> How far north of the start?
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">7.</span> A hiker walks $6$ km on a bearing of $215°$T. <strong>(a)</strong> How far west of the start? <strong>(b)</strong> How far south of the start?
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> A boat sails due north for $4$ km, then on a bearing of $050°$T for $5$ km. <strong>(a)</strong> How far east of the start? <strong>(b)</strong> What is its total distance north of the start?
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">9.</span> <strong>Challenge.</strong> A drone flies on bearing $110°$T for $4$ km, then changes to bearing $200°$T for $3$ km. Find the bearing of the drone's <em>final position from its start</em> (1 d.p.). <em>Hint: find the east and north displacements after each leg, sum them, then use trig.</em>
+      <div class="work l"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · check 6D answers in Cambridge</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>
