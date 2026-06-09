@@ -86,6 +86,22 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
   .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
                      padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
   .resources-box a:hover { background:var(--navy); color:#fff; }
+  .warmup { background:#FFF5F0; border:2px solid var(--accent); border-radius:10px;
+            padding:16px 22px; margin:18px 0; font-family: Calibri, Arial, sans-serif;
+            box-shadow: 0 4px 14px rgba(249,97,103,0.12); }
+  .warmup .wu-tag { display:inline-block; background:var(--accent); color:#fff; padding:3px 12px;
+                     border-radius:12px; font-size:11px; font-weight:bold; letter-spacing:0.6px;
+                     text-transform:uppercase; margin-bottom:8px; }
+  .warmup h3 { margin:0 0 6px 0; color:var(--accent); font-family: Georgia, 'Times New Roman', serif; font-size:20px; }
+  .warmup p { margin:8px 0; font-size:14.5px; }
+  .warmup-table { border-collapse:collapse; margin:10px auto; }
+  .warmup-table th, .warmup-table td { border:1px solid #d8c3c0; padding:6px 14px; text-align:center;
+                                        font-family:'Times New Roman',serif; font-size:15px; min-width:34px; }
+  .warmup-table th { background:#FCE8E6; color:var(--navy); font-weight:bold; }
+  .warmup-table td { background:#fff; }
+  .warmup-table tr.q td { color:#aaa; font-style:italic; }
+  .warmup .stretch { display:flex; gap:18px; flex-wrap:wrap; justify-content:center;
+                     font-size:17px; font-family:'Times New Roman',serif; padding:8px 0; }
   @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
 </style>
 </head>
@@ -123,6 +139,64 @@ window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCa
     <li>Show that $\log_{1/a}(x)=-\log_a(x)$ — the reflection-in-the-$x$-axis identity</li>
     <li>Find the inverse function of an exponential (or a log) and state the domain and range of the inverse</li>
   </ul>
+</div>
+
+<div class="warmup">
+  <span class="wu-tag">Warm-up · 5 min</span>
+  <h3>🔥 Predict the graph without a calculator</h3>
+
+  <p>Here are some points on $y=2^x$. You already know these from Chapter 13C:</p>
+  <table class="warmup-table">
+    <tr><th>$x$</th><td>$-2$</td><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td></tr>
+    <tr><th>$y=2^x$</th><td>$\tfrac{1}{4}$</td><td>$\tfrac{1}{2}$</td><td>$1$</td><td>$2$</td><td>$4$</td><td>$8$</td></tr>
+  </table>
+
+  <p>Today's <strong>big idea</strong>: $y=\log_2(x)$ is the <em>inverse</em> of $y=2^x$. That means every point $(x,y)$ on $y=2^x$ flips to a point $(y,x)$ on $y=\log_2(x)$. The graph is just the exponential reflected across the line $y=x$.</p>
+
+  <p><strong>Your turn — no calculator.</strong> Fill in the bottom row by reading the table above <em>backwards</em>:</p>
+  <table class="warmup-table">
+    <tr><th>$x$</th><td>$\tfrac{1}{4}$</td><td>$\tfrac{1}{2}$</td><td>$1$</td><td>$2$</td><td>$4$</td><td>$8$</td></tr>
+    <tr class="q"><th>$\log_2(x)$</th><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+  </table>
+
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    <table class="warmup-table">
+      <tr><th>$x$</th><td>$\tfrac{1}{4}$</td><td>$\tfrac{1}{2}$</td><td>$1$</td><td>$2$</td><td>$4$</td><td>$8$</td></tr>
+      <tr><th>$\log_2(x)$</th><td>$-2$</td><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td></tr>
+    </table>
+    <p style="margin:10px 0 4px 0;">So $y=\log_2(x)$:</p>
+    <ul style="margin:2px 0 0 18px;">
+      <li>passes through $(1,0)$ — the $x$-intercept</li>
+      <li>has $x=0$ as a vertical asymptote (as $x\to 0^+$, $\log_2(x)\to -\infty$)</li>
+      <li>grows <em>slowly</em> — it takes $x=8$ to reach $y=3$. Compare with $y=2^x$, which reaches $y=8$ at $x=3$ — same numbers, axes swapped.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="warmup">
+  <span class="wu-tag">Stretch · 90 sec</span>
+  <h3>Quick check — log values from memory</h3>
+  <p>No calculator. Read each as "what power of the base gives that number?"</p>
+  <div class="stretch">
+    <span>$\log_2(16)=\;?$</span>
+    <span>$\log_2(1)=\;?$</span>
+    <span>$\log_2(\tfrac{1}{8})=\;?$</span>
+    <span>$\log_{10}(1000)=\;?$</span>
+    <span>$\log_5(125)=\;?$</span>
+  </div>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    $\log_2(16)=\boxed{4}$ <span style="color:#888">(since $2^4=16$)</span> &nbsp;·&nbsp;
+    $\log_2(1)=\boxed{0}$ <span style="color:#888">($2^0=1$)</span> &nbsp;·&nbsp;
+    $\log_2(\tfrac{1}{8})=\boxed{-3}$ <span style="color:#888">($2^{-3}=\tfrac{1}{8}$)</span> &nbsp;·&nbsp;
+    $\log_{10}(1000)=\boxed{3}$ <span style="color:#888">($10^3=1000$)</span> &nbsp;·&nbsp;
+    $\log_5(125)=\boxed{3}$ <span style="color:#888">($5^3=125$)</span>
+  </div>
+</div>
+
+<div class="callout good" style="font-size:14px;">
+  <strong>Real-world flex.</strong> The Richter scale (earthquakes) and the decibel scale (sound) are both logarithmic. A magnitude-8 earthquake is $10^{8-5}=1000$ times stronger than a magnitude-5 — even though "8" and "5" feel close. Working in log-space turns enormous multiplicative jumps into small additive ones, which is exactly what makes these scales useful.
 </div>
 
 <h2>Part 1 — The inverse relationship</h2>
