@@ -59,6 +59,12 @@
   .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
   .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
                  min-width: 18mm; margin-left: 2mm; }
+  .ans-table { width:100%; margin: 1mm 0 0 6mm; border-collapse: collapse;
+                font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .ans-table td { padding: 1.5mm 4mm 1.5mm 0; vertical-align: baseline; }
+  .ans-table td.letter { font-style: italic; color: var(--muted); width: 7mm; }
+  .ans-table td .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                        min-width: 18mm; margin-left: 1.5mm; }
 
   .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
           background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
@@ -153,12 +159,33 @@
 
     <div class="q qrow">
       <span class="num">1.</span> For each graph, state the domain, asymptote and $x$-intercept.
-      <div class="parts col2">
-        <div class="p"><span class="letter">a</span> $y=\log_2(x)$ &nbsp; dom: <span class="ans"></span> asy: <span class="ans"></span> $x$-int: <span class="ans"></span></div>
-        <div class="p"><span class="letter">b</span> $y=\log_2(x-2)$ &nbsp; dom: <span class="ans"></span> asy: <span class="ans"></span> $x$-int: <span class="ans"></span></div>
-        <div class="p"><span class="letter">c</span> $y=\log_2(x+5)$ &nbsp; dom: <span class="ans"></span> asy: <span class="ans"></span> $x$-int: <span class="ans"></span></div>
-        <div class="p"><span class="letter">d</span> $y=\log_2(x)+1$ &nbsp; dom: <span class="ans"></span> asy: <span class="ans"></span> $x$-int: <span class="ans"></span></div>
-      </div>
+      <table class="ans-table">
+        <colgroup><col style="width:7mm"><col style="width:34mm"><col><col><col></colgroup>
+        <tr>
+          <td class="letter">a</td><td>$y=\log_2(x)$</td>
+          <td>dom: <span class="ans"></span></td>
+          <td>asy: <span class="ans"></span></td>
+          <td>$x$-int: <span class="ans"></span></td>
+        </tr>
+        <tr>
+          <td class="letter">b</td><td>$y=\log_2(x-2)$</td>
+          <td>dom: <span class="ans"></span></td>
+          <td>asy: <span class="ans"></span></td>
+          <td>$x$-int: <span class="ans"></span></td>
+        </tr>
+        <tr>
+          <td class="letter">c</td><td>$y=\log_2(x+5)$</td>
+          <td>dom: <span class="ans"></span></td>
+          <td>asy: <span class="ans"></span></td>
+          <td>$x$-int: <span class="ans"></span></td>
+        </tr>
+        <tr>
+          <td class="letter">d</td><td>$y=\log_2(x)+1$</td>
+          <td>dom: <span class="ans"></span></td>
+          <td>asy: <span class="ans"></span></td>
+          <td>$x$-int: <span class="ans"></span></td>
+        </tr>
+      </table>
       <div class="work s"></div>
     </div>
   </div>
@@ -168,11 +195,30 @@
 
     <div class="q qrow">
       <span class="num">2.</span> For each, state the domain, asymptote and $x$-intercept, and say whether the curve is increasing or decreasing.
-      <div class="parts col2">
-        <div class="p"><span class="letter">a</span> $y=-\log_2(x)$ &nbsp; <span class="ans"></span></div>
-        <div class="p"><span class="letter">b</span> $y=\log_2(-x)$ &nbsp; <span class="ans"></span></div>
-        <div class="p"><span class="letter">c</span> $y=\log_{1/2}(x)$ &nbsp; <span class="ans"></span></div>
-      </div>
+      <table class="ans-table">
+        <colgroup><col style="width:7mm"><col style="width:34mm"><col><col><col><col style="width:28mm"></colgroup>
+        <tr>
+          <td class="letter">a</td><td>$y=-\log_2(x)$</td>
+          <td>dom: <span class="ans"></span></td>
+          <td>asy: <span class="ans"></span></td>
+          <td>$x$-int: <span class="ans"></span></td>
+          <td>inc/dec: <span class="ans" style="min-width:14mm"></span></td>
+        </tr>
+        <tr>
+          <td class="letter">b</td><td>$y=\log_2(-x)$</td>
+          <td>dom: <span class="ans"></span></td>
+          <td>asy: <span class="ans"></span></td>
+          <td>$x$-int: <span class="ans"></span></td>
+          <td>inc/dec: <span class="ans" style="min-width:14mm"></span></td>
+        </tr>
+        <tr>
+          <td class="letter">c</td><td>$y=\log_{1/2}(x)$</td>
+          <td>dom: <span class="ans"></span></td>
+          <td>asy: <span class="ans"></span></td>
+          <td>$x$-int: <span class="ans"></span></td>
+          <td>inc/dec: <span class="ans" style="min-width:14mm"></span></td>
+        </tr>
+      </table>
       <div class="work m"></div>
     </div>
 
