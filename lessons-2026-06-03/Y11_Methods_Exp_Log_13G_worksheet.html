@@ -75,7 +75,8 @@
   .work.l  { min-height: 32mm; }
 
   .sketch { border: 1px solid #888; background:#fff; margin: 1mm 0 0 6mm;
-            position: relative; height: 38mm; }
+            position: relative; height: 50mm; }
+  .parts-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin-top: 2mm; }
   .sketch .axis-x { position:absolute; left:0; right:0; top:50%; border-top:1px solid #555; }
   .sketch .axis-y { position:absolute; top:0; bottom:0; left:50%; border-left:1px solid #555; }
   .sketch .lbl   { position:absolute; font-family: Calibri, Arial, sans-serif;
@@ -228,30 +229,6 @@
     <div class="work m"></div>
   </div>
 
-  <div class="section">
-    <h2>Part C — Combined transformations</h2>
-
-    <div class="q qrow">
-      <span class="num">4.</span> Sketch $y=\log_2(3x-2)$. Mark the asymptote, $x$-intercept and one other point. State the domain and range.
-    </div>
-    <div class="sketch">
-      <div class="axis-x"></div><div class="axis-y"></div>
-      <span class="lbl" style="left:51%; top:2mm;">y</span>
-      <span class="lbl" style="right:2mm; top:48%;">x</span>
-    </div>
-    <div class="work s"></div>
-
-    <div class="q qrow">
-      <span class="num">5.</span> Sketch $y=\log_{1/2}(x+1)-2$. Mark the asymptote, both axis intercepts. State the domain and range.
-    </div>
-    <div class="sketch">
-      <div class="axis-x"></div><div class="axis-y"></div>
-      <span class="lbl" style="left:51%; top:2mm;">y</span>
-      <span class="lbl" style="right:2mm; top:48%;">x</span>
-    </div>
-    <div class="work s"></div>
-  </div>
-
   <div class="footer">
     <span>Y11 Methods · Exp/Log 13G worksheet</span>
     <span>Page 1 of 2</span>
@@ -263,10 +240,44 @@
   <div class="head">
     <div class="title">
       <h1>Log Graphs 13G — continued</h1>
-      <p>Part D (find the inverse) · Challenge</p>
+      <p>Part C (sketches) · Part D (find the inverse) · Challenge</p>
     </div>
     <div class="name">
       <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Combined transformations</h2>
+    <div class="parts-pair">
+      <div>
+        <div class="q qrow">
+          <span class="num">4.</span> Sketch $y=\log_2(3x-2)$. Mark the asymptote, $x$-intercept and one other point. State the domain and range.
+        </div>
+        <div class="sketch">
+          <div class="axis-x"></div><div class="axis-y"></div>
+          <span class="lbl" style="left:51%; top:2mm;">y</span>
+          <span class="lbl" style="right:2mm; top:48%;">x</span>
+        </div>
+        <div class="qrow" style="margin: 1mm 0 0 6mm; font-size:9.5pt;">
+          dom: <span class="ans" style="display:inline-block;border-bottom:1px solid var(--rule);min-width:22mm;margin-left:1mm"></span>
+          &nbsp; range: <span class="ans" style="display:inline-block;border-bottom:1px solid var(--rule);min-width:22mm;margin-left:1mm"></span>
+        </div>
+      </div>
+      <div>
+        <div class="q qrow">
+          <span class="num">5.</span> Sketch $y=\log_{1/2}(x+1)-2$. Mark the asymptote, both axis intercepts. State the domain and range.
+        </div>
+        <div class="sketch">
+          <div class="axis-x"></div><div class="axis-y"></div>
+          <span class="lbl" style="left:51%; top:2mm;">y</span>
+          <span class="lbl" style="right:2mm; top:48%;">x</span>
+        </div>
+        <div class="qrow" style="margin: 1mm 0 0 6mm; font-size:9.5pt;">
+          dom: <span class="ans" style="display:inline-block;border-bottom:1px solid var(--rule);min-width:22mm;margin-left:1mm"></span>
+          &nbsp; range: <span class="ans" style="display:inline-block;border-bottom:1px solid var(--rule);min-width:22mm;margin-left:1mm"></span>
+        </div>
+      </div>
     </div>
   </div>
 
