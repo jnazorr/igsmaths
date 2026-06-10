@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Surds &amp; Trig Unit Summary (mixed practice)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; text-align: center; font-size: 9.5pt; }
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col1 { grid-template-columns: 1fr; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 10mm; }
+  .work.m  { min-height: 15mm; }
+  .work.l  { min-height: 24mm; }
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="Y10_Core_SurdsTrig_Summary.html">Summary lesson</a>
+    <a href="Y10_Core_SurdsTrig_Summary_solutions.html">Solutions</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Surds &amp; Trig Unit Summary — mixed practice</h1>
+      <p>Year 10 Core Mathematics · Cambridge Ch 4 (Surds) &amp; Ch 6 (Trigonometry) · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Page 1 — Surds (Chapter 4).</strong>
+    <ul>
+      <li>§4A–4B simplifying &amp; like surds · §4C multiplying, dividing &amp; brackets · §4D rationalising</li>
+      <li>Give <em>exact</em> surd answers (no decimals). Always simplify as far as you can.</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Quick reference</h3>
+    <p>$\sqrt{50}=\sqrt{25\times 2}=5\sqrt{2}$ · $\sqrt{x}\times\sqrt{y}=\sqrt{xy}$ · $\sqrt{x}\times\sqrt{x}=x$</p>
+    <p>$\dfrac{a}{\sqrt{y}}=\dfrac{a}{\sqrt{y}}\times\dfrac{\sqrt{y}}{\sqrt{y}}=\dfrac{a\sqrt{y}}{y}$ &nbsp;(rationalise) · only <em>like</em> surds add</p>
+  </div>
+
+  <div class="section">
+    <h2>Section 1 — Simplifying surds (§4A)</h2>
+    <div class="q qrow">
+      <span class="num">1.</span> Write each in simplest surd form.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $\sqrt{48}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\sqrt{75}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\sqrt{200}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\sqrt{98}=$ <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 2 — Adding &amp; subtracting (§4B)</h2>
+    <div class="q qrow">
+      <span class="num">2.</span> Simplify first if needed, then combine the like surds.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $5\sqrt{3}+2\sqrt{3}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\sqrt{12}+\sqrt{27}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\sqrt{50}-\sqrt{8}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $4\sqrt{5}-\sqrt{20}=$ <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 3 — Multiplying, dividing &amp; brackets (§4C)</h2>
+    <div class="q qrow">
+      <span class="num">3.</span> Simplify each.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $\sqrt{6}\times\sqrt{3}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\dfrac{\sqrt{40}}{\sqrt{5}}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\big(\sqrt{5}\big)^{2}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $(2+\sqrt{3})(2-\sqrt{3})=$ <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+    <div class="q qrow">
+      <span class="num">4.</span> Expand and simplify $(3+\sqrt{2})^{2}$. &nbsp; Answer: <span class="ans" style="min-width:34mm"></span>
+      <div class="work s"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 4 — Rationalising the denominator (§4D)</h2>
+    <div class="q qrow">
+      <span class="num">5.</span> Rationalise and simplify.
+      <div class="parts col4">
+        <div class="p"><span class="letter">a</span> $\dfrac{3}{\sqrt{3}}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $\dfrac{10}{\sqrt{2}}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $\dfrac{6}{2\sqrt{3}}=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $\dfrac{4}{\sqrt{2}}=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Surds &amp; Trig Unit Summary worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Surds &amp; Trig Unit Summary — continued</h1>
+      <p>Page 2 — Trigonometry (Chapter 6): sides · angles · elevation/depression · bearings · 3D</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="key">
+    <h3>Quick reference</h3>
+    <p>$\sin\theta=\dfrac{\text{opp}}{\text{hyp}}$ · $\cos\theta=\dfrac{\text{adj}}{\text{hyp}}$ · $\tan\theta=\dfrac{\text{opp}}{\text{adj}}$ &nbsp;(SOHCAHTOA)</p>
+    <p>angle from two sides → $\sin^{-1}/\cos^{-1}/\tan^{-1}$ · bearing = clockwise from north, 3 digits · keep calculator in <strong>degrees</strong></p>
+  </div>
+
+  <div class="section">
+    <h2>Section 5 — Finding a side (§6A)</h2>
+    <div class="q qrow">
+      <span class="num">6.</span> Find the marked length to 2 d.p. (calculator in degrees).
+      <div class="parts col1">
+        <div class="p"><span class="letter">a</span> Opposite side, angle $40°$, hypotenuse $10$: &nbsp; opp $=10\sin 40°=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Adjacent side, angle $28°$, hypotenuse $15$: &nbsp; adj $=15\cos 28°=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> Opposite side, angle $55°$, adjacent $9$: &nbsp; opp $=9\tan 55°=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 6 — Finding an angle (§6B)</h2>
+    <div class="q qrow">
+      <span class="num">7.</span> Find $\theta$ to 1 d.p.
+      <div class="parts col1">
+        <div class="p"><span class="letter">a</span> opposite $7$, hypotenuse $12$: &nbsp; $\theta=\sin^{-1}\!\big(\tfrac{7}{12}\big)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> adjacent $6$, hypotenuse $11$: &nbsp; $\theta=\cos^{-1}\!\big(\tfrac{6}{11}\big)=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> opposite $4$, adjacent $9$: &nbsp; $\theta=\tan^{-1}\!\big(\tfrac{4}{9}\big)=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 7 — Elevation &amp; depression (§6C)</h2>
+    <div class="q qrow">
+      <span class="num">8.</span> Mr Wong stands $20$ m from the base of a tree. His eyes are $1.6$ m above the ground, and the angle of elevation to the top of the tree is $35°$. Find the height of the tree to 1 d.p. <strong>(Hint: tree height $=1.6+20\tan 35°$.)</strong> &nbsp; Height $=$ <span class="ans" style="min-width:28mm"></span>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 8 — Bearings (§6D)</h2>
+    <div class="q qrow">
+      <span class="num">9.</span> A ship sails $15$ km from port $P$ on a bearing of $040°$T. Find how far <strong>north</strong> and how far <strong>east</strong> of $P$ it now is (2 d.p.).
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> north $=15\cos 40°=$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> east $=15\sin 40°=$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge — 3D (§6E)</h2>
+    <div class="q qrow">
+      <span class="num">10.</span> A closed rectangular box has base $6$ cm by $8$ cm and height $5$ cm. <strong>(a)</strong> Find the length of the longest straight rod that fits inside (the space diagonal), exact and to 2 d.p. <strong>(b)</strong> Find the angle this diagonal makes with the base, to 1 d.p. <em>(Hint: the base diagonal is $\sqrt{6^{2}+8^{2}}=10$.)</em>
+      <div class="work l"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · then attempt Cambridge Ch 4 &amp; Ch 6 Review</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>
