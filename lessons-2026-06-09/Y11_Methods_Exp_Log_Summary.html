@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 11 Methods — Exponentials &amp; Logarithms (Unit summary)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .src { float:right; font-size:11px; font-family:Calibri,Arial,sans-serif; color:var(--muted);
+                  background:#f1f1f1; padding:2px 8px; border-radius:10px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  /* Cheat-sheet grid */
+  .cheat { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:18px 0; }
+  .cheat .card { background:#fff; border:1px solid #ddd; border-radius:8px; padding:14px 18px;
+                  box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .cheat .card h4 { margin:0 0 6px 0; color:var(--navy); font-family:Calibri,Arial,sans-serif; font-size:14px;
+                    text-transform:uppercase; letter-spacing:0.06em; }
+  .cheat .card .sec { display:inline-block; background:#edf3fb; color:var(--navy); padding:2px 8px;
+                       border-radius:10px; font-size:11px; font-weight:bold; margin-bottom:6px;
+                       font-family:Calibri,Arial,sans-serif; }
+  .cheat .card .rule { font-size:15px; padding:4px 0; }
+  .cheat .card .note { font-size:12.5px; color:var(--muted); font-family:Calibri,Arial,sans-serif;
+                        margin-top:6px; }
+  /* Decision tree */
+  .decision { background:#FFF5F0; border:2px solid var(--accent); border-radius:10px; padding:16px 20px;
+              margin:18px 0; font-family:Calibri,Arial,sans-serif; }
+  .decision h3 { margin-top:0; color:var(--accent); font-family:Georgia, serif; }
+  .decision ol { padding-left:22px; }
+  .decision li { margin:8px 0; font-size:14.5px; }
+  .decision li strong { color:var(--navy); }
+  /* Deep-dive nav */
+  .deep-dive { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:10px;
+               margin:14px 0; }
+  .deep-dive a { display:block; background:#fff; border:1px solid var(--navy); border-radius:8px;
+                  padding:10px 14px; text-decoration:none; color:var(--ink);
+                  font-family:Calibri,Arial,sans-serif; transition:all .15s; }
+  .deep-dive a:hover { background:var(--navy); color:#fff; }
+  .deep-dive a .sec { display:inline-block; background:#edf3fb; color:var(--navy);
+                       padding:2px 8px; border-radius:10px; font-size:11px; font-weight:bold; margin-bottom:4px; }
+  .deep-dive a:hover .sec { background:#fff; color:var(--navy); }
+  .deep-dive a .ttl { font-size:14px; font-weight:bold; display:block; }
+  .deep-dive a .blurb { font-size:12px; color:var(--muted); }
+  .deep-dive a:hover .blurb { color:#dde; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:680px) { .cheat { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html" class="current">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 11 Methods — Exponentials &amp; Logarithms (Unit summary)</h1>
+  <div class="meta">Cambridge Methods 1&amp;2, Chapter 13 (full unit) &nbsp;•&nbsp; revision · cheat sheet · mixed practice &nbsp;•&nbsp; Mr Wong</div>
+  <div class="resources-box">
+    <strong>📚 Also for this revision:</strong>
+    <a href="Y11_Methods_Exp_Log_Summary_worksheet.html" target="_blank">📄 Mixed-practice worksheet</a>
+    <a href="Y11_Methods_Exp_Log_Summary_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="#deep-dive">↓ Deep dive into a sub-topic</a>
+  </div>
+</header>
+
+<main>
+
+<h2>What this page is</h2>
+<p>One-stop revision for the whole <strong>Exponentials and Logarithms</strong> unit. Use it the night before a test:</p>
+<ul style="font-family:Calibri,Arial,sans-serif;">
+  <li>📋 A <strong>cheat sheet</strong> of every rule that came up in 13B–13G.</li>
+  <li>🧭 A <strong>"which technique?"</strong> decision tree so you pick the right approach fast.</li>
+  <li>📝 Six <strong>mixed worked examples</strong> spanning the unit, with click-to-reveal solutions.</li>
+  <li>✅ A <strong>10-question quiz</strong> across all sub-topics, auto-marked.</li>
+  <li>🔗 <strong>Deep-dive</strong> links back to the full lesson for any section you want to revisit.</li>
+</ul>
+
+<h2>Part 1 — Cheat sheet</h2>
+<div class="cheat">
+  <div class="card">
+    <span class="sec">§13B · Rational exponents</span>
+    <h4>Powers and roots</h4>
+    <p class="rule">$a^{m/n}=\big(\sqrt[n]{a}\big)^{m}=\sqrt[n]{a^{m}}$</p>
+    <p class="rule">$a^{-n}=\dfrac{1}{a^{n}}$, &nbsp; $a^{0}=1$</p>
+    <p class="rule">$a^{m}\cdot a^{n}=a^{m+n}$, &nbsp; $\dfrac{a^{m}}{a^{n}}=a^{m-n}$, &nbsp; $(a^{m})^{n}=a^{mn}$</p>
+    <p class="note">When evaluating, do the root <em>first</em> — keeps the numbers small. e.g. $64^{2/3}=(\sqrt[3]{64})^{2}=4^{2}=16$.</p>
+  </div>
+  <div class="card">
+    <span class="sec">§13C · Exp graphs</span>
+    <h4>Shape of $y=a^{x}+\text{transformations}$</h4>
+    <p class="rule">$y=a^{x}\;(a&gt;1)$: domain $\mathbb{R}$, range $\mathbb{R}^{+}$, $y$-int $(0,1)$, asymptote $y=0$, increasing</p>
+    <p class="rule">$y=a^{-x}=(1/a)^{x}$: same shape, reflected in the $y$-axis (decreasing)</p>
+    <p class="rule">$y=A\cdot a^{n(x-h)}+k$: asymptote $y=k$, $y$-int found by $x=0$</p>
+    <p class="note">Vertical translations shift the asymptote. Use a table of values for the basic shape, then apply transformations point-by-point.</p>
+  </div>
+  <div class="card">
+    <span class="sec">§13D · Solving exp equations</span>
+    <h4>Choose your method</h4>
+    <p class="rule"><strong>Same base:</strong> rewrite both sides as $a^{(\,\cdot\,)}$, equate indices.</p>
+    <p class="rule"><strong>Quadratic in $a^{x}$:</strong> let $u=a^{x}$, solve the quadratic, reject any $u\le 0$ (since $a^{x}&gt;0$).</p>
+    <p class="rule"><strong>Inequalities:</strong> $a^{x}&gt;k$ — solve like an equation; <em>flip the inequality if the base is $0&lt;a&lt;1$</em>.</p>
+    <p class="note">Different bases that can't be matched? → use logs (§13F).</p>
+  </div>
+  <div class="card">
+    <span class="sec">§13E · Logarithms</span>
+    <h4>Definition + the seven laws</h4>
+    <p class="rule">$\log_{a}(x)=y\iff a^{y}=x$. &nbsp; Domain $x&gt;0$.</p>
+    <p class="rule">$\log_{a}(mn)=\log_{a}(m)+\log_{a}(n)$</p>
+    <p class="rule">$\log_{a}\!\left(\tfrac{m}{n}\right)=\log_{a}(m)-\log_{a}(n)$</p>
+    <p class="rule">$\log_{a}(m^{p})=p\log_{a}(m)$, &nbsp; $\log_{a}(a)=1$, &nbsp; $\log_{a}(1)=0$</p>
+    <p class="rule"><strong>Change of base:</strong> $\log_{a}(x)=\dfrac{\log_{b}(x)}{\log_{b}(a)}$</p>
+  </div>
+  <div class="card">
+    <span class="sec">§13F · Solving with logs</span>
+    <h4>When bases don't match</h4>
+    <p class="rule"><strong>Take a log of both sides</strong> (any base — usually $\log_{10}$ on CAS or $\log_{a}$ to match a base in the question).</p>
+    <p class="rule">e.g. $5^{x}=12 \Rightarrow x=\log_{5}(12)\approx 1.54$</p>
+    <p class="rule">Always check domain on log questions — anything that makes the argument $\le 0$ is rejected.</p>
+    <p class="note">For $a^{x}=b$ with $a&gt;1$: exact $x=\log_{a}(b)$, decimal $x=\log(b)/\log(a)$.</p>
+  </div>
+  <div class="card">
+    <span class="sec">§13G · Log graphs &amp; inverses</span>
+    <h4>Reflection in $y=x$</h4>
+    <p class="rule">$y=\log_{a}(x)$ &amp; $y=a^{x}$ are <strong>inverses</strong> → reflections in $y=x$.</p>
+    <p class="rule">$y=\log_{a}(x)$: domain $x&gt;0$, range $\mathbb{R}$, $x$-int $(1,0)$, asymptote $x=0$ (the $y$-axis).</p>
+    <p class="rule">$y=\log_{a}(x-h)+k$: asymptote $x=h$, $x$-int where $x-h=a^{-k}$.</p>
+    <p class="rule">$\log_{1/a}(x)=-\log_{a}(x)$ — reflection in the $x$-axis.</p>
+    <p class="note">To find an inverse: write $y=f(x)$, swap $x$ and $y$, solve for $y$, then state the domain (= range of $f$).</p>
+  </div>
+</div>
+
+<h2>Part 2 — Which technique?</h2>
+<div class="decision">
+  <h3>🧭 Decision tree — pick a tool by question type</h3>
+  <ol>
+    <li><strong>Evaluating a power like $64^{2/3}$?</strong> &nbsp;→ rational exponent. Root first, then power. (§13B)</li>
+    <li><strong>Sketching $y=a^{x}+\text{stuff}$?</strong> &nbsp;→ start with the basic shape, apply transformations. The asymptote tells you the $k$ in $+k$. (§13C)</li>
+    <li><strong>Solving $a^{(\cdot)}=b^{(\cdot)}$ where you can rewrite both as same base?</strong> &nbsp;→ same-base method, equate indices. (§13D)</li>
+    <li><strong>Solving an exponential equation that's quadratic in $a^{x}$?</strong> &nbsp;→ substitute $u=a^{x}$, solve quadratic, reject $u\le 0$. (§13D)</li>
+    <li><strong>An exponential equation where the bases <em>cannot</em> be matched?</strong> &nbsp;→ take a log of both sides. (§13F)</li>
+    <li><strong>Evaluating a log like $\log_{4}(64)$?</strong> &nbsp;→ ask "what power of 4 gives 64?" — answer 3. (§13E)</li>
+    <li><strong>Simplifying $\log_{a}(\ldots)\pm\log_{a}(\ldots)$?</strong> &nbsp;→ apply the log laws (combine into a single log). (§13E)</li>
+    <li><strong>Solving a log equation?</strong> &nbsp;→ combine into a single log, exponentiate, <em>check the domain</em>, reject any root that makes an original argument $\le 0$. (§13E + §13F)</li>
+    <li><strong>Sketching $y=\log_{a}(x-h)+k$?</strong> &nbsp;→ asymptote $x=h$, $x$-int where the bracket equals $a^{-k}$, reflect in $y=x$ if you want a sanity check. (§13G)</li>
+    <li><strong>Finding the inverse of an exp or log function?</strong> &nbsp;→ swap $x$ and $y$, solve for $y$, state the domain (= range of original). (§13G)</li>
+  </ol>
+</div>
+
+<h2>Part 3 — Mixed worked examples</h2>
+<p>Each example crosses one or two sub-topics. Try it first, then click <em>Show solution</em>.</p>
+
+<div class="example">
+  <span class="src">§13B</span>
+  <span class="label">EXAMPLE 1 — exact evaluation</span>
+  <div class="q">Evaluate $16^{3/4}$ exactly.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p>Root first, then power: $16^{3/4}=\big(\sqrt[4]{16}\big)^{3}=2^{3}=\boxed{8}$.</p>
+    <p class="callout"><strong>Sanity check:</strong> $16^{3/4}$ is between $16^{1/2}=4$ and $16^{1}=16$. We got 8 — sits in range. ✓</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="src">§13C</span>
+  <span class="label">EXAMPLE 2 — transformed exponential graph</span>
+  <div class="q">For $y=3^{x-1}-5$: state the asymptote, the $y$-intercept and the range.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Vertical translation is $-5$, so the asymptote is $y=-5$.</li>
+      <li>$y$-intercept: sub $x=0$ → $y=3^{-1}-5=\tfrac{1}{3}-5=-\tfrac{14}{3}\approx -4.67$.</li>
+      <li>The basic exponential is always above its asymptote, so range is $y&gt;-5$, i.e. $(-5,\infty)$.</li>
+    </ol>
+  </div>
+</div>
+
+<div class="example">
+  <span class="src">§13D</span>
+  <span class="label">EXAMPLE 3 — same-base solve</span>
+  <div class="q">Solve $2^{x+1}=8^{x-2}$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p>Rewrite $8$ as $2^{3}$ so both sides have the same base: $2^{x+1}=\big(2^{3}\big)^{x-2}=2^{3(x-2)}=2^{3x-6}$.</p>
+    <p>Equate the indices: $x+1=3x-6 \Rightarrow 2x=7 \Rightarrow \boxed{x=\tfrac{7}{2}}$ (or $3.5$).</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="src">§13D · quadratic in $a^x$</span>
+  <span class="label">EXAMPLE 4 — substitution</span>
+  <div class="q">Solve $9^{x}-4\cdot 3^{x}+3=0$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p>Notice $9^{x}=(3^{2})^{x}=(3^{x})^{2}$. Let $u=3^{x}$ (so $u&gt;0$). The equation becomes:</p>
+    <p>$u^{2}-4u+3=0 \Rightarrow (u-1)(u-3)=0 \Rightarrow u=1\text{ or }u=3$. Both positive — keep both.</p>
+    <p>Back-substitute: $3^{x}=1 \Rightarrow x=0$, &nbsp; $3^{x}=3 \Rightarrow x=1$.</p>
+    <p>$\boxed{x=0\text{ or }x=1}$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="src">§13F · log both sides</span>
+  <span class="label">EXAMPLE 5 — bases don't match</span>
+  <div class="q">Solve $5^{x}=12$, giving an exact answer and a decimal to 2 d.p.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p>5 and 12 can't be matched to a common base. Take $\log_{5}$ of both sides:</p>
+    <p>$\log_{5}(5^{x})=\log_{5}(12) \Rightarrow x=\log_{5}(12)$ (exact).</p>
+    <p>Decimal: $x=\dfrac{\log 12}{\log 5}=\dfrac{1.0792}{0.6990}\approx \boxed{1.54}$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="src">§13E + §13F · log equation</span>
+  <span class="label">EXAMPLE 6 — combine, then check the domain</span>
+  <div class="q">Solve $\log_{2}(x)+\log_{2}(x-2)=3$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Combine using the product law: $\log_{2}\big(x(x-2)\big)=3$.</li>
+      <li>Exponentiate: $x(x-2)=2^{3}=8 \Rightarrow x^{2}-2x-8=0$.</li>
+      <li>Factor: $(x-4)(x+2)=0 \Rightarrow x=4$ or $x=-2$.</li>
+      <li><strong>Check the domain.</strong> The original has $\log_{2}(x)$ and $\log_{2}(x-2)$, which require $x&gt;0$ AND $x&gt;2$. So $x=-2$ is rejected.</li>
+    </ol>
+    <p>$\boxed{x=4}$.</p>
+    <p class="callout warn">⚠️ This is one of the most-missed steps in 2024 VCAA (chief assessor's #7 priority). Always state and apply the domain after solving a log equation.</p>
+  </div>
+</div>
+
+<h2 id="deep-dive">Part 4 — Deep dive into a sub-topic</h2>
+<p>Pick a section and jump to its full lesson, worksheet and solutions.</p>
+<div class="deep-dive">
+  <a href="../lessons-2026-05-27/Y11_Methods_13B_Rational_Exponents.html"><span class="sec">§13B</span><span class="ttl">Rational exponents</span><span class="blurb">Fractional powers, evaluating, negative indices</span></a>
+  <a href="../lessons-2026-06-01/Y11_Methods_Exp_Log_13C.html"><span class="sec">§13C</span><span class="ttl">Graphs of exponentials</span><span class="blurb">Shape, dilations, translations, asymptote</span></a>
+  <a href="../lessons-2026-06-01/Y11_Methods_Exp_Log_13D.html"><span class="sec">§13D</span><span class="ttl">Solving exponentials</span><span class="blurb">Same-base, quadratic-in-disguise, inequalities</span></a>
+  <a href="../lessons-2026-06-02/Y11_Methods_Exp_Log_13E.html"><span class="sec">§13E</span><span class="ttl">Logarithms</span><span class="blurb">Definition + the seven log laws + change of base</span></a>
+  <a href="../lessons-2026-06-02/Y11_Methods_Exp_Log_13F.html"><span class="sec">§13F</span><span class="ttl">Solving with logs</span><span class="blurb">Take a log of both sides, watch the domain</span></a>
+  <a href="../lessons-2026-06-03/Y11_Methods_Exp_Log_13G.html"><span class="sec">§13G</span><span class="ttl">Log graphs &amp; inverses</span><span class="blurb">Reflection in $y=x$, finding inverses</span></a>
+</div>
+
+<h2>Part 5 — Watch this if you're still hazy</h2>
+<p>Two short walkthroughs that anchor the most-tested ideas in the unit.</p>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="../lessons-2026-06-02/LogLaws.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Log laws in action:</strong> combining and splitting $\log_{a}$ expressions — the rules that keep coming up in 13E and 13F.</p>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="../lessons-2026-06-03/LogGraphReflection.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Log graphs as reflections:</strong> $y=\log_{a}(x)$ is the mirror image of $y=a^{x}$ in the line $y=x$ — and that's the easiest way to sketch one.</p>
+</div>
+
+<h2>Part 6 — Unit quiz (10 Q · 5 min · auto-marked)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> Evaluate $27^{2/3}$.</p>
+    <label><input type="radio" name="q1" value="a"> $6$</label>
+    <label><input type="radio" name="q1" value="b"> $18$</label>
+    <label><input type="radio" name="q1" value="c"> $9$</label>
+    <label><input type="radio" name="q1" value="d"> $3$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> The asymptote of $y=2^{x-1}+4$ is:</p>
+    <label><input type="radio" name="q2" value="a"> $y=0$</label>
+    <label><input type="radio" name="q2" value="b"> $y=4$</label>
+    <label><input type="radio" name="q2" value="c"> $y=-4$</label>
+    <label><input type="radio" name="q2" value="d"> $y=1$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q3.</strong> Solve $3^{x+2}=81$.</p>
+    <label><input type="radio" name="q3" value="a"> $x=4$</label>
+    <label><input type="radio" name="q3" value="b"> $x=27$</label>
+    <label><input type="radio" name="q3" value="c"> $x=1$</label>
+    <label><input type="radio" name="q3" value="d"> $x=2$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q4.</strong> Evaluate $\log_{4}(64)$.</p>
+    <label><input type="radio" name="q4" value="a"> $2$</label>
+    <label><input type="radio" name="q4" value="b"> $4$</label>
+    <label><input type="radio" name="q4" value="c"> $3$</label>
+    <label><input type="radio" name="q4" value="d"> $16$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> $\log_{2}(8)+\log_{2}(2)$ equals:</p>
+    <label><input type="radio" name="q5" value="a"> $\log_{2}(10)$</label>
+    <label><input type="radio" name="q5" value="b"> $4$</label>
+    <label><input type="radio" name="q5" value="c"> $3$</label>
+    <label><input type="radio" name="q5" value="d"> $16$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q6.</strong> The exact solution of $5^{x}=20$ is:</p>
+    <label><input type="radio" name="q6" value="a"> $x=\log_{5}(20)$</label>
+    <label><input type="radio" name="q6" value="b"> $x=5\log(20)$</label>
+    <label><input type="radio" name="q6" value="c"> $x=20\log(5)$</label>
+    <label><input type="radio" name="q6" value="d"> $x=\log(5)\cdot\log(20)$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q7.</strong> The asymptote of $y=\log_{3}(x-2)+1$ is:</p>
+    <label><input type="radio" name="q7" value="a"> $y=1$</label>
+    <label><input type="radio" name="q7" value="b"> $x=0$</label>
+    <label><input type="radio" name="q7" value="c"> $x=2$</label>
+    <label><input type="radio" name="q7" value="d"> $x=-2$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q8.</strong> Which function is the inverse of $f(x)=2^{x}+3$?</p>
+    <label><input type="radio" name="q8" value="a"> $f^{-1}(x)=\log_{2}(x)-3$</label>
+    <label><input type="radio" name="q8" value="b"> $f^{-1}(x)=\log_{2}(x-3)$</label>
+    <label><input type="radio" name="q8" value="c"> $f^{-1}(x)=\log_{2}(x)+3$</label>
+    <label><input type="radio" name="q8" value="d"> $f^{-1}(x)=2^{x-3}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q9.</strong> Solve $4^{x+1}=\tfrac{1}{32}$.</p>
+    <label><input type="radio" name="q9" value="a"> $x=-1$</label>
+    <label><input type="radio" name="q9" value="b"> $x=-2.5$</label>
+    <label><input type="radio" name="q9" value="c"> $x=2.5$</label>
+    <label><input type="radio" name="q9" value="d"> $x=-3.5$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q10.</strong> Solve $\log_{3}(x-1)+\log_{3}(x+1)=1$.</p>
+    <label><input type="radio" name="q10" value="a"> $x=2$ only</label>
+    <label><input type="radio" name="q10" value="b"> $x=2$ or $x=-2$</label>
+    <label><input type="radio" name="q10" value="c"> $x=-2$ only</label>
+    <label><input type="radio" name="q10" value="d"> No solutions</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — full unit</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Methods 1&amp;2 Chapter 13 and run through the following mixed-review sets:</p>
+<ul style="font-family:Calibri,Arial,sans-serif;">
+  <li><strong>Ch 13 Review</strong> (end-of-chapter mixed review): Q1–Q12, then Q13–Q18 if time</li>
+  <li><strong>Multiple-choice</strong> review questions for exam-style practice</li>
+  <li><strong>Extended-response</strong> review questions (Q19+) for harder marks</li>
+</ul>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">Anything you got wrong on the quiz → click the matching <em>deep-dive</em> link above and revisit that lesson + its worksheet.</p>
+
+<h2>Self-check — write in your book</h2>
+<div class="callout">
+  Before you call this revision done, write one line each:
+  <ol style="margin-top:6px;">
+    <li>What's the first thing you do when an exponential equation has bases that <em>can</em> be matched?</li>
+    <li>What's the first thing you do when they <em>can't</em>?</li>
+    <li>Why must you always check the domain after solving a log equation?</li>
+    <li>How is the graph of $y=\log_{a}(x)$ related to $y=a^{x}$?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; l.style.borderLeft=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — you are exam-ready on this unit.';
+    else if(pct >= 80) msg += '  Solid. Revisit the one or two you missed via the deep-dive links.';
+    else if(pct >= 60) msg += '  Getting there. Go back to the cheat sheet and re-watch the videos.';
+    else msg += '  Reset — start by reading the cheat sheet end to end, then open each deep-dive lesson.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions — Y11 Methods Exp/Log Unit Summary Worksheet</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --good:#2C5F2D; --good-bg:#E8F1E8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          position:relative; font-size: 9.6pt; line-height: 1.25; overflow: hidden; }
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--good); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--good); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .stamp { font-family: Calibri, Arial, sans-serif; font-size: 9.5pt;
+                  background:var(--good-bg); color:var(--good); padding: 3mm 5mm;
+                  border:1px solid var(--good); border-radius: 2mm; font-weight:bold; }
+  .section { margin: 0 0 2mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 1.5mm 0; font-size: 10.5pt; }
+  .section .pq { font-family: Calibri, Arial, sans-serif; font-size: 9pt; color:var(--muted);
+                 margin: 0 0 1mm 0; }
+  .section .pq strong { color: var(--navy); }
+  .answers { display:grid; grid-template-columns: repeat(2, 1fr); gap: 1mm 8mm;
+             font-family: Calibri, Arial, sans-serif; font-size: 9.4pt;
+             padding-left: 6mm; }
+  .answers.col1 { grid-template-columns: 1fr; }
+  .answers.col4 { grid-template-columns: repeat(4, 1fr); }
+  .answers .a { display:flex; align-items:baseline; gap: 2mm; padding: 0.3mm 0; }
+  .answers .a .letter { color:var(--muted); font-style:italic; min-width: 4mm; flex-shrink:0; }
+  .answers .a .ans { color:var(--good); font-weight:bold; }
+  .answers .a .work { color:var(--muted); font-size: 8.8pt; margin-left: 1mm; }
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+    .no-print, .lesson-nav { display:none; }
+  }
+  .print-btn { position:fixed; top:50px; right:8mm; background:var(--good); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background:#1E2761; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">09 June lessons</a>
+    <a href="Y11_Methods_Exp_Log_Summary.html">Summary lesson</a>
+    <a href="Y11_Methods_Exp_Log_Summary_worksheet.html">Worksheet</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solutions — Exp/Log Unit Summary Worksheet</h1>
+      <p>Year 11 Mathematical Methods Unit 1 · Cambridge Ch 13 (full unit) · Mr Wong</p>
+    </div>
+    <div class="stamp">ANSWER KEY</div>
+  </div>
+
+  <div class="section">
+    <h2>Section 1 — Rational exponents</h2>
+    <p class="pq"><strong>Q1.</strong> Exact evaluations:</p>
+    <div class="answers col4">
+      <div class="a"><span class="letter">a</span> <span class="ans">$8$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$9$</span> <span class="work">($3^{2}$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$8$</span> <span class="work">($2^{3}$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$16$</span> <span class="work">($4^{2}$)</span></div>
+    </div>
+    <p class="pq" style="margin-top:1mm"><strong>Q2.</strong> Simplify:</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$\dfrac{1}{x}$</span> <span class="work">($x^{5-2-4}=x^{-1}$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$4a^{5}b^{2}$</span> <span class="work">($4a^{6}b^{2}\cdot a^{-1}$)</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 2 — Exponential graphs</h2>
+    <p class="pq"><strong>Q3.</strong> Asymptote · $y$-int · range:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span> $y=2^{x}-3$: asy <span class="ans">$y=-3$</span> · $y$-int <span class="ans">$(0,-2)$</span> · range <span class="ans">$y&gt;-3$</span></div>
+      <div class="a"><span class="letter">b</span> $y=3^{x-1}+4$: asy <span class="ans">$y=4$</span> · $y$-int <span class="ans">$\big(0,\tfrac{13}{3}\big)$</span> <span class="work">($3^{-1}+4=\tfrac{1}{3}+4=\tfrac{13}{3}$)</span> · range <span class="ans">$y&gt;4$</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 3 — Solving exponentials</h2>
+    <p class="pq"><strong>Q4.</strong> Same-base:</p>
+    <div class="answers col4">
+      <div class="a"><span class="letter">a</span> <span class="ans">$x=2$</span> <span class="work">($3^{4}$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$x=\tfrac{7}{2}$</span> <span class="work">($x+1=3x-6$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$x=-\tfrac{7}{2}$</span> <span class="work">($2x+2=-5$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$x=-4$</span> <span class="work">($2^{-x}=2^{4}$)</span></div>
+    </div>
+    <p class="pq" style="margin-top:1mm"><strong>Q5.</strong> Let $u=3^{x}$: $u^{2}-4u+3=0 \Rightarrow (u-1)(u-3)=0$. Both $u&gt;0$, so:</p>
+    <div class="answers">
+      <div class="a"><span class="letter">·</span> <span class="ans">$x=0$ &nbsp; or &nbsp; $x=1$</span> <span class="work">($3^{x}=1\to x=0$; &nbsp; $3^{x}=3\to x=1$)</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 4 — Logarithms &amp; log laws</h2>
+    <p class="pq"><strong>Q6.</strong> Exact evaluations:</p>
+    <div class="answers col4">
+      <div class="a"><span class="letter">a</span> <span class="ans">$4$</span> <span class="work">($3^{4}=81$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$-3$</span> <span class="work">($10^{-3}=0.001$)</span></div>
+      <div class="a"><span class="letter">c</span> <span class="ans">$3$</span> <span class="work">($\log_{2}\tfrac{32}{4}=\log_{2}8$)</span></div>
+      <div class="a"><span class="letter">d</span> <span class="ans">$2$</span> <span class="work">($\log_{5}25$)</span></div>
+    </div>
+    <p class="pq" style="margin-top:1mm"><strong>Q7.</strong> Combine to a single log:</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$\log_{a}(15)$</span> <span class="work">($\log_{a}\tfrac{6\cdot 5}{2}$)</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$\log_{a}(36)$</span> <span class="work">($\log_{a}(9)+\log_{a}(4)$)</span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 5 — Solving with logs</h2>
+    <p class="pq"><strong>Q8.</strong> Take a log of both sides:</p>
+    <div class="answers">
+      <div class="a"><span class="letter">a</span> <span class="ans">$x=\log_{2}(100)\approx 6.64$</span></div>
+      <div class="a"><span class="letter">b</span> <span class="ans">$x=\log_{5}(20)-1\approx 0.86$</span></div>
+    </div>
+    <p class="pq" style="margin-top:1mm"><strong>Q9.</strong> Combine, exponentiate, <em>then check the domain</em>:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span>
+        <span>$\log_{2}\big(x(x-2)\big)=3 \Rightarrow x^{2}-2x=8 \Rightarrow (x-4)(x+2)=0$. Need $x&gt;2$, so reject $x=-2$. <span class="ans">$x=4$</span></span>
+      </div>
+      <div class="a"><span class="letter">b</span>
+        <span>$\log_{3}\big((x-1)(x+1)\big)=1 \Rightarrow x^{2}-1=3 \Rightarrow x=\pm 2$. Need $x&gt;1$, so reject $x=-2$. <span class="ans">$x=2$</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Section 6 — Log graphs &amp; inverses</h2>
+    <p class="pq"><strong>Q10.</strong> Swap, solve for $y$, state domain:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span>
+        <span>$y=3^{x}-7\to x=3^{y}-7 \to y=\log_{3}(x+7)$. <span class="ans">$f^{-1}(x)=\log_{3}(x+7)$, &nbsp; dom $x&gt;-7$</span></span>
+      </div>
+      <div class="a"><span class="letter">b</span>
+        <span>$y=\log_{2}(x+4)-1\to x=\log_{2}(y+4)-1 \to y+4=2^{x+1} \to y=2^{x+1}-4$. <span class="ans">$f^{-1}(x)=2^{x+1}-4$, &nbsp; dom $x\in\mathbb{R}$</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+    <p class="pq"><strong>Q11.</strong> $M=20\cdot\big(\tfrac{1}{2}\big)^{t/8}$:</p>
+    <div class="answers col1">
+      <div class="a"><span class="letter">a</span>
+        <span>Half: $M=10 \Rightarrow \big(\tfrac{1}{2}\big)^{t/8}=\tfrac{1}{2} \Rightarrow \tfrac{t}{8}=1$. <span class="ans">Half-life $=8$ years</span></span>
+      </div>
+      <div class="a"><span class="letter">b</span>
+        <span>$M=5 \Rightarrow \big(\tfrac{1}{2}\big)^{t/8}=\tfrac{1}{4}=\big(\tfrac{1}{2}\big)^{2} \Rightarrow \tfrac{t}{8}=2$. <span class="ans">$t=16$ years (exact &amp; 2 d.p.)</span></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y11 Methods · Exp/Log Unit Summary · Solutions</span>
+    <span>Page 1 of 1 · Hand back to Mr Wong</span>
+  </div>
+</section>
+
+</body>
+</html>
