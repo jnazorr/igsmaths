@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Solutions — Y10 Core Surds &amp; Trig Challenge questions</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --good:#2C5F2D; --good-bg:#E8F1E8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 9.6pt; line-height: 1.3; overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--good); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 14.5pt; color: var(--good); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .stamp { font-family: Calibri, Arial, sans-serif; font-size: 9.5pt;
+                  background:var(--good-bg); color:var(--good); padding: 3mm 5mm;
+                  border:1px solid var(--good); border-radius: 2mm; font-weight:bold; }
+  .sol { margin: 0 0 2.4mm 0; font-family: Calibri, Arial, sans-serif; }
+  .sol .qid { font-weight: bold; color: var(--navy); }
+  .sol .steps { margin: 0.6mm 0 0 6mm; }
+  .sol .steps div { margin: 0.4mm 0; }
+  .sol .ans { color:var(--good); font-weight:bold; }
+  .secttl { color: var(--navy); border-bottom: 1px solid var(--line);
+            padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11pt; }
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+    .no-print, .lesson-nav { display:none; }
+  }
+  .print-btn { position:fixed; top:50px; right:8mm; background:var(--good); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background:#1E2761; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="Y10_Core_SurdsTrig_Challenge.html">Challenge page</a>
+    <a href="Y10_Core_SurdsTrig_Challenge_worksheet.html">Worksheet</a>
+    <a href="Y10_Core_SurdsTrig_Summary.html">Unit summary</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solutions — Surds &amp; Trig Challenge</h1>
+      <p>Year 10 Core Mathematics · Extension · Cambridge Ch 4 &amp; Ch 6 · Mr Wong</p>
+    </div>
+    <div class="stamp">ANSWER KEY</div>
+  </div>
+
+  <h2 class="secttl">Part A — Surds</h2>
+
+  <div class="sol">
+    <span class="qid">A1.</span> Multiply by the conjugate $\sqrt5+\sqrt2$.
+    <div class="steps">
+      <div>$\dfrac{3}{\sqrt5-\sqrt2}\times\dfrac{\sqrt5+\sqrt2}{\sqrt5+\sqrt2}=\dfrac{3(\sqrt5+\sqrt2)}{5-2}=\dfrac{3(\sqrt5+\sqrt2)}{3}$</div>
+      <div><span class="ans">$=\sqrt5+\sqrt2$</span></div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">A2.</span> Multiply by the conjugate $\sqrt3+1$.
+    <div class="steps">
+      <div>Bottom: $(\sqrt3-1)(\sqrt3+1)=3-1=2$. &nbsp; Top: $(\sqrt3+1)^2=3+2\sqrt3+1=4+2\sqrt3$.</div>
+      <div>$\dfrac{4+2\sqrt3}{2}=$ <span class="ans">$2+\sqrt3$</span> &nbsp; ($a=2,\ b=1$)</div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">A3.</span> Every term is a multiple of $\sqrt3$.
+    <div class="steps">
+      <div>$\sqrt{75}=5\sqrt3$, &nbsp; $\sqrt{12}=2\sqrt3$, &nbsp; $\dfrac{6}{\sqrt3}=\dfrac{6\sqrt3}{3}=2\sqrt3$.</div>
+      <div>$5\sqrt3-2\sqrt3+2\sqrt3=$ <span class="ans">$5\sqrt3$</span></div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">A4.</span> $(p-q)^2=p^2-2pq+q^2$ with $p=2\sqrt5,\ q=3$.
+    <div class="steps">
+      <div>$(2\sqrt5)^2-2(2\sqrt5)(3)+3^2=20-12\sqrt5+9=$ <span class="ans">$29-12\sqrt5$</span></div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">A5.</span> Pythagoras; squaring removes the roots.
+    <div class="steps">
+      <div>$x^2+\big(\sqrt{18}\big)^2=\big(\sqrt{50}\big)^2\Rightarrow x^2+18=50\Rightarrow x^2=32$.</div>
+      <div>$x=\sqrt{32}=$ <span class="ans">$4\sqrt2$ cm</span> &nbsp; (a $3$-$4$-$5$ triangle scaled by $\sqrt2$).</div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">A6.</span> <strong>(a)</strong> $(\sqrt7+\sqrt3)(\sqrt7-\sqrt3)=7-3=4$. ✓
+    <div class="steps">
+      <div><strong>(b)</strong> Common denominator $=4$ (from part a):</div>
+      <div>$\dfrac{(\sqrt7-\sqrt3)+(\sqrt7+\sqrt3)}{4}=\dfrac{2\sqrt7}{4}=$ <span class="ans">$\dfrac{\sqrt7}{2}$</span></div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">A7.</span> Square, isolate the remaining root, square again, then check.
+    <div class="steps">
+      <div>$x=(x-5)+2\sqrt{x-5}+1\Rightarrow x=x-4+2\sqrt{x-5}$.</div>
+      <div>$4=2\sqrt{x-5}\Rightarrow\sqrt{x-5}=2\Rightarrow x-5=4\Rightarrow$ <span class="ans">$x=9$</span>.</div>
+      <div>Check: $\sqrt9=3$ and $\sqrt4+1=3$. ✓ &nbsp;(No fake solution introduced.)</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Surds &amp; Trig Challenge · Solutions</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Solutions — Surds &amp; Trig Challenge (cont.)</h1>
+      <p>Part B — Trigonometry · Mr Wong</p>
+    </div>
+    <div class="stamp">ANSWER KEY</div>
+  </div>
+
+  <h2 class="secttl">Part B — Trigonometry</h2>
+
+  <div class="sol">
+    <span class="qid">B1.</span> Let height $=h$, distance from $B$ to the foot $=d$.
+    <div class="steps">
+      <div>From $B$: $d=\dfrac{h}{\tan50°}$. &nbsp; From $A$: $d+40=\dfrac{h}{\tan30°}$.</div>
+      <div>Subtract: $\dfrac{h}{\tan30°}-\dfrac{h}{\tan50°}=40\Rightarrow h(1.73205-0.83910)=40$.</div>
+      <div>$h=\dfrac{40}{0.89295}=44.795\ldots\Rightarrow$ <span class="ans">height $\approx 44.80$ m</span>.</div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">B2.</span> <strong>(a)</strong> $140°-50°=90°$, so the legs are perpendicular. ✓
+    <div class="steps">
+      <div><strong>(b)</strong> $PQ=\sqrt{12^2+16^2}=\sqrt{400}=$ <span class="ans">$20$ km</span>.</div>
+      <div><strong>(c)</strong> Angle at $P$: $\tan\theta=\dfrac{16}{12}\Rightarrow\theta=\tan^{-1}\!\big(\tfrac43\big)=53.13°$.</div>
+      <div>Turn is clockwise, so bearing $=50°+53.13°=103.13°\approx$ <span class="ans">$103°$T</span>.</div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">B3.</span> Centre-to-corner $=$ half the base diagonal $=\dfrac{\sqrt{10^2+10^2}}{2}=\dfrac{10\sqrt2}{2}=5\sqrt2\approx7.071$ cm.
+    <div class="steps">
+      <div><strong>(a)</strong> slant $=\sqrt{12^2+(5\sqrt2)^2}=\sqrt{144+50}=\sqrt{194}\approx$ <span class="ans">$13.93$ cm</span>.</div>
+      <div><strong>(b)</strong> $\tan\alpha=\dfrac{12}{5\sqrt2}=1.6971\Rightarrow\alpha=\tan^{-1}(1.6971)\approx$ <span class="ans">$59.5°$</span>.</div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">B4.</span> Each angle of depression equals the elevation from the ground point; both triangles have height $80$.
+    <div class="steps">
+      <div>Car: $\dfrac{80}{\tan25°}=171.56$ m. &nbsp; Person: $\dfrac{80}{\tan15°}=298.56$ m.</div>
+      <div>Gap $=298.56-171.56=$ <span class="ans">$127.00$ m</span> &nbsp;(smaller angle ⇒ further away ✓).</div>
+    </div>
+  </div>
+
+  <div class="sol">
+    <span class="qid">B5.</span> Split into two right triangles; base $=\sqrt3$, hypotenuse $=2\sqrt3$.
+    <div class="steps">
+      <div>Height $=\sqrt{(2\sqrt3)^2-(\sqrt3)^2}=\sqrt{12-3}=\sqrt9=3$.</div>
+      <div>Area $=\tfrac12\times2\sqrt3\times3=$ <span class="ans">$3\sqrt3$ cm²</span> &nbsp;(check: $\tfrac{\sqrt3}{4}(2\sqrt3)^2=3\sqrt3$ ✓).</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Surds &amp; Trig Challenge · Solutions</span>
+    <span>Page 2 of 2 · Hand back to Mr Wong</span>
+  </div>
+</section>
+
+</body>
+</html>

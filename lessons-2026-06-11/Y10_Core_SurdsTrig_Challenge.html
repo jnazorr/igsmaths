@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Surds &amp; Trigonometry (Challenge questions)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  p.intro { font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .stars { float:right; font-size:13px; color:#e0a800; letter-spacing:1px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .hint { font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);
+                   background:#FFF9E6; border:1px dashed #E8D88A; border-radius:6px;
+                   padding:7px 12px; margin:6px 0 8px 0; display:none; }
+  .example.hintshow .hint { display:block; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .a ol { font-family:Calibri,Arial,sans-serif; }
+  .example .a ol li { margin-bottom:5px; }
+  .example .btns { margin-top:4px; display:flex; gap:8px; flex-wrap:wrap; }
+  .example .show-btn, .example .hint-btn {
+                       font-family:Calibri,Arial,sans-serif; color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; }
+  .example .show-btn { background:var(--navy); }
+  .example .show-btn:hover { background:var(--accent); }
+  .example .hint-btn { background:#8a7d2f; }
+  .example .hint-btn:hover { background:#6a5f22; }
+  .ans-box { display:inline-block; background:#E8F1E8; border:1px solid var(--good);
+             color:var(--good); font-weight:bold; padding:2px 10px; border-radius:6px; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  .toolbar { font-family:Calibri,Arial,sans-serif; font-size:13px; margin:10px 0 0 0; }
+  .toolbar button { background:#fff; border:1px solid var(--navy); color:var(--navy);
+                    padding:5px 12px; border-radius:14px; cursor:pointer; font-size:12.5px; font-weight:bold; }
+  .toolbar button:hover { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  svg.diagram { display:block; margin:10px auto; background:#fff; border:1px solid #e6e6e6; border-radius:6px; }
+  @media (max-width:680px) { main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Core — Surds &amp; Trigonometry: Challenge questions</h1>
+  <div class="meta">Cambridge Core, Chapter 4 (Surds) &amp; Chapter 6 (Trigonometry) &nbsp;•&nbsp; extension · harder multi-step problems &nbsp;•&nbsp; Mr Wong</div>
+  <div class="resources-box">
+    <strong>📚 Linked pages:</strong>
+    <a href="Y10_Core_SurdsTrig_Challenge_worksheet.html" target="_blank">📄 Challenge worksheet</a>
+    <a href="Y10_Core_SurdsTrig_Challenge_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="Y10_Core_SurdsTrig_Summary.html">← Back to the unit summary</a>
+  </div>
+</header>
+
+<main>
+
+<h2>How to use this page</h2>
+<p class="intro">These are <strong>harder</strong> than the standard worksheet — the kind of multi-step problems that separate an A from a B, and a good bridge into Year 11 Methods. Every step you'd actually write is shown in the solution. The rule for using this page:</p>
+<div class="callout">
+  <strong>Try the whole question first — pencil and paper, no peeking.</strong> Stuck after a genuine attempt? Hit <em>Hint</em>. Only open <em>Show full solution</em> once you've committed to an answer, then mark your own working line by line. The stars show difficulty: ★★ solid extension, ★★★ properly challenging.
+</div>
+<div class="toolbar">
+  <button onclick="toggleAll(true)">Reveal all solutions</button>
+  <button onclick="toggleAll(false)">Hide all solutions</button>
+</div>
+
+<h2>Part A — Surds (harder)</h2>
+
+<div class="example">
+  <span class="stars">★★</span>
+  <span class="label">A1 — rationalise a binomial denominator</span>
+  <div class="q">Rationalise the denominator and simplify fully: $\dfrac{3}{\sqrt{5}-\sqrt{2}}$.</div>
+  <div class="hint">When the bottom is a <em>difference</em> like $\sqrt5-\sqrt2$, multiply top and bottom by its <strong>conjugate</strong> $\sqrt5+\sqrt2$. The bottom becomes $(\sqrt5)^2-(\sqrt2)^2$ — the surds disappear.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>Multiply top and bottom by the conjugate $\sqrt5+\sqrt2$ (this is multiplying by $1$):
+        $\dfrac{3}{\sqrt5-\sqrt2}\times\dfrac{\sqrt5+\sqrt2}{\sqrt5+\sqrt2}$.</li>
+      <li>The bottom is a difference of squares: $(\sqrt5-\sqrt2)(\sqrt5+\sqrt2)=5-2=3$.</li>
+      <li>So we have $\dfrac{3(\sqrt5+\sqrt2)}{3}$.</li>
+      <li>Cancel the $3$: $\sqrt5+\sqrt2$.</li>
+    </ol>
+    <p>$\dfrac{3}{\sqrt5-\sqrt2}=$ <span class="ans-box">$\sqrt5+\sqrt2$</span></p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★</span>
+  <span class="label">A2 — express in the form $a+b\sqrt3$</span>
+  <div class="q">Express $\dfrac{\sqrt{3}+1}{\sqrt{3}-1}$ in the form $a+b\sqrt{3}$, where $a$ and $b$ are integers.</div>
+  <div class="hint">Multiply top and bottom by the conjugate of the denominator, $\sqrt3+1$. The numerator becomes a perfect square: $(\sqrt3+1)^2$.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>Multiply top and bottom by $\sqrt3+1$: $\dfrac{(\sqrt3+1)(\sqrt3+1)}{(\sqrt3-1)(\sqrt3+1)}$.</li>
+      <li>Bottom: $(\sqrt3)^2-1^2=3-1=2$.</li>
+      <li>Top: $(\sqrt3+1)^2=3+2\sqrt3+1=4+2\sqrt3$.</li>
+      <li>So $\dfrac{4+2\sqrt3}{2}=\dfrac{4}{2}+\dfrac{2\sqrt3}{2}=2+\sqrt3$.</li>
+    </ol>
+    <p>$\dfrac{\sqrt3+1}{\sqrt3-1}=$ <span class="ans-box">$2+\sqrt3$</span> &nbsp;($a=2,\ b=1$)</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★</span>
+  <span class="label">A3 — combine three terms</span>
+  <div class="q">Simplify fully: $\sqrt{75}-\sqrt{12}+\dfrac{6}{\sqrt{3}}$.</div>
+  <div class="hint">Three different-looking terms, but every one is secretly a multiple of $\sqrt3$. Simplify the first two, rationalise the third, then add.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>$\sqrt{75}=\sqrt{25\times3}=5\sqrt3$.</li>
+      <li>$\sqrt{12}=\sqrt{4\times3}=2\sqrt3$.</li>
+      <li>$\dfrac{6}{\sqrt3}=\dfrac{6}{\sqrt3}\times\dfrac{\sqrt3}{\sqrt3}=\dfrac{6\sqrt3}{3}=2\sqrt3$.</li>
+      <li>Now they are all like surds: $5\sqrt3-2\sqrt3+2\sqrt3=5\sqrt3$.</li>
+    </ol>
+    <p>$\sqrt{75}-\sqrt{12}+\dfrac{6}{\sqrt3}=$ <span class="ans-box">$5\sqrt3$</span></p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★</span>
+  <span class="label">A4 — expand a square</span>
+  <div class="q">Expand and simplify $\big(2\sqrt{5}-3\big)^{2}$.</div>
+  <div class="hint">Use $(p-q)^2=p^2-2pq+q^2$ with $p=2\sqrt5$ and $q=3$. Remember $(2\sqrt5)^2=4\times5$.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>$(2\sqrt5)^2=2^2\times(\sqrt5)^2=4\times5=20$.</li>
+      <li>Middle term: $-2\times(2\sqrt5)\times3=-12\sqrt5$.</li>
+      <li>Last term: $(-3)^2=9$.</li>
+      <li>Collect the whole numbers: $20+9=29$.</li>
+    </ol>
+    <p>$\big(2\sqrt5-3\big)^2=$ <span class="ans-box">$29-12\sqrt5$</span></p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★</span>
+  <span class="label">A5 — surds inside Pythagoras</span>
+  <div class="q">A right-angled triangle has hypotenuse $\sqrt{50}$ cm and one shorter side $\sqrt{18}$ cm. Find the <strong>exact</strong> length of the third side, in simplest surd form.</div>
+  <div class="hint">Pythagoras: $\text{(third side)}^2=\text{hyp}^2-\text{known}^2$. You don't even need to simplify the surds first — squaring a square root just removes it.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>Let the third side be $x$. By Pythagoras, $x^2+\big(\sqrt{18}\big)^2=\big(\sqrt{50}\big)^2$.</li>
+      <li>Squaring removes the roots: $x^2+18=50$.</li>
+      <li>$x^2=32$, so $x=\sqrt{32}$.</li>
+      <li>Simplify: $\sqrt{32}=\sqrt{16\times2}=4\sqrt2$.</li>
+    </ol>
+    <p>Third side $=$ <span class="ans-box">$4\sqrt2$ cm</span></p>
+    <p class="callout good">Nice structure: $\sqrt{50}=5\sqrt2$, $\sqrt{18}=3\sqrt2$, third side $4\sqrt2$ — a $3$-$4$-$5$ triangle scaled by $\sqrt2$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★★</span>
+  <span class="label">A6 — show, then "hence"</span>
+  <div class="q">(a) Show that $\big(\sqrt{7}+\sqrt{3}\big)\big(\sqrt{7}-\sqrt{3}\big)=4$. &nbsp; (b) <em>Hence</em> simplify $\dfrac{1}{\sqrt{7}+\sqrt{3}}+\dfrac{1}{\sqrt{7}-\sqrt{3}}$.</div>
+  <div class="hint">For (b), put the two fractions over the common denominator from part (a). The "hence" is a strong signal: the answer to (a) is the denominator you need.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li><strong>(a)</strong> Difference of squares: $\big(\sqrt7+\sqrt3\big)\big(\sqrt7-\sqrt3\big)=(\sqrt7)^2-(\sqrt3)^2=7-3=4$. ✓</li>
+      <li><strong>(b)</strong> Common denominator is $\big(\sqrt7+\sqrt3\big)\big(\sqrt7-\sqrt3\big)=4$ from part (a).</li>
+      <li>$\dfrac{1}{\sqrt7+\sqrt3}+\dfrac{1}{\sqrt7-\sqrt3}=\dfrac{\big(\sqrt7-\sqrt3\big)+\big(\sqrt7+\sqrt3\big)}{4}$.</li>
+      <li>The $\sqrt3$ terms cancel on top: $\dfrac{2\sqrt7}{4}=\dfrac{\sqrt7}{2}$.</li>
+    </ol>
+    <p>$\dfrac{1}{\sqrt7+\sqrt3}+\dfrac{1}{\sqrt7-\sqrt3}=$ <span class="ans-box">$\dfrac{\sqrt7}{2}$</span></p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★★</span>
+  <span class="label">A7 — solve a surd equation</span>
+  <div class="q">Solve $\sqrt{x}=\sqrt{x-5}+1$ for $x$.</div>
+  <div class="hint">Don't expand blindly. Square both sides once — the $\sqrt{x-5}$ survives, but the lone $\sqrt x$ disappears. Rearrange so the remaining root is alone, then square again.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>Square both sides: $x=\big(\sqrt{x-5}+1\big)^2=(x-5)+2\sqrt{x-5}+1$.</li>
+      <li>Simplify the right: $x=x-4+2\sqrt{x-5}$.</li>
+      <li>Subtract $x$ from both sides: $0=-4+2\sqrt{x-5}$, so $2\sqrt{x-5}=4$.</li>
+      <li>Divide by $2$: $\sqrt{x-5}=2$. Square again: $x-5=4$, so $x=9$.</li>
+      <li><strong>Check</strong> (always check after squaring): $\sqrt9=3$ and $\sqrt{9-5}+1=\sqrt4+1=2+1=3$. ✓</li>
+    </ol>
+    <p><span class="ans-box">$x=9$</span></p>
+    <p class="callout warn">⚠️ Squaring can invent fake solutions, so the final check isn't optional — it's part of the method.</p>
+  </div>
+</div>
+
+<h2>Part B — Trigonometry (harder)</h2>
+
+<div class="example">
+  <span class="stars">★★★</span>
+  <span class="label">B1 — two observers, one tower</span>
+  <div class="q">From a point $A$ on level ground the angle of elevation to the top of a vertical tower is $30°$. From a point $B$, which is $40$ m closer to the tower along the same straight line, the angle of elevation is $50°$. Find the height of the tower, to 2 decimal places.</div>
+  <svg class="diagram" width="430" height="180" viewBox="0 0 430 180" xmlns="http://www.w3.org/2000/svg">
+    <line x1="30" y1="150" x2="410" y2="150" stroke="#444" stroke-width="1.5"/>
+    <line x1="360" y1="150" x2="360" y2="40" stroke="#1E2761" stroke-width="2"/>
+    <line x1="40" y1="150" x2="360" y2="40" stroke="#F96167" stroke-width="1.5"/>
+    <line x1="200" y1="150" x2="360" y2="40" stroke="#2C5F2D" stroke-width="1.5"/>
+    <text x="34" y="165" font-family="Calibri" font-size="13">A</text>
+    <text x="196" y="165" font-family="Calibri" font-size="13">B</text>
+    <text x="352" y="165" font-family="Calibri" font-size="13">foot</text>
+    <text x="366" y="40" font-family="Calibri" font-size="13" fill="#1E2761">top</text>
+    <text x="105" y="146" font-family="Calibri" font-size="12" fill="#F96167">30°</text>
+    <text x="214" y="146" font-family="Calibri" font-size="12" fill="#2C5F2D">50°</text>
+    <text x="95" y="178" font-family="Calibri" font-size="12">←——— 40 m ———→ B then closer</text>
+  </svg>
+  <div class="hint">Call the height $h$ and the distance from $B$ to the foot $d$. Write $\tan50=\dfrac{h}{d}$ and $\tan30=\dfrac{h}{d+40}$. Make $d$ the subject of each and set them equal — that gives one equation in $h$.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>Let $h$ = tower height, $d$ = distance from $B$ to the foot. Then $A$ is $d+40$ from the foot.</li>
+      <li>From $B$: $\tan50°=\dfrac{h}{d}\Rightarrow d=\dfrac{h}{\tan50°}$.</li>
+      <li>From $A$: $\tan30°=\dfrac{h}{d+40}\Rightarrow d+40=\dfrac{h}{\tan30°}$.</li>
+      <li>Subtract: $\dfrac{h}{\tan30°}-\dfrac{h}{\tan50°}=40$.</li>
+      <li>Factor out $h$: $h\left(\dfrac{1}{\tan30°}-\dfrac{1}{\tan50°}\right)=40$, i.e. $h\,(1.73205-0.83910)=40$.</li>
+      <li>$h\times0.89295=40\Rightarrow h=\dfrac{40}{0.89295}=44.795\ldots$</li>
+    </ol>
+    <p>Height $\approx$ <span class="ans-box">$44.80$ m</span></p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★★</span>
+  <span class="label">B2 — a two-leg journey</span>
+  <div class="q">A ship sails $12$ km from port $P$ on a bearing of $050°$T, then changes course and sails $16$ km on a bearing of $140°$T to reach $Q$. (a) Show that the ship's two legs are at right angles. (b) Find the straight-line distance $PQ$. (c) Find the bearing of $Q$ from $P$, to the nearest degree.</div>
+  <div class="hint">(a) Compare the two bearings. (b) With a right angle between the legs, $PQ$ is just the hypotenuse — Pythagoras. (c) Find the angle between the first leg and $PQ$ with $\tan$, then add it to $050°$.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li><strong>(a)</strong> The change of direction is $140°-50°=90°$, so the second leg is perpendicular to the first. ✓</li>
+      <li><strong>(b)</strong> The two legs form the right angle of a triangle, so $PQ$ is the hypotenuse:
+        $PQ=\sqrt{12^2+16^2}=\sqrt{144+256}=\sqrt{400}=20$ km.</li>
+      <li><strong>(c)</strong> Let $\theta$ be the angle at $P$ between the first leg and $PQ$. The side opposite $\theta$ is the second leg ($16$), the adjacent is the first leg ($12$): $\tan\theta=\dfrac{16}{12}\Rightarrow\theta=\tan^{-1}\!\big(\tfrac{4}{3}\big)\approx53.13°$.</li>
+      <li>The second leg turns <em>clockwise</em> (bearing increased $50°\to140°$), so $Q$ is $53.13°$ clockwise of the first leg: bearing $=50°+53.13°=103.13°$.</li>
+    </ol>
+    <p>(b) $PQ=$ <span class="ans-box">$20$ km</span>; &nbsp; (c) bearing of $Q$ from $P\approx$ <span class="ans-box">$103°$T</span></p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★★</span>
+  <span class="label">B3 — square-based pyramid (two triangles)</span>
+  <div class="q">A right pyramid has a square base of side $10$ cm and its apex is directly above the centre of the base, $12$ cm up. Find (a) the length of a slant edge (apex to a base corner), exact and to 2 d.p.; (b) the angle a slant edge makes with the base, to 1 d.p.</div>
+  <div class="hint">First find the horizontal distance from the centre of the base to a corner — that's <em>half</em> the base diagonal. Then the height, that half-diagonal, and the slant edge form a right-angled triangle.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>Base diagonal $=\sqrt{10^2+10^2}=\sqrt{200}=10\sqrt2$, so half of it (centre to corner) is $5\sqrt2\approx7.071$ cm.</li>
+      <li><strong>(a)</strong> The slant edge is the hypotenuse of the right triangle with legs $12$ (height) and $5\sqrt2$:
+        slant $=\sqrt{12^2+(5\sqrt2)^2}=\sqrt{144+50}=\sqrt{194}\approx13.93$ cm.</li>
+      <li><strong>(b)</strong> The angle $\alpha$ with the base uses height (opposite) over half-diagonal (adjacent):
+        $\tan\alpha=\dfrac{12}{5\sqrt2}=\dfrac{12}{7.071}\Rightarrow\alpha=\tan^{-1}(1.6971)\approx59.5°$.</li>
+    </ol>
+    <p>(a) slant edge $=$ <span class="ans-box">$\sqrt{194}\approx13.93$ cm</span>; &nbsp; (b) angle $\approx$ <span class="ans-box">$59.5°$</span></p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★★</span>
+  <span class="label">B4 — drone with two angles of depression</span>
+  <div class="q">A drone hovers $80$ m directly above a straight road. Looking down the road, the angle of depression to a parked car is $25°$, and to a person standing further along (beyond the car) is $15°$. Find the distance between the car and the person, to 2 d.p.</div>
+  <div class="hint">Angle of depression to a point = the angle of elevation from that point back up. Each gives a right triangle of height $80$. Find each horizontal distance, then subtract.</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>For the car: $\tan25°=\dfrac{80}{\text{(distance to car)}}\Rightarrow \text{car}=\dfrac{80}{\tan25°}=171.56$ m.</li>
+      <li>For the person (smaller angle ⇒ further away): $\text{person}=\dfrac{80}{\tan15°}=298.56$ m.</li>
+      <li>Both are measured from the point on the road directly below the drone, so the gap between them is the difference:
+        $298.56-171.56=127.00$ m.</li>
+    </ol>
+    <p>Distance car → person $\approx$ <span class="ans-box">$127.00$ m</span></p>
+    <p class="callout">A smaller angle of depression always means the object is further away — a good sanity check on which distance should be larger.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="stars">★★</span>
+  <span class="label">B5 — surds meet trig</span>
+  <div class="q">An equilateral triangle has side length $2\sqrt{3}$ cm. Find its <strong>exact</strong> area (leave your answer in surd form).</div>
+  <div class="hint">Drop a perpendicular from one vertex to split the triangle into two right-angled triangles. The height comes out as a surd; then area $=\tfrac12\times\text{base}\times\text{height}$. (Or use area $=\tfrac{\sqrt3}{4}s^2$.)</div>
+  <div class="btns">
+    <button class="hint-btn" onclick="toggleHint(this)">Hint</button>
+    <button class="show-btn" onclick="toggleEx(this)">Show full solution</button>
+  </div>
+  <div class="a">
+    <ol>
+      <li>Split the triangle down the middle. Each right triangle has base $\dfrac{2\sqrt3}{2}=\sqrt3$ and hypotenuse $2\sqrt3$.</li>
+      <li>Height $h$ by Pythagoras: $h=\sqrt{(2\sqrt3)^2-(\sqrt3)^2}=\sqrt{12-3}=\sqrt9=3$.</li>
+      <li>Area $=\tfrac12\times\text{base}\times\text{height}=\tfrac12\times2\sqrt3\times3=3\sqrt3$.</li>
+      <li>(Check with the formula $\tfrac{\sqrt3}{4}s^2=\tfrac{\sqrt3}{4}\times12=3\sqrt3$. ✓)</li>
+    </ol>
+    <p>Area $=$ <span class="ans-box">$3\sqrt3$ cm²</span></p>
+  </div>
+</div>
+
+<h2>One more for the road</h2>
+<div class="callout good">
+  <strong>Stretch:</strong> In question A6 you found $\dfrac{1}{\sqrt7+\sqrt3}+\dfrac{1}{\sqrt7-\sqrt3}=\dfrac{\sqrt7}{2}$.
+  Can you predict, <em>without</em> a calculator, what $\dfrac{1}{\sqrt{11}+\sqrt{7}}+\dfrac{1}{\sqrt{11}-\sqrt{7}}$ will simplify to?
+  (Try it, then check: the same method gives $\dfrac{2\sqrt{11}}{11-7}=\dfrac{2\sqrt{11}}{4}=\dfrac{\sqrt{11}}{2}$.)
+</div>
+
+<p class="footer-note">Worked the lot? You're ready for the test — and you've already met ideas that come back in Year 11 Methods. &nbsp;— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide full solution' : 'Show full solution';
+  }
+  function toggleHint(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('hintshow');
+    btn.textContent = ex.classList.contains('hintshow') ? 'Hide hint' : 'Hint';
+  }
+  function toggleAll(reveal){
+    document.querySelectorAll('.example').forEach(function(ex){
+      var btn = ex.querySelector('.show-btn');
+      if(reveal){ ex.classList.add('show'); if(btn) btn.textContent='Hide full solution'; }
+      else { ex.classList.remove('show'); if(btn) btn.textContent='Show full solution'; }
+    });
+  }
+</script>
+</body>
+</html>

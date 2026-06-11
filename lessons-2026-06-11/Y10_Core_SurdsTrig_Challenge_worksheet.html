@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Surds &amp; Trig Challenge questions</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+  .q { margin: 0 0 2mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 7mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .stars { color:#c79100; font-size:9pt; margin-left:2mm; }
+  .ans-line { display:inline-block; border-bottom: 1px solid var(--rule);
+              min-width: 26mm; margin-left: 2mm; }
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 7mm; }
+  .work.s  { min-height: 13mm; }
+  .work.m  { min-height: 19mm; }
+  .work.l  { min-height: 26mm; }
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="Y10_Core_SurdsTrig_Challenge.html">Challenge page</a>
+    <a href="Y10_Core_SurdsTrig_Challenge_solutions.html">Solutions</a>
+    <a href="Y10_Core_SurdsTrig_Summary.html">Unit summary</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Surds &amp; Trig — Challenge questions</h1>
+      <p>Year 10 Core Mathematics · Extension · Cambridge Ch 4 &amp; Ch 6 · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Page 1 — Surds (harder).</strong>
+    <ul>
+      <li>Show full working. Give <em>exact</em> surd answers in simplest form — no decimals.</li>
+      <li>★★ solid extension · ★★★ properly challenging. After squaring an equation, always check your answer.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Surds</h2>
+
+    <div class="q qrow">
+      <span class="num">A1.</span><span class="stars">★★</span> Rationalise the denominator and simplify fully: $\dfrac{3}{\sqrt5-\sqrt2}$. &nbsp; Answer: <span class="ans-line"></span>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">A2.</span><span class="stars">★★</span> Express $\dfrac{\sqrt3+1}{\sqrt3-1}$ in the form $a+b\sqrt3$ where $a,b$ are integers. &nbsp; Answer: <span class="ans-line"></span>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">A3.</span><span class="stars">★★</span> Simplify fully: $\sqrt{75}-\sqrt{12}+\dfrac{6}{\sqrt3}$. &nbsp; Answer: <span class="ans-line"></span>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">A4.</span><span class="stars">★★</span> Expand and simplify $\big(2\sqrt5-3\big)^2$. &nbsp; Answer: <span class="ans-line"></span>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">A5.</span><span class="stars">★★</span> A right-angled triangle has hypotenuse $\sqrt{50}$ cm and one shorter side $\sqrt{18}$ cm. Find the <strong>exact</strong> length of the third side, in simplest surd form. &nbsp; Answer: <span class="ans-line"></span>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">A6.</span><span class="stars">★★★</span> <strong>(a)</strong> Show that $\big(\sqrt7+\sqrt3\big)\big(\sqrt7-\sqrt3\big)=4$. &nbsp; <strong>(b)</strong> Hence simplify $\dfrac{1}{\sqrt7+\sqrt3}+\dfrac{1}{\sqrt7-\sqrt3}$. &nbsp; Answer (b): <span class="ans-line"></span>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">A7.</span><span class="stars">★★★</span> Solve $\sqrt{x}=\sqrt{x-5}+1$. (Remember to check your answer.) &nbsp; $x=$ <span class="ans-line"></span>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Surds &amp; Trig Challenge worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Surds &amp; Trig — Challenge (continued)</h1>
+      <p>Page 2 — Trigonometry (harder): two-observer · bearings · 3D · surds + trig</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Trigonometry</h2>
+
+    <div class="q qrow">
+      <span class="num">B1.</span><span class="stars">★★★</span> From a point $A$ the angle of elevation to the top of a vertical tower is $30°$. From $B$, which is $40$ m closer along the same straight line, it is $50°$. Find the height of the tower (2 d.p.). <em>(Hint: let height $=h$, distance from $B$ to the foot $=d$; use $\tan50=\tfrac{h}{d}$ and $\tan30=\tfrac{h}{d+40}$.)</em> &nbsp; Height $=$ <span class="ans-line"></span>
+      <div class="work l"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">B2.</span><span class="stars">★★★</span> A ship sails $12$ km from $P$ on a bearing of $050°$T, then $16$ km on a bearing of $140°$T to reach $Q$. <strong>(a)</strong> Show the two legs are at right angles. <strong>(b)</strong> Find $PQ$. <strong>(c)</strong> Find the bearing of $Q$ from $P$ (nearest degree).
+      <div style="margin-left:7mm;margin-top:0.5mm;">(b) $PQ=$ <span class="ans-line" style="min-width:18mm"></span> &nbsp; (c) bearing $=$ <span class="ans-line" style="min-width:18mm"></span></div>
+      <div class="work l"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">B3.</span><span class="stars">★★★</span> A right pyramid has a square base of side $10$ cm and apex $12$ cm above the centre. <strong>(a)</strong> Find a slant edge (apex to base corner), exact &amp; to 2 d.p. <strong>(b)</strong> Find the angle a slant edge makes with the base (1 d.p.). <em>(Hint: centre-to-corner $=$ half the base diagonal.)</em>
+      <div style="margin-left:7mm;margin-top:0.5mm;">(a) slant $=$ <span class="ans-line" style="min-width:22mm"></span> &nbsp; (b) angle $=$ <span class="ans-line" style="min-width:18mm"></span></div>
+      <div class="work l"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">B4.</span><span class="stars">★★★</span> A drone hovers $80$ m above a straight road. The angle of depression to a car is $25°$, and to a person beyond the car is $15°$. Find the distance between the car and the person (2 d.p.). &nbsp; Answer: <span class="ans-line"></span>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">B5.</span><span class="stars">★★</span> An equilateral triangle has side length $2\sqrt3$ cm. Find its <strong>exact</strong> area (surd form). &nbsp; Area $=$ <span class="ans-line"></span>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · full solutions on the Challenge page</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>
