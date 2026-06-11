@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>micro:bit Challenge Creator — Year 7 Digital Technologies</title>
+<title>micro:bit Challenge Creator — Lesson 1 — Year 7 Digital Technologies</title>
 <style>
   :root{
     --dt:#e8590c; --dt-dark:#c2410c; --dt-wash:#fff2e8; --navy:#1E2761;
@@ -27,6 +27,14 @@
                    padding:22px clamp(16px,4vw,40px); border-bottom:5px solid var(--navy);}
   header.page-head h1{margin:0 0 4px 0; font-size:clamp(22px,3.2vw,30px);}
   header.page-head .sub{font-size:14px; opacity:.95;}
+  /* ---- lesson stepper ---- */
+  .lesson-steps{display:flex; gap:8px; flex-wrap:wrap; align-items:center;
+                background:#fff; padding:8px clamp(12px,3vw,28px); border-bottom:1px solid var(--line); font-size:13px;}
+  .lesson-steps .lbl{font-weight:700; color:var(--muted); margin-right:2px;}
+  .lesson-steps a, .lesson-steps span.step{text-decoration:none; padding:4px 12px; border-radius:14px;
+                border:1px solid var(--line); color:var(--dt-dark); font-weight:700; background:#fff; white-space:nowrap;}
+  .lesson-steps a:hover{background:var(--dt-wash);}
+  .lesson-steps .step.current{background:var(--dt); color:#fff; border-color:var(--dt);}
   /* ---- toolbar (save + actions) ---- */
   .toolbar{position:sticky; top:0; z-index:30; background:#fff; border-bottom:1px solid var(--line);
            display:flex; align-items:center; gap:10px; flex-wrap:wrap;
@@ -37,7 +45,7 @@
   .savepill .t{font-weight:400; opacity:.8;}
   .toolbar .grow{flex:1 1 auto;}
   .btn{font:inherit; font-size:12.5px; font-weight:700; border-radius:8px; cursor:pointer;
-       border:1px solid var(--dt); background:#fff; color:var(--dt-dark); padding:6px 12px;}
+       border:1px solid var(--dt); background:#fff; color:var(--dt-dark); padding:6px 12px; text-decoration:none; display:inline-block;}
   .btn:hover{background:var(--dt); color:#fff;}
   .btn.solid{background:var(--dt); color:#fff;}
   .btn.solid:hover{background:var(--dt-dark);}
@@ -63,6 +71,8 @@
   .mission{background:var(--dt-wash); border:1px solid #f3cba6; border-left:6px solid var(--dt);
            border-radius:8px; padding:12px 16px; margin:14px 0;}
   .mission strong{color:var(--dt-dark);}
+  .mission.done{background:var(--good-bg); border-color:#bfe0c6; border-left-color:var(--good);}
+  .mission.done strong{color:var(--good);}
   .wsec{background:var(--card); border:1px solid var(--line); border-radius:12px;
         padding:16px 20px; margin:16px 0; box-shadow:0 1px 3px rgba(0,0,0,.03);}
   .wsec > h2{margin:0 0 4px 0; font-size:19px; color:var(--dt-dark);
@@ -111,13 +121,6 @@
            font-family:'Consolas','Courier New',monospace; font-size:13px; line-height:1.5; margin:8px 0;}
   pre.code .kw{color:#6fb3ff;} pre.code .fn{color:#ffd479;} pre.code .str{color:#9fe88d;} pre.code .num{color:#f4a4c0;} pre.code .cm{color:#8a93a6;}
   .copy-row{display:flex; align-items:center; gap:10px; margin-top:6px;}
-  .reveal-box{margin-top:10px;}
-  .reveal-box > button{font:inherit; font-size:12.5px; font-weight:700; cursor:pointer; border:1px solid var(--navy);
-       background:#fff; color:var(--navy); border-radius:7px; padding:5px 12px;}
-  .reveal-box > button:hover{background:var(--navy); color:#fff;}
-  .reveal-box .ans{display:none; margin-top:8px; background:#eef6ff; border:1px solid #bcd9f5;
-                   border-radius:8px; padding:10px 14px; font-size:13.5px;}
-  .reveal-box.show .ans{display:block;}
   .note{font-size:12.5px; color:var(--muted); font-style:italic;}
   .print-only{display:none;}
   /* ---- editor tab ---- */
@@ -131,7 +134,7 @@
   }
   /* ---- print ---- */
   @media print{
-    .lesson-nav,.toolbar,.tabbar,.editor-only,#tab-editor,#tab-starter,.btn,.reveal-box>button,.no-print{display:none !important;}
+    .lesson-nav,.lesson-steps,.toolbar,.tabbar,.editor-only,#tab-editor,#tab-starter,.btn,.no-print{display:none !important;}
     .tab-wrap{border:none;}
     .tab-panel{display:block !important; max-width:none; padding:0;}
     body{background:#fff;}
@@ -139,7 +142,6 @@
     .wsec{break-inside:avoid; box-shadow:none;}
     .print-only{display:block;}
     .fta{display:none;}              /* replaced by .print-only mirror */
-    /* §4 answer prints only if the student chose to reveal it (.reveal-box.show) */
   }
 </style>
 </head>
@@ -157,13 +159,19 @@
 </nav>
 
 <header class="page-head">
-  <h1>🎮 micro:bit Challenge Creator</h1>
-  <div class="sub">Year 7 · Digital Technologies — play a game, understand it, improve it, then design your own · Mr Wong</div>
+  <h1>🎮 micro:bit Challenge Creator — Lesson 1</h1>
+  <div class="sub">Year 7 · Digital Technologies — play, understand and improve the Rock–Paper–Scissors game · Mr Wong</div>
 </header>
+
+<div class="lesson-steps no-print">
+  <span class="lbl">This project:</span>
+  <span class="step current">1 · Play, Understand &amp; Improve</span>
+  <a class="step" href="microbit-challenge-creator-2.html">2 · Radio, Design &amp; Build →</a>
+</div>
 
 <div class="toolbar no-print">
   <span class="savepill" id="savepill">Loading…</span>
-  <div class="progress-wrap" title="How much of the workbook you've filled in">
+  <div class="progress-wrap" title="How much of Lesson 1 you've filled in">
     <div class="progress"><i id="progbar"></i></div>
     <span class="pct" id="progpct">0%</span>
   </div>
@@ -187,9 +195,9 @@
 <section class="tab-panel active" id="tab-workbook">
 
   <div class="mission">
-    <strong>🚀 Your mission:</strong> play a micro:bit game, work out how it works, improve it, then
-    design a brand-new challenge of your own that other students can actually play.
-    <strong>⭐ Bonus level:</strong> use radio to make two micro:bits talk to each other wirelessly.
+    <strong>🚀 This project (two lessons):</strong> play a micro:bit game, work out how it works, improve it —
+    then next lesson learn how micro:bits talk by radio and design &amp; build your own game.
+    <strong>Today (Lesson 1):</strong> play, understand and improve <strong>Rock–Paper–Scissors</strong>.
     <div class="note" style="margin-top:6px;">Your answers save automatically in this browser as you type. Use <strong>Download my work</strong> to keep a copy and hand it in.</div>
   </div>
 
@@ -200,7 +208,7 @@
       <label class="fld" style="flex:1 1 120px;"><span class="q">Class</span><input class="fin" data-k="class" placeholder="e.g. 7D"></label>
       <label class="fld" style="flex:1 1 160px;"><span class="q">Teacher</span><input class="fin" data-k="teacher" value="Mr Wong"></label>
     </div>
-    <h2 style="font-size:16px;">🏆 Success goals</h2>
+    <h2 style="font-size:16px;">🏆 Success goals (the whole project)</h2>
     <ul class="checklist two">
       <li><input type="checkbox" data-k="g1"> I can use inputs like buttons and shaking</li>
       <li><input type="checkbox" data-k="g2"> I can use outputs like LEDs and sound</li>
@@ -209,6 +217,7 @@
       <li><input type="checkbox" data-k="g5"> I can explain how micro:bits use radio to communicate</li>
       <li><input type="checkbox" data-k="g6"> I can design, test and improve my own game challenge</li>
     </ul>
+    <p class="note" style="margin:6px 0 0;">Goals 1–4 are this lesson; goals 5–6 are next lesson.</p>
   </div>
 
   <!-- SECTION 1 -->
@@ -274,246 +283,12 @@
     </ul></div>
   </div>
 
-  <!-- SECTION 4 -->
-  <div class="wsec">
-    <h2>📡 Section 4 — How micro:bits talk (radio demo)</h2>
-    <p class="lead">Watch the teacher demonstration: one micro:bit sends a message and another receives it with no cables.</p>
-    <div class="keyidea">Key idea: SEND → (radio signal) → RECEIVE</div>
-    <table class="qa">
-      <tr><th>Question</th><th>Your answer</th></tr>
-      <tr><td class="qcell">What did the first micro:bit do?</td><td><input class="fin" data-k="s4q1"></td></tr>
-      <tr><td class="qcell">What happened on the second micro:bit?</td><td><input class="fin" data-k="s4q2"></td></tr>
-      <tr><td class="qcell">Did they use cables?</td><td><input class="fin" data-k="s4q3"></td></tr>
-      <tr><td class="qcell">What was sent between them?</td><td><input class="fin" data-k="s4q4"></td></tr>
-    </table>
-
-    <p style="font-weight:600; margin:12px 0 2px;">🐞 There are <u>2 mistakes</u> in the code below that stop it working. What are they, and how would you fix them?</p>
-    <div class="blocks">
-      <div class="stack">
-        <div class="cap">Sending device</div>
-        <span class="blk event">on start</span>
-        <span class="blk radio nest" style="margin-left:0;">radio set group <span class="pill">1</span></span>
-        <span class="blk event">on button <span class="pill">A</span> pressed</span>
-        <span class="blk radio nest" style="margin-left:0;">radio send string <span class="pill">"Boo"</span></span>
-        <span class="blk event">on button <span class="pill">B</span> pressed</span>
-        <span class="blk radio nest" style="margin-left:0;">radio send string <span class="pill">"Aaargh"</span></span>
-      </div>
-      <div class="stack">
-        <div class="cap">Receiving device</div>
-        <span class="blk event">on start</span>
-        <span class="blk radio nest" style="margin-left:0;">radio set group <span class="pill">1</span></span>
-        <span class="blk radio">on radio received <span class="pill">receivedNumber</span></span>
-        <span class="blk basic nest" style="margin-left:0;">show string <span class="pill">"receivedNumber"</span></span>
-      </div>
-    </div>
-    <label class="fld"><span class="q">Mistake 1 — what's wrong and how to fix it:</span><textarea class="fta" data-k="s4bug1"></textarea></label>
-    <label class="fld"><span class="q">Mistake 2 — what's wrong and how to fix it:</span><textarea class="fta" data-k="s4bug2"></textarea></label>
-    <div class="reveal-box no-print">
-      <button onclick="this.parentElement.classList.toggle('show'); this.textContent=this.parentElement.classList.contains('show')?'Hide the answer':'Check the answer';">Check the answer</button>
-      <div class="ans">
-        <strong>Mistake 1:</strong> the receiver listens with <em>on radio received <u>receivedNumber</u></em> (the number block), but the sender sends <em>text</em> ("Boo"/"Aaargh"). Use the <strong>string</strong> receive block — <em>on radio received receivedString</em> — so it matches what was sent.<br>
-        <strong>Mistake 2:</strong> <em>show string "receivedNumber"</em> has the variable name <u>in quote marks</u>, so it shows the literal words instead of the message. Remove the quotes and show the <strong>received variable</strong> itself, so the actual message appears.
-      </div>
-    </div>
-    <div class="checkpoint"><ul class="checklist"><li><input type="checkbox" data-k="s4cp"> I understand how micro:bits communicate</li></ul></div>
-  </div>
-
-  <!-- SECTION 5 -->
-  <div class="wsec">
-    <h2>🤝 Section 5 — Add multiplayer (radio extension)</h2>
-    <p class="lead"><strong>Task 4:</strong> upgrade Rock–Paper–Scissors so two players can interact using radio. Plan the three steps.</p>
-    <table class="qa">
-      <tr><th style="width:60px;">Step</th><th>Description</th></tr>
-      <tr><td class="qcell">1</td><td><input class="fin" data-k="s5step1"></td></tr>
-      <tr><td class="qcell">2</td><td><input class="fin" data-k="s5step2"></td></tr>
-      <tr><td class="qcell">3</td><td><input class="fin" data-k="s5step3"></td></tr>
-    </table>
-    <div class="keyidea" style="background:#eef6ff; border-color:#bcd9f5; color:#15538a;">Winner helper: same choice = draw; different choices, decide who wins (e.g. rock beats scissors).</div>
-    <table class="qa">
-      <tr><th>Feature</th><th>Your idea</th></tr>
-      <tr><td class="qcell">What will your micro:bit send?</td><td><input class="fin" data-k="s5send"></td></tr>
-      <tr><td class="qcell">What will it receive?</td><td><input class="fin" data-k="s5recv"></td></tr>
-      <tr><td class="qcell">How will it decide a winner?</td><td><textarea class="fta" data-k="s5winner"></textarea></td></tr>
-    </table>
-    <div class="checkpoint"><ul class="checklist two">
-      <li><input type="checkbox" data-k="s5cp1"> My micro:bit sends data</li>
-      <li><input type="checkbox" data-k="s5cp2"> My micro:bit receives data</li>
-    </ul></div>
-  </div>
-
-  <!-- SECTION 6 -->
-  <div class="wsec">
-    <h2>🧠 Section 6 — Design Thinking Studio</h2>
-    <p class="lead">Before you build, think like a designer: lots of ideas, think about the player, refine the plan.</p>
-    <p style="font-weight:600; margin:6px 0 2px;">Task 1 — Ideation: what is the challenge? What makes it interesting?</p>
-    <table class="qa">
-      <tr><th style="width:50px;">Idea</th><th>What is the challenge? What makes it interesting?</th></tr>
-      <tr><td class="qcell">1</td><td><input class="fin" data-k="s6i1"></td></tr>
-      <tr><td class="qcell">2</td><td><input class="fin" data-k="s6i2"></td></tr>
-      <tr><td class="qcell">3</td><td><input class="fin" data-k="s6i3"></td></tr>
-      <tr><td class="qcell">4</td><td><input class="fin" data-k="s6i4"></td></tr>
-    </table>
-    <p style="font-weight:600; margin:8px 0 2px;">Stretch thinking — what vibe?</p>
-    <ul class="checklist two">
-      <li><input type="checkbox" data-k="s6v1"> Funny</li>
-      <li><input type="checkbox" data-k="s6v2"> Competitive</li>
-      <li><input type="checkbox" data-k="s6v3"> Stressful</li>
-      <li><input type="checkbox" data-k="s6v4"> Skill-based</li>
-      <li><input type="checkbox" data-k="s6v5"> Random / lucky</li>
-      <li><input type="checkbox" data-k="s6v6"> Strategy</li>
-    </ul>
-    <label class="fld"><span class="q">Task 2 — Your best idea is number… and why?</span><textarea class="fta" data-k="s6best"></textarea></label>
-    <p style="font-weight:600; margin:8px 0 2px;">Task 3 — Design details</p>
-    <table class="qa">
-      <tr><th>Element</th><th>Your design</th></tr>
-      <tr><td class="qcell">Game name</td><td><input class="fin" data-k="s6_name"></td></tr>
-      <tr><td class="qcell">Theme (funny, battle, race…)</td><td><input class="fin" data-k="s6_theme"></td></tr>
-      <tr><td class="qcell">What happens in the game?</td><td><textarea class="fta" data-k="s6_what"></textarea></td></tr>
-      <tr><td class="qcell">Input (e.g. shake, button)</td><td><input class="fin" data-k="s6_input"></td></tr>
-      <tr><td class="qcell">Output (LED, sound, radio)</td><td><input class="fin" data-k="s6_output"></td></tr>
-      <tr><td class="qcell">Goal</td><td><input class="fin" data-k="s6_goal"></td></tr>
-      <tr><td class="qcell">Fail condition</td><td><input class="fin" data-k="s6_fail"></td></tr>
-    </table>
-    <p style="font-weight:600; margin:12px 0 2px;">⚖️ Balance &amp; multiplayer design</p>
-    <table class="qa">
-      <tr><th>Question</th><th>Your response</th></tr>
-      <tr><td class="qcell">What skill is needed to win?</td><td><input class="fin" data-k="s6b1"></td></tr>
-      <tr><td class="qcell">What makes it challenging?</td><td><input class="fin" data-k="s6b2"></td></tr>
-      <tr><td class="qcell">Is there randomness?</td><td><input class="fin" data-k="s6b3"></td></tr>
-      <tr><td class="qcell">How will you make it fair?</td><td><input class="fin" data-k="s6b4"></td></tr>
-    </table>
-    <p style="font-weight:600; margin:10px 0 2px;">Task 5 — Multiplayer design (radio extension)</p>
-    <table class="qa">
-      <tr><th>Between players</th><th>What happens?</th></tr>
-      <tr><td class="qcell">Player 1 action</td><td><input class="fin" data-k="s6p1"></td></tr>
-      <tr><td class="qcell">Player 2 action</td><td><input class="fin" data-k="s6p2"></td></tr>
-      <tr><td class="qcell">What is sent (radio)</td><td><input class="fin" data-k="s6psend"></td></tr>
-      <tr><td class="qcell">How the winner is decided</td><td><input class="fin" data-k="s6pwin"></td></tr>
-    </table>
-    <label class="fld"><span class="q">How does adding another player make your game better?</span><textarea class="fta" data-k="s6mp"></textarea></label>
-    <label class="fld"><span class="q">Task 6 — Quick sketch (describe it): PLAYER ACTION → MICRO:BIT RESPONSE → RESULT</span><textarea class="fta" data-k="s6sketch"></textarea></label>
-    <div class="checkpoint"><ul class="checklist">
-      <li><input type="checkbox" data-k="s6cp1"> I created multiple ideas</li>
-      <li><input type="checkbox" data-k="s6cp2"> I chose the best idea and explained why</li>
-      <li><input type="checkbox" data-k="s6cp3"> My game has clear rules, a goal and a fail condition</li>
-      <li><input type="checkbox" data-k="s6cp4"> I planned the inputs and outputs</li>
-      <li><input type="checkbox" data-k="s6cp5"> I considered difficulty and multiplayer (extension)</li>
-    </ul></div>
-  </div>
-
-  <!-- SECTION 7 -->
-  <div class="wsec">
-    <h2>🎯 Section 7 — Design your challenge</h2>
-    <p class="lead">Your mission: create a new challenge inspired by Rock–Paper–Scissors.</p>
-    <table class="qa">
-      <tr><th style="width:50px;">Idea</th><th>Description</th></tr>
-      <tr><td class="qcell">1</td><td><input class="fin" data-k="s7i1"></td></tr>
-      <tr><td class="qcell">2</td><td><input class="fin" data-k="s7i2"></td></tr>
-      <tr><td class="qcell">3</td><td><input class="fin" data-k="s7i3"></td></tr>
-    </table>
-    <label class="fld"><span class="q">My final idea:</span><input class="fin" data-k="s7final"></label>
-    <div style="display:flex; gap:18px; flex-wrap:wrap;">
-      <div style="flex:1 1 240px;">
-        <p style="font-weight:600; margin:4px 0 2px;">Challenge requirements</p>
-        <ul class="checklist">
-          <li><input type="checkbox" data-k="s7r1"> Use at least one input</li>
-          <li><input type="checkbox" data-k="s7r2"> Use at least one output</li>
-          <li><input type="checkbox" data-k="s7r3"> Include a goal</li>
-          <li><input type="checkbox" data-k="s7r4"> Include a fail condition</li>
-          <li><input type="checkbox" data-k="s7r5"> Be playable in under 1 minute</li>
-        </ul>
-      </div>
-      <div style="flex:1 1 240px;">
-        <p style="font-weight:600; margin:4px 0 2px;">High-achievement extension</p>
-        <ul class="checklist">
-          <li><input type="checkbox" data-k="s7e1"> Use radio communication</li>
-          <li><input type="checkbox" data-k="s7e2"> Include two-player interaction</li>
-        </ul>
-      </div>
-    </div>
-    <table class="qa">
-      <tr><th>Element</th><th>Your design</th></tr>
-      <tr><td class="qcell">Game name</td><td><input class="fin" data-k="s7_name"></td></tr>
-      <tr><td class="qcell">Input</td><td><input class="fin" data-k="s7_input"></td></tr>
-      <tr><td class="qcell">Output</td><td><input class="fin" data-k="s7_output"></td></tr>
-      <tr><td class="qcell">Goal</td><td><input class="fin" data-k="s7_goal"></td></tr>
-      <tr><td class="qcell">How you lose</td><td><input class="fin" data-k="s7_lose"></td></tr>
-      <tr><td class="qcell">Random element?</td><td><input class="fin" data-k="s7_rand"></td></tr>
-      <tr><td class="qcell">Multiplayer? (radio)</td><td><input class="fin" data-k="s7_mp"></td></tr>
-    </table>
-  </div>
-
-  <!-- SECTION 8 -->
-  <div class="wsec">
-    <h2>💻 Section 8 — Build your program</h2>
-    <p class="lead"><strong>Task 5:</strong> plan the logic of your code before you build it.</p>
-    <div class="stack" style="max-width:460px;">
-      <div class="cap">Code planner</div>
-      <div style="font-size:14px; line-height:2;">
-        START:<br>
-        When <input class="fin tiny" data-k="s8when" placeholder="…"> happens →<br>
-        &nbsp;&nbsp;Do <input class="fin short" data-k="s8do" placeholder="…"><br>
-        If <input class="fin short" data-k="s8if" placeholder="…"> →<br>
-        &nbsp;&nbsp;Then <input class="fin short" data-k="s8then" placeholder="…"><br>
-        Else →<br>
-        &nbsp;&nbsp;<input class="fin short" data-k="s8else" placeholder="…">
-      </div>
-    </div>
-    <p style="font-weight:600; margin:10px 0 2px;">If using radio:</p>
-    <label class="fld"><span class="q">Send:</span><input class="fin" data-k="s8send"></label>
-    <label class="fld"><span class="q">Receive:</span><input class="fin" data-k="s8recv"></label>
-    <label class="fld"><span class="q">React:</span><input class="fin" data-k="s8react"></label>
-    <div class="checkpoint"><ul class="checklist two">
-      <li><input type="checkbox" data-k="s8d1"> My program runs</li>
-      <li><input type="checkbox" data-k="s8d2"> My inputs work</li>
-      <li><input type="checkbox" data-k="s8d3"> My outputs display correctly</li>
-      <li><input type="checkbox" data-k="s8d4"> Radio works (if used)</li>
-    </ul></div>
-  </div>
-
-  <!-- SECTION 9 -->
-  <div class="wsec">
-    <h2>📝 Section 9 — Write player instructions</h2>
-    <label class="fld"><span class="q">Challenge name:</span><input class="fin" data-k="s9name"></label>
-    <label class="fld"><span class="q">How to play:</span><textarea class="fta" data-k="s9how"></textarea></label>
-    <label class="fld"><span class="q">Goal:</span><textarea class="fta" data-k="s9goal"></textarea></label>
-    <label class="fld"><span class="q">How do players lose?</span><textarea class="fta" data-k="s9lose"></textarea></label>
-  </div>
-
-  <!-- SECTION 10 -->
-  <div class="wsec">
-    <h2>🏁 Section 10 — Challenge Arcade</h2>
-    <p class="lead">Play other students' games, test them, and give useful feedback.</p>
-    <table class="qa">
-      <tr><th>Game</th><th style="width:70px;">Fun (1–5)</th><th style="width:70px;">Clear?</th><th style="width:90px;">Easy / Hard?</th><th>Notes</th></tr>
-      <tr><td><input class="fin" data-k="s10g1"></td><td><input class="fin" data-k="s10f1"></td><td><input class="fin" data-k="s10c1"></td><td><input class="fin" data-k="s10d1"></td><td><input class="fin" data-k="s10n1"></td></tr>
-      <tr><td><input class="fin" data-k="s10g2"></td><td><input class="fin" data-k="s10f2"></td><td><input class="fin" data-k="s10c2"></td><td><input class="fin" data-k="s10d2"></td><td><input class="fin" data-k="s10n2"></td></tr>
-      <tr><td><input class="fin" data-k="s10g3"></td><td><input class="fin" data-k="s10f3"></td><td><input class="fin" data-k="s10c3"></td><td><input class="fin" data-k="s10d3"></td><td><input class="fin" data-k="s10n3"></td></tr>
-    </table>
-    <p style="font-weight:600; margin:8px 0 2px;">Radio battle mode (if used)</p>
-    <ul class="checklist">
-      <li><input type="checkbox" data-k="s10r1"> Did it connect successfully?</li>
-      <li><input type="checkbox" data-k="s10r2"> Did both players interact?</li>
-      <li><input type="checkbox" data-k="s10r3"> Was the result fair?</li>
-    </ul>
-    <label class="fld"><span class="q">What will you fix or improve after feedback?</span><textarea class="fta" data-k="s10fix"></textarea></label>
-  </div>
-
-  <!-- SECTION 11 -->
-  <div class="wsec">
-    <h2>💭 Section 11 — Reflection</h2>
-    <label class="fld"><span class="q">What did you learn from building Rock–Paper–Scissors?</span><textarea class="fta" data-k="s11a"></textarea></label>
-    <label class="fld"><span class="q">How did radio change your game?</span><textarea class="fta" data-k="s11b"></textarea></label>
-    <label class="fld"><span class="q">What was the hardest part?</span><textarea class="fta" data-k="s11c"></textarea></label>
-    <label class="fld"><span class="q">What would you improve next time?</span><textarea class="fta" data-k="s11d"></textarea></label>
-    <div class="checkpoint"><ul class="checklist two">
-      <li><input type="checkbox" data-k="s11s1"> Use input and output</li>
-      <li><input type="checkbox" data-k="s11s2"> Modify a program</li>
-      <li><input type="checkbox" data-k="s11s3"> Create a working challenge</li>
-      <li><input type="checkbox" data-k="s11s4"> Write clear instructions</li>
-      <li><input type="checkbox" data-k="s11s5"> Use radio (extension)</li>
-    </ul></div>
-    <p style="margin-top:14px; color:var(--muted);">Nice work — when you're done, hit <strong>Download my work</strong> and hand it in. — Mr Wong</p>
+  <!-- END OF LESSON 1 -->
+  <div class="mission done">
+    <strong>🎉 That's Lesson 1!</strong> You've played the game, worked out how it codes a decision, and improved it.
+    <strong>Next lesson:</strong> how micro:bits talk by radio, then design and build your own game.
+    <div style="margin-top:10px;"><a class="btn solid no-print" href="microbit-challenge-creator-2.html">Go to Lesson 2 →</a></div>
+    <div class="note" style="margin-top:8px;">Your answers are saved on this computer and will be here next lesson. To be safe, also hit <strong>⬇ Download my work</strong>. — Mr Wong</div>
   </div>
 
 </section>
@@ -549,32 +324,10 @@
   </div>
 
   <div class="wsec">
-    <h2>📡 Radio reference (for Sections 4 &amp; 5)</h2>
-    <p class="lead">Two micro:bits can talk if they are on the <strong>same group</strong>. One sends, the other receives the <strong>same kind</strong> of message (both strings, or both numbers).</p>
-    <div class="blocks">
-      <div style="flex:1 1 280px;">
-        <div class="cap" style="font-size:12px; font-weight:700; color:var(--muted); margin-bottom:4px;">SENDER</div>
-        <pre class="code"><span class="kw">radio</span>.<span class="fn">setGroup</span>(<span class="num">1</span>)
-<span class="kw">input</span>.<span class="fn">onButtonPressed</span>(Button.A, <span class="kw">function</span> () {
-    <span class="kw">radio</span>.<span class="fn">sendString</span>(<span class="str">"rock"</span>)
-})</pre>
-      </div>
-      <div style="flex:1 1 280px;">
-        <div class="cap" style="font-size:12px; font-weight:700; color:var(--muted); margin-bottom:4px;">RECEIVER (correct)</div>
-        <pre class="code"><span class="kw">radio</span>.<span class="fn">setGroup</span>(<span class="num">1</span>)
-<span class="kw">radio</span>.<span class="fn">onReceivedString</span>(<span class="kw">function</span> (receivedString) {
-    <span class="kw">basic</span>.<span class="fn">showString</span>(receivedString)
-})</pre>
-      </div>
-    </div>
-    <p class="note">Both micro:bits must use the <strong>same group number</strong>. The sender uses <code>sendString</code>, so the receiver must use <code>onReceivedString</code> and show the <strong>variable</strong> (no quote marks) — that's exactly the two fixes from the Section 4 puzzle.</p>
-  </div>
-
-  <div class="wsec">
     <h2>💾 How your work is saved</h2>
     <ul style="font-size:14px; line-height:1.7;">
       <li><strong>Autosave:</strong> everything you type saves in this browser automatically — you'll see “All work saved ✓” at the top.</li>
-      <li><strong>Same computer, same browser:</strong> your answers come back when you return — but only on this device, and they can be lost if the browser data is cleared.</li>
+      <li><strong>Same computer, same browser:</strong> your answers come back when you return — including in <strong>Lesson 2</strong> — but only on this device, and they can be lost if the browser data is cleared.</li>
       <li><strong>To be safe and to hand in:</strong> click <strong>⬇ Download my work</strong> to save a file. Next lesson you can click <strong>↥ Restore from file</strong> to load it back.</li>
       <li><strong>Print / PDF:</strong> use <strong>🖨️ Print / PDF</strong> for a paper copy or to “Save as PDF”.</li>
     </ul>
@@ -656,7 +409,6 @@
 
   // ---- toolbar actions (exposed to inline onclick) ----
   window.downloadWork = function(){
-    // refresh state from DOM first
     fields().forEach(readField);
     var payload = { app:"igs-y7-microbit-rps", version:1, savedAt:new Date().toISOString(), answers:state };
     var name = (state.name||'student').toString().replace(/[^a-z0-9]+/gi,'_').replace(/^_|_$/g,'') || 'student';
@@ -678,7 +430,8 @@
         var obj = JSON.parse(rdr.result);
         var ans = obj && obj.answers ? obj.answers : obj;
         if (!ans || typeof ans !== 'object') throw new Error('bad');
-        state = ans;
+        // merge so a Lesson-1 file doesn't wipe Lesson-2 answers and vice versa
+        for (var k in ans){ if (Object.prototype.hasOwnProperty.call(ans,k)) state[k]=ans[k]; }
         applyState();
         commit();
         alert('Your work was restored.');
@@ -689,7 +442,7 @@
   };
 
   window.clearWork = function(){
-    if (!confirm('Clear ALL your answers on this device? This cannot be undone. (Tip: download a copy first.)')) return;
+    if (!confirm('Clear ALL your answers on this device (both lessons)? This cannot be undone. (Tip: download a copy first.)')) return;
     state = {};
     try { localStorage.removeItem(KEY); } catch(e){}
     fields().forEach(function(el){
@@ -736,7 +489,6 @@
                ta.parentNode.insertBefore(po, ta.nextSibling); }
       po.textContent = ta.value || '';
     });
-    // ensure workbook tab is the visible one for print
     document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
     document.getElementById('tab-workbook').classList.add('active');
   });
@@ -745,6 +497,8 @@
   applyState();
   setPill(false);
   updateProgress();
+  // open a tab from the URL hash (e.g. #editor, #starter)
+  (function(){ var h=(location.hash||'').replace('#',''); if(h){ var b=document.querySelector('.tab-btn[data-tab="'+h+'"]'); if(b) showTab(b); } })();
 })();
 </script>
 </body>
