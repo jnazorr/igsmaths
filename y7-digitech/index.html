@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Year 7 Digital Technologies — IGS</title>
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .level-hero { padding: clamp(48px, 7vw, 80px) clamp(18px, 5vw, 64px) clamp(28px, 4vw, 48px);
+      background: linear-gradient(180deg, #fff2e8 0%, #fbf5ec 100%); border-bottom: 1px solid var(--line); }
+    .level-hero .eyebrow { color: #c2410c; }
+    .level-hero h1 { font-size: clamp(32px, 4.5vw, 48px); margin: 6px 0 12px 0; }
+    .level-hero p.lead { font-size: clamp(16px, 1.4vw, 18px); color: var(--muted); max-width: 760px; }
+
+    .lessons-section { padding: clamp(28px, 4vw, 48px) clamp(18px, 5vw, 64px) 0;
+                       background: linear-gradient(180deg, #fbf5ec 0%, #fff 100%); }
+    .lessons-section .head { margin-bottom: 18px; }
+    .lessons-section h2 { font-size: 24px; margin: 6px 0 0 0; }
+    .lessons-section .head .eyebrow { color: #c2410c; }
+    .lessons-list { display:grid; grid-template-columns: 1fr; gap: 14px; }
+    .lesson-row { display:grid; grid-template-columns: 120px 1fr auto; gap: 16px; padding: 18px 22px;
+                  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+                  box-shadow: 0 6px 16px rgba(38,32,26,.06); align-items: center; }
+    .lesson-row.featured { background: #fff2e8; border: 2px solid #e8590c;
+                  box-shadow: 0 8px 20px rgba(232,89,12,.12); }
+    .lesson-row .date { font-family: 'Inter',sans-serif; font-weight: 800; color: #c2410c;
+                        font-size: 13px; line-height:1.2; text-transform: uppercase; letter-spacing:.08em; }
+    .lesson-row .date .badge-new { display:inline-block; background:#e8590c; color:#fff;
+                  font-size:10px; font-weight:800; letter-spacing:.08em; padding:2px 7px;
+                  border-radius:9px; margin-bottom:4px; }
+    .lesson-row .date small { display:block; color:var(--muted); font-weight:600; font-size:11px; margin-top:2px; }
+    .lesson-row .desc h3 { margin: 0 0 4px 0; font-size: 17px; color: var(--ink); }
+    .lesson-row .desc p { margin: 0; color: var(--muted); font-size: 13.5px; }
+    .lesson-row .chips { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .lesson-row .chip { font-size: 11.5px; padding: 4px 10px; border-radius: 14px;
+                        text-decoration: none; font-weight: 700; white-space: nowrap;
+                        font-family: 'Inter',sans-serif; transition: all .12s; }
+    .lesson-row .chip.primary { background:#e8590c; color:#fff; border:1px solid #e8590c; }
+    .lesson-row .chip.primary:hover { background:#c2410c; border-color:#c2410c; }
+    .lesson-row .chip.outline { background:#fff; color:#c2410c; border:1px solid #e8590c; }
+    .lesson-row .chip.outline:hover { background:#e8590c; color:#fff; }
+
+    .res-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      padding: clamp(28px, 4vw, 48px) clamp(18px, 5vw, 64px); }
+    .res-card { padding: 22px 26px; border: 1px solid var(--line); border-radius: 10px;
+      background: var(--panel); box-shadow: 0 8px 20px rgba(38,32,26,.06);
+      display: flex; flex-direction: column; text-decoration: none; color: inherit;
+      transition: transform .15s, box-shadow .15s, border-color .15s; }
+    .res-card:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(38,32,26,.1); border-color: #e8590c; }
+    .res-card .badge { display: inline-block; align-self: flex-start; font-size: 10px;
+      letter-spacing: 0.1em; text-transform: uppercase; font-weight: 800; padding: 3px 8px;
+      border-radius: 3px; background: #fff2e8; color: #c2410c; margin-bottom: 10px; }
+    .res-card h3 { font-size: 18px; margin: 0 0 6px 0; }
+    .res-card p { color: var(--muted); margin: 0 0 12px 0; font-size: 14px; }
+    .res-card .arrow { margin-top: auto; padding-top: 12px; font-weight: 700; color: #c2410c; font-size: 14px; }
+    .res-card .arrow::after { content: " →"; }
+    @media (max-width: 720px) {
+      .lesson-row { grid-template-columns: 1fr; }
+      .lesson-row .chips { justify-content:flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="IGS home">
+      <span class="brand-mark">∑</span>
+      <span>IGS Maths</span>
+    </a>
+    <nav aria-label="Year levels">
+      <a href="../">Home</a>
+      <a href="../core.html">Year 10 Core</a>
+      <a href="../methods.html">Year 11 Methods</a>
+      <a href="../y12-methods/">Year 12 Methods</a>
+      <a href="./" aria-current="page">Year 7 Digitech</a>
+      <a href="../lessons-library.html">Library</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="level-hero">
+      <p class="eyebrow">Year 7 · Digital Technologies · micro:bit</p>
+      <h1>Year 7 Digital Technologies</h1>
+      <p class="lead">Coding with the BBC micro:bit. Play a game, work out how it ticks, improve it, then design and build a brand-new challenge of your own — with a wireless radio extension for two-player games.</p>
+    </section>
+
+    <section class="lessons-section" aria-label="Year 7 Digitech projects">
+      <div class="head">
+        <p class="eyebrow">Project · micro:bit games</p>
+        <h2>Projects &amp; workbooks</h2>
+      </div>
+      <div class="lessons-list">
+
+        <article class="lesson-row featured">
+          <div class="date"><span class="badge-new">PROJECT</span>micro:bit<br>game<small>Rock–Paper–Scissors</small></div>
+          <div class="desc">
+            <h3>🎮 micro:bit Challenge Creator</h3>
+            <p>The full project as a digital workbook: play Rock–Paper–Scissors, understand the code, improve it, learn how micro:bits talk over radio, then design and build your own game. Type your answers straight in — they save in your browser — and code right here in the built-in editor.</p>
+          </div>
+          <div class="chips">
+            <a class="chip primary" href="microbit-challenge-creator.html">Open workbook</a>
+            <a class="chip outline" href="microbit-challenge-creator.html#editor">🧩 micro:bit editor</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="res-grid" aria-label="micro:bit resources">
+      <a class="res-card" href="https://makecode.microbit.org/" target="_blank" rel="noopener">
+        <span class="badge">Editor</span>
+        <h3>MakeCode editor</h3>
+        <p>The block &amp; JavaScript editor for the micro:bit, with a built-in simulator. Also embedded inside the workbook.</p>
+        <span class="arrow">Open MakeCode</span>
+      </a>
+      <a class="res-card" href="https://microbit.org/get-started/first-steps/introduction/" target="_blank" rel="noopener">
+        <span class="badge">Help</span>
+        <h3>micro:bit first steps</h3>
+        <p>What the micro:bit can do — buttons, LEDs, sensors and radio — and how to flash your first program.</p>
+        <span class="arrow">Get started</span>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
