@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Parabolas 7A (Exploring Parabolas)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --grid:#dbe3f4; --coral:#F96167; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 14mm; }
+  .work.m  { min-height: 22mm; }
+  .work.l  { min-height: 34mm; }
+
+  .twocol { display:grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items:start; }
+
+  /* table of values for fill-in */
+  table.tov { border-collapse:collapse; margin:1mm 0 0 6mm; font-family: Calibri, Arial, sans-serif; font-size: 9.5pt; }
+  table.tov th, table.tov td { border:1px solid #999; padding:1.5mm 3mm; text-align:center; min-width:9mm; height:7mm; }
+  table.tov th { background:#eef3fb; color:var(--navy); }
+  table.tov td.rl { background:#f4f0ff; font-weight:bold; text-align:left; }
+
+  .gwrap { border:1px solid #ccc; border-radius:2mm; padding:2mm; background:#fff; width:max-content; }
+  .pgrid { stroke:var(--grid); stroke-width:1; }
+  .paxis { stroke:var(--navy); stroke-width:1.5; }
+  .ptick { fill:var(--navy); font-size:9px; font-family:Calibri,Arial,sans-serif; }
+  .pcurve { fill:none; stroke:var(--navy); stroke-width:2.4; }
+  .pdot { fill:var(--coral); stroke:#fff; stroke-width:1; }
+  .pdot.tp { fill:var(--navy); }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">14 June lessons</a>
+    <a href="Y10_Core_Parabolas_7A.html">Lesson 7A</a>
+    <a href="Y10_Core_Parabolas_7A_solutions.html">Solutions 7A</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Exploring Parabolas (Ex 7A)</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 7, §7A · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Know the shape, vertex and symmetry of the basic parabola $y=x^2$</li>
+      <li>Read key features from a graph: turning point (max/min), axis of symmetry, $x$- and $y$-intercepts</li>
+      <li>Describe transformations of $y=x^2$: dilation (wider/narrower), reflection ($a<0$), translation</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p>$y=x^2$ has vertex $(0,0)$ (a minimum), axis of symmetry $x=0$.&nbsp;
+       In $y=ax^2$: larger $|a|$ → narrower, smaller $|a|$ → wider, and $a<0$ → reflected (opens down).</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up — the basic parabola</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Complete the table of values for $y=x^2$.
+      <table class="tov">
+        <tr><th>$x$</th><th>$-3$</th><th>$-2$</th><th>$-1$</th><th>$0$</th><th>$1$</th><th>$2$</th><th>$3$</th></tr>
+        <tr><td class="rl">$y=x^2$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Using your table from Q1, state for $y=x^2$:
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> turning point <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> max or min? <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> axis of symmetry <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $y$-intercept <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Reading key features from a graph</h2>
+    <div class="q qrow">
+      <span class="num">3.</span> For the parabola graphed below, state each key feature.
+    </div>
+    <div class="twocol">
+      <div class="gwrap">
+        <!-- Reusable parabola SVG: y=(x-1)^2-4 (px=ox+x*sx, py=oy-y*sy; ox=130 oy=254 sx=36 sy=26) scaled to 260x310 -->
+        <svg width="260" height="310" viewBox="0 0 340 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parabola for question 3">
+          <g class="pgrid">
+            <line x1="22" y1="20" x2="22" y2="384"/><line x1="58" y1="20" x2="58" y2="384"/>
+            <line x1="94" y1="20" x2="94" y2="384"/><line x1="130" y1="20" x2="130" y2="384"/>
+            <line x1="166" y1="20" x2="166" y2="384"/><line x1="202" y1="20" x2="202" y2="384"/>
+            <line x1="238" y1="20" x2="238" y2="384"/><line x1="274" y1="20" x2="274" y2="384"/>
+            <line x1="310" y1="20" x2="310" y2="384"/>
+            <line x1="22" y1="20" x2="310" y2="20"/><line x1="22" y1="46" x2="310" y2="46"/>
+            <line x1="22" y1="72" x2="310" y2="72"/><line x1="22" y1="98" x2="310" y2="98"/>
+            <line x1="22" y1="124" x2="310" y2="124"/><line x1="22" y1="150" x2="310" y2="150"/>
+            <line x1="22" y1="176" x2="310" y2="176"/><line x1="22" y1="202" x2="310" y2="202"/>
+            <line x1="22" y1="228" x2="310" y2="228"/><line x1="22" y1="254" x2="310" y2="254"/>
+            <line x1="22" y1="280" x2="310" y2="280"/><line x1="22" y1="306" x2="310" y2="306"/>
+            <line x1="22" y1="332" x2="310" y2="332"/><line x1="22" y1="358" x2="310" y2="358"/>
+            <line x1="22" y1="384" x2="310" y2="384"/>
+          </g>
+          <defs>
+            <marker id="arw" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 z" fill="#1E2761"/>
+            </marker>
+          </defs>
+          <line class="paxis" x1="14" y1="254" x2="318" y2="254" marker-end="url(#arw)" marker-start="url(#arw)"/>
+          <line class="paxis" x1="130" y1="392" x2="130" y2="14" marker-end="url(#arw)" marker-start="url(#arw)"/>
+          <text class="ptick" x="322" y="258">x</text><text class="ptick" x="120" y="16">y</text>
+          <text class="ptick" x="89" y="267">-1</text><text class="ptick" x="235" y="267">3</text>
+          <text class="ptick" x="133" y="337">-3</text>
+          <path class="pcurve" d="M 36.20,20.00 L 41.07,44.87 L 45.94,68.80 L 50.80,91.77 L 55.67,113.80 L 60.54,134.87 L 65.41,154.99 L 70.27,174.16 L 75.14,192.38 L 80.01,209.65 L 84.88,225.97 L 89.74,241.34 L 94.61,255.76 L 99.48,269.22 L 104.35,281.74 L 109.21,293.30 L 114.08,303.92 L 118.95,313.58 L 123.82,322.30 L 128.68,330.06 L 133.55,336.88 L 138.42,342.74 L 143.29,347.65 L 148.15,351.61 L 153.02,354.62 L 157.89,356.68 L 162.76,357.79 L 167.62,357.95 L 172.49,357.15 L 177.36,355.41 L 182.22,352.72 L 187.09,349.07 L 191.96,344.48 L 196.83,338.93 L 201.69,332.44 L 206.56,324.99 L 211.43,316.59 L 216.30,307.25 L 221.16,296.95 L 226.03,285.70 L 230.90,273.50 L 235.77,260.35 L 240.63,246.25 L 245.50,231.20 L 250.37,215.19 L 255.24,198.24 L 260.10,180.34 L 264.97,161.48 L 269.84,141.68 L 274.71,120.92 L 279.57,99.22 L 284.44,76.56 L 289.31,52.95 L 294.18,28.40 L 295.80,20.00"/>
+          <circle class="pdot" cx="94" cy="254" r="4"/><circle class="pdot" cx="238" cy="254" r="4"/>
+          <circle class="pdot" cx="130" cy="332" r="4"/>
+          <circle class="pdot tp" cx="166" cy="358" r="5"/>
+        </svg>
+      </div>
+      <div class="qrow">
+        <div class="parts col1" style="grid-template-columns:1fr; padding-left:0;">
+          <div class="p"><span class="letter">a</span> Max or min? <span class="ans"></span></div>
+          <div class="p"><span class="letter">b</span> Turning point <span class="ans"></span></div>
+          <div class="p"><span class="letter">c</span> Axis of symmetry <span class="ans"></span></div>
+          <div class="p"><span class="letter">d</span> $x$-intercepts <span class="ans"></span></div>
+          <div class="p"><span class="letter">e</span> $y$-intercept <span class="ans"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="q qrow" style="margin-top:2mm;">
+      <span class="num">4.</span> A parabola has a <strong>maximum</strong> turning point at $(-2,4)$ and crosses the $x$-axis at $-5$ and $1$.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> axis of symmetry <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $x$-intercepts <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Parabolas 7A worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Parabolas 7A — continued</h1>
+      <p>Part B (transformations) · Part C (tables &amp; plotting) · Challenge</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Transforming $y=x^2$</h2>
+    <div class="q qrow">
+      <span class="num">5.</span> For each rule, state: max/min, reflected (yes/no), turning point, and whether it is wider, narrower or the same as $y=x^2$.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $y=3x^2$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $y=-2x^2$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $y=\tfrac14 x^2$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $y=(x-3)^2$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $y=x^2+2$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $y=-x^2+4$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Tables of values &amp; plotting</h2>
+    <div class="q qrow">
+      <span class="num">6.</span> Complete the table of values, then say whether each is wider/narrower/same as $y=x^2$.
+      <table class="tov">
+        <tr><th>$x$</th><th>$-3$</th><th>$-2$</th><th>$-1$</th><th>$0$</th><th>$1$</th><th>$2$</th><th>$3$</th></tr>
+        <tr><td class="rl">$y=2x^2$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="rl">$y=\tfrac12 x^2$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">7.</span> Complete the table for $y=x^2-4$, then state the turning point and the two $x$-intercepts.
+      <table class="tov">
+        <tr><th>$x$</th><th>$-3$</th><th>$-2$</th><th>$-1$</th><th>$0$</th><th>$1$</th><th>$2$</th><th>$3$</th></tr>
+        <tr><td class="rl">$y=x^2-4$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+      <div class="parts col2" style="margin-top:1.5mm;">
+        <div class="p"><span class="letter">a</span> turning point <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $x$-intercepts <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+    <div class="q qrow">
+      <span class="num">8.</span> Complete the table for $y=(x-3)(x+1)$ over $-2\le x\le 4$. Then use the table to find the two $x$-intercepts and the coordinates of the turning point. <em>(Hint: the turning point sits halfway between the $x$-intercepts.)</em>
+      <table class="tov">
+        <tr><th>$x$</th><th>$-2$</th><th>$-1$</th><th>$0$</th><th>$1$</th><th>$2$</th><th>$3$</th><th>$4$</th></tr>
+        <tr><td class="rl">$y$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · check 7A answers in Cambridge (p590)</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Parabolas 7G (Intersections)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --grid:#dbe3f4; --coral:#F96167; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 14mm; }
+  .work.m  { min-height: 22mm; }
+  .work.l  { min-height: 30mm; }
+
+  .twocol { display:grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items:start; }
+
+  .gwrap { border:1px solid #ccc; border-radius:2mm; padding:2mm; background:#fff; width:max-content; }
+  .pgrid { stroke:var(--grid); stroke-width:1; }
+  .paxis { stroke:var(--navy); stroke-width:1.5; }
+  .ptick { fill:var(--navy); font-size:9px; font-family:Calibri,Arial,sans-serif; }
+  .pcurve { fill:none; stroke:var(--navy); stroke-width:2.4; }
+  .pdot { fill:var(--coral); stroke:#fff; stroke-width:1; }
+  .pdot.tp { fill:var(--navy); }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">14 June lessons</a>
+    <a href="Y10_Core_Parabolas_7G.html">Lesson 7G</a>
+    <a href="Y10_Core_Parabolas_7G_solutions.html">Solutions 7G</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Intersection of Lines &amp; Parabolas (Ex 7G)</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 7, §7G · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Understand a line can meet a parabola at 0, 1 or 2 points</li>
+      <li>Find the points of intersection using substitution</li>
+      <li>Use the discriminant to find the number of intersection points</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p><strong>Substitution:</strong> substitute one equation into the other → $ax^2+bx+c=0$ → solve → substitute back for $y$.&nbsp;
+       Discriminant $b^2-4ac$: $<0$ → no points (miss), $=0$ → one point (tangent), $>0$ → two points (secant).&nbsp;
+       Give each answer as a coordinate pair $(x,y)$.</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up</h2>
+    <div class="q qrow">
+      <span class="num">1.</span> Find where each vertical line meets the parabola (give the point).
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $x=2$ on $y=2x^2+5x-6$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $x=-1$ on $y=x^2+3x-1$ <span class="ans"></span></div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Rearrange into the form $ax^2+bx+c=0$ (with $a>0$).
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $x^2+5x=2x-6$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $x^2-3x+4=2x+1$ <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Solving by substitution</h2>
+    <div class="q qrow">
+      <span class="num">3.</span> Find the points of intersection (factorise where possible). State "none" if there are none.
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> $y=x^2$, $y=3x$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $y=x^2-2$, $y=x$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $y=x^2+1$, $y=2x$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">4.</span> Solve $y=x^2$ and $y=2x-1$ simultaneously. How many points of intersection are there, and what is the line called?
+      <div class="work s"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Showing working &amp; sketching</h2>
+    <div class="q qrow">
+      <span class="num">5.</span> Find where $y=x^2-x-2$ meets $y=x+1$, then mark both points on the grid and sketch.
+    </div>
+    <div class="twocol">
+      <div class="gwrap">
+        <!-- blank grid: x[-3,5] y[-5,9] (ox130 oy254 sx36 sy26) viewBox 0 0 340 410 -->
+        <svg width="226" height="272" viewBox="0 0 340 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blank grid for question 5">
+          <g class="pgrid">
+            <line x1="22" y1="20" x2="22" y2="384"/><line x1="58" y1="20" x2="58" y2="384"/>
+            <line x1="94" y1="20" x2="94" y2="384"/><line x1="130" y1="20" x2="130" y2="384"/>
+            <line x1="166" y1="20" x2="166" y2="384"/><line x1="202" y1="20" x2="202" y2="384"/>
+            <line x1="238" y1="20" x2="238" y2="384"/><line x1="274" y1="20" x2="274" y2="384"/>
+            <line x1="310" y1="20" x2="310" y2="384"/>
+            <line x1="22" y1="20" x2="310" y2="20"/><line x1="22" y1="46" x2="310" y2="46"/>
+            <line x1="22" y1="72" x2="310" y2="72"/><line x1="22" y1="98" x2="310" y2="98"/>
+            <line x1="22" y1="124" x2="310" y2="124"/><line x1="22" y1="150" x2="310" y2="150"/>
+            <line x1="22" y1="176" x2="310" y2="176"/><line x1="22" y1="202" x2="310" y2="202"/>
+            <line x1="22" y1="228" x2="310" y2="228"/><line x1="22" y1="254" x2="310" y2="254"/>
+            <line x1="22" y1="280" x2="310" y2="280"/><line x1="22" y1="306" x2="310" y2="306"/>
+            <line x1="22" y1="332" x2="310" y2="332"/><line x1="22" y1="358" x2="310" y2="358"/>
+            <line x1="22" y1="384" x2="310" y2="384"/>
+          </g>
+          <line class="paxis" x1="14" y1="254" x2="318" y2="254"/>
+          <line class="paxis" x1="130" y1="392" x2="130" y2="14"/>
+          <text class="ptick" x="322" y="258">x</text><text class="ptick" x="120" y="16">y</text>
+        </svg>
+      </div>
+      <div class="qrow">
+        <div class="parts" style="grid-template-columns:1fr; padding-left:0;">
+          <div class="p"><span class="letter">a</span> Quadratic formed <span class="ans"></span></div>
+          <div class="p"><span class="letter">b</span> $x$-values <span class="ans"></span></div>
+          <div class="p"><span class="letter">c</span> Points of intersection <span class="ans"></span></div>
+        </div>
+        <div class="work s" style="margin-left:0;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Parabolas 7G worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Parabolas 7G — continued</h1>
+      <p>Part C (quadratic formula) · Part D (discriminant) · Challenge</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Using the quadratic formula</h2>
+    <div class="q qrow">
+      <span class="num">6.</span> Solve $y=x^2+2x-1$ and $y=x+3$ simultaneously, rounding $x$ and $y$ to 2 d.p.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> Quadratic formed <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Points of intersection <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part D — Discriminant</h2>
+    <div class="q qrow">
+      <span class="num">7.</span> For each pair, form the quadratic and state how many points of intersection there are (use the discriminant).
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> $y=x^2$, $y=2x-1$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $y=x^2+x+4$, $y=2x$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $y=x^2-3x$, $y=-3$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $y=x^2+2x+5$, $y=-2$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+    <div class="q qrow">
+      <span class="num">8.</span> The line $y=x+k$ is a <strong>tangent</strong> to the parabola $y=x^2$ (it touches at exactly one point). Find the value of $k$. <em>(Hint: form the quadratic and set its discriminant to zero.)</em>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · check 7G answers in Cambridge (p638)</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

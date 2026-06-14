@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Sketching by Completing the Square (7D)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+    --grid:#dbe3f4; --curve:#1E2761; --coral:#F96167;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  table.tov { border-collapse:collapse; margin:10px 0; font-family: Calibri, Arial, sans-serif; font-size:15px; }
+  table.tov th, table.tov td { border:1px solid #bbb; padding:6px 12px; text-align:center; min-width:34px; }
+  table.tov th { background:var(--ice); color:var(--navy); }
+  table.tov td.rowlab { background:#f4f0ff; font-weight:bold; text-align:left; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  /* ===== Inline parabola SVG (reusable) ===== */
+  .graph-row { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; margin:10px 0; }
+  .graph { background:#fff; border:1px solid #ddd; border-radius:8px; padding:8px 10px;
+           font-family:Calibri,Arial,sans-serif; }
+  .graph svg { display:block; }
+  .graph .cap { color:var(--muted); font-size:12px; text-align:center; margin-top:4px; max-width:360px; }
+  .pgrid { stroke:var(--grid); stroke-width:1; }
+  .paxis { stroke:var(--navy); stroke-width:1.6; }
+  .ptick { fill:var(--navy); font-size:10px; font-family:Calibri,Arial,sans-serif; }
+  .pcurve { fill:none; stroke:var(--curve); stroke-width:2.6; }
+  .pcurve.alt { stroke:var(--coral); stroke-width:2.2; }
+  .pcurve.alt2 { stroke:var(--good); stroke-width:2.2; }
+  .paos { stroke:var(--coral); stroke-width:1.6; stroke-dasharray:5 4; }
+  .pdot { fill:var(--coral); stroke:#fff; stroke-width:1.2; }
+  .pdot.tp { fill:var(--navy); }
+  .plabel { font-size:11px; font-family:Calibri,Arial,sans-serif; fill:var(--navy); }
+  .plabel.coral { fill:var(--coral); font-weight:bold; }
+  .peq { font-size:12px; font-family:Calibri,Arial,sans-serif; fill:var(--curve); font-style:italic; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+    <a href="./">All 14 June lessons</a>
+    <a href="Y10_Core_Parabolas_7D_worksheet.html" target="_blank">📄 Worksheet</a>
+    <a href="Y10_Core_Parabolas_7D_solutions.html" target="_blank">✅ Solutions</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Mathematics Core — Sketching by Completing the Square</h1>
+  <div class="meta">Cambridge Ch 7 — Section 7D &nbsp;•&nbsp; Sun 14 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y10_Core_Parabolas_7D_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y10_Core_Parabolas_7D_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>Completing the square turns any quadratic $y=x^2+bx+c$ into <strong>turning point form</strong> $y=(x-h)^2+k$. Once it's in that form you can read the turning point straight off, decide whether it's a maximum or a minimum, find the intercepts and sketch the curve.</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Know that completing the square rewrites any quadratic in <strong>turning point form</strong> $y=a(x-h)^2+k$</li>
+    <li>Read the <strong>turning point $(h,k)$</strong> and axis of symmetry directly from that form</li>
+    <li>Find the <strong>$y$-intercept</strong> (put $x=0$) and the <strong>$x$-intercepts</strong> (put $y=0$, then solve)</li>
+    <li>Sketch the parabola with every key feature labelled</li>
+  </ul>
+</div>
+
+<h2>Part 1 — Completing the square (~8 min)</h2>
+
+<p>To make $x^2+bx$ a perfect square, add and subtract $\left(\tfrac{b}{2}\right)^2$. For example, to make $x^2+6x$ a perfect square we add $9$ (from $\left(\tfrac{6}{2}\right)^2$), since $x^2+6x+9=(x+3)^2$. So:</p>
+
+<div class="callout good">
+  $x^2+6x+2 = x^2+6x+\left(\tfrac{6}{2}\right)^2-\left(\tfrac{6}{2}\right)^2+2 = (x+3)^2-7$.
+  <br>The turning point form $(x+3)^2-7$ tells us the vertex is at $(-3,-7)$ — a minimum.
+</div>
+
+<div class="key-ideas">
+  <h3>Key ideas — turning point form $y=a(x-h)^2+k$</h3>
+  <ul>
+    <li>The <strong>turning point</strong> is $(h,k)$. When $a>0$ it is a <strong>minimum</strong>; when $a<0$ it is a <strong>maximum</strong>.</li>
+    <li>The <strong>axis of symmetry</strong> is $x=h$.</li>
+    <li>Find the <strong>$y$-intercept</strong> by substituting $x=0$.</li>
+    <li>Find the <strong>$x$-intercepts</strong> (if any) by substituting $y=0$ and solving — take the square root of both sides.</li>
+    <li>To solve a perfect square such as $(x-1)^2=16$: &nbsp; $x-1=\pm4$, so $x=1\pm4$, giving $x=5$ or $x=-3$.</li>
+  </ul>
+</div>
+
+<h2>Part 2 — Reading key features (Example 1, ~10 min)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — Key features from turning point form</span>
+  <div class="q">For $y=-4(x-1)^2+16$, find: <strong>i</strong> the turning point (max or min), <strong>ii</strong> the $y$-intercept, <strong>iii</strong> the $x$-intercepts.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li><strong>i</strong> &nbsp;Turning point is a <strong>maximum at $(1,16)$</strong> (because $a=-4<0$).</li>
+      <li><strong>ii</strong> &nbsp;$y$-intercept ($x=0$): $y=-4(0-1)^2+16=-4+16=12$, so $(0,12)$.</li>
+      <li><strong>iii</strong> &nbsp;$x$-intercepts ($y=0$): $0=-4(x-1)^2+16 \Rightarrow (x-1)^2=4 \Rightarrow x-1=\pm2$, so $x=3$ or $x=-1$. Intercepts $(-1,0)$ and $(3,0)$.</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> For $y=-2(x+1)^2+18$ find the turning point, $y$-intercept and $x$-intercepts. &nbsp; Answers: maximum at $(-1,18)$; &nbsp; $y$-intercept $(0,16)$; &nbsp; $x$-intercepts $(-4,0)$ and $(2,0)$.</p>
+  </div>
+</div>
+
+<h2>Part 3 — Sketching by completing the square (Example 2, ~14 min)</h2>
+
+<p>The plan: complete the square to find the turning point, find the $y$-intercept, find the $x$-intercepts (if any), then draw a smooth curve through them.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — Sketch by completing the square</span>
+  <div class="q">Sketch $y=x^2+6x+15$ and $y=x^2-4x+2$, giving any $x$-intercepts in exact form.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p><strong>a)</strong> $y=x^2+6x+15 = (x+3)^2+6$. Turning point is a <strong>minimum at $(-3,6)$</strong>; $y$-intercept $(0,15)$.
+       For $x$-intercepts: $0=(x+3)^2+6$ has <strong>no solution</strong>, so there are <strong>no $x$-intercepts</strong> (the whole curve sits above the $x$-axis).</p>
+    <p><strong>b)</strong> $y=x^2-4x+2 = (x-2)^2-2$. Minimum at $(2,-2)$; $y$-intercept $(0,2)$.
+       For $x$-intercepts: $0=(x-2)^2-2 \Rightarrow (x-2)^2=2 \Rightarrow x=2\pm\sqrt2$, i.e. $x\approx0.59$ and $x\approx3.41$.</p>
+    <div class="graph-row">
+      <div class="graph">
+        <!-- ===================================================================
+             REUSABLE PARABOLA SVG  —  y = (x+3)^2 + 6  (no x-intercepts)
+             Math→pixel transform (all coords verified in Python):
+                 px = ox + x*sx        py = oy - y*sy
+                 ox=240  oy=300  sx=30  sy=16
+             Window: x in [-7,1], y in [0,16].  viewBox 0 0 280 320.
+        ==================================================================== -->
+        <svg width="280" height="320" viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graph of y equals (x plus 3) squared plus 6, no x-intercepts">
+          <defs><marker id="ar7d1" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1E2761"/></marker></defs>
+          <g class="pgrid">
+            <line x1="30" y1="44" x2="30" y2="300"/><line x1="60" y1="44" x2="60" y2="300"/>
+            <line x1="90" y1="44" x2="90" y2="300"/><line x1="120" y1="44" x2="120" y2="300"/>
+            <line x1="150" y1="44" x2="150" y2="300"/><line x1="180" y1="44" x2="180" y2="300"/>
+            <line x1="210" y1="44" x2="210" y2="300"/><line x1="240" y1="44" x2="240" y2="300"/>
+            <line x1="270" y1="44" x2="270" y2="300"/>
+            <line x1="30" y1="44" x2="270" y2="44"/><line x1="30" y1="76" x2="270" y2="76"/>
+            <line x1="30" y1="108" x2="270" y2="108"/><line x1="30" y1="140" x2="270" y2="140"/>
+            <line x1="30" y1="172" x2="270" y2="172"/><line x1="30" y1="204" x2="270" y2="204"/>
+            <line x1="30" y1="236" x2="270" y2="236"/><line x1="30" y1="268" x2="270" y2="268"/>
+            <line x1="30" y1="300" x2="270" y2="300"/>
+          </g>
+          <line class="paxis" x1="22" y1="300" x2="278" y2="300" marker-end="url(#ar7d1)"/>
+          <line class="paxis" x1="240" y1="308" x2="240" y2="38" marker-end="url(#ar7d1)"/>
+          <text class="ptick" x="281" y="304">x</text><text class="ptick" x="230" y="40">y</text>
+          <text class="ptick" x="144" y="313">-3</text>
+          <text class="ptick" x="244" y="62">15</text>
+          <line class="paos" x1="150" y1="44" x2="150" y2="300"/>
+          <path class="pcurve" d="M 55.13,44.00 L 80.03,116.98 L 102.57,164.00 L 122.73,190.78 L 140.51,202.40 L 150.00,204.00 L 161.86,201.50 L 180.83,187.10 L 197.43,164.00 L 221.15,114.00 L 244.87,44.00"/>
+          <circle class="pdot" cx="240" cy="60" r="4"/>
+          <circle class="pdot tp" cx="150" cy="204" r="5"/>
+          <text class="plabel" x="120" y="222">(-3, 6) min</text>
+          <text class="plabel coral" x="190" y="60">(0, 15)</text>
+          <text class="plabel coral" x="120" y="56">x = -3</text>
+          <text class="peq" x="40" y="64">y = (x+3)² + 6</text>
+        </svg>
+        <div class="cap">$y=x^2+6x+15=(x+3)^2+6$. Minimum $(-3,6)$; no $x$-intercepts.</div>
+      </div>
+      <div class="graph">
+        <!-- ===== y = (x-2)^2 - 2  ;  ox=60 oy=210 sx=40 sy=30 ; window x[-1,5] y[-3,6] ; viewBox 0 0 280 320 ===== -->
+        <svg width="280" height="320" viewBox="0 0 280 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graph of y equals (x minus 2) squared minus 2">
+          <defs><marker id="ar7d2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1E2761"/></marker></defs>
+          <g class="pgrid">
+            <line x1="20" y1="30" x2="20" y2="300"/><line x1="60" y1="30" x2="60" y2="300"/>
+            <line x1="100" y1="30" x2="100" y2="300"/><line x1="140" y1="30" x2="140" y2="300"/>
+            <line x1="180" y1="30" x2="180" y2="300"/><line x1="220" y1="30" x2="220" y2="300"/>
+            <line x1="260" y1="30" x2="260" y2="300"/>
+            <line x1="20" y1="30" x2="260" y2="30"/><line x1="20" y1="60" x2="260" y2="60"/>
+            <line x1="20" y1="90" x2="260" y2="90"/><line x1="20" y1="120" x2="260" y2="120"/>
+            <line x1="20" y1="150" x2="260" y2="150"/><line x1="20" y1="180" x2="260" y2="180"/>
+            <line x1="20" y1="210" x2="260" y2="210"/><line x1="20" y1="240" x2="260" y2="240"/>
+            <line x1="20" y1="270" x2="260" y2="270"/><line x1="20" y1="300" x2="260" y2="300"/>
+          </g>
+          <line class="paxis" x1="12" y1="210" x2="276" y2="210" marker-end="url(#ar7d2)"/>
+          <line class="paxis" x1="60" y1="308" x2="60" y2="24" marker-end="url(#ar7d2)"/>
+          <text class="ptick" x="279" y="214">x</text><text class="ptick" x="50" y="26">y</text>
+          <text class="ptick" x="134" y="224">2</text>
+          <text class="ptick" x="64" y="146">2</text>
+          <line class="paos" x1="140" y1="30" x2="140" y2="300"/>
+          <path class="pcurve" d="M 26.86,30.00 L 55.15,135.00 L 83.43,210.00 L 110.30,253.46 L 132.93,269.06 L 140.00,270.00 L 148.49,268.65 L 168.28,255.00 L 196.57,210.00 L 224.85,135.00 L 253.14,30.00"/>
+          <circle class="pdot" cx="83.43" cy="210" r="4"/>
+          <circle class="pdot" cx="196.57" cy="210" r="4"/>
+          <circle class="pdot" cx="60" cy="150" r="4"/>
+          <circle class="pdot tp" cx="140" cy="270" r="5"/>
+          <text class="plabel" x="146" y="284">(2, -2) min</text>
+          <text class="plabel coral" x="60" y="202">2-√2</text>
+          <text class="plabel coral" x="198" y="202">2+√2</text>
+          <text class="plabel coral" x="66" y="142">(0, 2)</text>
+          <text class="peq" x="160" y="60">y = (x-2)² - 2</text>
+        </svg>
+        <div class="cap">$y=x^2-4x+2=(x-2)^2-2$. Minimum $(2,-2)$; $x$-intercepts $x=2\pm\sqrt2$.</div>
+      </div>
+    </div>
+    <p class="callout"><strong>Now you try:</strong> Sketch $y=x^2-2x+2$ (answer: minimum $(1,1)$, $y$-intercept $(0,2)$, no $x$-intercepts) and $y=x^2-3x-1$ (answer: minimum $\left(\tfrac32,-\tfrac{13}{4}\right)$, $y$-intercept $(0,-1)$, $x$-intercepts $x=\tfrac{3\pm\sqrt{13}}{2}$).</p>
+  </div>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="Parabola7D.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> completing the square on $y=x^2-4x+2$, reading the turning point, then finding the intercepts and sketching.</p>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — complete the square to write each in turning point form, then state the turning point.</p>
+  <ol class="qlist" type="a">
+    <li>$y=x^2+2x-5$</li>
+    <li>$y=x^2-6x+10$</li>
+    <li>$y=x^2+4x+1$</li>
+    <li>$y=x^2-5x+1$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $(x+1)^2-6$, &nbsp; TP $(-1,-6)$ <br>
+    b) $(x-3)^2+1$, &nbsp; TP $(3,1)$ (no $x$-intercepts) <br>
+    c) $(x+2)^2-3$, &nbsp; TP $(-2,-3)$ <br>
+    d) $\left(x-\tfrac52\right)^2-\tfrac{21}{4}$, &nbsp; TP $\left(\tfrac52,-\tfrac{21}{4}\right)$
+  </div>
+</div>
+
+<h2>Part 4 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> The turning point of $y=(x-4)^2+3$ is:</p>
+    <label><input type="radio" name="q1" value="a"> $(-4,3)$</label>
+    <label><input type="radio" name="q1" value="b"> $(4,-3)$</label>
+    <label><input type="radio" name="q1" value="c"> $(4,3)$</label>
+    <label><input type="radio" name="q1" value="d"> $(3,4)$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> Completing the square, $x^2+8x$ becomes a perfect square by adding:</p>
+    <label><input type="radio" name="q2" value="a"> $8$</label>
+    <label><input type="radio" name="q2" value="b"> $16$</label>
+    <label><input type="radio" name="q2" value="c"> $4$</label>
+    <label><input type="radio" name="q2" value="d"> $64$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> $y=(x+3)^2+6$ has how many $x$-intercepts?</p>
+    <label><input type="radio" name="q3" value="a"> none</label>
+    <label><input type="radio" name="q3" value="b"> one</label>
+    <label><input type="radio" name="q3" value="c"> two</label>
+    <label><input type="radio" name="q3" value="d"> three</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> $y=-2(x-1)^2+8$ has a turning point that is a:</p>
+    <label><input type="radio" name="q4" value="a"> minimum at $(1,8)$</label>
+    <label><input type="radio" name="q4" value="b"> minimum at $(-1,8)$</label>
+    <label><input type="radio" name="q4" value="c"> maximum at $(-1,8)$</label>
+    <label><input type="radio" name="q4" value="d"> maximum at $(1,8)$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> Solving $(x-2)^2=2$ gives:</p>
+    <label><input type="radio" name="q5" value="a"> $x=2$ only</label>
+    <label><input type="radio" name="q5" value="b"> $x=2\pm\sqrt2$</label>
+    <label><input type="radio" name="q5" value="c"> $x=\pm2$</label>
+    <label><input type="radio" name="q5" value="d"> no solution</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 7D (p615)</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 7 (page 615) and complete the following:</p>
+<table class="program">
+  <tr><th>Set work</th><th>Extension</th></tr>
+  <tr><td>Questions 1–8 (½), 10 (½), 11</td><td>Questions 9, 12 (⅓), 14</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">"(½)" means do every second part; "(⅓)" every third. Show the completing-the-square working for any sketch.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>What number do you add (and subtract) to complete the square on $x^2+10x$?</li>
+    <li>From $y=(x-h)^2+k$, where is the turning point and how do you know if it is a max or a min?</li>
+    <li>How can you tell from the turning point form that a parabola has no $x$-intercepts?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answers' : 'Show answers';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Parts 1–3 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

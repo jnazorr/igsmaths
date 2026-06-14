@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Intersection of Lines & Parabolas (7G)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+    --grid:#dbe3f4; --curve:#1E2761; --coral:#F96167;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  table.tov { border-collapse:collapse; margin:10px 0; font-family: Calibri, Arial, sans-serif; font-size:15px; }
+  table.tov th, table.tov td { border:1px solid #bbb; padding:6px 12px; text-align:center; min-width:34px; }
+  table.tov th { background:var(--ice); color:var(--navy); }
+  table.tov td.rowlab { background:#f4f0ff; font-weight:bold; text-align:left; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  /* ===== Inline parabola SVG (reusable) ===== */
+  .graph-row { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; margin:10px 0; }
+  .graph { background:#fff; border:1px solid #ddd; border-radius:8px; padding:8px 10px;
+           font-family:Calibri,Arial,sans-serif; }
+  .graph svg { display:block; }
+  .graph .cap { color:var(--muted); font-size:12px; text-align:center; margin-top:4px; max-width:360px; }
+  .pgrid { stroke:var(--grid); stroke-width:1; }
+  .paxis { stroke:var(--navy); stroke-width:1.6; }
+  .ptick { fill:var(--navy); font-size:10px; font-family:Calibri,Arial,sans-serif; }
+  .pcurve { fill:none; stroke:var(--curve); stroke-width:2.6; }
+  .pcurve.alt { stroke:var(--coral); stroke-width:2.2; }
+  .pcurve.alt2 { stroke:var(--good); stroke-width:2.2; }
+  .pline { fill:none; stroke:var(--coral); stroke-width:2.4; }
+  .paos { stroke:var(--coral); stroke-width:1.6; stroke-dasharray:5 4; }
+  .pdot { fill:var(--coral); stroke:#fff; stroke-width:1.2; }
+  .pdot.tp { fill:var(--navy); }
+  .pdot.cross { fill:#f5b800; stroke:var(--navy); stroke-width:1.4; }
+  .plabel { font-size:11px; font-family:Calibri,Arial,sans-serif; fill:var(--navy); }
+  .plabel.coral { fill:var(--coral); font-weight:bold; }
+  .peq { font-size:12px; font-family:Calibri,Arial,sans-serif; fill:var(--curve); font-style:italic; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+    <a href="./">All 14 June lessons</a>
+    <a href="Y10_Core_Parabolas_7G_worksheet.html" target="_blank">📄 Worksheet</a>
+    <a href="Y10_Core_Parabolas_7G_solutions.html" target="_blank">✅ Solutions</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Mathematics Core — Intersection of Lines &amp; Parabolas</h1>
+  <div class="meta">Cambridge Ch 7 — Section 7G &nbsp;•&nbsp; Sun 14 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y10_Core_Parabolas_7G_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y10_Core_Parabolas_7G_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>A straight line can cut a parabola twice, just touch it once, or miss it completely. We find the meeting points by solving the two equations <strong>simultaneously</strong> (substitution → a quadratic), and the <strong>discriminant</strong> tells us how many meeting points there are.</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Understand that a line can meet a parabola at <strong>0, 1 or 2 points</strong></li>
+    <li>Find the points of intersection using <strong>substitution</strong></li>
+    <li>Use the <strong>discriminant</strong> to find the number of intersection points</li>
+    <li>State each intersection as a coordinate pair $(x,y)$</li>
+  </ul>
+</div>
+
+<h2>Part 1 — Three possibilities (~8 min)</h2>
+
+<p>Solving a line and a parabola together gives an equation $ax^2+bx+c=0$. Its number of solutions is the number of points of intersection.</p>
+
+<div class="key-ideas">
+  <h3>Key ideas</h3>
+  <ul>
+    <li>A line that cuts the curve <strong>twice</strong> is a <strong>secant</strong>; a line that touches <strong>once</strong> is a <strong>tangent</strong>.</li>
+    <li><strong>Method of substitution:</strong> substitute one equation into the other, rearrange to $ax^2+bx+c=0$, solve (factorise or quadratic formula), then substitute back to find each $y$.</li>
+    <li>The <strong>discriminant</strong> $b^2-4ac$ of that quadratic gives the number of intersection points:
+        <br>&nbsp;&nbsp;$<0\Rightarrow$ zero (miss); &nbsp; $=0\Rightarrow$ one (tangent); &nbsp; $>0\Rightarrow$ two (secant).</li>
+    <li>Always give the answer as coordinate pairs: when $x=\dots$, then $y=\dots$.</li>
+  </ul>
+</div>
+
+<h2>Part 2 — Solving by substitution (Example 1, ~14 min)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — A line and a parabola</span>
+  <div class="q">Find the points of intersection of $y=x^2$ and $y=2x$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p>By substitution: $x^2=2x \Rightarrow x^2-2x=0 \Rightarrow x(x-2)=0$, so $x=0$ or $x=2$.</p>
+    <p>When $x=0$, $y=2(0)=0$. When $x=2$, $y=2(2)=4$.</p>
+    <p><strong>Points of intersection: $(0,0)$ and $(2,4)$.</strong> Two points, so the line is a secant.</p>
+    <div class="graph-row">
+      <div class="graph">
+        <!-- ===================================================================
+             LINE + PARABOLA  y = x^2  and  y = 2x   (verified in Python)
+             px = ox + x*sx ; py = oy - y*sy ; ox=110 oy=300 sx=44 sy=30
+             Window: x in [-2,4], y in [-1,9].  viewBox 0 0 300 350.
+             Intersections (0,0) px(110,300) and (2,4) px(198,180).
+        ==================================================================== -->
+        <svg width="300" height="350" viewBox="0 0 300 350" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Line y equals 2x meeting parabola y equals x squared at two points">
+          <defs><marker id="ar7g1" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1E2761"/></marker></defs>
+          <g class="pgrid">
+            <line x1="22" y1="30" x2="22" y2="330"/><line x1="66" y1="30" x2="66" y2="330"/>
+            <line x1="110" y1="30" x2="110" y2="330"/><line x1="154" y1="30" x2="154" y2="330"/>
+            <line x1="198" y1="30" x2="198" y2="330"/><line x1="242" y1="30" x2="242" y2="330"/>
+            <line x1="286" y1="30" x2="286" y2="330"/>
+            <line x1="22" y1="30" x2="286" y2="30"/><line x1="22" y1="60" x2="286" y2="60"/>
+            <line x1="22" y1="90" x2="286" y2="90"/><line x1="22" y1="120" x2="286" y2="120"/>
+            <line x1="22" y1="150" x2="286" y2="150"/><line x1="22" y1="180" x2="286" y2="180"/>
+            <line x1="22" y1="210" x2="286" y2="210"/><line x1="22" y1="240" x2="286" y2="240"/>
+            <line x1="22" y1="270" x2="286" y2="270"/><line x1="22" y1="300" x2="286" y2="300"/>
+            <line x1="22" y1="330" x2="286" y2="330"/>
+          </g>
+          <line class="paxis" x1="14" y1="300" x2="294" y2="300" marker-end="url(#ar7g1)" marker-start="url(#ar7g1)"/>
+          <line class="paxis" x1="110" y1="338" x2="110" y2="24" marker-end="url(#ar7g1)" marker-start="url(#ar7g1)"/>
+          <text class="ptick" x="297" y="304">x</text><text class="ptick" x="100" y="26">y</text>
+          <text class="ptick" x="200" y="313">2</text>
+          <line class="pline" x1="88" y1="330" x2="286" y2="60"/>
+          <path class="pcurve" d="M 22.00,180.00 L 44.00,232.50 L 66.00,270.00 L 88.00,292.50 L 110.00,300.00 L 132.00,292.50 L 154.00,270.00 L 176.00,232.50 L 198.00,180.00 L 220.00,112.50 L 242.00,30.00"/>
+          <circle class="pdot cross" cx="110" cy="300" r="5"/>
+          <circle class="pdot cross" cx="198" cy="180" r="5"/>
+          <text class="plabel" x="116" y="316">(0, 0)</text>
+          <text class="plabel" x="204" y="176">(2, 4)</text>
+          <text class="peq" x="232" y="50" fill="#F96167">y = 2x</text>
+          <text class="peq" x="236" y="120">y = x²</text>
+        </svg>
+        <div class="cap">$y=x^2$ (navy) and $y=2x$ (coral) meet at $(0,0)$ and $(2,4)$ — two points, a secant.</div>
+      </div>
+      <div class="graph" style="max-width:320px;">
+        <div class="cap" style="max-width:300px; text-align:left; font-size:13px;">
+          <strong>Method of substitution</strong><br>
+          1. Substitute one equation into the other.<br>
+          2. Rearrange to $ax^2+bx+c=0$.<br>
+          3. Solve for $x$ (factorise or quadratic formula).<br>
+          4. Substitute each $x$ back to find $y$.<br>
+          5. State each point as $(x,y)$.
+        </div>
+      </div>
+    </div>
+    <p class="callout"><strong>Now you try:</strong> Find the intersection of $y=x^2$ and $y=4x$. &nbsp; Answer: $x^2=4x \Rightarrow x(x-4)=0$, so $x=0,4$, giving $(0,0)$ and $(4,16)$.</p>
+  </div>
+</div>
+
+<h2>Part 3 — Discriminant &amp; the quadratic formula (Example 2, ~12 min)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — Tangent, miss, and irrational meeting points</span>
+  <div class="q"><strong>a</strong> Show that $y=-4x^2-x+6$ and $y=3x+7$ meet at exactly one point. <strong>b</strong> Solve $y=x^2+5x-5$ and $y=2x$ simultaneously, rounding to two decimal places.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p><strong>a)</strong> $-4x^2-x+6=3x+7 \Rightarrow 0=4x^2+4x+1 \Rightarrow (2x+1)^2=0$, so $x=-\tfrac12$ (one solution — a tangent). Then $y=3\left(-\tfrac12\right)+7=\tfrac{11}{2}$. Point of intersection $\left(-\tfrac12,\tfrac{11}{2}\right)$. The discriminant $4^2-4(4)(1)=0$ confirms one point.</p>
+    <p><strong>b)</strong> $x^2+5x-5=2x \Rightarrow x^2+3x-5=0$. Quadratic formula: $x=\dfrac{-3\pm\sqrt{9+20}}{2}=\dfrac{-3\pm\sqrt{29}}{2}=1.19$ or $-4.19$ (2 d.p.). Then $y=2x$, giving $y=2.39$ and $y=-8.39$. Points $(1.19,2.39)$ and $(-4.19,-8.39)$.</p>
+    <p class="callout"><strong>Now you try:</strong> Solve $y=x^2+2x-1$ and $y=3x$ (2 d.p.). &nbsp; Answer: $x^2-x-1=0$, so $x=1.62$ or $-0.62$; points $(1.62,4.85)$ and $(-0.62,-1.85)$.</p>
+  </div>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="Parabola7G.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> solving $y=x^2$ and $y=2x$ by substitution to find both meeting points, $(0,0)$ and $(2,4)$.</p>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — find the points of intersection (or state "none").</p>
+  <ol class="qlist" type="a">
+    <li>$y=x^2-3x$ and $y=4$</li>
+    <li>$y=x^2-x$ and $y=2$</li>
+    <li>$y=x^2+2x+4$ and $y=-2$</li>
+    <li>$y=x^2+1$ and $2x-3y=-4$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $x^2-3x-4=0 \Rightarrow x=4,-1$: $(4,4)$ and $(-1,4)$<br>
+    b) $x^2-x-2=0 \Rightarrow x=2,-1$: $(2,2)$ and $(-1,2)$<br>
+    c) $x^2+2x+6=0$, $\Delta=-20<0$: <strong>none</strong><br>
+    d) $3x^2-2x-1=0 \Rightarrow x=1,-\tfrac13$: $(1,2)$ and $\left(-\tfrac13,\tfrac{10}{9}\right)$
+  </div>
+</div>
+
+<h2>Part 4 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> A line that cuts a parabola at exactly two points is called a:</p>
+    <label><input type="radio" name="q1" value="a"> tangent</label>
+    <label><input type="radio" name="q1" value="b"> normal</label>
+    <label><input type="radio" name="q1" value="c"> secant</label>
+    <label><input type="radio" name="q1" value="d"> chord of symmetry</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> After substituting, you get $ax^2+bx+c=0$ with $\Delta=0$. The line is a:</p>
+    <label><input type="radio" name="q2" value="a"> secant (two points)</label>
+    <label><input type="radio" name="q2" value="b"> tangent (one point)</label>
+    <label><input type="radio" name="q2" value="c"> miss (no points)</label>
+    <label><input type="radio" name="q2" value="d"> vertical line</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> Solving $y=x^2$ and $y=2x$ gives $x(x-2)=0$. The intersection points are:</p>
+    <label><input type="radio" name="q3" value="a"> $(0,0)$ and $(2,4)$</label>
+    <label><input type="radio" name="q3" value="b"> $(0,0)$ and $(2,2)$</label>
+    <label><input type="radio" name="q3" value="c"> $(2,0)$ and $(0,4)$</label>
+    <label><input type="radio" name="q3" value="d"> $(1,2)$ only</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> If the resulting quadratic has $\Delta<0$, the line and parabola meet at:</p>
+    <label><input type="radio" name="q4" value="a"> two points</label>
+    <label><input type="radio" name="q4" value="b"> one point</label>
+    <label><input type="radio" name="q4" value="c"> three points</label>
+    <label><input type="radio" name="q4" value="d"> no points</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> The first step to find where a line meets a parabola is to:</p>
+    <label><input type="radio" name="q5" value="a"> add the two equations</label>
+    <label><input type="radio" name="q5" value="b"> substitute one equation into the other</label>
+    <label><input type="radio" name="q5" value="c"> square both equations</label>
+    <label><input type="radio" name="q5" value="d"> take the discriminant of the line</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 7G (p638)</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 7 (page 638) and complete the following:</p>
+<table class="program">
+  <tr><th>Set work</th><th>Extension</th></tr>
+  <tr><td>Questions 1–3 (½), 4, 5 (½), 6, 7 (½), 9, 10</td><td>Questions 8, 11, 12</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">"(½)" means do every second part. Always give each intersection as a coordinate pair $(x,y)$.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>How many points can a line and a parabola have in common?</li>
+    <li>What method do we use to find those points, and what kind of equation does it give?</li>
+    <li>What does $\Delta=0$ tell you about the line (what is the line called)?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answers' : 'Show answers';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Parts 1–3 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

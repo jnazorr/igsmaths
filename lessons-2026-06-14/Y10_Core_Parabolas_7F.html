@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Applications of Parabolas (7F)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+    --grid:#dbe3f4; --curve:#1E2761; --coral:#F96167;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  table.tov { border-collapse:collapse; margin:10px 0; font-family: Calibri, Arial, sans-serif; font-size:15px; }
+  table.tov th, table.tov td { border:1px solid #bbb; padding:6px 12px; text-align:center; min-width:34px; }
+  table.tov th { background:var(--ice); color:var(--navy); }
+  table.tov td.rowlab { background:#f4f0ff; font-weight:bold; text-align:left; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  /* ===== Inline parabola SVG (reusable) ===== */
+  .graph-row { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; margin:10px 0; }
+  .graph { background:#fff; border:1px solid #ddd; border-radius:8px; padding:8px 10px;
+           font-family:Calibri,Arial,sans-serif; }
+  .graph svg { display:block; }
+  .graph .cap { color:var(--muted); font-size:12px; text-align:center; margin-top:4px; max-width:380px; }
+  .pgrid { stroke:var(--grid); stroke-width:1; }
+  .paxis { stroke:var(--navy); stroke-width:1.6; }
+  .ptick { fill:var(--navy); font-size:10px; font-family:Calibri,Arial,sans-serif; }
+  .pcurve { fill:none; stroke:var(--curve); stroke-width:2.6; }
+  .pcurve.alt { stroke:var(--coral); stroke-width:2.2; }
+  .pcurve.alt2 { stroke:var(--good); stroke-width:2.2; }
+  .paos { stroke:var(--coral); stroke-width:1.6; stroke-dasharray:5 4; }
+  .pdot { fill:var(--coral); stroke:#fff; stroke-width:1.2; }
+  .pdot.tp { fill:var(--navy); }
+  .plabel { font-size:11px; font-family:Calibri,Arial,sans-serif; fill:var(--navy); }
+  .plabel.coral { fill:var(--coral); font-weight:bold; }
+  .peq { font-size:12px; font-family:Calibri,Arial,sans-serif; fill:var(--curve); font-style:italic; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+    <a href="./">All 14 June lessons</a>
+    <a href="Y10_Core_Parabolas_7F_worksheet.html" target="_blank">📄 Worksheet</a>
+    <a href="Y10_Core_Parabolas_7F_solutions.html" target="_blank">✅ Solutions</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Mathematics Core — Applications of Parabolas</h1>
+  <div class="meta">Cambridge Ch 7 — Section 7F &nbsp;•&nbsp; Sun 14 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y10_Core_Parabolas_7F_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y10_Core_Parabolas_7F_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>Parabolas model many real situations: the flight of a ball, the cable of a bridge, the area of a rectangle with a fixed perimeter. The key features we have been finding now <strong>mean something</strong>: the vertex is the maximum (or minimum), and the $x$-intercepts mark the start and finish.</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Set up a <strong>quadratic model</strong> from a worded problem (define variables, form an equation)</li>
+    <li>Read the meaning of key features in context: the <strong>vertex</strong> is the max/min, the <strong>intercepts</strong> are the start/landing</li>
+    <li>Decide on a <strong>suitable range</strong> of values for the variable</li>
+    <li>Sketch the model, labelling intercepts and the turning point</li>
+  </ul>
+</div>
+
+<h2>Part 1 — Reading a model (~8 min)</h2>
+
+<p>When applying quadratics we usually: define variables → form an equation → solve / find key features → decide a sensible range → sketch.</p>
+
+<div class="key-ideas">
+  <h3>Key ideas</h3>
+  <ul>
+    <li>The <strong>turning point</strong> gives the maximum or minimum value (e.g. greatest height, largest area).</li>
+    <li>The <strong>$x$-intercepts</strong> are where the quantity is zero (e.g. when the projectile is at ground level).</li>
+    <li>The <strong>$y$-intercept</strong> is the starting value (e.g. height when $d=0$).</li>
+    <li>Choose a <strong>range</strong> that makes sense: distances, times and lengths cannot be negative.</li>
+  </ul>
+</div>
+
+<h2>Part 2 — A given model (Example 1, ~12 min)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — The javelin throw</span>
+  <div class="q">The path of a javelin is $h=-\tfrac{1}{16}(d-10)^2+9$, where $h$ is the height (m) and $d$ is the horizontal distance (m). <strong>a</strong> Sketch the path for $0\le d\le22$. <strong>b</strong> What is the maximum height? <strong>c</strong> What horizontal distance does the javelin travel?</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p><strong>Turning point</strong> (from turning point form): $(10,9)$ — a maximum.</p>
+    <p><strong>$h$-intercept</strong> ($d=0$): $h=-\tfrac{1}{16}(-10)^2+9=2.75$, so it leaves the hand at $2.75$ m.</p>
+    <p><strong>$d$-intercepts</strong> ($h=0$): $0=-\tfrac{1}{16}(d-10)^2+9 \Rightarrow (d-10)^2=144 \Rightarrow d-10=\pm12$, so $d=22$ (taking the positive value).</p>
+    <p><strong>b</strong> Maximum height $=9$ m. &nbsp; <strong>c</strong> It travels $22$ m before landing.</p>
+    <div class="graph-row">
+      <div class="graph">
+        <!-- ===================================================================
+             JAVELIN  h = -1/16(d-10)^2 + 9   (verified in Python)
+             px = ox + d*sx ; py = oy - h*sy ; ox=50 oy=260 sx=13 sy=22
+             Window: d in [0,24], h in [0,10].  viewBox 0 0 372 280.
+        ==================================================================== -->
+        <svg width="372" height="280" viewBox="0 0 372 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Javelin height against distance">
+          <defs><marker id="ar7f1" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1E2761"/></marker></defs>
+          <g class="pgrid">
+            <line x1="50" y1="40" x2="50" y2="260"/><line x1="102" y1="40" x2="102" y2="260"/>
+            <line x1="154" y1="40" x2="154" y2="260"/><line x1="206" y1="40" x2="206" y2="260"/>
+            <line x1="258" y1="40" x2="258" y2="260"/><line x1="310" y1="40" x2="310" y2="260"/>
+            <line x1="362" y1="40" x2="362" y2="260"/>
+            <line x1="50" y1="40" x2="362" y2="40"/><line x1="50" y1="84" x2="362" y2="84"/>
+            <line x1="50" y1="128" x2="362" y2="128"/><line x1="50" y1="172" x2="362" y2="172"/>
+            <line x1="50" y1="216" x2="362" y2="216"/><line x1="50" y1="260" x2="362" y2="260"/>
+          </g>
+          <line class="paxis" x1="50" y1="260" x2="368" y2="260" marker-end="url(#ar7f1)"/>
+          <line class="paxis" x1="50" y1="268" x2="50" y2="34" marker-end="url(#ar7f1)"/>
+          <text class="ptick" x="365" y="274">d</text><text class="ptick" x="38" y="38">h</text>
+          <text class="ptick" x="328" y="274">22</text>
+          <text class="ptick" x="34" y="65">9</text>
+          <path class="pcurve" d="M 50.00,199.50 L 76.81,148.63 L 103.62,109.46 L 130.44,81.99 L 157.25,66.21 L 180.49,62.00 L 203.72,66.58 L 230.54,82.78 L 257.35,110.68 L 284.16,150.28 L 310.97,201.57 L 336.00,260.00"/>
+          <circle class="pdot tp" cx="180" cy="62" r="5"/>
+          <circle class="pdot" cx="50" cy="199.5" r="4"/>
+          <circle class="pdot" cx="336" cy="260" r="4"/>
+          <text class="plabel" x="186" y="58">(10, 9) max</text>
+          <text class="plabel coral" x="56" y="194">2.75 m</text>
+          <text class="plabel coral" x="316" y="252">lands</text>
+          <text class="peq" x="180" y="120">h = -1/16(d-10)² + 9</text>
+        </svg>
+        <div class="cap">Javelin path: maximum height $9$ m at $d=10$; leaves the hand at $2.75$ m; lands at $d=22$ m.</div>
+      </div>
+    </div>
+    <p class="callout"><strong>Now you try:</strong> A ball is thrown upward with $h=20t-5t^2$ ($h$ in m, $t$ in s). Find the maximum height and how long until it lands. &nbsp; Answers: turning point $(2,20)$, so maximum height $20$ m; it lands when $h=0$, i.e. at $t=4$ seconds.</p>
+  </div>
+</div>
+
+<h2>Part 3 — Forming a model (Example 2, ~14 min)</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — Maximum area from a fixed perimeter</span>
+  <div class="q">A 100 cm wire is bent into a rectangle of width $x$ cm. <strong>a</strong> Write the length in terms of $x$. <strong>b</strong> Write the area $A$ in terms of $x$. <strong>c</strong> Give the suitable values of $x$. <strong>d</strong> Sketch $A$ against $x$. <strong>e</strong> Find the maximum area. <strong>f</strong> Find the dimensions.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <p><strong>a</strong> &nbsp;$2\times\text{length}+2x=100$, so length $=50-x$.</p>
+    <p><strong>b</strong> &nbsp;$A=\text{length}\times\text{width}=(50-x)x=50x-x^2$.</p>
+    <p><strong>c</strong> &nbsp;Both sides must be positive: $0<x<50$.</p>
+    <p><strong>e–f</strong> &nbsp;The $x$-intercepts of $A=x(50-x)$ are $x=0$ and $x=50$, so the turning point is halfway, at $x=25$; then $A=25\times25=625$. <strong>Maximum area $=625$ cm²</strong>, with dimensions $25\text{ cm}\times25\text{ cm}$ (a square).</p>
+    <div class="graph-row">
+      <div class="graph">
+        <!-- ===== AREA  A = x(50-x) = -x^2+50x  (verified in Python)
+             px = ox + x*sx ; py = oy - A*sy ; ox=50 oy=260 sx=5.2 sy=0.36
+             Window: x in [0,50], A in [0,700].  viewBox 0 0 330 280. ===== -->
+        <svg width="330" height="280" viewBox="0 0 330 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Area of rectangle against width">
+          <defs><marker id="ar7f2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 z" fill="#1E2761"/></marker></defs>
+          <g class="pgrid">
+            <line x1="50" y1="8" x2="50" y2="260"/><line x1="102" y1="8" x2="102" y2="260"/>
+            <line x1="154" y1="8" x2="154" y2="260"/><line x1="206" y1="8" x2="206" y2="260"/>
+            <line x1="258" y1="8" x2="258" y2="260"/><line x1="310" y1="8" x2="310" y2="260"/>
+            <line x1="50" y1="8" x2="310" y2="8"/><line x1="50" y1="44" x2="310" y2="44"/>
+            <line x1="50" y1="80" x2="310" y2="80"/><line x1="50" y1="116" x2="310" y2="116"/>
+            <line x1="50" y1="152" x2="310" y2="152"/><line x1="50" y1="188" x2="310" y2="188"/>
+            <line x1="50" y1="224" x2="310" y2="224"/><line x1="50" y1="260" x2="310" y2="260"/>
+          </g>
+          <line class="paxis" x1="50" y1="260" x2="320" y2="260" marker-end="url(#ar7f2)"/>
+          <line class="paxis" x1="50" y1="268" x2="50" y2="4" marker-end="url(#ar7f2)"/>
+          <text class="ptick" x="318" y="274">x</text><text class="ptick" x="40" y="10">A</text>
+          <text class="ptick" x="172" y="274">25</text>
+          <text class="ptick" x="300" y="274">50</text>
+          <text class="ptick" x="22" y="38">625</text>
+          <path class="pcurve" d="M 50.00,260.00 L 76.00,179.00 L 102.00,116.00 L 128.00,71.00 L 154.00,44.00 L 180.00,35.00 L 206.00,44.00 L 232.00,71.00 L 258.00,116.00 L 284.00,179.00 L 310.00,260.00"/>
+          <circle class="pdot tp" cx="180" cy="35" r="5"/>
+          <circle class="pdot" cx="50" cy="260" r="4"/>
+          <circle class="pdot" cx="310" cy="260" r="4"/>
+          <text class="plabel" x="186" y="42">(25, 625) max</text>
+          <text class="peq" x="200" y="130">A = x(50 - x)</text>
+        </svg>
+        <div class="cap">$A=x(50-x)$: the maximum area $625$ cm² occurs at $x=25$ (a $25\times25$ square).</div>
+      </div>
+    </div>
+    <p class="callout"><strong>Now you try:</strong> An 80 cm wire is bent into a rectangle of length $x$ cm. Then width $=40-x$, $A=x(40-x)$, $0<x<40$. Maximum area $=400$ cm² at $x=20$, dimensions $20\text{ cm}\times20\text{ cm}$.</p>
+  </div>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="Parabola7F.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> reading the javelin model $h=-\tfrac{1}{16}(d-10)^2+9$ — the vertex is the maximum height and the intercepts are where it leaves the hand and lands.</p>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — read the model.</p>
+  <ol class="qlist" type="a">
+    <li>A stone's height is $h=-(t-3)^2+9$ ($h$ in m, $t$ in s). When is it highest, and how high?</li>
+    <li>For the same stone, when does it hit the ground ($h=0$, take the positive time)?</li>
+    <li>A paddock has area $A=x(40-x)$. What value of $x$ gives the largest area, and what is it?</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) highest at $t=3$ s, height $9$ m &nbsp;&nbsp; b) $0=-(t-3)^2+9 \Rightarrow (t-3)^2=9 \Rightarrow t=6$ s &nbsp;&nbsp; c) $x=20$ gives maximum area $400$
+  </div>
+</div>
+
+<h2>Part 4 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> For a projectile, the maximum height is found at the parabola's:</p>
+    <label><input type="radio" name="q1" value="a"> $y$-intercept</label>
+    <label><input type="radio" name="q1" value="b"> turning point (vertex)</label>
+    <label><input type="radio" name="q1" value="c"> $x$-intercept</label>
+    <label><input type="radio" name="q1" value="d"> axis of symmetry only</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q2.</strong> For $h=20t-5t^2$, the ball returns to the ground ($h=0$) at:</p>
+    <label><input type="radio" name="q2" value="a"> $t=2$ s</label>
+    <label><input type="radio" name="q2" value="b"> $t=5$ s</label>
+    <label><input type="radio" name="q2" value="c"> $t=4$ s</label>
+    <label><input type="radio" name="q2" value="d"> $t=20$ s</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> A wire of 100 cm makes a rectangle of width $x$. Its area is:</p>
+    <label><input type="radio" name="q3" value="a"> $A=x(50-x)$</label>
+    <label><input type="radio" name="q3" value="b"> $A=x(100-x)$</label>
+    <label><input type="radio" name="q3" value="c"> $A=50x^2$</label>
+    <label><input type="radio" name="q3" value="d"> $A=x(50+x)$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> The maximum area of $A=x(50-x)$ is:</p>
+    <label><input type="radio" name="q4" value="a"> $50$</label>
+    <label><input type="radio" name="q4" value="b"> $100$</label>
+    <label><input type="radio" name="q4" value="c"> $2500$</label>
+    <label><input type="radio" name="q4" value="d"> $625$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> For the javelin $h=-\tfrac{1}{16}(d-10)^2+9$, the height when it leaves the hand ($d=0$) is:</p>
+    <label><input type="radio" name="q5" value="a"> $9$ m</label>
+    <label><input type="radio" name="q5" value="b"> $2.75$ m</label>
+    <label><input type="radio" name="q5" value="c"> $0$ m</label>
+    <label><input type="radio" name="q5" value="d"> $22$ m</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 7F (p628)</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 7 (page 628) and complete the following:</p>
+<table class="program">
+  <tr><th>Set work</th><th>Extension</th></tr>
+  <tr><td>Questions 1–4, 6, 7, 9–11</td><td>Questions 12–14</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">Define your variables clearly and state a sensible range for each worded problem.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>In a height-versus-time model, what does the turning point tell you?</li>
+    <li>What do the $x$-intercepts mean for a thrown object?</li>
+    <li>Why must the width of a rectangle satisfy $0<x<50$ in the wire problem?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answers' : 'Show answers';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Parts 1–3 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

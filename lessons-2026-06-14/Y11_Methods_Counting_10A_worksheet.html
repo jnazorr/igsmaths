@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y11 Methods Counting 10A (Addition &amp; Multiplication Principles)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; --accent:#F96167; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(2, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col1 { grid-template-columns: 1fr; }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 22mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 14mm; }
+  .work.m  { min-height: 22mm; }
+  .work.l  { min-height: 30mm; }
+
+  /* filled-box arrangement visual */
+  .boxrow { display:flex; gap:6px; align-items:center; margin:1.5mm 0 1mm 6mm;
+            font-family:Calibri,Arial,sans-serif; }
+  .cbox { width:11mm; height:8mm; border:1.5px solid var(--navy); border-radius:1.5mm;
+          display:flex; align-items:center; justify-content:center; font-size:10pt; color:var(--navy); }
+  .ctimes { font-size:11pt; color:var(--muted); font-weight:bold; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">14 June lessons</a>
+    <a href="Y11_Methods_Counting_10A.html">Lesson 10A</a>
+    <a href="Y11_Methods_Counting_10A_solutions.html">Solutions 10A</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Addition &amp; Multiplication Principles (Ex 10A)</h1>
+      <p>Year 11 Mathematical Methods · Cambridge Methods 1&amp;2, Counting Methods · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Use the multiplication principle for a sequence of choices ("and" → ×)</li>
+      <li>Use the addition principle for a choice between separate options ("or" → +)</li>
+      <li>Combine both rules and choose the right one for each step</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p><strong>Multiplication ("and"):</strong> a sequence of stages with $m$, then $n$, … options has $m\times n\times\cdots$ outcomes.&nbsp;
+       <strong>Addition ("or"):</strong> a choice between separate, non-overlapping groups of $m$ and $n$ options gives $m+n$.</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up — and or or?</h2>
+    <div class="q qrow">
+      <span class="num">1.</span> For each, write <strong>×</strong> (multiply) or <strong>+</strong> (add), then give the answer.
+      <div class="parts col1">
+        <div class="p"><span class="letter">a</span> Toss a coin and roll a die: outcomes <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Travel by one of $3$ buses or one of $2$ trains: ways <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> A shirt (from $5$) and a tie (from $4$): outfits <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> Order one of $6$ mains or one of $4$ light meals: orders <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Multiplication principle</h2>
+    <div class="q qrow">
+      <span class="num">2.</span> A café meal is one entrée (from $3$), one main (from $5$) and one dessert (from $2$). Fill the boxes, then find the total number of meals.
+      <div class="boxrow">
+        <div class="cbox"></div><span class="ctimes">×</span>
+        <div class="cbox"></div><span class="ctimes">×</span>
+        <div class="cbox"></div><span class="ctimes">=</span>
+        <div class="cbox"></div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">3.</span> A 4-digit PIN uses digits $0$–$9$ and digits may repeat.
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> How many PINs? <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> How many if no digit may repeat? <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">4.</span> A code is $2$ letters ($A$–$Z$) followed by $4$ digits ($0$–$9$), repeats allowed. How many codes are possible? (Leave your answer as a product, then evaluate.)
+      <div class="work s"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Addition principle</h2>
+    <div class="q qrow">
+      <span class="num">5.</span> A library lets you borrow <strong>one</strong> item today: a novel (from $12$), a graphic novel (from $7$) or a magazine (from $5$). How many choices of single item?
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">6.</span> Explain in one sentence why we <em>add</em> in Q5 but <em>multiply</em> in Q2.
+      <div class="work s"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y11 Methods · Counting 10A worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Counting 10A — continued</h1>
+      <p>Part C (combining both principles) · Challenge</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Combining both principles</h2>
+    <div class="q qrow">
+      <span class="num">7.</span> At a kiosk you choose a drink (from $4$) <strong>and</strong> a snack, where the snack is a pie (from $6$) <strong>or</strong> a salad (from $3$).
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> Number of snack choices <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Number of drink-and-snack combos <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> A meal deal is a drink (from $3$) and a main, where the main is a burger (from $4$) or a wrap (from $2$). How many deals are possible?
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">9.</span> An ice-cream is built from a cone (from $3$), a flavour (from $8$) and a topping (from $2$).
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> How many ice-creams? <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> How many if you may have <em>no</em> topping as well (so $3$ topping options)? <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">10.</span> A restaurant lets you order a <strong>two-course</strong> meal that is either (a starter and a main) <em>or</em> (a main and a dessert). There are $2$ starters, $3$ mains and $2$ desserts. How many two-course meals are possible?
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+    <div class="q qrow">
+      <span class="num">11.</span> Victorian number plates: the <strong>old</strong> system was $3$ letters then $3$ digits; the <strong>new</strong> system is a digit, then $2$ letters, then a digit, then $2$ letters (repeats allowed throughout).
+      <div class="parts col1">
+        <div class="p"><span class="letter">a</span> How many old plates were possible? <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> How many new plates are possible? <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> Which system gives more plates, and roughly how many times more? <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · set work: Cambridge Ex 10A — Q1, 3, 5, 7, 9</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

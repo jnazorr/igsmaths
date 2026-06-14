@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Solving Quadratic Equations by Factorising (5G)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+    --grid:#dbe3f4; --curve:#1E2761; --coral:#F96167;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .steps { background:#F7F7F7; border-radius:6px; padding:10px 18px; margin:12px 0;
+           font-family: Calibri, Arial, sans-serif; }
+  .steps li { margin-bottom:6px; }
+  .work { font-family: Calibri, Arial, sans-serif; line-height:1.9; margin:8px 0 8px 6px; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:600px) { main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+    <a href="./">All 14 June lessons</a>
+    <a href="Y10_Core_Parabolas_5G_worksheet.html" target="_blank">📄 Worksheet</a>
+    <a href="Y10_Core_Parabolas_5G_solutions.html" target="_blank">✅ Solutions</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Mathematics Core — Solving Quadratic Equations by Factorising</h1>
+  <div class="meta">Cambridge Ch 5 — Section 5G &nbsp;•&nbsp; Sun 14 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y10_Core_Parabolas_5G_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y10_Core_Parabolas_5G_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>A <strong>quadratic equation</strong> can be written in the form $ax^2+bx+c=0$. Today we solve them with algebra — no graphs — by <strong>factorising</strong> and then using the <strong>Null Factor Law</strong>.</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Recognise a quadratic equation and rearrange it into standard form $ax^2+bx+c=0$</li>
+    <li>Use the <strong>Null Factor Law</strong>: if $p\times q=0$, then $p=0$ or $q=0$ (or both)</li>
+    <li>Solve by factorising — common factor, monic trinomials, difference of two squares and non-monic trinomials</li>
+    <li>Know that a quadratic equation can have <strong>0, 1 or 2</strong> solutions</li>
+  </ul>
+</div>
+
+<h2>Part 1 — The Null Factor Law (~8 min)</h2>
+
+<p>The whole method rests on one simple fact about multiplying.</p>
+<div class="key-ideas">
+  <h3>Key idea — the Null Factor Law</h3>
+  <ul>
+    <li>If $p\times q=0$, then either $p=0$ or $q=0$ (or both). The only way a product is zero is if a factor is zero.</li>
+    <li>So if $(x-3)(x+2)=0$, then $x-3=0$ or $x+2=0$, which gives $x=3$ or $x=-2$.</li>
+    <li>To solve a quadratic equation: write it as $ax^2+bx+c=0$, <strong>factorise</strong>, then set each factor to $0$.</li>
+    <li>If every term shares a common factor, divide it out first.</li>
+  </ul>
+</div>
+
+<div class="practice">
+  <p class="qnum">Building understanding — these are already factorised. State the solutions.</p>
+  <ol class="qlist" type="a">
+    <li>$x(x+1)=0$</li>
+    <li>$2x(x-4)=0$</li>
+    <li>$(x-3)(x+2)=0$</li>
+    <li>$(x+\sqrt3)(x-\sqrt3)=0$</li>
+    <li>$(2x-1)(3x+7)=0$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $x=0$ or $x=-1$ &nbsp;&nbsp; b) $x=0$ or $x=4$ &nbsp;&nbsp; c) $x=3$ or $x=-2$ &nbsp;&nbsp;
+    d) $x=-\sqrt3$ or $x=\sqrt3$ &nbsp;&nbsp; e) $x=\tfrac12$ or $x=-\tfrac73$
+  </div>
+</div>
+
+<h2>Part 2 — Common factor &amp; difference of two squares (Example 1, ~12 min)</h2>
+
+<p>Before factorising a trinomial, always check for a <strong>common factor</strong> or a <strong>difference of two squares</strong> ($a^2-b^2=(a-b)(a+b)$).</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — Null Factor Law</span>
+  <div class="q">Solve: <strong>a</strong> $x^2-2x=0$ &nbsp; <strong>b</strong> $x^2-15=0$ &nbsp; <strong>c</strong> $2x^2=50$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="work">
+      <strong>a</strong> &nbsp; $x^2-2x=0 \;\Rightarrow\; x(x-2)=0$ &nbsp;(common factor $x$)<br>
+      $\therefore x=0$ or $x-2=0 \;\Rightarrow\; \boxed{x=0 \text{ or } x=2}$
+    </div>
+    <div class="work">
+      <strong>b</strong> &nbsp; $x^2-15=0 \;\Rightarrow\; (x-\sqrt{15})(x+\sqrt{15})=0$ &nbsp;(difference of two squares)<br>
+      $\therefore \boxed{x=\sqrt{15} \text{ or } x=-\sqrt{15}}$
+    </div>
+    <div class="work">
+      <strong>c</strong> &nbsp; $2x^2=50 \;\Rightarrow\; 2x^2-50=0 \;\Rightarrow\; 2(x^2-25)=0 \;\Rightarrow\; 2(x-5)(x+5)=0$<br>
+      $\therefore \boxed{x=5 \text{ or } x=-5}$
+    </div>
+    <p class="callout"><strong>Now you try:</strong> Solve $x^2-3x=0$, &nbsp; $x^2-11=0$, &nbsp; $3x^2=27$. &nbsp;
+      Answers: $x=0$ or $x=3$; &nbsp; $x=\pm\sqrt{11}$; &nbsp; $x=\pm 3$.</p>
+  </div>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="Parabola5G.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> solving $x^2-5x+6=0$ step by step — factorise, then apply the Null Factor Law to read off both solutions.</p>
+</div>
+
+<h2>Part 3 — Monic and non-monic trinomials (Example 2, ~14 min)</h2>
+
+<p>For $ax^2+bx+c=0$, factorise the trinomial, then set each factor to zero. When $a=1$ (monic) look for two numbers that multiply to $c$ and add to $b$. When $a\ne 1$ (non-monic) split the middle term.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — Solving $ax^2+bx+c=0$</span>
+  <div class="q">Solve: <strong>a</strong> $x^2-5x+6=0$ &nbsp; <strong>b</strong> $x^2+2x+1=0$ &nbsp; <strong>c</strong> $10x^2-13x-3=0$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="work">
+      <strong>a</strong> &nbsp; $x^2-5x+6=0 \;\Rightarrow\; (x-2)(x-3)=0$ &nbsp;($-2$ and $-3$: product $6$, sum $-5$)<br>
+      $\therefore \boxed{x=2 \text{ or } x=3}$
+    </div>
+    <div class="work">
+      <strong>b</strong> &nbsp; $x^2+2x+1=0 \;\Rightarrow\; (x+1)(x+1)=0 \;\Rightarrow\; (x+1)^2=0$<br>
+      $\therefore \boxed{x=-1}$ &nbsp;(a repeated factor gives only <strong>one</strong> solution)
+    </div>
+    <div class="work">
+      <strong>c</strong> &nbsp; $10x^2-13x-3=0 \;\Rightarrow\; 10x^2-15x+2x-3=0$ &nbsp;(split: $-15$ and $+2$)<br>
+      $5x(2x-3)+(2x-3)=0 \;\Rightarrow\; (2x-3)(5x+1)=0$<br>
+      $\therefore 2x=3$ or $5x=-1 \;\Rightarrow\; \boxed{x=\tfrac32 \text{ or } x=-\tfrac15}$
+    </div>
+    <p class="callout"><strong>Now you try:</strong> Solve $x^2-x-12=0$, &nbsp; $x^2+6x+9=0$, &nbsp; $6x^2+x-2=0$. &nbsp;
+      Answers: $x=-3$ or $x=4$; &nbsp; $x=-3$; &nbsp; $x=-\tfrac23$ or $x=\tfrac12$.</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — solve by factorising.</p>
+  <ol class="qlist" type="a">
+    <li>$x^2+7x+10=0$</li>
+    <li>$x^2-9x+20=0$</li>
+    <li>$x^2+2x-15=0$</li>
+    <li>$9x^2-25=0$</li>
+    <li>$2x^2+5x-3=0$</li>
+    <li>$3x^2-10x+8=0$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $x=-5$ or $x=-2$<br>
+    b) $x=4$ or $x=5$<br>
+    c) $x=-5$ or $x=3$<br>
+    d) $x=\tfrac53$ or $x=-\tfrac53$<br>
+    e) $x=\tfrac12$ or $x=-3$<br>
+    f) $x=\tfrac43$ or $x=2$
+  </div>
+</div>
+
+<h2>Part 4 — Disguised quadratics (~8 min)</h2>
+
+<p>Some equations don't look like quadratics until you rearrange them into the form $ax^2+bx+c=0$ first.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 3 — Rearrange first</span>
+  <div class="q">Solve: <strong>a</strong> $x^2=4(x+15)$ &nbsp; <strong>b</strong> $\dfrac{x+6}{x}=x$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="work">
+      <strong>a</strong> &nbsp; $x^2=4x+60 \;\Rightarrow\; x^2-4x-60=0 \;\Rightarrow\; (x-10)(x+6)=0$<br>
+      $\therefore \boxed{x=10 \text{ or } x=-6}$
+    </div>
+    <div class="work">
+      <strong>b</strong> &nbsp; $x+6=x^2 \;\Rightarrow\; 0=x^2-x-6 \;\Rightarrow\; 0=(x-3)(x+2)$<br>
+      $\therefore \boxed{x=3 \text{ or } x=-2}$
+    </div>
+    <p class="callout"><strong>Now you try:</strong> Solve $x^2=2(x+24)$ &nbsp; and &nbsp; $\dfrac{x+20}{x}=x$. &nbsp;
+      Answers: $x=-6$ or $x=8$; &nbsp; $x=-4$ or $x=5$.</p>
+  </div>
+</div>
+
+<h2>Part 5 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> The Null Factor Law says: if $p\times q=0$, then:</p>
+    <label><input type="radio" name="q1" value="a"> $p=q$</label>
+    <label><input type="radio" name="q1" value="b"> $p=0$ or $q=0$</label>
+    <label><input type="radio" name="q1" value="c"> $p=1$ and $q=0$</label>
+    <label><input type="radio" name="q1" value="d"> $p+q=0$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q2.</strong> The solutions of $(x-4)(x+2)=0$ are:</p>
+    <label><input type="radio" name="q2" value="a"> $x=4$ or $x=2$</label>
+    <label><input type="radio" name="q2" value="b"> $x=-4$ or $x=2$</label>
+    <label><input type="radio" name="q2" value="c"> $x=4$ or $x=-2$</label>
+    <label><input type="radio" name="q2" value="d"> $x=-4$ or $x=-2$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> Solving $x^2-7x=0$ gives:</p>
+    <label><input type="radio" name="q3" value="a"> $x=0$ or $x=7$</label>
+    <label><input type="radio" name="q3" value="b"> $x=7$ only</label>
+    <label><input type="radio" name="q3" value="c"> $x=-7$ or $x=7$</label>
+    <label><input type="radio" name="q3" value="d"> $x=0$ only</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> How many solutions does $x^2+6x+9=0$ have?</p>
+    <label><input type="radio" name="q4" value="a"> none</label>
+    <label><input type="radio" name="q4" value="b"> three</label>
+    <label><input type="radio" name="q4" value="c"> two</label>
+    <label><input type="radio" name="q4" value="d"> one (a repeated factor)</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> Before solving $2x^2=50$, the best first step is to:</p>
+    <label><input type="radio" name="q5" value="a"> take the square root of both sides only</label>
+    <label><input type="radio" name="q5" value="b"> write it as $2x^2-50=0$ and take out the common factor</label>
+    <label><input type="radio" name="q5" value="c"> add $50$ to both sides</label>
+    <label><input type="radio" name="q5" value="d"> divide by $x$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 5G (p452)</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 5 (page 452) and complete the following:</p>
+<table class="program">
+  <tr><th>Set work</th><th>Extension</th></tr>
+  <tr><td>Questions 1–7 (½), 8–10</td><td>Questions 11, 12</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">"(½)" means do every second part. Always write the equation as $ax^2+bx+c=0$ before factorising.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>State the Null Factor Law in your own words.</li>
+    <li>Why does $x^2+6x+9=0$ have only one solution?</li>
+    <li>What is the first thing you check before factorising a trinomial?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answers' : 'Show answers';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Parts 1–3 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

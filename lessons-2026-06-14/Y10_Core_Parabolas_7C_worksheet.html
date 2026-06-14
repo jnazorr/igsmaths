@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Parabolas 7C (Sketching using Factorisation)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --grid:#dbe3f4; --coral:#F96167; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts.col4 { grid-template-columns: repeat(4, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 14mm; }
+  .work.m  { min-height: 22mm; }
+  .work.l  { min-height: 34mm; }
+
+  .twocol { display:grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items:start; }
+
+  table.tov { border-collapse:collapse; margin:1mm 0 0 6mm; font-family: Calibri, Arial, sans-serif; font-size: 9.5pt; }
+  table.tov th, table.tov td { border:1px solid #999; padding:1.5mm 3mm; text-align:center; min-width:9mm; height:7mm; }
+  table.tov th { background:#eef3fb; color:var(--navy); }
+  table.tov td.rl { background:#f4f0ff; font-weight:bold; text-align:left; }
+
+  .gwrap { border:1px solid #ccc; border-radius:2mm; padding:2mm; background:#fff; width:max-content; }
+  .pgrid { stroke:var(--grid); stroke-width:1; }
+  .paxis { stroke:var(--navy); stroke-width:1.5; }
+  .ptick { fill:var(--navy); font-size:9px; font-family:Calibri,Arial,sans-serif; }
+  .pcurve { fill:none; stroke:var(--navy); stroke-width:2.4; }
+  .paos { stroke:var(--coral); stroke-width:1.4; stroke-dasharray:4 3; }
+  .pdot { fill:var(--coral); stroke:#fff; stroke-width:1; }
+  .pdot.tp { fill:var(--navy); }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">14 June lessons</a>
+    <a href="Y10_Core_Parabolas_7C.html">Lesson 7C</a>
+    <a href="Y10_Core_Parabolas_7C_solutions.html">Solutions 7C</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Sketching using Factorisation (Ex 7C)</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 7, §7C · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Use factorisation and the Null Factor Law to find the $x$-intercepts of $y=x^2+bx+c$</li>
+      <li>Know that a parabola can have 0, 1 or 2 $x$-intercepts</li>
+      <li>Use symmetry (the midpoint of the $x$-intercepts) to find the turning point</li>
+      <li>Sketch the graph, labelling the $y$-intercept, $x$-intercepts and turning point</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p>$y$-intercept: put $x=0$. &nbsp; $x$-intercepts: put $y=0$, factorise, then use the Null Factor Law
+       ($p\times q=0 \Rightarrow p=0$ or $q=0$). &nbsp; The turning point sits halfway between the $x$-intercepts;
+       substitute that $x$-value to get its $y$-coordinate.</p>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Factorising for x-intercepts</h2>
+
+    <div class="q qrow">
+      <span class="num">1.</span> Use the Null Factor Law to write both $x$-intercepts.
+      <div class="parts" style="margin-top:1mm;">
+        <div class="p"><span class="letter">a</span> $y=(x-1)(x+6)$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $y=x(x+4)$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $y=(x+3)(x-5)$ <span class="ans"></span></div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Factorise each, then state the $x$-intercept(s).
+      <div class="parts col2" style="margin-top:1mm;">
+        <div class="p"><span class="letter">a</span> $y=x^2-2x-3$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $y=x^2-9$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $y=x^2+4x+4$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $y=x^2-6x$ <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Reading a sketch</h2>
+    <div class="q qrow">
+      <span class="num">3.</span> The parabola below has rule $y=x^2-4x+3$. Use the graph to state each key feature.
+    </div>
+    <div class="twocol">
+      <div class="gwrap">
+        <!-- Reusable parabola SVG: y=x^2-4x+3
+             px = ox + x*sx ; py = oy - y*sy ; ox=54 oy=148 sx=34 sy=22
+             Window x in [-1,5], y in [-2,6]. viewBox 0 0 244 208. Verified. -->
+        <svg width="244" height="208" viewBox="0 0 244 208" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parabola for question 3">
+          <g class="pgrid">
+            <line x1="20" y1="16" x2="20" y2="192"/><line x1="54" y1="16" x2="54" y2="192"/>
+            <line x1="88" y1="16" x2="88" y2="192"/><line x1="122" y1="16" x2="122" y2="192"/>
+            <line x1="156" y1="16" x2="156" y2="192"/><line x1="190" y1="16" x2="190" y2="192"/>
+            <line x1="224" y1="16" x2="224" y2="192"/>
+            <line x1="20" y1="192" x2="224" y2="192"/><line x1="20" y1="170" x2="224" y2="170"/>
+            <line x1="20" y1="148" x2="224" y2="148"/><line x1="20" y1="126" x2="224" y2="126"/>
+            <line x1="20" y1="104" x2="224" y2="104"/><line x1="20" y1="82" x2="224" y2="82"/>
+            <line x1="20" y1="60" x2="224" y2="60"/><line x1="20" y1="38" x2="224" y2="38"/>
+            <line x1="20" y1="16" x2="224" y2="16"/>
+          </g>
+          <defs>
+            <marker id="arwC" markerWidth="8" markerHeight="8" refX="5" refY="2.6" orient="auto">
+              <path d="M0,0 L5,2.6 L0,5.2 z" fill="#1E2761"/>
+            </marker>
+          </defs>
+          <line class="paxis" x1="14" y1="148" x2="232" y2="148" marker-end="url(#arwC)" marker-start="url(#arwC)"/>
+          <line class="paxis" x1="54" y1="200" x2="54" y2="10" marker-end="url(#arwC)" marker-start="url(#arwC)"/>
+          <text class="ptick" x="234" y="152">x</text><text class="ptick" x="42" y="14">y</text>
+          <text class="ptick" x="84" y="160">1</text><text class="ptick" x="118" y="160">2</text>
+          <text class="ptick" x="152" y="160">3</text><text class="ptick" x="186" y="160">4</text>
+          <text class="ptick" x="58" y="174">-1</text><text class="ptick" x="58" y="86">3</text>
+          <line class="paos" x1="122" y1="16" x2="122" y2="192"/>
+          <path class="pcurve" d="M 32.04,16.00 L 33.10,19.60 L 34.16,23.16 L 35.22,26.68 L 36.28,30.15 L 37.34,33.58 L 38.39,36.97 L 39.45,40.32 L 40.51,43.62 L 41.57,46.89 L 42.63,50.10 L 43.69,53.28 L 44.74,56.41 L 45.80,59.50 L 46.86,62.55 L 47.92,65.56 L 48.98,68.52 L 50.04,71.44 L 51.09,74.32 L 52.15,77.15 L 53.21,79.94 L 54.27,82.69 L 55.33,85.40 L 56.39,88.07 L 57.44,90.69 L 58.50,93.27 L 59.56,95.80 L 60.62,98.30 L 61.68,100.75 L 62.74,103.16 L 63.79,105.52 L 64.85,107.85 L 65.91,110.13 L 66.97,112.36 L 68.03,114.56 L 69.08,116.71 L 70.14,118.82 L 71.20,120.89 L 72.26,122.92 L 73.32,124.90 L 74.38,126.84 L 75.43,128.73 L 76.49,130.59 L 77.55,132.40 L 78.61,134.17 L 79.67,135.90 L 80.73,137.58 L 81.78,139.22 L 82.84,140.82 L 83.90,142.38 L 84.96,143.89 L 86.02,145.36 L 87.08,146.79 L 88.13,148.17 L 89.19,149.52 L 90.25,150.82 L 91.31,152.07 L 92.37,153.29 L 93.43,154.46 L 94.48,155.59 L 95.54,156.68 L 96.60,157.72 L 97.66,158.72 L 98.72,159.68 L 99.78,160.60 L 100.83,161.47 L 101.89,162.31 L 102.95,163.09 L 104.01,163.84 L 105.07,164.54 L 106.13,165.20 L 107.18,165.82 L 108.24,166.40 L 109.30,166.93 L 110.36,167.42 L 111.42,167.87 L 112.48,168.27 L 113.53,168.64 L 114.59,168.96 L 115.65,169.23 L 116.71,169.47 L 117.77,169.66 L 118.83,169.81 L 119.88,169.91 L 120.94,169.98 L 122.00,170.00 L 123.06,169.98 L 124.12,169.91 L 125.17,169.81 L 126.23,169.66 L 127.29,169.47 L 128.35,169.23 L 129.41,168.96 L 130.47,168.64 L 131.52,168.27 L 132.58,167.87 L 133.64,167.42 L 134.70,166.93 L 135.76,166.40 L 136.82,165.82 L 137.87,165.20 L 138.93,164.54 L 139.99,163.84 L 141.05,163.09 L 142.11,162.31 L 143.17,161.47 L 144.22,160.60 L 145.28,159.68 L 146.34,158.72 L 147.40,157.72 L 148.46,156.68 L 149.52,155.59 L 150.57,154.46 L 151.63,153.29 L 152.69,152.07 L 153.75,150.82 L 154.81,149.52 L 155.87,148.17 L 156.92,146.79 L 157.98,145.36 L 159.04,143.89 L 160.10,142.38 L 161.16,140.82 L 162.22,139.22 L 163.27,137.58 L 164.33,135.90 L 165.39,134.17 L 166.45,132.40 L 167.51,130.59 L 168.57,128.73 L 169.62,126.84 L 170.68,124.90 L 171.74,122.92 L 172.80,120.89 L 173.86,118.82 L 174.92,116.71 L 175.97,114.56 L 177.03,112.36 L 178.09,110.13 L 179.15,107.85 L 180.21,105.52 L 181.26,103.16 L 182.32,100.75 L 183.38,98.30 L 184.44,95.80 L 185.50,93.27 L 186.56,90.69 L 187.61,88.07 L 188.67,85.40 L 189.73,82.69 L 190.79,79.94 L 191.85,77.15 L 192.91,74.32 L 193.96,71.44 L 195.02,68.52 L 196.08,65.56 L 197.14,62.55 L 198.20,59.50 L 199.26,56.41 L 200.31,53.28 L 201.37,50.10 L 202.43,46.89 L 203.49,43.62 L 204.55,40.32 L 205.61,36.97 L 206.66,33.58 L 207.72,30.15 L 208.78,26.68 L 209.84,23.16 L 210.90,19.60 L 211.96,16.00"/>
+          <circle class="pdot" cx="88" cy="148" r="3.6"/>
+          <circle class="pdot" cx="156" cy="148" r="3.6"/>
+          <circle class="pdot" cx="54" cy="82" r="3.6"/>
+          <circle class="pdot tp" cx="122" cy="170" r="4.4"/>
+        </svg>
+      </div>
+      <div class="qrow">
+        <div class="parts col1" style="grid-template-columns:1fr; padding-left:0;">
+          <div class="p"><span class="letter">a</span> $y$-intercept <span class="ans"></span></div>
+          <div class="p"><span class="letter">b</span> $x$-intercepts <span class="ans"></span></div>
+          <div class="p"><span class="letter">c</span> Axis of symmetry <span class="ans"></span></div>
+          <div class="p"><span class="letter">d</span> Turning point <span class="ans"></span></div>
+          <div class="p"><span class="letter">e</span> Max or min? <span class="ans"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Parabolas 7C worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Parabolas 7C — continued</h1>
+      <p>Part C (factorise &amp; sketch) · Part D (table) · Challenge</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Factorise, then sketch</h2>
+    <div class="q qrow">
+      <span class="num">4.</span> For $y=x^2-2x-8$: factorise, find the $y$-intercept, both $x$-intercepts and the turning point, then sketch it on the grid.
+      <div class="parts col2" style="margin-top:1mm;">
+        <div class="p"><span class="letter">a</span> $y$-intercept <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $x$-intercepts <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> axis of symmetry <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> turning point <span class="ans"></span></div>
+      </div>
+    </div>
+    <div class="twocol">
+      <div class="gwrap">
+        <!-- blank grid x in [-4,6], y in [-10,4]; sx=22 sy=14 ; x=0 at px=110, y=0 at py=68 -->
+        <svg width="252" height="216" viewBox="0 0 252 216" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blank grid for sketching question 4">
+          <g class="pgrid">
+            <line x1="22" y1="12" x2="22" y2="208"/><line x1="44" y1="12" x2="44" y2="208"/>
+            <line x1="66" y1="12" x2="66" y2="208"/><line x1="88" y1="12" x2="88" y2="208"/>
+            <line x1="110" y1="12" x2="110" y2="208"/><line x1="132" y1="12" x2="132" y2="208"/>
+            <line x1="154" y1="12" x2="154" y2="208"/><line x1="176" y1="12" x2="176" y2="208"/>
+            <line x1="198" y1="12" x2="198" y2="208"/><line x1="220" y1="12" x2="220" y2="208"/>
+            <line x1="242" y1="12" x2="242" y2="208"/>
+            <line x1="22" y1="12" x2="242" y2="12"/><line x1="22" y1="26" x2="242" y2="26"/>
+            <line x1="22" y1="40" x2="242" y2="40"/><line x1="22" y1="54" x2="242" y2="54"/>
+            <line x1="22" y1="68" x2="242" y2="68"/><line x1="22" y1="82" x2="242" y2="82"/>
+            <line x1="22" y1="96" x2="242" y2="96"/><line x1="22" y1="110" x2="242" y2="110"/>
+            <line x1="22" y1="124" x2="242" y2="124"/><line x1="22" y1="138" x2="242" y2="138"/>
+            <line x1="22" y1="152" x2="242" y2="152"/><line x1="22" y1="166" x2="242" y2="166"/>
+            <line x1="22" y1="180" x2="242" y2="180"/><line x1="22" y1="194" x2="242" y2="194"/>
+            <line x1="22" y1="208" x2="242" y2="208"/>
+          </g>
+          <line class="paxis" x1="16" y1="68" x2="248" y2="68"/>
+          <line class="paxis" x1="110" y1="208" x2="110" y2="8"/>
+          <text class="ptick" x="62" y="80">-2</text><text class="ptick" x="150" y="80">2</text>
+          <text class="ptick" x="194" y="80">4</text>
+          <text class="ptick" x="114" y="42">2</text><text class="ptick" x="114" y="156">-6</text>
+        </svg>
+      </div>
+      <div class="qrow">
+        <div class="work l" style="margin-left:0; min-height:60mm;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part D — Table of values</h2>
+    <div class="q qrow">
+      <span class="num">5.</span> Complete the table for $y=x^2-4x+3$, then state the turning point and the two $x$-intercepts.
+      <table class="tov">
+        <tr><th>$x$</th><th>$-1$</th><th>$0$</th><th>$1$</th><th>$2$</th><th>$3$</th><th>$4$</th><th>$5$</th></tr>
+        <tr><td class="rl">$y$</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+      <div class="parts col2" style="margin-top:1.5mm;">
+        <div class="p"><span class="letter">a</span> turning point <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $x$-intercepts <span class="ans"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+    <div class="q qrow">
+      <span class="num">6.</span> A parabola has $x$-intercepts $(3,0)$ and $(7,0)$ and turning point $(5,12)$. It has the form $y=m(x-3)(x-7)$.
+      <div class="parts col2" style="margin-top:1mm;">
+        <div class="p"><span class="letter">a</span> Why is the axis $x=5$? <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Substitute $(5,12)$ to find $m$. <span class="ans"></span></div>
+      </div>
+      <div class="parts col1" style="grid-template-columns:1fr; margin-top:1mm;">
+        <div class="p"><span class="letter">c</span> Write the full rule. <span class="ans" style="min-width:50mm"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · check 7C answers in Cambridge (p608)</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

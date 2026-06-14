@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 11 Methods — Counting &amp; Probability (10D)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html" class="current">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+    <a href="./">All 14 June lessons</a>
+    <a href="Y11_Methods_Counting_10D_worksheet.html" target="_blank">📄 Worksheet</a>
+    <a href="Y11_Methods_Counting_10D_solutions.html" target="_blank">✅ Solutions</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 11 Mathematical Methods — Counting &amp; Probability</h1>
+  <div class="meta">Cambridge Methods 1&amp;2 — Counting Methods (10D) &nbsp;•&nbsp; Sun 14 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y11_Methods_Counting_10D_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y11_Methods_Counting_10D_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>We finish Counting Methods by using everything from 10A–10C to find <strong>probabilities</strong>. When every outcome is equally likely, probability is just a counting problem:
+$$P(\text{event}) = \frac{\text{number of favourable outcomes}}{\text{total number of outcomes}}.$$
+Both the top and bottom are counted with the multiplication principle, $^nP_r$ or $^nC_r$.</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Count the <strong>total</strong> number of equally-likely outcomes for an arrangement or selection</li>
+    <li>Count the <strong>favourable</strong> outcomes using restrictions / "exactly" / "at least"</li>
+    <li>Write the probability as an exact fraction $\dfrac{\text{favourable}}{\text{total}}$</li>
+    <li>Apply this to letter arrangements and to committees</li>
+  </ul>
+</div>
+
+<h2>Part 1 — Probability with arrangements</h2>
+
+<p>If a row of objects is arranged at random, every ordering is equally likely. Count the total orderings (the denominator) and the favourable orderings (the numerator), then divide.</p>
+
+<div class="callout good">
+  <strong>Equally-likely model.</strong> $P(\text{event}) = \dfrac{n(\text{favourable})}{n(\text{total})}$, where both counts come from the counting rules. Always simplify the fraction.
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="Counting10D.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> the digits $1,2,3,4,5$ are arranged at random — finding $P(\text{number is even})=\dfrac{2\times4!}{5!}=\dfrac{48}{120}=\dfrac{2}{5}$.</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — arranging letters</span>
+  <div class="q">
+    The $6$ distinct letters of <strong>NUMBER</strong> are arranged at random in a row. Find the probability that <strong>(a)</strong> the first letter is $N$; <strong>(b)</strong> the word ends in $R$.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Total arrangements $= 6! = 720$ (the denominator for both parts).</li>
+      <li><strong>(a)</strong> Fix $N$ first, arrange the other $5$: $5!=120$ favourable. $P=\dfrac{120}{720}=\boxed{\dfrac{1}{6}}$.</li>
+      <li><strong>(b)</strong> Fix $R$ last, arrange the other $5$: $5!=120$. $P=\dfrac{120}{720}=\boxed{\dfrac{1}{6}}$.</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> The digits $1,2,3,4,5$ are arranged at random. Find $P(\text{the number is greater than } 30\,000)$. &nbsp; Answer: first digit $3,4$ or $5$, so $\dfrac{3\times4!}{5!}=\dfrac{72}{120}=\dfrac{3}{5}$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — two people together</span>
+  <div class="q">
+    Four people line up at random. Find the probability that two particular people, $A$ and $B$, stand next to each other.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Total orderings $= 4! = 24$.</li>
+      <li>Favourable (A, B together): glue them into a block → $3!$ arrangements $\times\,2!$ internal $= 6\times2 = 12$.</li>
+      <li>$P = \dfrac{12}{24} = \boxed{\dfrac{1}{2}}$.</li>
+    </ol>
+    <p class="callout warn"><strong>Strategy:</strong> the denominator is "all arrangements"; the numerator uses your 10B restriction skills (together / apart / end positions).</p>
+  </div>
+</div>
+
+<h2>Part 2 — Probability with selections</h2>
+
+<p>When a committee or sample is chosen at random, every selection is equally likely. Count total selections with $^nC_r$, and favourable selections by splitting into groups ("exactly") or using the complement ("at least").</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 3 — committee probabilities</span>
+  <div class="q">
+    A committee of $3$ is chosen at random from $5$ men and $3$ women. Find the probability that the committee has <strong>(a)</strong> exactly $2$ women; <strong>(b)</strong> at least $1$ woman.
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>Total committees $= {}^8C_3 = 56$ (the denominator).</li>
+      <li><strong>(a) Exactly $2$ women</strong> = $2$ women and $1$ man: ${}^3C_2\times{}^5C_1 = 3\times5 = 15$. So $P=\dfrac{15}{56}$.</li>
+      <li><strong>(b) At least $1$ woman</strong> — complement of "no women": all-men committees $= {}^5C_3 = 10$. So $P = 1-\dfrac{10}{56} = \dfrac{46}{56} = \boxed{\dfrac{23}{28}}$.</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> $P(\text{all }3\text{ are women})$. &nbsp; Answer: $\dfrac{{}^3C_3}{{}^8C_3}=\dfrac{1}{56}$.</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2.1 — write each probability as a simplified fraction.</p>
+  <ol class="qlist" type="a">
+    <li>The letters of MATHS (all distinct) are arranged at random. $P(\text{ends in } S)$.</li>
+    <li>$4$ boys and $3$ girls stand in a row at random. $P(\text{all }4\text{ boys are together})$.</li>
+    <li>$3$ students are chosen from $10$, of whom $4$ are left-handed. $P(\text{all }3\text{ left-handed})$.</li>
+    <li>$2$ counters are drawn from a bag of $3$ red and $4$ blue. $P(\text{both red})$.</li>
+    <li>A committee of $3$ from $5$ men, $3$ women. $P(\text{exactly }2\text{ women})$.</li>
+    <li>$6$ from $40$ lottery balls. $P(\text{your single ticket wins})$.</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $\dfrac{4!}{5!}=\dfrac{1}{5}$ &nbsp;&nbsp; b) $\dfrac{4!\,4!}{7!}=\dfrac{4}{35}$ &nbsp;&nbsp;
+    c) $\dfrac{{}^4C_3}{{}^{10}C_3}=\dfrac{4}{120}=\dfrac{1}{30}$ &nbsp;&nbsp;
+    d) $\dfrac{{}^3C_2}{{}^7C_2}=\dfrac{3}{21}=\dfrac{1}{7}$ &nbsp;&nbsp;
+    e) $\dfrac{15}{56}$ &nbsp;&nbsp; f) $\dfrac{1}{{}^{40}C_6}=\dfrac{1}{3\,838\,380}$
+  </div>
+</div>
+
+<h2>Part 3 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> For equally-likely outcomes, $P(\text{event})$ equals:</p>
+    <label><input type="radio" name="q1" value="a"> favourable $\times$ total</label>
+    <label><input type="radio" name="q1" value="b"> favourable $\div$ total</label>
+    <label><input type="radio" name="q1" value="c"> total $\div$ favourable</label>
+    <label><input type="radio" name="q1" value="d"> favourable $+$ total</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q2.</strong> The digits $1,2,3,4,5$ are arranged at random. $P(\text{the number is even})$ is:</p>
+    <label><input type="radio" name="q2" value="a"> $\dfrac{1}{5}$</label>
+    <label><input type="radio" name="q2" value="b"> $\dfrac{1}{2}$</label>
+    <label><input type="radio" name="q2" value="c"> $\dfrac{1}{3}$</label>
+    <label><input type="radio" name="q2" value="d"> $\dfrac{2}{5}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> The $6$ letters of NUMBER are arranged at random. $P(\text{first letter is }N)$ is:</p>
+    <label><input type="radio" name="q3" value="a"> $\dfrac{1}{6}$</label>
+    <label><input type="radio" name="q3" value="b"> $\dfrac{1}{2}$</label>
+    <label><input type="radio" name="q3" value="c"> $\dfrac{5}{6}$</label>
+    <label><input type="radio" name="q3" value="d"> $\dfrac{1}{5}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q4.</strong> A committee of $3$ from $5$ men and $3$ women. $P(\text{exactly }2\text{ women})$ is:</p>
+    <label><input type="radio" name="q4" value="a"> $\dfrac{1}{56}$</label>
+    <label><input type="radio" name="q4" value="b"> $\dfrac{3}{8}$</label>
+    <label><input type="radio" name="q4" value="c"> $\dfrac{15}{56}$</label>
+    <label><input type="radio" name="q4" value="d"> $\dfrac{23}{28}$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> $2$ counters are drawn from $3$ red and $4$ blue. $P(\text{both red})$ is:</p>
+    <label><input type="radio" name="q5" value="a"> $\dfrac{3}{7}$</label>
+    <label><input type="radio" name="q5" value="b"> $\dfrac{1}{7}$</label>
+    <label><input type="radio" name="q5" value="c"> $\dfrac{2}{7}$</label>
+    <label><input type="radio" name="q5" value="d"> $\dfrac{3}{14}$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge — Counting Methods Ex 10D</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Methods 1&amp;2 (Counting Methods, Chapter 10) and complete the set work:</p>
+<table class="program">
+  <tr><th>Set work</th><th>Extension</th></tr>
+  <tr><td>Ex 10D — all set questions</td><td>Mixed chapter-review probability questions.</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">For each part, write the denominator (total outcomes) first, then the numerator (favourable), then simplify.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>What goes on the top and bottom of an equally-likely probability?</li>
+    <li>When counting favourable committees with "at least one", which method is usually fastest?</li>
+    <li>For random arrangements of $5$ distinct letters, what is the total number of outcomes?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answers' : 'Show answers';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — you have finished Counting Methods. Try the chapter review.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Parts 1–2 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

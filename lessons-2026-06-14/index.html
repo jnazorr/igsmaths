@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lessons — Sun 14 June 2026 · Y10 Parabolas &amp; Y11 Counting Methods</title>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family:'Helvetica Neue',Arial,sans-serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.5; }
+  header { background:var(--navy); color:#fff; padding:32px 40px; border-bottom:6px solid var(--accent); }
+  header .eyebrow { letter-spacing:0.14em; font-size:12px; color:var(--ice); margin-bottom:6px;
+                    text-transform:uppercase; font-weight:bold; }
+  header h1 { margin:0 0 8px 0; font-size:30px; font-family:Georgia,serif; }
+  header .meta { color:var(--ice); font-size:15px; }
+  main { max-width:1000px; margin:0 auto; padding:24px 40px 60px 40px; }
+  h2.section { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px;
+               margin-top:32px; font-size:22px; font-family:Georgia,serif; }
+  h2.section .lead { font-weight:normal; font-size:14px; color:var(--muted); font-family:'Helvetica Neue',Arial,sans-serif; }
+  .lesson-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+                 gap:16px; margin-top:18px; }
+  .lesson-card { background:#fff; border:1px solid #ddd; border-radius:10px; padding:18px 20px;
+                 display:flex; flex-direction:column;
+                 box-shadow:0 2px 6px rgba(0,0,0,0.04); transition:all .15s; }
+  .lesson-card:hover { border-color:var(--accent); transform:translateY(-2px);
+                       box-shadow:0 8px 18px rgba(0,0,0,0.08); }
+  .lesson-card .tag { display:inline-block; background:var(--ice); color:var(--navy); padding:3px 10px;
+                      border-radius:12px; font-size:11px; font-weight:bold; letter-spacing:0.5px;
+                      margin-bottom:8px; width:max-content; text-transform:uppercase; }
+  .lesson-card.m .tag { background:#efeaff; color:#4b3b8f; }
+  .lesson-card h3 { margin:0 0 6px 0; font-size:17px; color:var(--navy); font-family:Georgia,serif; }
+  .lesson-card .sub { color:var(--muted); font-size:13px; margin-bottom:12px; flex:1; }
+  .lesson-card a.open { font-weight:bold; color:var(--accent); font-size:13.5px; text-decoration:none; }
+  .lesson-card a.open::after { content:"  →"; }
+  .ws-row { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+  .ws-row a { font-size:12px; color:var(--navy); text-decoration:none; background:#fff;
+              border:1px solid var(--navy); padding:4px 10px; border-radius:14px; font-weight:bold; transition:all .15s; }
+  .ws-row a:hover { background:var(--navy); color:#fff; }
+  .ws-row a.good { color:#2C5F2D; border-color:#2C5F2D; }
+  .ws-row a.good:hover { background:#2C5F2D; color:#fff; }
+  .intro { background:#FFF9E6; border:2px solid #E8D88A; border-radius:8px; padding:16px 22px; margin:20px 0; }
+  .intro h2 { margin:0 0 8px 0; color:#8a650d; font-size:18px; }
+  .intro p { margin:4px 0; font-size:14.5px; }
+  footer { padding:20px 40px; color:var(--muted); font-size:13px; border-top:1px solid #eee; }
+  footer a { color:var(--navy); }
+  @media (max-width:640px) { main { padding:18px; } header { padding:24px 18px; } header h1 { font-size:24px; } }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: 'Helvetica Neue',Arial,sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+  </div>
+</nav>
+<header>
+  <p class="eyebrow">Lesson pack</p>
+  <h1>Parabolas (Y10) &amp; Counting Methods (Y11)</h1>
+  <p class="meta">Two full units &nbsp;•&nbsp; Year 10 Core Ch 5 &amp; 7 &nbsp;·&nbsp; Year 11 Methods Counting (10A–10D)</p>
+</header>
+
+<main>
+
+<div class="intro">
+  <h2>📚 What's in here</h2>
+  <p>Two complete units. <strong>Year 10 — Parabolas:</strong> solving quadratic equations (5G–5J) then sketching parabolas (7A–7G). <strong>Year 11 — Counting Methods:</strong> the counting principles, arrangements, selections and probability (10A–10D).</p>
+  <p>Every lesson has worked examples (click <strong>Show solution</strong>), a video walkthrough, a quick auto-marked quiz, and a Cambridge working program — plus a printable worksheet and answer key.</p>
+</div>
+
+<h2 class="section">Year 10 Core · Parabolas <span class="lead">— Chapter 5 (solving quadratics) &amp; Chapter 7 (graphs)</span></h2>
+<div class="lesson-grid">
+
+  <div class="lesson-card">
+    <span class="tag">Ex 5G</span><h3>Solving by Factorising</h3>
+    <p class="sub">The Null Factor Law; solving by taking out a common factor, monic and non-monic factorising, and difference of two squares.</p>
+    <a class="open" href="Y10_Core_Parabolas_5G.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_5G_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_5G_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 5H</span><h3>Applications of Quadratics</h3>
+    <p class="sub">Setting up and solving worded problems with quadratics, and rejecting answers that don't make sense (like a negative length).</p>
+    <a class="open" href="Y10_Core_Parabolas_5H.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_5H_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_5H_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 5I</span><h3>Completing the Square</h3>
+    <p class="sub">Solving a quadratic by turning it into a perfect square, including answers left in exact surd form.</p>
+    <a class="open" href="Y10_Core_Parabolas_5I.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_5I_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_5I_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 5J</span><h3>Quadratic Formula &amp; Discriminant</h3>
+    <p class="sub">The quadratic formula, and how the discriminant tells you whether there are two, one or no solutions.</p>
+    <a class="open" href="Y10_Core_Parabolas_5J.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_5J_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_5J_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 7A</span><h3>Exploring Parabolas</h3>
+    <p class="sub">The basic parabola and its key features — turning point, axis of symmetry, intercepts — plus dilations and reflections.</p>
+    <a class="open" href="Y10_Core_Parabolas_7A.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_7A_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_7A_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 7B</span><h3>Sketching using Transformations</h3>
+    <p class="sub">Sketching from turning-point form — shifting, stretching and reflecting the basic parabola, and reading off the turning point.</p>
+    <a class="open" href="Y10_Core_Parabolas_7B.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_7B_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_7B_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 7C</span><h3>Sketching using Factorisation</h3>
+    <p class="sub">Finding x-intercepts by factorising, then using them to locate the axis of symmetry and the turning point.</p>
+    <a class="open" href="Y10_Core_Parabolas_7C.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_7C_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_7C_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 7D</span><h3>Sketching by Completing the Square</h3>
+    <p class="sub">Completing the square to find the turning point, then sketching with all key features labelled.</p>
+    <a class="open" href="Y10_Core_Parabolas_7D.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_7D_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_7D_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 7E</span><h3>Quadratic Formula &amp; Discriminant</h3>
+    <p class="sub">Using the quadratic formula for irrational x-intercepts, and the discriminant to predict how many x-intercepts a parabola has.</p>
+    <a class="open" href="Y10_Core_Parabolas_7E.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_7E_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_7E_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 7F</span><h3>Applications of Parabolas</h3>
+    <p class="sub">Maximum and minimum problems — projectile paths, areas — using the turning point and intercepts to answer in context.</p>
+    <a class="open" href="Y10_Core_Parabolas_7F.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_7F_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_7F_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 7G</span><h3>Intersection of Lines &amp; Parabolas</h3>
+    <p class="sub">Solving a line and a parabola together, and using the discriminant to tell whether they meet at two points, touch, or miss.</p>
+    <a class="open" href="Y10_Core_Parabolas_7G.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y10_Core_Parabolas_7G_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y10_Core_Parabolas_7G_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+</div>
+
+<h2 class="section">Year 11 Methods · Counting Methods <span class="lead">— Cambridge Methods 1&amp;2 (10A–10D)</span></h2>
+<div class="lesson-grid">
+
+  <div class="lesson-card m">
+    <span class="tag">Ex 10A</span><h3>Addition &amp; Multiplication Principles</h3>
+    <p class="sub">The two counting rules: add the choices when it's "this or that", multiply them when it's "this and then that".</p>
+    <a class="open" href="Y11_Methods_Counting_10A.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y11_Methods_Counting_10A_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y11_Methods_Counting_10A_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card m">
+    <span class="tag">Ex 10B</span><h3>Arrangements (Permutations)</h3>
+    <p class="sub">Factorials and the permutations rule for putting things in order, including arrangements with restrictions.</p>
+    <a class="open" href="Y11_Methods_Counting_10B.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y11_Methods_Counting_10B_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y11_Methods_Counting_10B_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card m">
+    <span class="tag">Ex 10C</span><h3>Selections (Combinations)</h3>
+    <p class="sub">Choosing a group when order doesn't matter — the combinations rule, team-selection problems, and selections of any size.</p>
+    <a class="open" href="Y11_Methods_Counting_10C.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y11_Methods_Counting_10C_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y11_Methods_Counting_10C_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card m">
+    <span class="tag">Ex 10D</span><h3>Applications to Probability</h3>
+    <p class="sub">Using arrangements and selections to count outcomes and work out probabilities for equally-likely situations.</p>
+    <a class="open" href="Y11_Methods_Counting_10D.html">Open online lesson</a>
+    <div class="ws-row"><a href="Y11_Methods_Counting_10D_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="Y11_Methods_Counting_10D_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  <p>IGS Maths &nbsp;•&nbsp; <a href="../">Back to main hub</a> &nbsp;•&nbsp; — Mr Wong</p>
+</footer>
+
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+</html>

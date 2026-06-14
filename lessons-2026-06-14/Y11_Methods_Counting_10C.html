@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 11 Methods — Selections / Combinations (10C)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  .boxrow { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:12px 0;
+            font-family:Calibri,Arial,sans-serif; }
+  .cbox { width:54px; height:54px; border:2px solid var(--navy); border-radius:6px;
+          display:flex; align-items:center; justify-content:center; font-size:18px;
+          font-weight:bold; color:var(--navy); background:#fff; }
+  .cbox.alt { border-color:var(--accent); color:var(--accent); }
+  .ctimes { font-size:20px; color:var(--muted); font-weight:bold; }
+  .boxlabel { font-size:12px; color:var(--muted); text-align:center; margin-top:2px; }
+  .boxstack { display:flex; flex-direction:column; align-items:center; gap:2px; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html" class="current">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+    <a href="./">All 14 June lessons</a>
+    <a href="Y11_Methods_Counting_10C_worksheet.html" target="_blank">📄 Worksheet</a>
+    <a href="Y11_Methods_Counting_10C_solutions.html" target="_blank">✅ Solutions</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 11 Mathematical Methods — Selections (Combinations)</h1>
+  <div class="meta">Cambridge Methods 1&amp;2 — Counting Methods (10C) &nbsp;•&nbsp; Sun 14 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y11_Methods_Counting_10C_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y11_Methods_Counting_10C_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+    <a href="Y11_Methods_Counting_10D.html">→ Next: 10D Probability</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>A <strong>selection</strong> (or <strong>combination</strong>) is a choice of objects where <strong>order does not matter</strong> — a team, a hand of cards, a committee. Compare with yesterday's arrangements, where order <em>did</em> matter. Today's tool is $^nC_r$.</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Decide whether a problem is a <strong>selection</strong> (order doesn't matter) or an <strong>arrangement</strong> (order matters)</li>
+    <li>Use $^nC_r=\dfrac{n!}{r!\,(n-r)!}$ to count selections of $r$ from $n$</li>
+    <li>Solve team / committee problems, including "<strong>some guaranteed</strong>" and "<strong>at least</strong>"</li>
+    <li>Count a <strong>selection of any size</strong>: $^nC_0+\,^nC_1+\cdots+\,^nC_n = 2^n$</li>
+    <li>Find $^nC_r$ on your CAS calculator</li>
+  </ul>
+</div>
+
+<h2>Part 1 — Order doesn't matter: $^nC_r$</h2>
+
+<p>From $4$ numbers $1,2,3,4$, the selections of $3$ are $\{123\},\{124\},\{134\},\{234\}$ — just $4$. But each set of $3$ can be <em>arranged</em> in $3!=6$ orders, so there are $4\times6=24=\,^4P_3$ arrangements. So selections $=$ arrangements $\div\,r!$:</p>
+
+<div class="callout good">
+  <strong>Combinations.</strong> The number of ways to choose $r$ objects from $n$ when order does <em>not</em> matter is
+  $$^nC_r=\binom{n}{r}=\frac{^nP_r}{r!}=\frac{n!}{r!\,(n-r)!}.$$
+  Here $n$ is how many you choose from, and $r$ is how many you choose.
+</div>
+
+<p>A useful symmetry: $^nC_r=\,^nC_{n-r}$ (choosing $r$ to keep is the same as choosing $n-r$ to leave out). For example $^{13}C_7=\,^{13}C_6=1716$.</p>
+
+<div class="callout">
+  <strong>On your CAS.</strong> Use the built-in combination function <strong>nCr</strong> (in the probability/maths menu): <strong>nCr(13, 7)</strong> gives $1716$. Selections grow huge fast — $^{52}C_7$ (seven-card hands) $=133\,784\,560$.
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="Counting10C.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> why we divide $^nP_r$ by $r!$ — each unordered selection corresponds to $r!$ ordered arrangements, so $^nC_r=\,^nP_r\div r!$.</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — basic selections</span>
+  <div class="q">
+    <strong>(a)</strong> How many netball teams of $7$ can be chosen from $13$ players? <strong>(b)</strong> How many three-scoop sundaes (different flavours, order irrelevant) from $20$ flavours?
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li><strong>(a)</strong> Order of a team doesn't matter: $^{13}C_7=\dfrac{13!}{7!\,6!}=\boxed{1716}$.</li>
+      <li><strong>(b)</strong> A sundae is a set of $3$ flavours: $^{20}C_3=\dfrac{20!}{3!\,17!}=\boxed{1140}$.</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> How many ways to choose $4$ books from $10$? &nbsp; Answer: $^{10}C_4=210$.</p>
+  </div>
+</div>
+
+<h2>Part 2 — "Some guaranteed" &amp; "at least"</h2>
+
+<p>When certain members <strong>must</strong> be included, place them first and choose the rest. For "at least", it is often quicker to use the <strong>complement</strong> (total $-$ unwanted).</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — some guaranteed</span>
+  <div class="q">
+    A team of $3$ is chosen from a squad of $8$. The captain must be in the team. How many teams are possible?
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>The captain is guaranteed, so $1$ place is filled. Choose the other $2$ from the remaining $7$ players.</li>
+      <li>$1\times\,^7C_2 = \boxed{21}$ teams.</li>
+      <li><strong>Check by complement:</strong> all teams $^8C_3=56$; teams without the captain $^7C_3=35$; so $56-35=21$. ✓</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> A committee of $4$ is chosen from $10$ people; one particular person must be on it. &nbsp; Answer: $^9C_3=84$.</p>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 3 — exactly / at least</span>
+  <div class="q">
+    A team of $5$ is chosen from $5$ boys and $5$ girls. <strong>(a)</strong> How many teams have exactly $2$ boys? <strong>(b)</strong> How many have at least $1$ boy?
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li><strong>(a) Exactly $2$ boys</strong> means $2$ boys and $3$ girls: $^5C_2\times\,^5C_3 = 10\times10 = \boxed{100}$.</li>
+      <li><strong>(b) At least $1$ boy</strong> — use the complement. All teams $^{10}C_5=252$; teams with no boys (all girls) $^5C_5=1$. So $252-1=\boxed{251}$.</li>
+    </ol>
+    <p class="callout warn"><strong>Tip:</strong> "exactly" → split into groups and multiply; "at least one" → total $-$ none.</p>
+  </div>
+</div>
+
+<h2>Part 3 — Selection of any size: $2^n$</h2>
+
+<p>What if you may choose <strong>any number</strong> of items — none, some, or all? For each of the $n$ items you make an independent yes/no decision (take it or not), so there are $2\times2\times\cdots\times2 = 2^n$ possible selections.</p>
+
+<div class="callout good">
+  <strong>Selection of any size.</strong> $^nC_0+\,^nC_1+\cdots+\,^nC_n = 2^n.$ This counts <em>every</em> subset, including the empty one (choosing nothing). If at least one item must be chosen, the count is $2^n-1$.
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 4 — any size</span>
+  <div class="q">
+    Joanne is offered $5$ different sweets. She may take any number of them — including all, or none. In how many ways can she make her choice?
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li>For each of the $5$ sweets she decides take / don't take: $2^5 = \boxed{32}$ ways (this includes taking none).</li>
+      <li>If she must take <strong>at least one</strong> sweet, exclude the empty choice: $2^5-1=31$.</li>
+    </ol>
+    <p class="callout"><strong>Check:</strong> $^5C_0+\,^5C_1+\,^5C_2+\,^5C_3+\,^5C_4+\,^5C_5 = 1+5+10+10+5+1 = 32 = 2^5$. ✓</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — selection or arrangement? Then compute.</p>
+  <ol class="qlist" type="a">
+    <li>Choose $3$ pizza toppings from $8$ (order irrelevant)</li>
+    <li>A hand of $7$ cards from $52$</li>
+    <li>A team of $11$ from $15$ players</li>
+    <li>A committee of $4$ from $10$ that must include one named person</li>
+    <li>Choose any number of items (incl. none) from $6$ items</li>
+    <li>From $5$ boys, $5$ girls choose a team of $5$ with the girls outnumbering the boys</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) $^8C_3=56$ &nbsp;&nbsp; b) $^{52}C_7=133\,784\,560$ &nbsp;&nbsp; c) $^{15}C_{11}=1365$ &nbsp;&nbsp;
+    d) $^9C_3=84$ &nbsp;&nbsp; e) $2^6=64$ &nbsp;&nbsp; f) $3,4$ or $5$ girls: $^5C_3{}^5C_2+{}^5C_4{}^5C_1+{}^5C_5{}^5C_0=100+25+1=126$
+  </div>
+</div>
+
+<h2>Part 4 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> For a problem where order does <em>not</em> matter, you should use:</p>
+    <label><input type="radio" name="q1" value="a"> $^nP_r$</label>
+    <label><input type="radio" name="q1" value="b"> $^nC_r$</label>
+    <label><input type="radio" name="q1" value="c"> $n^r$</label>
+    <label><input type="radio" name="q1" value="d"> $n!$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q2.</strong> $^8C_3$ equals:</p>
+    <label><input type="radio" name="q2" value="a"> $336$</label>
+    <label><input type="radio" name="q2" value="b"> $24$</label>
+    <label><input type="radio" name="q2" value="c"> $56$</label>
+    <label><input type="radio" name="q2" value="d"> $512$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> A team of $3$ from $8$ must include the captain. Number of teams?</p>
+    <label><input type="radio" name="q3" value="a"> $^7C_2=21$</label>
+    <label><input type="radio" name="q3" value="b"> $^8C_3=56$</label>
+    <label><input type="radio" name="q3" value="c"> $^7C_3=35$</label>
+    <label><input type="radio" name="q3" value="d"> $^8C_2=28$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> Choosing any number of items (including none) from $5$ items gives:</p>
+    <label><input type="radio" name="q4" value="a"> $5$</label>
+    <label><input type="radio" name="q4" value="b"> $5!=120$</label>
+    <label><input type="radio" name="q4" value="c"> $25$</label>
+    <label><input type="radio" name="q4" value="d"> $2^5=32$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> Which equals $^{13}C_7$?</p>
+    <label><input type="radio" name="q5" value="a"> $^{13}C_7=\,^{13}C_5$</label>
+    <label><input type="radio" name="q5" value="b"> $^{13}C_7=\,^{13}C_6$</label>
+    <label><input type="radio" name="q5" value="c"> $^{13}C_7=\,^{13}P_7$</label>
+    <label><input type="radio" name="q5" value="d"> $^{13}C_7=7!$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge — Counting Methods Ex 10C</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Methods 1&amp;2 (Counting Methods, Chapter 10) and complete the set work:</p>
+<table class="program">
+  <tr><th>Set work</th><th>Extension</th></tr>
+  <tr><td>Ex 10C — Q1–5, 8, 10</td><td>Harder "at least / exactly" selections and group-selection problems.</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">First ask: does order matter? If no, it's a selection ($^nC_r$).</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>How do you decide between $^nP_r$ and $^nC_r$?</li>
+    <li>Write the formula for $^nC_r$ and explain why we divide by $r!$.</li>
+    <li>How many selections of any size (including none) can be made from $n$ items?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answers' : 'Show answers';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — go straight to the harder Ex 10C questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Parts 1–3 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>

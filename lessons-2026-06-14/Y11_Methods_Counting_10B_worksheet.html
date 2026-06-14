@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y11 Methods Counting 10B (Arrangements / Permutations)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8; --accent:#F96167; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(2, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col1 { grid-template-columns: 1fr; }
+  .parts.col3 { grid-template-columns: repeat(3, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 14mm; }
+  .work.m  { min-height: 20mm; }
+  .work.l  { min-height: 28mm; }
+
+  .boxrow { display:flex; gap:6px; align-items:center; margin:1.5mm 0 1mm 6mm;
+            font-family:Calibri,Arial,sans-serif; }
+  .cbox { width:11mm; height:8mm; border:1.5px solid var(--navy); border-radius:1.5mm;
+          display:flex; align-items:center; justify-content:center; font-size:10pt; color:var(--navy); }
+  .ctimes { font-size:11pt; color:var(--muted); font-weight:bold; }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">14 June lessons</a>
+    <a href="Y11_Methods_Counting_10B.html">Lesson 10B</a>
+    <a href="Y11_Methods_Counting_10B_solutions.html">Solutions 10B</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Arrangements / Permutations (Ex 10B)</h1>
+      <p>Year 11 Mathematical Methods · Cambridge Methods 1&amp;2, Counting Methods · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Use factorial notation $n!$ to arrange $n$ distinct objects in a row</li>
+      <li>Use $^nP_r=\dfrac{n!}{(n-r)!}$ to arrange $r$ of $n$ objects</li>
+      <li>Handle restrictions: items together, items apart, even / end-position conditions</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p>$n!=n(n-1)\cdots2\cdot1$ and $0!=1$.&nbsp; $^nP_r=\dfrac{n!}{(n-r)!}$.&nbsp;
+       "Together" → glue into a block then $\times k!$;&nbsp; "not together" → total $-$ together.</p>
+  </div>
+
+  <div class="section">
+    <h2>Warm-up — factorials and nPr</h2>
+    <div class="q qrow">
+      <span class="num">1.</span> Evaluate.
+      <div class="parts col3">
+        <div class="p"><span class="letter">a</span> $4!$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> $6!$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> $7!$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> $^7P_2$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">e</span> $^8P_3$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">f</span> $^{12}P_4$ <span class="ans"></span></div>
+      </div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> Four people line up at a counter. Fill the boxes, then state the number of orders.
+      <div class="boxrow">
+        <div class="cbox"></div><span class="ctimes">×</span>
+        <div class="cbox"></div><span class="ctimes">×</span>
+        <div class="cbox"></div><span class="ctimes">×</span>
+        <div class="cbox"></div><span class="ctimes">=</span>
+        <div class="cbox"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Arranging in a row</h2>
+    <div class="q qrow">
+      <span class="num">3.</span> Seven different books are placed on a shelf.
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> How many arrangements? <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> How many if only $3$ of the $7$ are displayed in a row? <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">4.</span> A relay coach must choose an ordered team for legs $1,2,3,4$ from $9$ athletes. In how many ways? (Use $^nP_r$.)
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">5.</span> How many arrangements are there of the $6$ distinct letters of the word <strong>NUMBER</strong>?
+      <div class="work s"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — Restrictions: even &amp; end positions</h2>
+    <div class="q qrow">
+      <span class="num">6.</span> Each of the digits $1,2,3,4,5$ is used exactly once to form a five-digit number.
+      <div class="parts col1">
+        <div class="p"><span class="letter">a</span> How many such numbers are <strong>even</strong>? <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> How many are greater than $30\,000$? <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y11 Methods · Counting 10B worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Counting 10B — continued</h1>
+      <p>Part C (together / apart) · Challenge</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Items together or apart</h2>
+    <div class="q qrow">
+      <span class="num">7.</span> Five students $A,B,C,D,E$ sit in a row.
+      <div class="parts col1">
+        <div class="p"><span class="letter">a</span> Total arrangements (no restriction) <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Arrangements with $A$ and $B$ together <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> Arrangements with $A$ and $B$ <em>not</em> together <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">8.</span> Eight people sit in a row, but two particular friends must sit together. How many arrangements? <em>(Glue the pair into a block.)</em>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">9.</span> Eight boys and two girls sit in a row.
+      <div class="parts col1">
+        <div class="p"><span class="letter">a</span> Arrangements with the two girls together <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Arrangements with the two girls <em>not</em> together <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge</h2>
+    <div class="q qrow">
+      <span class="num">10.</span> Eight students are to sit in a row. Two particular students, $A$ and $B$, must <strong>not</strong> sit next to each other, and a third student, $C$, must sit in one of the two end seats.
+      <div class="parts col1">
+        <div class="p"><span class="letter">a</span> How many seating arrangements satisfy both conditions? <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Explain your strategy and how you avoided over-counting. <span class="ans"></span></div>
+      </div>
+      <div class="work l"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · set work: Cambridge Ex 10B — Q1, 2, 3, 5, 8, 9, 13, 15</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

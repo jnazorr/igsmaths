@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worksheet — Y10 Core Parabolas 7F (Applications)</title>
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --ink:#222; --navy:#1E2761; --muted:#555; --rule:#aaa; --line:#d8d2c8;
+          --grid:#dbe3f4; --coral:#F96167; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; padding:0; background:#f3efe7; color:var(--ink);
+               font-family: Georgia, 'Times New Roman', serif; }
+
+  .page { width: 210mm; height: 297mm; padding: 10mm 12mm 9mm 12mm;
+          margin: 10mm auto; background:#fff; box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+          page-break-after: always; position:relative; font-size: 10pt; line-height: 1.28;
+          overflow: hidden; }
+  .page:last-child { page-break-after: auto; }
+
+  .head { display:flex; align-items:flex-start; justify-content:space-between;
+          border-bottom: 2px solid var(--navy); padding-bottom: 3mm; margin-bottom: 3mm; }
+  .head .title h1 { margin:0; font-size: 15pt; color: var(--navy); }
+  .head .title p  { margin:1mm 0 0 0; font-size: 9pt; color: var(--muted);
+                    font-family: Calibri, Arial, sans-serif; letter-spacing:.3px; }
+  .head .name { font-family: Calibri, Arial, sans-serif; font-size: 8.5pt; text-align:right; }
+  .head .name .field { border-bottom: 1px solid var(--ink); display:inline-block;
+                        min-width: 50mm; min-height: 5mm; margin-left: 4px; }
+  .head .name div { margin-bottom: 2mm; }
+
+  .lo { background:#f4f0ff; border:1px solid var(--navy); border-radius: 2mm;
+        padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .lo strong { color: var(--navy); }
+  .lo ul { margin:1mm 0 0 4mm; padding:0; }
+  .lo li { margin: 0.5mm 0; }
+
+  .key { border:1px solid #cdd6e8; background:#eef3fb; border-radius: 2mm;
+         padding: 2mm 4mm; margin: 0 0 3mm 0; font-family: Calibri, Arial, sans-serif; font-size: 9pt; }
+  .key h3 { margin:0 0 1mm 0; font-size: 10pt; color: var(--navy); }
+  .key p { margin: 0.5mm 0; }
+
+  .section { margin: 2mm 0 1mm 0; }
+  .section h2 { color: var(--navy); border-bottom: 1px solid var(--line);
+                 padding-bottom: 1mm; margin: 0 0 2mm 0; font-size: 11.5pt; }
+
+  .q { margin: 0 0 2.5mm 0; }
+  .q .num { font-weight: bold; color: var(--navy); font-family: Calibri, Arial, sans-serif;
+            display:inline-block; min-width: 6mm; }
+  .qrow { font-family: Calibri, Arial, sans-serif; font-size: 10pt; }
+  .qrow strong { color: var(--navy); }
+  .parts { display:grid; grid-template-columns: repeat(3, 1fr); gap: 2mm 5mm;
+           padding-left: 6mm; margin-top: 1mm; font-size: 10pt; }
+  .parts.col2 { grid-template-columns: repeat(2, 1fr); }
+  .parts .p { display:flex; align-items:baseline; gap: 1.2mm; }
+  .parts .p .letter { font-style: italic; color: var(--muted); min-width: 4mm; }
+  .parts .ans { display:inline-block; border-bottom: 1px solid var(--rule);
+                 min-width: 18mm; margin-left: 2mm; }
+
+  .work { border: 1px dashed #b8b1a4; border-radius: 2mm;
+          background-image: linear-gradient(transparent 5.4mm, #e7dfd1 5.5mm);
+          background-size: 100% 5.7mm; background-position-y: 0;
+          margin: 1mm 0 0 6mm; }
+  .work.s  { min-height: 14mm; }
+  .work.m  { min-height: 22mm; }
+  .work.l  { min-height: 30mm; }
+
+  .twocol { display:grid; grid-template-columns: 1fr 1fr; gap: 4mm; align-items:start; }
+
+  .gwrap { border:1px solid #ccc; border-radius:2mm; padding:2mm; background:#fff; width:max-content; }
+  .pgrid { stroke:var(--grid); stroke-width:1; }
+  .paxis { stroke:var(--navy); stroke-width:1.5; }
+  .ptick { fill:var(--navy); font-size:9px; font-family:Calibri,Arial,sans-serif; }
+  .pcurve { fill:none; stroke:var(--navy); stroke-width:2.4; }
+  .pdot { fill:var(--coral); stroke:#fff; stroke-width:1; }
+  .pdot.tp { fill:var(--navy); }
+
+  .footer { position:absolute; bottom: 4mm; left: 12mm; right: 12mm;
+            display:flex; justify-content: space-between;
+            font-family: Calibri, Arial, sans-serif; font-size: 8pt; color: var(--muted);
+            border-top: 1px solid var(--line); padding-top: 1.5mm; }
+
+  @media print {
+    html, body { background:#fff; }
+    .page { box-shadow:none; margin: 0; }
+    @page { size: A4; margin: 0; }
+  }
+
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:16px; flex-wrap:wrap; }
+  @media print { .lesson-nav, .no-print { display:none; } }
+
+  .print-btn { position:fixed; top:50px; right:10mm; background:var(--navy); color:#fff;
+               border:none; padding: 8px 14px; border-radius: 6px; cursor:pointer;
+               font-family: Calibri, Arial, sans-serif; font-size: 13px; z-index:1000; }
+  .print-btn:hover { background: #F96167; }
+  @media print { .print-btn { display:none; } }
+</style>
+</head>
+<body>
+
+<nav class="lesson-nav no-print">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="./" class="current">14 June lessons</a>
+    <a href="Y10_Core_Parabolas_7F.html">Lesson 7F</a>
+    <a href="Y10_Core_Parabolas_7F_solutions.html">Solutions 7F</a>
+  </div>
+</nav>
+
+<button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+<!-- =================== PAGE 1 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Applications of Parabolas (Ex 7F)</h1>
+      <p>Year 10 Mathematics Core · Cambridge Ch 7, §7F · Mr Wong</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+      <div>Class <span class="field" style="min-width:30mm"></span></div>
+      <div>Date <span class="field" style="min-width:30mm"></span></div>
+    </div>
+  </div>
+
+  <div class="lo">
+    <strong>Learning intentions.</strong>
+    <ul>
+      <li>Set up a quadratic model from a worded problem</li>
+      <li>Read key features in context: vertex = max/min, intercepts = start/landing</li>
+      <li>Decide on a sensible range of values for the variable</li>
+    </ul>
+  </div>
+
+  <div class="key">
+    <h3>Key results</h3>
+    <p>The <strong>turning point</strong> gives the maximum or minimum (greatest height, largest area).&nbsp;
+       The <strong>$x$-intercepts</strong> are where the quantity is zero (ground level, zero area).&nbsp;
+       Choose a range so distances, times and lengths stay positive.</p>
+  </div>
+
+  <div class="section">
+    <h2>Part A — Reading a graph</h2>
+    <div class="q qrow">
+      <span class="num">1.</span> A stone's height is $h=-(t-3)^2+9$ ($h$ m, $t$ s).
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> time at max height <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> maximum height <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> time it lands ($h=0$) <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">2.</span> A ball thrown upward has $h=30t-5t^2$ ($h$ m, $t$ s).
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> max height <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> when it lands <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> suitable range of $t$ <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part B — A bridge cable</h2>
+    <div class="q qrow">
+      <span class="num">3.</span> A 6 m suspension bridge has cable $h=(d-3)^2+2$, where $h$ m is the cable height and $d$ m is the distance from the left pillar ($0\le d\le6$).
+      <div class="parts">
+        <div class="p"><span class="letter">a</span> minimum cable height <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> at what $d$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> height at each pillar <span class="ans"></span></div>
+      </div>
+      <div class="work s"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part C — Forming and sketching a model</h2>
+    <div class="q qrow">
+      <span class="num">4.</span> A 24 m fence is bent into a rectangle of width $x$ m.
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> length in terms of $x$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> area $A$ in terms of $x$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> suitable values of $x$ <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> maximum area &amp; dimensions <span class="ans"></span></div>
+      </div>
+    </div>
+    <div class="twocol" style="margin-top:1mm;">
+      <div class="gwrap">
+        <!-- blank grid for A=x(12-x): x[0,12] A[0,40]. ox=40 oy=210 sx=18 sy=4.5 viewBox 0 0 270 230 -->
+        <svg width="220" height="188" viewBox="0 0 270 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Blank grid for question 4">
+          <g class="pgrid">
+            <line x1="40" y1="20" x2="40" y2="210"/><line x1="76" y1="20" x2="76" y2="210"/>
+            <line x1="112" y1="20" x2="112" y2="210"/><line x1="148" y1="20" x2="148" y2="210"/>
+            <line x1="184" y1="20" x2="184" y2="210"/><line x1="220" y1="20" x2="220" y2="210"/>
+            <line x1="256" y1="20" x2="256" y2="210"/>
+            <line x1="40" y1="20" x2="256" y2="20"/><line x1="40" y1="58" x2="256" y2="58"/>
+            <line x1="40" y1="96" x2="256" y2="96"/><line x1="40" y1="134" x2="256" y2="134"/>
+            <line x1="40" y1="172" x2="256" y2="172"/><line x1="40" y1="210" x2="256" y2="210"/>
+          </g>
+          <line class="paxis" x1="40" y1="210" x2="264" y2="210"/>
+          <line class="paxis" x1="40" y1="218" x2="40" y2="14"/>
+          <text class="ptick" x="262" y="222">x</text><text class="ptick" x="30" y="16">A</text>
+        </svg>
+      </div>
+      <div class="qrow">
+        <div class="work l" style="margin-left:0; min-height:40mm;"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Y10 Core · Parabolas 7F worksheet</span>
+    <span>Page 1 of 2</span>
+  </div>
+</section>
+
+<!-- =================== PAGE 2 =================== -->
+<section class="page">
+  <div class="head">
+    <div class="title">
+      <h1>Parabolas 7F — continued</h1>
+      <p>Part D (a rocket) · Challenge (river enclosure)</p>
+    </div>
+    <div class="name">
+      <div>Name <span class="field"></span></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Part D — A rocket</h2>
+    <div class="q qrow">
+      <span class="num">5.</span> A toy rocket's height is $h=40t-5t^2$ ($h$ m, $t$ s).
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> When does it reach maximum height? <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> What is the maximum height? <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> When does it return to the ground? <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> Suitable range of $t$ <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+
+    <div class="q qrow">
+      <span class="num">6.</span> A garden bed against a wall uses 16 m of edging for the three open sides (width $x$, length $L$).
+      <div class="parts col2">
+        <div class="p"><span class="letter">a</span> Write $L$ in terms of $x$. <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Write the area $A$ in terms of $x$. <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> Find the maximum area. <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> Dimensions for maximum area <span class="ans"></span></div>
+      </div>
+      <div class="work m"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Challenge — river enclosure</h2>
+    <div class="q qrow">
+      <span class="num">7.</span> A farmer fences a rectangular paddock beside a straight river. No fence is needed along the river. With 60 m of fencing for the other three sides, let the width (perpendicular to the river) be $x$ m and the length be $L$ m.
+      <div class="parts col2" style="margin-top:1mm;">
+        <div class="p"><span class="letter">a</span> Write $L$ in terms of $x$. <span class="ans"></span></div>
+        <div class="p"><span class="letter">b</span> Show $A=60x-2x^2$. <span class="ans"></span></div>
+        <div class="p"><span class="letter">c</span> Write $A$ in turning point form. <span class="ans"></span></div>
+        <div class="p"><span class="letter">d</span> Maximum area &amp; dimensions <span class="ans"></span></div>
+      </div>
+      <div class="work l"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span>Hand in to Mr Wong · check 7F answers in Cambridge (p628)</span>
+    <span>Page 2 of 2</span>
+  </div>
+</section>
+
+</body>
+</html>

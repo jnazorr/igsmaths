@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 10 Core — Exploring Parabolas (7A)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+    --grid:#dbe3f4; --curve:#1E2761; --coral:#F96167;
+  }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:920px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .callout strong { color:var(--navy); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:16px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 10px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:8px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none;
+                  padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good);
+            border-radius:4px; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px;
+              font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  table.tov { border-collapse:collapse; margin:10px 0; font-family: Calibri, Arial, sans-serif; font-size:15px; }
+  table.tov th, table.tov td { border:1px solid #bbb; padding:6px 12px; text-align:center; min-width:34px; }
+  table.tov th { background:var(--ice); color:var(--navy); }
+  table.tov td.rowlab { background:#f4f0ff; font-weight:bold; text-align:left; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px;
+               margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .twocol { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:12px 0; }
+  .twocol > div { background:#F7F7F7; padding:10px 14px; border-radius:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px;
+                 margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px;
+                          margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  /* ===== Inline parabola SVG (reusable) ===== */
+  .graph-row { display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; margin:10px 0; }
+  .graph { background:#fff; border:1px solid #ddd; border-radius:8px; padding:8px 10px;
+           font-family:Calibri,Arial,sans-serif; }
+  .graph svg { display:block; }
+  .graph .cap { color:var(--muted); font-size:12px; text-align:center; margin-top:4px; max-width:360px; }
+  .pgrid { stroke:var(--grid); stroke-width:1; }
+  .paxis { stroke:var(--navy); stroke-width:1.6; }
+  .ptick { fill:var(--navy); font-size:10px; font-family:Calibri,Arial,sans-serif; }
+  .pcurve { fill:none; stroke:var(--curve); stroke-width:2.6; }
+  .pcurve.alt { stroke:var(--coral); stroke-width:2.2; }
+  .pcurve.alt2 { stroke:var(--good); stroke-width:2.2; }
+  .paos { stroke:var(--coral); stroke-width:1.6; stroke-dasharray:5 4; }
+  .pdot { fill:var(--coral); stroke:#fff; stroke-width:1.2; }
+  .pdot.tp { fill:var(--navy); }
+  .plabel { font-size:11px; font-family:Calibri,Arial,sans-serif; fill:var(--navy); }
+  .plabel.coral { fill:var(--coral); font-weight:bold; }
+  .peq { font-size:12px; font-family:Calibri,Arial,sans-serif; fill:var(--curve); font-style:italic; }
+  @media (max-width:600px) { .twocol { grid-template-columns:1fr; } main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html" class="current">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+    <a href="./">All 14 June lessons</a>
+    <a href="Y10_Core_Parabolas_7A_worksheet.html" target="_blank">📄 Worksheet</a>
+    <a href="Y10_Core_Parabolas_7A_solutions.html" target="_blank">✅ Solutions</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 10 Mathematics Core — Exploring Parabolas</h1>
+  <div class="meta">Cambridge Ch 7 — Section 7A &nbsp;•&nbsp; Sun 14 June 2026</div>
+  <div class="resources-box">
+    <strong>📚 Also for this topic:</strong>
+    <a href="Y10_Core_Parabolas_7A_worksheet.html" target="_blank">📄 Printable worksheet</a>
+    <a href="Y10_Core_Parabolas_7A_solutions.html" target="_blank">✅ Solutions (answer key)</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>We're starting Chapter 7 — Parabolas. A <strong>parabola</strong> is the smooth U-shaped curve you get when you graph a quadratic rule. Today is all about the simplest one, $y=x^2$, and how changing the rule moves and reshapes it.</p>
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Know the shape and symmetry of the basic parabola $y=x^2$</li>
+    <li>Identify the <strong>key features</strong> of a parabola from its graph: turning point, axis of symmetry, maximum/minimum, $x$- and $y$-intercepts</li>
+    <li>See the effect of transforming $y=x^2$ — dilation (wider/narrower), reflection ($a<0$) and translation</li>
+    <li>Build a <strong>table of values</strong> and use it to plot a parabola accurately</li>
+  </ul>
+</div>
+
+<h2>Part 1 — The basic parabola $y=x^2$ (~8 min)</h2>
+
+<p>Start by building a table of values for $y=x^2$, then plot the points. Because squaring a negative gives a positive, the left side mirrors the right side — the curve is <strong>symmetric</strong>.</p>
+
+<table class="tov">
+  <tr><th>$x$</th><td>$-3$</td><td>$-2$</td><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td></tr>
+  <tr><td class="rowlab">$y=x^2$</td><td>$9$</td><td>$4$</td><td>$1$</td><td>$0$</td><td>$1$</td><td>$4$</td><td>$9$</td></tr>
+</table>
+
+<div class="graph-row">
+  <div class="graph">
+    <!-- ===================================================================
+         REUSABLE PARABOLA SVG  —  y = a(x-h)^2 + k  =  y = (x-1)^2 - 4
+         Math→pixel transform (ALL coords below come from this; verified in Python):
+             px = ox + x*sx        py = oy - y*sy
+             ox=130  oy=254  sx=36  sy=26   (origin pixel; px per x-unit; px per y-unit)
+         Window: x in [-3,5], y in [-5,9].  viewBox 0 0 340 410.
+         To CLONE for another equation: (1) change a,h,k + window, (2) regenerate the
+         <path> 'd', grid lines, ticks and feature dots from the same px/py formulas in
+         Python (manim_poc/parabola_7A_verify.py), (3) paste back. Never hand-guess coords.
+    ==================================================================== -->
+    <svg width="340" height="410" viewBox="0 0 340 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Graph of y equals (x minus 1) squared minus 4">
+      <!-- grid: vertical lines at x=-3..5 (px 22..310), horizontal at y=-5..9 (py 384..20) -->
+      <g class="pgrid">
+        <line x1="22" y1="20" x2="22" y2="384"/><line x1="58" y1="20" x2="58" y2="384"/>
+        <line x1="94" y1="20" x2="94" y2="384"/><line x1="130" y1="20" x2="130" y2="384"/>
+        <line x1="166" y1="20" x2="166" y2="384"/><line x1="202" y1="20" x2="202" y2="384"/>
+        <line x1="238" y1="20" x2="238" y2="384"/><line x1="274" y1="20" x2="274" y2="384"/>
+        <line x1="310" y1="20" x2="310" y2="384"/>
+        <line x1="22" y1="20" x2="310" y2="20"/><line x1="22" y1="46" x2="310" y2="46"/>
+        <line x1="22" y1="72" x2="310" y2="72"/><line x1="22" y1="98" x2="310" y2="98"/>
+        <line x1="22" y1="124" x2="310" y2="124"/><line x1="22" y1="150" x2="310" y2="150"/>
+        <line x1="22" y1="176" x2="310" y2="176"/><line x1="22" y1="202" x2="310" y2="202"/>
+        <line x1="22" y1="228" x2="310" y2="228"/><line x1="22" y1="254" x2="310" y2="254"/>
+        <line x1="22" y1="280" x2="310" y2="280"/><line x1="22" y1="306" x2="310" y2="306"/>
+        <line x1="22" y1="332" x2="310" y2="332"/><line x1="22" y1="358" x2="310" y2="358"/>
+        <line x1="22" y1="384" x2="310" y2="384"/>
+      </g>
+      <!-- arrowhead marker -->
+      <defs>
+        <marker id="arrow" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 z" fill="#1E2761"/>
+        </marker>
+      </defs>
+      <!-- axes: x-axis at py=254, y-axis at px=130, with arrowheads both ends -->
+      <line class="paxis" x1="14" y1="254" x2="318" y2="254" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+      <line class="paxis" x1="130" y1="392" x2="130" y2="14" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+      <text class="ptick" x="322" y="258">x</text>
+      <text class="ptick" x="120" y="16">y</text>
+      <!-- x tick numbers -->
+      <text class="ptick" x="18" y="267">-3</text><text class="ptick" x="54" y="267">-2</text>
+      <text class="ptick" x="91" y="267">-1</text><text class="ptick" x="163" y="267">1</text>
+      <text class="ptick" x="199" y="267">2</text><text class="ptick" x="235" y="267">3</text>
+      <text class="ptick" x="271" y="267">4</text><text class="ptick" x="307" y="267">5</text>
+      <!-- y tick numbers -->
+      <text class="ptick" x="134" y="388">-5</text><text class="ptick" x="134" y="336">-3</text>
+      <text class="ptick" x="134" y="232">-1</text><text class="ptick" x="134" y="206">2</text>
+      <text class="ptick" x="134" y="102">6</text><text class="ptick" x="134" y="24">9</text>
+      <!-- axis of symmetry x=1 (dashed) -->
+      <line class="paos" x1="166" y1="20" x2="166" y2="384"/>
+      <!-- the curve y=(x-1)^2-4 -->
+      <path class="pcurve" d="M 36.20,20.00 L 41.07,44.87 L 45.94,68.80 L 50.80,91.77 L 55.67,113.80 L 60.54,134.87 L 65.41,154.99 L 70.27,174.16 L 75.14,192.38 L 80.01,209.65 L 84.88,225.97 L 89.74,241.34 L 94.61,255.76 L 99.48,269.22 L 104.35,281.74 L 109.21,293.30 L 114.08,303.92 L 118.95,313.58 L 123.82,322.30 L 128.68,330.06 L 133.55,336.88 L 138.42,342.74 L 143.29,347.65 L 148.15,351.61 L 153.02,354.62 L 157.89,356.68 L 162.76,357.79 L 167.62,357.95 L 172.49,357.15 L 177.36,355.41 L 182.22,352.72 L 187.09,349.07 L 191.96,344.48 L 196.83,338.93 L 201.69,332.44 L 206.56,324.99 L 211.43,316.59 L 216.30,307.25 L 221.16,296.95 L 226.03,285.70 L 230.90,273.50 L 235.77,260.35 L 240.63,246.25 L 245.50,231.20 L 250.37,215.19 L 255.24,198.24 L 260.10,180.34 L 264.97,161.48 L 269.84,141.68 L 274.71,120.92 L 279.57,99.22 L 284.44,76.56 L 289.31,52.95 L 294.18,28.40 L 295.80,20.00"/>
+      <!-- x-intercepts (-1,0) px(94,254) and (3,0) px(238,254) -->
+      <circle class="pdot" cx="94" cy="254" r="4"/>
+      <circle class="pdot" cx="238" cy="254" r="4"/>
+      <text class="plabel coral" x="64" y="248">(-1, 0)</text>
+      <text class="plabel coral" x="226" y="248">(3, 0)</text>
+      <!-- y-intercept (0,-3) px(130,332) -->
+      <circle class="pdot" cx="130" cy="332" r="4"/>
+      <text class="plabel coral" x="86" y="328">(0, -3)</text>
+      <!-- vertex / turning point (1,-4) px(166,358) -->
+      <circle class="pdot tp" cx="166" cy="358" r="5"/>
+      <text class="plabel" x="172" y="372">(1, -4) min</text>
+      <!-- axis-of-symmetry label -->
+      <text class="plabel coral" x="170" y="34">x = 1</text>
+      <!-- equation label -->
+      <text class="peq" x="240" y="60">y = x² - 2x - 3</text>
+    </svg>
+    <div class="cap">The basic parabola idea, shifted: $y=x^2-2x-3$. Every key feature is marked — vertex, axis of symmetry, and both intercepts.</div>
+  </div>
+  <div class="graph">
+    <!-- ===== SECONDARY SVG: effect of a (dilation) — y=x^2, y=2x^2, y=½x^2 =====
+         Same transform style: px = ox + x*sx, py = oy - y*sy, ox=150 oy=270 sx=40 sy=26
+         Window x in [-3,3], y in [0,9]. viewBox 0 0 300 300. -->
+    <svg width="300" height="300" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three parabolas showing the effect of a">
+      <!-- standalone marker so this block can be cloned on its own -->
+      <defs>
+        <marker id="arrow2" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+          <path d="M0,0 L6,3 L0,6 z" fill="#1E2761"/>
+        </marker>
+      </defs>
+      <g class="pgrid">
+        <line x1="30" y1="36" x2="30" y2="282"/><line x1="70" y1="36" x2="70" y2="282"/>
+        <line x1="110" y1="36" x2="110" y2="282"/><line x1="150" y1="36" x2="150" y2="282"/>
+        <line x1="190" y1="36" x2="190" y2="282"/><line x1="230" y1="36" x2="230" y2="282"/>
+        <line x1="270" y1="36" x2="270" y2="282"/>
+        <line x1="30" y1="36" x2="270" y2="36"/><line x1="30" y1="62" x2="270" y2="62"/>
+        <line x1="30" y1="88" x2="270" y2="88"/><line x1="30" y1="114" x2="270" y2="114"/>
+        <line x1="30" y1="140" x2="270" y2="140"/><line x1="30" y1="166" x2="270" y2="166"/>
+        <line x1="30" y1="192" x2="270" y2="192"/><line x1="30" y1="218" x2="270" y2="218"/>
+        <line x1="30" y1="244" x2="270" y2="244"/><line x1="30" y1="270" x2="270" y2="270"/>
+      </g>
+      <line class="paxis" x1="22" y1="270" x2="286" y2="270" marker-end="url(#arrow2)"/>
+      <line class="paxis" x1="150" y1="282" x2="150" y2="28" marker-end="url(#arrow2)"/>
+      <text class="ptick" x="289" y="274">x</text>
+      <text class="ptick" x="140" y="30">y</text>
+      <!-- y=2x^2 (narrower, coral) -->
+      <path class="pcurve alt" d="M 65.15,36.00 L 75.05,87.42 L 84.95,132.46 L 94.85,171.13 L 104.75,203.44 L 114.64,229.38 L 124.54,248.94 L 134.44,262.13 L 144.34,268.96 L 150.00,270.00 L 155.66,268.96 L 165.56,262.13 L 175.46,248.94 L 185.36,229.38 L 195.25,203.44 L 205.15,171.13 L 215.05,132.46 L 224.95,87.42 L 234.85,36.00"/>
+      <!-- y=x^2 (navy) -->
+      <path class="pcurve" d="M 30.00,36.00 L 40.00,73.38 L 50.00,107.50 L 60.00,138.38 L 70.00,166.00 L 80.00,190.38 L 90.00,211.50 L 100.00,229.38 L 110.00,244.00 L 120.00,255.38 L 130.00,263.50 L 140.00,268.38 L 150.00,270.00 L 160.00,268.38 L 170.00,263.50 L 180.00,255.38 L 190.00,244.00 L 200.00,229.38 L 210.00,211.50 L 220.00,190.38 L 230.00,166.00 L 240.00,138.38 L 250.00,107.50 L 260.00,73.38 L 270.00,36.00"/>
+      <!-- y=0.5x^2 (wider, green) -->
+      <path class="pcurve alt2" d="M 30.00,153.00 L 40.00,171.69 L 50.00,188.75 L 60.00,204.19 L 70.00,218.00 L 80.00,230.19 L 90.00,240.75 L 100.00,249.69 L 110.00,257.00 L 120.00,262.69 L 130.00,266.75 L 140.00,269.19 L 150.00,270.00 L 160.00,269.19 L 170.00,266.75 L 180.00,262.69 L 190.00,257.00 L 200.00,249.69 L 210.00,240.75 L 220.00,230.19 L 230.00,218.00 L 240.00,204.19 L 250.00,188.75 L 260.00,171.69 L 270.00,153.00"/>
+      <text class="peq" x="200" y="60" fill="#F96167">y = 2x²</text>
+      <text class="peq" x="248" y="108">y = x²</text>
+      <text class="peq" x="210" y="200" fill="#2C5F2D">y = ½x²</text>
+    </svg>
+    <div class="cap">Effect of $a$ in $y=ax^2$: bigger $a$ → <strong>narrower</strong> ($y=2x^2$), smaller $a$ → <strong>wider</strong> ($y=\tfrac12 x^2$).</div>
+  </div>
+</div>
+
+<div class="key-ideas">
+  <h3>Key ideas — the basic parabola $y=x^2$</h3>
+  <ul>
+    <li>The <strong>vertex</strong> (turning point) is at $(0,0)$ and it is a <strong>minimum</strong>.</li>
+    <li>The <strong>axis of symmetry</strong> is the vertical line $x=0$ (the $y$-axis).</li>
+    <li>The $y$-intercept is $(0,0)$ and the $x$-intercept is $(0,0)$.</li>
+    <li>Transformations of $y=x^2$ include <strong>dilation</strong> (wider/narrower), <strong>reflection</strong> in the $x$-axis (when $a<0$, the parabola opens downward) and <strong>translation</strong> (sliding the curve).</li>
+  </ul>
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="Parabola7A.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">📺 <strong>Walkthrough:</strong> how the number $a$ in $y=ax^2$ stretches or reflects the parabola, and where the vertex and axis of symmetry stay put.</p>
+</div>
+
+<h2>Part 2 — Reading key features (Example 1, ~12 min)</h2>
+
+<p>From a graph you should be able to read off four things: the <strong>turning point</strong> (and whether it's a max or min), the <strong>axis of symmetry</strong>, the <strong>$x$-intercepts</strong> and the <strong>$y$-intercept</strong>.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — Identifying key features</span>
+  <div class="q">
+    Determine, for the graph below: <strong>i</strong> turning point (max or min), <strong>ii</strong> axis of symmetry, <strong>iii</strong> $x$-intercepts, <strong>iv</strong> $y$-intercept.
+    <div class="graph-row">
+      <div class="graph">
+        <!-- Same hero parabola y=(x-1)^2-4, reused for Example 1 -->
+        <svg width="300" height="360" viewBox="0 0 340 410" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Parabola with minimum at (1,-4)">
+          <defs>
+            <marker id="arrow3" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 z" fill="#1E2761"/>
+            </marker>
+          </defs>
+          <g class="pgrid">
+            <line x1="22" y1="20" x2="22" y2="384"/><line x1="58" y1="20" x2="58" y2="384"/>
+            <line x1="94" y1="20" x2="94" y2="384"/><line x1="130" y1="20" x2="130" y2="384"/>
+            <line x1="166" y1="20" x2="166" y2="384"/><line x1="202" y1="20" x2="202" y2="384"/>
+            <line x1="238" y1="20" x2="238" y2="384"/><line x1="274" y1="20" x2="274" y2="384"/>
+            <line x1="310" y1="20" x2="310" y2="384"/>
+            <line x1="22" y1="20" x2="310" y2="20"/><line x1="22" y1="46" x2="310" y2="46"/>
+            <line x1="22" y1="72" x2="310" y2="72"/><line x1="22" y1="98" x2="310" y2="98"/>
+            <line x1="22" y1="124" x2="310" y2="124"/><line x1="22" y1="150" x2="310" y2="150"/>
+            <line x1="22" y1="176" x2="310" y2="176"/><line x1="22" y1="202" x2="310" y2="202"/>
+            <line x1="22" y1="228" x2="310" y2="228"/><line x1="22" y1="254" x2="310" y2="254"/>
+            <line x1="22" y1="280" x2="310" y2="280"/><line x1="22" y1="306" x2="310" y2="306"/>
+            <line x1="22" y1="332" x2="310" y2="332"/><line x1="22" y1="358" x2="310" y2="358"/>
+            <line x1="22" y1="384" x2="310" y2="384"/>
+          </g>
+          <line class="paxis" x1="14" y1="254" x2="318" y2="254" marker-end="url(#arrow3)" marker-start="url(#arrow3)"/>
+          <line class="paxis" x1="130" y1="392" x2="130" y2="14" marker-end="url(#arrow3)" marker-start="url(#arrow3)"/>
+          <text class="ptick" x="322" y="258">x</text><text class="ptick" x="120" y="16">y</text>
+          <text class="ptick" x="91" y="267">-1</text><text class="ptick" x="235" y="267">3</text>
+          <text class="ptick" x="134" y="336">-3</text>
+          <path class="pcurve" d="M 36.20,20.00 L 41.07,44.87 L 45.94,68.80 L 50.80,91.77 L 55.67,113.80 L 60.54,134.87 L 65.41,154.99 L 70.27,174.16 L 75.14,192.38 L 80.01,209.65 L 84.88,225.97 L 89.74,241.34 L 94.61,255.76 L 99.48,269.22 L 104.35,281.74 L 109.21,293.30 L 114.08,303.92 L 118.95,313.58 L 123.82,322.30 L 128.68,330.06 L 133.55,336.88 L 138.42,342.74 L 143.29,347.65 L 148.15,351.61 L 153.02,354.62 L 157.89,356.68 L 162.76,357.79 L 167.62,357.95 L 172.49,357.15 L 177.36,355.41 L 182.22,352.72 L 187.09,349.07 L 191.96,344.48 L 196.83,338.93 L 201.69,332.44 L 206.56,324.99 L 211.43,316.59 L 216.30,307.25 L 221.16,296.95 L 226.03,285.70 L 230.90,273.50 L 235.77,260.35 L 240.63,246.25 L 245.50,231.20 L 250.37,215.19 L 255.24,198.24 L 260.10,180.34 L 264.97,161.48 L 269.84,141.68 L 274.71,120.92 L 279.57,99.22 L 284.44,76.56 L 289.31,52.95 L 294.18,28.40 L 295.80,20.00"/>
+          <circle class="pdot" cx="94" cy="254" r="4"/><circle class="pdot" cx="238" cy="254" r="4"/>
+          <circle class="pdot" cx="130" cy="332" r="4"/>
+          <circle class="pdot tp" cx="166" cy="358" r="5"/>
+          <text class="plabel" x="172" y="372">(1, -4)</text>
+        </svg>
+        <div class="cap">Graph for Example 1.</div>
+      </div>
+    </div>
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <ol style="font-family:Calibri,Arial,sans-serif;">
+      <li><strong>i</strong> &nbsp;Turning point is a <strong>minimum at $(1,-4)$</strong> (the curve opens up).</li>
+      <li><strong>ii</strong> &nbsp;Axis of symmetry is the vertical line through the vertex: $x=1$.</li>
+      <li><strong>iii</strong> &nbsp;$x$-intercepts (where the curve crosses the $x$-axis): $(-1,0)$ and $(3,0)$.</li>
+      <li><strong>iv</strong> &nbsp;$y$-intercept (where it crosses the $y$-axis): $(0,-3)$.</li>
+    </ol>
+    <p class="callout"><strong>Now you try:</strong> A parabola has a maximum turning point at $(-2,0)$, passes through $(0,-4)$ and opens downward. State its axis of symmetry and $y$-intercept. &nbsp; Answer: axis of symmetry $x=-2$; $y$-intercept $(0,-4)$; only one $x$-intercept, at $(-2,0)$.</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Building understanding — read each feature off the graph above (Example 1).</p>
+  <ol class="qlist" type="a">
+    <li>Is the turning point a maximum or a minimum?</li>
+    <li>Write the coordinates of the turning point.</li>
+    <li>Write the $y$-intercept coordinates.</li>
+    <li>Write both $x$-intercepts.</li>
+    <li>State the axis of symmetry.</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) minimum &nbsp;&nbsp; b) $(1,-4)$ &nbsp;&nbsp; c) $(0,-3)$ &nbsp;&nbsp; d) $(-1,0)$ and $(3,0)$ &nbsp;&nbsp; e) $x=1$
+  </div>
+</div>
+
+<h2>Part 3 — Transforming $y=x^2$ (Example 2, ~12 min)</h2>
+
+<p>The number $a$ in $y=ax^2$ controls width and direction; adding/subtracting and bracketing slides the curve. For each rule below we describe whether it's a max or min, whether it's reflected, its turning point, the $y$-value when $x=1$, and whether it's wider or narrower than $y=x^2$.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — Transforming parabolas</span>
+  <div class="q">Complete the table for $y=4x^2$, $y=(x+2)^2$ and $y=-x^2+3$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <table class="tov" style="font-size:13.5px;">
+      <tr><th>Rule</th><th>Max / min</th><th>Reflected?</th><th>Turning point</th><th>$y$ at $x=1$</th><th>vs $y=x^2$</th></tr>
+      <tr><td class="rowlab">$y=4x^2$</td><td>minimum</td><td>no</td><td>$(0,0)$</td><td>$4$</td><td>narrower</td></tr>
+      <tr><td class="rowlab">$y=(x+2)^2$</td><td>minimum</td><td>no</td><td>$(-2,0)$</td><td>$9$</td><td>same</td></tr>
+      <tr><td class="rowlab">$y=-x^2+3$</td><td>maximum</td><td>yes</td><td>$(0,3)$</td><td>$2$</td><td>same</td></tr>
+    </table>
+    <p class="callout"><strong>Now you try:</strong> Complete the same table for $y=\tfrac12 x^2$, $y=(x-2)^2$ and $y=-x^2-1$. &nbsp; Answers: $\tfrac12 x^2$ → min, no, $(0,0)$, $y=\tfrac12$, wider; &nbsp; $(x-2)^2$ → min, no, $(2,0)$, $y=1$, same; &nbsp; $-x^2-1$ → max, yes, $(0,-1)$, $y=-2$, same.</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 3.1 — describe each parabola (max/min, reflected?, turning point, wider/narrower/same).</p>
+  <ol class="qlist" type="a">
+    <li>$y=3x^2$</li>
+    <li>$y=-2x^2$</li>
+    <li>$y=\tfrac14 x^2$</li>
+    <li>$y=(x-1)^2$</li>
+    <li>$y=x^2+2$</li>
+    <li>$y=-x^2+5$</li>
+  </ol>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    a) min, no, $(0,0)$, narrower<br>
+    b) max, yes, $(0,0)$, narrower<br>
+    c) min, no, $(0,0)$, wider<br>
+    d) min, no, $(1,0)$, same<br>
+    e) min, no, $(0,2)$, same<br>
+    f) max, yes, $(0,5)$, same
+  </div>
+</div>
+
+<h2>Part 4 — Plotting from a table of values (~8 min)</h2>
+
+<p>The surest way to know your graph is correct is to build a table first. Substitute each $x$-value into the rule, then plot the points and join them with a smooth curve.</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 3 — Table of values</span>
+  <div class="q">Complete a table of values for $y=2x^2$ and for $y=x^2-3$ using $x=-3,-2,-1,0,1,2,3$.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <table class="tov">
+      <tr><th>$x$</th><td>$-3$</td><td>$-2$</td><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td></tr>
+      <tr><td class="rowlab">$y=2x^2$</td><td>$18$</td><td>$8$</td><td>$2$</td><td>$0$</td><td>$2$</td><td>$8$</td><td>$18$</td></tr>
+      <tr><td class="rowlab">$y=x^2-3$</td><td>$6$</td><td>$1$</td><td>$-2$</td><td>$-3$</td><td>$-2$</td><td>$1$</td><td>$6$</td></tr>
+    </table>
+    <p class="callout"><strong>Check:</strong> $y=2x^2$ is narrower than $y=x^2$ (values grow twice as fast); $y=x^2-3$ is $y=x^2$ slid <strong>down 3</strong>, so its vertex is $(0,-3)$.</p>
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 4.1 — complete the table of values (use $-3\le x\le 3$).</p>
+  <table class="tov">
+    <tr><th>$x$</th><td>$-3$</td><td>$-2$</td><td>$-1$</td><td>$0$</td><td>$1$</td><td>$2$</td><td>$3$</td></tr>
+    <tr><td class="rowlab">$y=-x^2$</td><td colspan="7" style="color:#999;">fill in</td></tr>
+    <tr><td class="rowlab">$y=(x-2)^2$</td><td colspan="7" style="color:#999;">fill in</td></tr>
+  </table>
+  <button class="reveal" onclick="toggle(this)">Show answers</button>
+  <div class="answer">
+    $y=-x^2$: &nbsp; $-9,\ -4,\ -1,\ 0,\ -1,\ -4,\ -9$<br>
+    $y=(x-2)^2$: &nbsp; $25,\ 16,\ 9,\ 4,\ 1,\ 0,\ 1$ &nbsp; (vertex at $(2,0)$)
+  </div>
+</div>
+
+<h2>Part 5 — Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q1.</strong> The turning point of the basic parabola $y=x^2$ is at:</p>
+    <label><input type="radio" name="q1" value="a"> $(1,1)$</label>
+    <label><input type="radio" name="q1" value="b"> $(0,0)$</label>
+    <label><input type="radio" name="q1" value="c"> $(0,1)$</label>
+    <label><input type="radio" name="q1" value="d"> $(1,0)$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q2.</strong> Which parabola is <em>narrower</em> than $y=x^2$?</p>
+    <label><input type="radio" name="q2" value="a"> $y=\tfrac12 x^2$</label>
+    <label><input type="radio" name="q2" value="b"> $y=x^2-4$</label>
+    <label><input type="radio" name="q2" value="c"> $y=5x^2$</label>
+    <label><input type="radio" name="q2" value="d"> $y=(x-3)^2$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> The graph of $y=-x^2$ is the graph of $y=x^2$:</p>
+    <label><input type="radio" name="q3" value="a"> reflected in the $x$-axis (opens downward)</label>
+    <label><input type="radio" name="q3" value="b"> moved up 1 unit</label>
+    <label><input type="radio" name="q3" value="c"> made wider but still opening up</label>
+    <label><input type="radio" name="q3" value="d"> moved left 1 unit</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> A parabola has its minimum turning point at $(1,-4)$. Its axis of symmetry is:</p>
+    <label><input type="radio" name="q4" value="a"> $y=-4$</label>
+    <label><input type="radio" name="q4" value="b"> $x=-4$</label>
+    <label><input type="radio" name="q4" value="c"> $y=1$</label>
+    <label><input type="radio" name="q4" value="d"> $x=1$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q5.</strong> For $y=x^2-3$, the $y$-value when $x=2$ is:</p>
+    <label><input type="radio" name="q5" value="a"> $7$</label>
+    <label><input type="radio" name="q5" value="b"> $1$</label>
+    <label><input type="radio" name="q5" value="c"> $-1$</label>
+    <label><input type="radio" name="q5" value="d"> $4$</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge Ex 7A (p590)</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Cambridge Chapter 7 (page 590) and complete the following:</p>
+<table class="program">
+  <tr><th>Set work</th><th>Extension</th></tr>
+  <tr><td>Questions 1–7 (½), 8–11</td><td>Questions 12, 13 (½), 14</td></tr>
+</table>
+<p style="font-family:Calibri,Arial,sans-serif; font-size:13px; color:var(--muted);">"(½)" means do every second part. Show a table of values for any graphing question.</p>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, write one sentence each:
+  <ol style="margin-top:6px;">
+    <li>What are the coordinates of the turning point of $y=x^2$, and is it a maximum or a minimum?</li>
+    <li>What does a negative value of $a$ do to the graph of $y=ax^2$?</li>
+    <li>How can you tell from a graph where the axis of symmetry is?</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answers' : 'Show answers';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — ready for the harder reasoning questions.';
+    else if(pct >= 80) msg += '  Solid — go straight to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the walkthrough, then try again.';
+    else msg += '  Re-read Parts 1–3 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>
