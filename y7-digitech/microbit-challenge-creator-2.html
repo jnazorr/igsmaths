@@ -427,6 +427,45 @@
     <label class="fld"><span class="q">What will you fix or improve after feedback?</span><textarea class="fta" data-k="s10fix"></textarea></label>
   </div>
 
+  <!-- EXTENSION (fast finishers) -->
+  <div class="wsec" style="border-left:6px solid #c79100; background:#fffaf0;">
+    <h2 style="color:#a87800;">⭐ Extension — challenge ladder (for fast finishers)</h2>
+    <p class="lead">Finished building and tested your game? Climb as far up the ladder as you can. Pick any challenge, plan it in the box, then build it in the <em>micro:bit Editor</em> tab. More stars = harder.</p>
+    <div class="keyidea" style="background:#fff3d6; border-color:#e7cf8a; color:#7a5a00;">⭐ have a go &nbsp;·&nbsp; ⭐⭐ stretch &nbsp;·&nbsp; ⭐⭐⭐ boss level</div>
+
+    <label class="fld"><span class="q">⭐ Keep score — add a <code>score</code> variable that goes up by 1 each time you win a round, and show it when you press a button. How will you store and show the score?</span><textarea class="fta" data-k="ext_score"></textarea></label>
+
+    <label class="fld"><span class="q">⭐⭐ Private channel — use <strong>radio set group</strong> so only you and your partner hear each other (every other pair picks a different number). What group number did your pair choose, and why does this stop crosstalk with other groups?</span><textarea class="fta" data-k="ext_group"></textarea></label>
+
+    <div class="fld">
+      <span class="q" style="font-weight:600; display:block; margin-bottom:3px;">⭐⭐ Auto-judge over radio — both players <strong>send a number</strong> for their choice (0 = rock, 1 = paper, 2 = scissors). When you receive your opponent's number, use <strong>if / else</strong> to show <em>Win</em>, <em>Lose</em> or <em>Draw</em>. Write the rule that decides the winner:</span>
+      <textarea class="fta" data-k="ext_judge"></textarea>
+    </div>
+    <div class="stack" style="max-width:520px;">
+      <div class="cap">Hint — the sending half</div>
+<pre class="code"><span class="kw">let</span> myChoice = <span class="num">0</span>
+<span class="kw">radio</span>.<span class="fn">setGroup</span>(<span class="num">3</span>)
+<span class="kw">input</span>.<span class="fn">onGesture</span>(Gesture.Shake, <span class="kw">function</span> () {
+    myChoice = <span class="fn">randint</span>(<span class="num">0</span>, <span class="num">2</span>)
+    <span class="kw">radio</span>.<span class="fn">sendNumber</span>(myChoice)
+    <span class="kw">basic</span>.<span class="fn">showNumber</span>(myChoice)
+})</pre>
+      <p class="note" style="margin:6px 0 0;">Then in <code>radio.onReceivedNumber</code>: it's a <strong>draw</strong> if both numbers match. Otherwise you <strong>win</strong> if your choice beats theirs — rock(0) beats scissors(2), paper(1) beats rock(0), scissors(2) beats paper(1). (Neat trick for the win case: it's a win when <code>(myChoice − theirChoice + 3) % 3 == 1</code>.)</p>
+    </div>
+
+    <label class="fld"><span class="q">⭐⭐⭐ Bigger game — extend Rock–Paper–Scissors to <strong>five</strong> options (e.g. add Lizard and Spock). Write what beats what, and describe how you'd change the winner check in code.</span><textarea class="fta" data-k="ext_big"></textarea></label>
+
+    <label class="fld"><span class="q">⭐⭐⭐ Invent a new two-player radio game — design something different (e.g. a reaction duel: first to shake after the LEDs flash wins). Plan it as input → process (with radio) → output, and state the win condition.</span><textarea class="fta" data-k="ext_new"></textarea></label>
+
+    <div class="checkpoint" style="background:#fff3d6; border-color:#e7cf8a;">
+      <ul class="checklist">
+        <li style="color:#7a5a00;"><input type="checkbox" data-k="ext_c1"> I attempted at least one ⭐⭐ challenge</li>
+        <li style="color:#7a5a00;"><input type="checkbox" data-k="ext_c2"> I built and tested it on the micro:bit (or simulator)</li>
+        <li style="color:#7a5a00;"><input type="checkbox" data-k="ext_c3"> I reached a ⭐⭐⭐ boss level</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- SECTION 11 -->
   <div class="wsec">
     <h2>💭 Section 11 — Reflection</h2>
