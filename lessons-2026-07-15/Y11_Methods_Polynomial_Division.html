@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 11 Methods — Polynomial Division practice · IGS Maths</title>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+    --methods:#4b3b8f; --methods-wash:#efeaff;
+  }
+  * { box-sizing:border-box; }
+  body { font-family:'Helvetica Neue',Arial,sans-serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--methods); color:#fff; padding:30px 40px; border-bottom:6px solid var(--accent); }
+  header .eyebrow { letter-spacing:0.14em; font-size:12px; color:#dcd4ff; margin-bottom:6px;
+                   text-transform:uppercase; font-weight:bold; }
+  header h1 { margin:0 0 8px 0; font-size:28px; font-family:Georgia,serif; }
+  header .meta { color:#dcd4ff; font-size:14.5px; }
+  main { max-width:860px; margin:0 auto; padding:24px 40px 70px 40px; }
+  h2 { color:var(--methods); border-bottom:2px solid var(--methods-wash); padding-bottom:6px;
+       margin-top:34px; font-size:22px; font-family:Georgia,serif; }
+  h3 { color:var(--methods); margin-top:20px; font-size:17px; }
+  .intro { background:#FFF9E6; border:2px solid #E8D88A; border-radius:8px; padding:16px 22px; margin:20px 0; }
+  .intro h2 { margin:0 0 8px 0; color:#8a650d; font-size:18px; border:none; padding:0; }
+  .intro p { margin:5px 0; font-size:14.5px; }
+  .refresher { background:var(--card); border:1px solid #ddd; border-left:6px solid var(--methods);
+               border-radius:8px; padding:16px 22px; margin:18px 0; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .refresher ol { margin:10px 0 6px 0; padding-left:22px; }
+  .refresher li { margin:6px 0; font-size:15px; }
+  pre.longdiv { background:#f6f7fb; border:1px solid #dbe0ef; border-radius:6px; padding:14px 18px;
+                font-family:'Courier New',monospace; font-size:15px; line-height:1.5; overflow-x:auto; color:#1E2761; }
+  .check { background:#E8F1E8; border-left:5px solid var(--good); border-radius:4px; padding:8px 14px;
+           margin-top:10px; font-size:14.5px; }
+  .level-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:14px; margin-top:16px; }
+  .level-card { background:#fff; border:1px solid #ddd; border-radius:10px; padding:16px 18px; display:flex;
+                flex-direction:column; box-shadow:0 2px 6px rgba(0,0,0,0.04); transition:all .15s; }
+  .level-card:hover { border-color:var(--methods); transform:translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,0.08); }
+  .level-card .tag { display:inline-block; background:var(--methods-wash); color:var(--methods); padding:3px 10px;
+                     border-radius:12px; font-size:11px; font-weight:bold; letter-spacing:0.5px; margin-bottom:8px;
+                     width:max-content; text-transform:uppercase; }
+  .level-card h3 { margin:0 0 6px 0; font-size:16px; color:var(--methods); }
+  .level-card p { color:var(--muted); font-size:13.5px; margin:0 0 12px 0; flex:1; }
+  .level-card a.go { font-weight:bold; color:#fff; background:var(--methods); text-decoration:none; font-size:13.5px;
+                     text-align:center; padding:8px 12px; border-radius:6px; transition:background .15s; }
+  .level-card a.go:hover { background:#3a2d72; }
+  .steps { background:var(--methods-wash); border-radius:8px; padding:14px 22px; margin:16px 0; }
+  .steps ul { margin:6px 0; padding-left:22px; }
+  .steps li { margin:6px 0; font-size:14.5px; }
+  footer { padding:20px 40px; color:var(--muted); font-size:13px; border-top:1px solid #eee; }
+  footer a { color:var(--methods); }
+  .lesson-nav { background:var(--navy); color:#fff; padding:7px clamp(14px,3vw,28px); display:flex; align-items:center;
+                justify-content:space-between; font-size:13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  @media (max-width:640px){ main{padding:18px;} header{padding:22px 18px;} header h1{font-size:23px;} }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="./">← Today's lessons</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../lessons-library.html">Library</a>
+  </div>
+</nav>
+<header>
+  <p class="eyebrow">Year 11 Mathematical Methods · Unit 1</p>
+  <h1>Polynomial Division — practice</h1>
+  <p class="meta">Wednesday 15 July 2026 &nbsp;·&nbsp; Room A101 &nbsp;·&nbsp; work through Transum Levels 2 → 5</p>
+</header>
+
+<main>
+
+<div class="intro">
+  <h2>📋 What to do today</h2>
+  <p>You'll practise <strong>dividing polynomials</strong> using the self-marking exercises below. Work steadily through <strong>Level 2, then 3, 4 and 5</strong> — each one steps up a little.</p>
+  <p><strong>Show all your working in your exercise book</strong> (don't just type answers), and click <strong>Check</strong> on the site as you go so you know straight away whether you're on track. Aim to get solidly through Levels 2 and 3, then push into 4 and 5.</p>
+</div>
+
+<h2>A quick reminder first</h2>
+<p>Polynomial long division works just like the long division you did with numbers — you divide, multiply, subtract, and bring down the next term. Here's one worked through:</p>
+
+<div class="refresher">
+  <h3>Worked example: $(x^2+4x+3)\div(x+1)$</h3>
+  <pre class="longdiv">            x + 3
+        ______________
+ x + 1 ) x^2 + 4x + 3
+         x^2 +  x
+         ----------
+                3x + 3
+                3x + 3
+                ------
+                     0</pre>
+  <ol>
+    <li>Divide the leading terms: $x^2 \div x = x$. Write $x$ on top.</li>
+    <li>Multiply back: $x(x+1) = x^2 + x$. Write it underneath and <strong>subtract</strong>: $(x^2+4x) - (x^2+x) = 3x$. Bring down the $+3$.</li>
+    <li>Repeat: $3x \div x = 3$. Multiply: $3(x+1) = 3x+3$. Subtract: remainder $0$.</li>
+  </ol>
+  <p><strong>Answer:</strong> $x^2+4x+3 = (x+1)(x+3)$, so the quotient is $x+3$ with no remainder.</p>
+  <div class="check">✅ Check it yourself: expand $(x+1)(x+3) = x^2 + 4x + 3$. It matches — so the division is correct.</div>
+</div>
+
+<div class="steps">
+  <strong>The 4 steps, every time:</strong>
+  <ul>
+    <li><strong>Divide</strong> the leading term of what's left by the leading term of the divisor.</li>
+    <li><strong>Multiply</strong> that result by the whole divisor.</li>
+    <li><strong>Subtract</strong> (this is where most slips happen — watch your signs).</li>
+    <li><strong>Bring down</strong> the next term and repeat until nothing is left to bring down.</li>
+  </ul>
+  <p style="font-size:14px;margin:6px 0 0 0;">If there's a leftover at the end that's a lower degree than the divisor, that's your <strong>remainder</strong> — that's exactly what Level 3 is about.</p>
+</div>
+
+<h2>Your practice — work through these in order</h2>
+<div class="level-grid">
+
+  <div class="level-card">
+    <span class="tag">Level 2</span>
+    <h3>Divide by a linear expression</h3>
+    <p>Divide a polynomial by something like $(x+1)$ or $(2x-3)$ — same as the example above.</p>
+    <a class="go" href="https://www.transum.org/Maths/Exercise/Algebra/Division/Default.asp?Level=2" target="_blank" rel="noopener">Open Level 2 →</a>
+  </div>
+
+  <div class="level-card">
+    <span class="tag">Level 3</span>
+    <h3>Find the remainder</h3>
+    <p>Same method, but now the division doesn't come out exactly — state the quotient <em>and</em> the remainder.</p>
+    <a class="go" href="https://www.transum.org/Maths/Exercise/Algebra/Division/Default.asp?Level=3" target="_blank" rel="noopener">Open Level 3 →</a>
+  </div>
+
+  <div class="level-card">
+    <span class="tag">Level 4</span>
+    <h3>Divide by a quadratic or cubic</h3>
+    <p>Step up to dividing by a quadratic or cubic divisor. The four steps are identical — just a bit more of it.</p>
+    <a class="go" href="https://www.transum.org/Maths/Exercise/Algebra/Division/Default.asp?Level=4" target="_blank" rel="noopener">Open Level 4 →</a>
+  </div>
+
+  <div class="level-card">
+    <span class="tag">Level 5</span>
+    <h3>Mixed practice</h3>
+    <p>A mixed set that pulls all of it together. Good stretch once Levels 2–4 feel comfortable.</p>
+    <a class="go" href="https://www.transum.org/Maths/Exercise/Algebra/Division/Default.asp?Level=5" target="_blank" rel="noopener">Open Level 5 →</a>
+  </div>
+
+</div>
+
+<h2>If you get stuck</h2>
+<ul>
+  <li>Re-read the worked example above — most crosses come from a <strong>sign error in the subtraction</strong> step, so slow down there.</li>
+  <li>Line your working up in columns (like terms under like terms) — it makes the subtraction far easier to get right.</li>
+  <li>Check any answer by <strong>expanding it back out</strong>: divisor × quotient (+ remainder) should give you the original polynomial.</li>
+  <li>Compare with someone next to you working on the same level — but write your own working.</li>
+</ul>
+
+</main>
+
+<footer>
+  <p>IGS Maths &nbsp;•&nbsp; <a href="./">Back to today's lessons</a> &nbsp;•&nbsp; — Mr Wong</p>
+</footer>
+
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+</html>

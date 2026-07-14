@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lessons — Wed 15 July 2026 · Y10 Parabolas, Y11 &amp; Y12 Methods</title>
+<style>
+  :root {
+    --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042;
+    --methods:#4b3b8f; --sac:#9A2A2A;
+  }
+  * { box-sizing:border-box; }
+  body { font-family:'Helvetica Neue',Arial,sans-serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.5; }
+  header { background:var(--navy); color:#fff; padding:32px 40px; border-bottom:6px solid var(--accent); }
+  header .eyebrow { letter-spacing:0.14em; font-size:12px; color:var(--ice); margin-bottom:6px;
+                    text-transform:uppercase; font-weight:bold; }
+  header h1 { margin:0 0 8px 0; font-size:30px; font-family:Georgia,serif; }
+  header .meta { color:var(--ice); font-size:15px; }
+  main { max-width:1000px; margin:0 auto; padding:24px 40px 60px 40px; }
+  h2.section { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px;
+               margin-top:32px; font-size:22px; font-family:Georgia,serif; }
+  h2.section .lead { font-weight:normal; font-size:14px; color:var(--muted); font-family:'Helvetica Neue',Arial,sans-serif; }
+  .note { background:#fff; border:1px solid #e2e2e2; border-left:5px solid var(--navy); border-radius:6px;
+          padding:11px 16px; margin:14px 0 4px 0; font-size:14.5px; }
+  .note.m { border-left-color:var(--methods); }
+  .lesson-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+                 gap:16px; margin-top:14px; }
+  .lesson-card { background:#fff; border:1px solid #ddd; border-radius:10px; padding:18px 20px;
+                 display:flex; flex-direction:column;
+                 box-shadow:0 2px 6px rgba(0,0,0,0.04); transition:all .15s; }
+  .lesson-card:hover { border-color:var(--accent); transform:translateY(-2px);
+                       box-shadow:0 8px 18px rgba(0,0,0,0.08); }
+  .lesson-card .tag { display:inline-block; background:var(--ice); color:var(--navy); padding:3px 10px;
+                      border-radius:12px; font-size:11px; font-weight:bold; letter-spacing:0.5px;
+                      margin-bottom:8px; width:max-content; text-transform:uppercase; }
+  .lesson-card.m .tag { background:#efeaff; color:var(--methods); }
+  .lesson-card.sac .tag { background:#fbecec; color:var(--sac); }
+  .lesson-card h3 { margin:0 0 6px 0; font-size:17px; color:var(--navy); font-family:Georgia,serif; }
+  .lesson-card.m h3 { color:var(--methods); }
+  .lesson-card.sac h3 { color:var(--sac); }
+  .lesson-card .sub { color:var(--muted); font-size:13px; margin-bottom:12px; flex:1; }
+  .lesson-card a.open { font-weight:bold; color:var(--accent); font-size:13.5px; text-decoration:none; }
+  .lesson-card a.open::after { content:"  →"; }
+  .ws-row { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+  .ws-row a { font-size:12px; color:var(--navy); text-decoration:none; background:#fff;
+              border:1px solid var(--navy); padding:4px 10px; border-radius:14px; font-weight:bold; transition:all .15s; }
+  .ws-row a:hover { background:var(--navy); color:#fff; }
+  .ws-row a.good { color:#2C5F2D; border-color:#2C5F2D; }
+  .ws-row a.good:hover { background:#2C5F2D; color:#fff; }
+  .intro { background:#FFF9E6; border:2px solid #E8D88A; border-radius:8px; padding:16px 22px; margin:20px 0; }
+  .intro h2 { margin:0 0 8px 0; color:#8a650d; font-size:18px; }
+  .intro p { margin:4px 0; font-size:14.5px; }
+  footer { padding:20px 40px; color:var(--muted); font-size:13px; border-top:1px solid #eee; }
+  footer a { color:var(--navy); }
+  @media (max-width:640px) { main { padding:18px; } header { padding:24px 18px; } header h1 { font-size:24px; } }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: 'Helvetica Neue',Arial,sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../">∑ IGS Maths</a>
+  <div class="links">
+    <a href="../core.html">Year 10</a>
+    <a href="../methods.html">Year 11</a>
+    <a href="../y12-methods/">Year 12</a>
+    <a href="../lessons-library.html">Library</a>
+    <a href="../lessons-2026-06-14/">← Sun 14 June</a>
+  </div>
+</nav>
+<header>
+  <p class="eyebrow">Lessons for today</p>
+  <h1>Wednesday 15 July</h1>
+  <p class="meta">Year 10 Core — Parabolas 7A &amp; 7B &nbsp;·&nbsp; Year 11 Methods — Polynomial division &nbsp;·&nbsp; Year 12 Methods — Practice SAC</p>
+</header>
+
+<main>
+
+<div class="intro">
+  <h2>👋 Start here</h2>
+  <p><strong>Find your class below and follow the steps.</strong> Everything you need is linked — open your lesson or activity and work through it at a steady pace.</p>
+  <p>You'll need your <strong>exercise book and pen</strong>, a <strong>device</strong> to open your lesson, and your <strong>CAS calculator</strong> (Year 11 &amp; 12). Mark your own work as you go using the <strong>Show solution</strong> and <strong>Check</strong> buttons, and keep the room calm and focused so everyone can get on with it.</p>
+</div>
+
+<h2 class="section">Year 10 Core · Parabolas <span class="lead">— Chapter 7 · Room A102</span></h2>
+<div class="note">
+  Two Year 10 Core classes today.
+  <strong>Morning double class (R10MAC5):</strong> work through <strong>7A first, then 7B</strong>.
+  <strong>The other class (R10MAC6):</strong> start at <strong>7B</strong> — 7A is here too if you'd like a quick review first.
+  Each lesson has worked examples (tap <strong>Show solution</strong>), a short video, a quick self-check quiz, and a printable worksheet with answers.
+</div>
+<div class="lesson-grid">
+
+  <div class="lesson-card">
+    <span class="tag">Ex 7A</span><h3>Exploring Parabolas</h3>
+    <p class="sub">The basic parabola and its key features — turning point, axis of symmetry, intercepts — plus dilations and reflections.</p>
+    <a class="open" href="../lessons-2026-06-14/Y10_Core_Parabolas_7A.html">Open online lesson</a>
+    <div class="ws-row"><a href="../lessons-2026-06-14/Y10_Core_Parabolas_7A_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="../lessons-2026-06-14/Y10_Core_Parabolas_7A_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+  <div class="lesson-card">
+    <span class="tag">Ex 7B</span><h3>Sketching using Transformations</h3>
+    <p class="sub">Sketching from turning-point form — shifting, stretching and reflecting the basic parabola, and reading off the turning point.</p>
+    <a class="open" href="../lessons-2026-06-14/Y10_Core_Parabolas_7B.html">Open online lesson</a>
+    <div class="ws-row"><a href="../lessons-2026-06-14/Y10_Core_Parabolas_7B_worksheet.html" target="_blank">📄 Worksheet</a><a class="good" href="../lessons-2026-06-14/Y10_Core_Parabolas_7B_solutions.html" target="_blank">✅ Solutions</a></div>
+  </div>
+
+</div>
+
+<h2 class="section">Year 11 Methods · Lesson for today <span class="lead">— Unit 1 · Room A101</span></h2>
+<div class="lesson-grid">
+
+  <div class="lesson-card m">
+    <span class="tag">Activity</span><h3>Polynomial Division practice</h3>
+    <p class="sub">A quick worked reminder, then self-marking practice on Transum — Levels 2 to 5, from dividing by a linear expression up to remainders and higher divisors. Show your working in your book and click Check as you go.</p>
+    <a class="open" href="Y11_Methods_Polynomial_Division.html">Open the activity</a>
+  </div>
+
+</div>
+
+<h2 class="section">Year 12 Methods · Lesson for today <span class="lead">— Unit 3 · Room A201</span></h2>
+<div class="lesson-grid">
+
+  <div class="lesson-card sac">
+    <span class="tag">Practice SAC</span><h3>Practice SAC — Unit 3 revision</h3>
+    <p class="sub">Collect a practice SAC paper from the front desk and work through it this period — great revision. You can use your notes, and you keep the paper to mark next lesson. The page has the details and some SAC technique tips.</p>
+    <a class="open" href="Y12_Methods_Practice_SAC.html">Open the instructions</a>
+  </div>
+
+</div>
+
+</main>
+
+<footer>
+  <p>IGS Maths &nbsp;•&nbsp; <a href="../">Back to main hub</a> &nbsp;•&nbsp; — Mr Wong</p>
+</footer>
+
+<script>
+  window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+</html>
