@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 12 Methods — Area Between Curves: Extra Worked Examples</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042; }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:28px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:980px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  p.lead { font-size:16px; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:22px 0;
+             box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 12px;
+                    border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif;
+                    letter-spacing:0.5px; margin-bottom:10px; }
+  .example .q { font-size:16px; padding:6px 0 10px 0; font-weight:bold; }
+  .sketch { text-align:center; margin:6px 0 14px 0; }
+  .sketch figcaption { font-family:Calibri,Arial,sans-serif; font-size:12.5px; color:var(--muted); margin-top:4px; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc;
+                font-family: Calibri, Arial, sans-serif; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                       padding:6px 16px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .example .step { margin:8px 0; padding:4px 10px; border-left:3px solid var(--ice); }
+  .example .final { background:#E8F1E8; padding:8px 12px; border-radius:4px; margin-top:12px;
+                    border-left:4px solid var(--good); font-weight:bold; font-size:15px; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px;
+                   padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif;
+                   font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy);
+                     padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:780px) { main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../../">&#8721; IGS Maths</a>
+  <div class="links">
+    <a href="../../core.html">Year 10</a>
+    <a href="../../methods.html">Year 11</a>
+    <a href="../" class="current">Year 12</a>
+    <a href="../11I-area-between-curves/">&#8592; Back to the 11I lesson</a>
+  </div>
+</nav>
+<header>
+  <h1>Area Between Curves &mdash; Extra Worked Examples</h1>
+  <div class="meta">Year 12 Methods Unit 3 &nbsp;&bull;&nbsp; Cambridge Methods 3&amp;4, Ch 11 &sect;11I &nbsp;&bull;&nbsp; Mr Wong</div>
+  <div class="resources-box">
+    <strong>&#128218; For this topic:</strong>
+    <a href="../11I-area-between-curves/">&#8592; Main lesson: Area between curves</a>
+    <a href="../../lessons-2026-06-01/Y12_Methods_Integration_AreaBetweenCurves_worksheet.html" target="_blank">&#128196; Worksheet</a>
+    <a href="../../lessons-2026-06-01/Y12_Methods_Integration_AreaBetweenCurves_solutions.html" target="_blank">&#9989; Solutions</a>
+    <a href="../">&#127968; All Y12 Methods topics</a>
+  </div>
+</header>
+
+<main>
+
+<p class="lead">Two more worked examples on the area between two curves &mdash; one with a line and a parabola, and one &ldquo;show that&rdquo; question where the curves cross <em>inside</em> the region so you must split the integral. Try each one in your book first, then click <strong>Show solution</strong> to check every step.</p>
+
+<div class="callout">
+  <strong>The routine (same every time):</strong> sketch &rarr; solve $f(x)=g(x)$ for the limits &rarr; decide which curve is on top (test a point) &rarr; integrate $\displaystyle\int (\text{top}-\text{bottom})\,dx$. If the curves swap over inside the region, split at the crossing and add the pieces.
+</div>
+
+<h2>Example 1 &mdash; a line and a parabola</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 1</span>
+  <div class="q">Find the area of the region bounded between $y = 2x^2 - 1$ and $y = x$.</div>
+  <figure class="sketch">
+    <svg viewBox="0 0 430 300" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;max-width:430px;height:auto;background:#fff;border:1px solid #e3e3e3;border-radius:8px;">
+<polygon points="146.0,216.9 147.5,216.3 149.1,215.7 150.6,215.1 152.2,214.5 153.8,213.8 155.3,213.2 156.9,212.6 158.4,212.0 160.0,211.4 161.6,210.8 163.1,210.2 164.7,209.6 166.2,209.0 167.8,208.4 169.3,207.8 170.9,207.2 172.5,206.6 174.0,206.0 175.6,205.4 177.1,204.8 178.7,204.2 180.2,203.6 181.8,203.0 183.4,202.4 184.9,201.8 186.5,201.2 188.0,200.6 189.6,200.0 191.2,199.4 192.7,198.8 194.3,198.2 195.8,197.5 197.4,196.9 199.0,196.3 200.5,195.7 202.1,195.1 203.6,194.5 205.2,193.9 206.7,193.3 208.3,192.7 209.9,192.1 211.4,191.5 213.0,190.9 214.5,190.3 216.1,189.7 217.7,189.1 219.2,188.5 220.8,187.9 222.3,187.3 223.9,186.7 225.4,186.1 227.0,185.5 228.6,184.9 230.1,184.3 231.7,183.7 233.2,183.1 234.8,182.5 236.3,181.8 237.9,181.2 239.5,180.6 241.0,180.0 242.6,179.4 244.1,178.8 245.7,178.2 247.3,177.6 248.8,177.0 250.4,176.4 251.9,175.8 253.5,175.2 255.1,174.6 256.6,174.0 258.2,173.4 259.7,172.8 261.3,172.2 262.8,171.6 264.4,171.0 266.0,170.4 267.5,169.8 269.1,169.2 270.6,168.6 272.2,168.0 273.8,167.4 275.3,166.8 276.9,166.2 278.4,165.5 280.0,164.9 281.5,164.3 283.1,163.7 284.7,163.1 286.2,162.5 287.8,161.9 289.3,161.3 290.9,160.7 292.5,160.1 294.0,159.5 295.6,158.9 297.1,158.3 298.7,157.7 300.2,157.1 301.8,156.5 303.4,155.9 304.9,155.3 306.5,154.7 308.0,154.1 309.6,153.5 311.1,152.9 312.7,152.3 314.3,151.7 315.8,151.1 317.4,150.5 318.9,149.8 320.5,149.2 322.1,148.6 323.6,148.0 325.2,147.4 326.7,146.8 328.3,146.2 329.9,145.6 331.4,145.0 333.0,144.4 333.0,144.4 331.4,146.8 329.9,149.2 328.3,151.5 326.7,153.8 325.2,156.1 323.6,158.4 322.1,160.6 320.5,162.8 318.9,164.9 317.4,167.1 315.8,169.2 314.3,171.2 312.7,173.3 311.1,175.3 309.6,177.2 308.0,179.2 306.5,181.1 304.9,183.0 303.4,184.9 301.8,186.7 300.2,188.5 298.7,190.2 297.1,192.0 295.6,193.7 294.0,195.4 292.5,197.0 290.9,198.6 289.3,200.2 287.8,201.8 286.2,203.3 284.7,204.8 283.1,206.2 281.5,207.7 280.0,209.1 278.4,210.5 276.9,211.8 275.3,213.1 273.8,214.4 272.2,215.6 270.6,216.9 269.1,218.1 267.5,219.2 266.0,220.4 264.4,221.5 262.8,222.5 261.3,223.6 259.7,224.6 258.2,225.6 256.6,226.5 255.1,227.4 253.5,228.3 251.9,229.2 250.4,230.0 248.8,230.8 247.3,231.6 245.7,232.3 244.1,233.0 242.6,233.7 241.0,234.4 239.5,235.0 237.9,235.6 236.3,236.1 234.8,236.7 233.2,237.2 231.7,237.6 230.1,238.1 228.6,238.5 227.0,238.8 225.4,239.2 223.9,239.5 222.3,239.8 220.8,240.1 219.2,240.3 217.7,240.5 216.1,240.6 214.5,240.8 213.0,240.9 211.4,241.0 209.9,241.0 208.3,241.0 206.7,241.0 205.2,241.0 203.6,240.9 202.1,240.8 200.5,240.6 199.0,240.5 197.4,240.3 195.8,240.1 194.3,239.8 192.7,239.5 191.2,239.2 189.6,238.8 188.0,238.5 186.5,238.1 184.9,237.6 183.4,237.2 181.8,236.7 180.2,236.1 178.7,235.6 177.1,235.0 175.6,234.4 174.0,233.7 172.5,233.0 170.9,232.3 169.3,231.6 167.8,230.8 166.2,230.0 164.7,229.2 163.1,228.3 161.6,227.4 160.0,226.5 158.4,225.6 156.9,224.6 155.3,223.6 153.8,222.5 152.2,221.5 150.6,220.4 149.1,219.2 147.5,218.1 146.0,216.9" fill="#CADCFC" fill-opacity="0.55" stroke="none"/>
+<line x1="40.0" y1="192.7" x2="414.0" y2="192.7" stroke="#999"/>
+<line x1="208.3" y1="270.0" x2="208.3" y2="14.0" stroke="#999"/>
+<line x1="83.6" y1="189.7" x2="83.6" y2="195.7" stroke="#999"/>
+<text x="83.6" y="207.7" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="middle">-1</text>
+<line x1="146.0" y1="189.7" x2="146.0" y2="195.7" stroke="#999"/>
+<text x="146.0" y="207.7" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="middle">-0.5</text>
+<line x1="333.0" y1="189.7" x2="333.0" y2="195.7" stroke="#999"/>
+<text x="333.0" y="207.7" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="middle">1</text>
+<line x1="205.3" y1="241.0" x2="211.3" y2="241.0" stroke="#999"/>
+<text x="202.3" y="245.0" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="end">-1</text>
+<line x1="205.3" y1="144.4" x2="211.3" y2="144.4" stroke="#999"/>
+<text x="202.3" y="148.4" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="end">1</text>
+<line x1="205.3" y1="96.1" x2="211.3" y2="96.1" stroke="#999"/>
+<text x="202.3" y="100.1" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="end">2</text>
+<line x1="205.3" y1="47.8" x2="211.3" y2="47.8" stroke="#999"/>
+<text x="202.3" y="51.8" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="end">3</text>
+<polyline points="40.0,65.0 42.1,69.3 44.2,73.5 46.2,77.8 48.3,81.9 50.4,86.0 52.5,90.1 54.5,94.1 56.6,98.0 58.7,101.9 60.8,105.7 62.9,109.5 64.9,113.3 67.0,116.9 69.1,120.6 71.2,124.1 73.2,127.6 75.3,131.1 77.4,134.5 79.5,137.9 81.6,141.2 83.6,144.4 85.7,147.6 87.8,150.7 89.9,153.8 91.9,156.9 94.0,159.8 96.1,162.8 98.2,165.6 100.3,168.5 102.3,171.2 104.4,173.9 106.5,176.6 108.6,179.2 110.6,181.7 112.7,184.2 114.8,186.7 116.9,189.1 119.0,191.4 121.0,193.7 123.1,195.9 125.2,198.1 127.3,200.2 129.3,202.3 131.4,204.3 133.5,206.2 135.6,208.1 137.7,210.0 139.7,211.8 141.8,213.5 143.9,215.2 146.0,216.9 148.0,218.5 150.1,220.0 152.2,221.5 154.3,222.9 156.4,224.2 158.4,225.6 160.5,226.8 162.6,228.0 164.7,229.2 166.7,230.3 168.8,231.3 170.9,232.3 173.0,233.3 175.1,234.1 177.1,235.0 179.2,235.8 181.3,236.5 183.4,237.2 185.4,237.8 187.5,238.3 189.6,238.8 191.7,239.3 193.8,239.7 195.8,240.1 197.9,240.3 200.0,240.6 202.1,240.8 204.1,240.9 206.2,241.0 208.3,241.0 210.4,241.0 212.5,240.9 214.5,240.8 216.6,240.6 218.7,240.3 220.8,240.1 222.8,239.7 224.9,239.3 227.0,238.8 229.1,238.3 231.2,237.8 233.2,237.2 235.3,236.5 237.4,235.8 239.5,235.0 241.5,234.1 243.6,233.3 245.7,232.3 247.8,231.3 249.9,230.3 251.9,229.2 254.0,228.0 256.1,226.8 258.2,225.6 260.2,224.2 262.3,222.9 264.4,221.5 266.5,220.0 268.6,218.5 270.6,216.9 272.7,215.2 274.8,213.5 276.9,211.8 278.9,210.0 281.0,208.1 283.1,206.2 285.2,204.3 287.3,202.3 289.3,200.2 291.4,198.1 293.5,195.9 295.6,193.7 297.6,191.4 299.7,189.1 301.8,186.7 303.9,184.2 306.0,181.7 308.0,179.2 310.1,176.6 312.2,173.9 314.3,171.2 316.3,168.5 318.4,165.6 320.5,162.8 322.6,159.8 324.7,156.9 326.7,153.8 328.8,150.7 330.9,147.6 333.0,144.4 335.0,141.2 337.1,137.9 339.2,134.5 341.3,131.1 343.4,127.6 345.4,124.1 347.5,120.6 349.6,116.9 351.7,113.3" fill="none" stroke="#1E2761" stroke-width="2.4"/>
+<polyline points="40.0,257.9 42.5,257.0 45.0,256.0 47.5,255.0 50.0,254.1 52.5,253.1 55.0,252.1 57.5,251.2 59.9,250.2 62.4,249.2 64.9,248.3 67.4,247.3 69.9,246.3 72.4,245.4 74.9,244.4 77.4,243.4 79.9,242.5 82.4,241.5 84.9,240.5 87.4,239.6 89.9,238.6 92.4,237.6 94.9,236.7 97.3,235.7 99.8,234.7 102.3,233.8 104.8,232.8 107.3,231.8 109.8,230.9 112.3,229.9 114.8,228.9 117.3,228.0 119.8,227.0 122.3,226.0 124.8,225.1 127.3,224.1 129.8,223.1 132.3,222.2 134.7,221.2 137.2,220.2 139.7,219.3 142.2,218.3 144.7,217.4 147.2,216.4 149.7,215.4 152.2,214.5 154.7,213.5 157.2,212.5 159.7,211.6 162.2,210.6 164.7,209.6 167.2,208.7 169.7,207.7 172.1,206.7 174.6,205.8 177.1,204.8 179.6,203.8 182.1,202.9 184.6,201.9 187.1,200.9 189.6,200.0 192.1,199.0 194.6,198.0 197.1,197.1 199.6,196.1 202.1,195.1 204.6,194.2 207.1,193.2 209.5,192.2 212.0,191.3 214.5,190.3 217.0,189.3 219.5,188.4 222.0,187.4 224.5,186.4 227.0,185.5 229.5,184.5 232.0,183.5 234.5,182.6 237.0,181.6 239.5,180.6 242.0,179.7 244.5,178.7 246.9,177.7 249.4,176.8 251.9,175.8 254.4,174.8 256.9,173.9 259.4,172.9 261.9,171.9 264.4,171.0 266.9,170.0 269.4,169.0 271.9,168.1 274.4,167.1 276.9,166.2 279.4,165.2 281.9,164.2 284.3,163.3 286.8,162.3 289.3,161.3 291.8,160.4 294.3,159.4 296.8,158.4 299.3,157.5 301.8,156.5 304.3,155.5 306.8,154.6 309.3,153.6 311.8,152.6 314.3,151.7 316.8,150.7 319.3,149.7 321.7,148.8 324.2,147.8 326.7,146.8 329.2,145.9 331.7,144.9 334.2,143.9 336.7,143.0 339.2,142.0 341.7,141.0 344.2,140.1 346.7,139.1 349.2,138.1 351.7,137.2 354.2,136.2 356.7,135.2 359.1,134.3 361.6,133.3 364.1,132.3 366.6,131.4 369.1,130.4 371.6,129.4 374.1,128.5 376.6,127.5 379.1,126.5 381.6,125.6 384.1,124.6 386.6,123.6 389.1,122.7 391.6,121.7 394.1,120.7 396.5,119.8 399.0,118.8 401.5,117.8 404.0,116.9 406.5,115.9 409.0,115.0 411.5,114.0 414.0,113.0" fill="none" stroke="#F96167" stroke-width="2.4"/>
+<circle cx="146.0" cy="216.9" r="3.4" fill="#1E2761"/>
+<circle cx="333.0" cy="144.4" r="3.4" fill="#1E2761"/>
+<text x="355.4" y="33.3" font-size="13" font-family="Georgia,serif" font-style="italic" font-weight="bold" fill="#1E2761">y = 2x²−1</text>
+<text x="374.1" y="144.4" font-size="13" font-family="Georgia,serif" font-style="italic" font-weight="bold" fill="#F96167">y = x</text>
+</svg>
+    <figcaption>The line $y=x$ (coral) sits above the parabola $y=2x^2-1$ (navy) between the two intersection points; the shaded region is the area we want.</figcaption>
+  </figure>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>Step 1 &mdash; intersections.</strong> Set the curves equal: $2x^2 - 1 = x \;\Rightarrow\; 2x^2 - x - 1 = 0 \;\Rightarrow\; (2x+1)(x-1)=0$. By the Null Factor Law, $x = -\tfrac{1}{2}$ or $x = 1$. These are the limits of integration.</div>
+    <div class="step"><strong>Step 2 &mdash; which curve is on top?</strong> Test $x=0$ (between the limits): the line gives $y=0$, the parabola gives $y=-1$. The line is above, so top $-$ bottom $= x - (2x^2-1)$.</div>
+    <div class="step"><strong>Step 3 &mdash; set up the integral.</strong>
+      $$A = \int_{-1/2}^{\,1} \bigl[\,x - (2x^2-1)\,\bigr]\,dx = \int_{-1/2}^{\,1} \bigl(-2x^2 + x + 1\bigr)\,dx.$$</div>
+    <div class="step"><strong>Step 4 &mdash; antidifferentiate.</strong>
+      $$A = \left[\,-\frac{2x^3}{3} + \frac{x^2}{2} + x\,\right]_{-1/2}^{\,1}.$$</div>
+    <div class="step"><strong>Step 5 &mdash; evaluate.</strong> At $x=1$: $\;-\tfrac{2}{3} + \tfrac{1}{2} + 1 = \tfrac{5}{6}$.<br>
+      At $x=-\tfrac{1}{2}$: $\;-\tfrac{2}{3}\!\left(-\tfrac{1}{8}\right) + \tfrac{1}{2}\!\left(\tfrac{1}{4}\right) + \left(-\tfrac{1}{2}\right) = \tfrac{1}{12} + \tfrac{1}{8} - \tfrac{1}{2} = -\tfrac{7}{24}.$</div>
+    <div class="step">$$A = \frac{5}{6} - \left(-\frac{7}{24}\right) = \frac{20}{24} + \frac{7}{24} = \frac{27}{24}.$$</div>
+    <div class="final">$A = \dfrac{9}{8}$ square units</div>
+    <div class="callout warn" style="margin-top:12px;">
+      &#9888;&#65039; <strong>Watch the signs.</strong> The lower limit is negative, so the substituted value $F\!\left(-\tfrac{1}{2}\right) = -\tfrac{7}{24}$ is itself negative &mdash; and you are <em>subtracting</em> it, so it <strong>adds</strong> $\tfrac{7}{24}$. Mishandling that one sign is the most common slip here (it leads to $\tfrac{31}{24}$ instead of the correct $\tfrac{9}{8}$).
+    </div>
+  </div>
+</div>
+
+<h2>Example 2 &mdash; a &ldquo;show that&rdquo; with a cross-over</h2>
+
+<div class="example">
+  <span class="label">EXAMPLE 2</span>
+  <div class="q">Show that the area of the region bounded by the graphs of $f(x) = x^3$ and $g(x) = x(x+2)$ is $\dfrac{37}{12}$ square units.</div>
+  <figure class="sketch">
+    <svg viewBox="0 0 430 330" xmlns="http://www.w3.org/2000/svg" role="img" style="width:100%;max-width:430px;height:auto;background:#fff;border:1px solid #e3e3e3;border-radius:8px;">
+<polygon points="88.6,269.4 89.4,268.7 90.2,268.1 91.0,267.5 91.8,266.9 92.6,266.3 93.4,265.7 94.2,265.1 95.0,264.6 95.9,264.0 96.7,263.5 97.5,263.0 98.3,262.4 99.1,261.9 99.9,261.4 100.7,260.9 101.5,260.4 102.3,260.0 103.1,259.5 104.0,259.0 104.8,258.6 105.6,258.2 106.4,257.7 107.2,257.3 108.0,256.9 108.8,256.5 109.6,256.1 110.4,255.7 111.2,255.3 112.0,255.0 112.9,254.6 113.7,254.2 114.5,253.9 115.3,253.6 116.1,253.2 116.9,252.9 117.7,252.6 118.5,252.3 119.3,252.0 120.1,251.7 121.0,251.4 121.8,251.1 122.6,250.8 123.4,250.6 124.2,250.3 125.0,250.1 125.8,249.8 126.6,249.6 127.4,249.3 128.2,249.1 129.0,248.9 129.9,248.7 130.7,248.5 131.5,248.3 132.3,248.1 133.1,247.9 133.9,247.7 134.7,247.5 135.5,247.3 136.3,247.2 137.1,247.0 138.0,246.9 138.8,246.7 139.6,246.6 140.4,246.4 141.2,246.3 142.0,246.1 142.8,246.0 143.6,245.9 144.4,245.8 145.2,245.7 146.0,245.6 146.9,245.5 147.7,245.4 148.5,245.3 149.3,245.2 150.1,245.1 150.9,245.0 151.7,244.9 152.5,244.8 153.3,244.8 154.1,244.7 155.0,244.6 155.8,244.6 156.6,244.5 157.4,244.5 158.2,244.4 159.0,244.4 159.8,244.3 160.6,244.3 161.4,244.2 162.2,244.2 163.0,244.1 163.9,244.1 164.7,244.1 165.5,244.1 166.3,244.0 167.1,244.0 167.9,244.0 168.7,244.0 169.5,243.9 170.3,243.9 171.1,243.9 172.0,243.9 172.8,243.9 173.6,243.9 174.4,243.9 175.2,243.9 176.0,243.8 176.8,243.8 177.6,243.8 178.4,243.8 179.2,243.8 180.0,243.8 180.9,243.8 181.7,243.8 182.5,243.8 183.3,243.8 184.1,243.8 184.9,243.8 185.7,243.8 185.7,243.8 184.9,244.2 184.1,244.7 183.3,245.1 182.5,245.5 181.7,245.9 180.9,246.3 180.0,246.7 179.2,247.1 178.4,247.5 177.6,247.9 176.8,248.3 176.0,248.7 175.2,249.1 174.4,249.4 173.6,249.8 172.8,250.2 172.0,250.5 171.1,250.9 170.3,251.3 169.5,251.6 168.7,252.0 167.9,252.3 167.1,252.7 166.3,253.0 165.5,253.4 164.7,253.7 163.9,254.0 163.0,254.3 162.2,254.7 161.4,255.0 160.6,255.3 159.8,255.6 159.0,255.9 158.2,256.2 157.4,256.5 156.6,256.8 155.8,257.1 155.0,257.4 154.1,257.7 153.3,258.0 152.5,258.3 151.7,258.6 150.9,258.8 150.1,259.1 149.3,259.4 148.5,259.6 147.7,259.9 146.9,260.2 146.0,260.4 145.2,260.7 144.4,260.9 143.6,261.2 142.8,261.4 142.0,261.6 141.2,261.9 140.4,262.1 139.6,262.3 138.8,262.5 138.0,262.8 137.1,263.0 136.3,263.2 135.5,263.4 134.7,263.6 133.9,263.8 133.1,264.0 132.3,264.2 131.5,264.4 130.7,264.6 129.9,264.7 129.0,264.9 128.2,265.1 127.4,265.3 126.6,265.4 125.8,265.6 125.0,265.8 124.2,265.9 123.4,266.1 122.6,266.2 121.8,266.4 121.0,266.5 120.1,266.7 119.3,266.8 118.5,266.9 117.7,267.1 116.9,267.2 116.1,267.3 115.3,267.4 114.5,267.5 113.7,267.7 112.9,267.8 112.0,267.9 111.2,268.0 110.4,268.1 109.6,268.2 108.8,268.2 108.0,268.3 107.2,268.4 106.4,268.5 105.6,268.6 104.8,268.6 104.0,268.7 103.1,268.8 102.3,268.8 101.5,268.9 100.7,269.0 99.9,269.0 99.1,269.1 98.3,269.1 97.5,269.1 96.7,269.2 95.9,269.2 95.0,269.2 94.2,269.3 93.4,269.3 92.6,269.3 91.8,269.3 91.0,269.3 90.2,269.4 89.4,269.4 88.6,269.4" fill="#CADCFC" fill-opacity="0.55" stroke="none"/>
+<polygon points="185.7,243.8 187.3,243.0 189.0,242.1 190.6,241.2 192.2,240.3 193.8,239.4 195.4,238.5 197.0,237.5 198.7,236.6 200.3,235.6 201.9,234.6 203.5,233.6 205.1,232.6 206.8,231.6 208.4,230.5 210.0,229.5 211.6,228.4 213.2,227.3 214.9,226.2 216.5,225.1 218.1,224.0 219.7,222.8 221.3,221.7 223.0,220.5 224.6,219.3 226.2,218.1 227.8,216.9 229.4,215.7 231.0,214.4 232.7,213.2 234.3,211.9 235.9,210.6 237.5,209.3 239.1,208.0 240.8,206.7 242.4,205.3 244.0,204.0 245.6,202.6 247.2,201.2 248.9,199.8 250.5,198.4 252.1,197.0 253.7,195.6 255.3,194.1 257.0,192.6 258.6,191.2 260.2,189.7 261.8,188.1 263.4,186.6 265.0,185.1 266.7,183.5 268.3,182.0 269.9,180.4 271.5,178.8 273.1,177.2 274.8,175.5 276.4,173.9 278.0,172.3 279.6,170.6 281.2,168.9 282.9,167.2 284.5,165.5 286.1,163.8 287.7,162.0 289.3,160.3 291.0,158.5 292.6,156.7 294.2,155.0 295.8,153.1 297.4,151.3 299.0,149.5 300.7,147.6 302.3,145.8 303.9,143.9 305.5,142.0 307.1,140.1 308.8,138.2 310.4,136.2 312.0,134.3 313.6,132.3 315.2,130.3 316.9,128.3 318.5,126.3 320.1,124.3 321.7,122.3 323.3,120.2 325.0,118.2 326.6,116.1 328.2,114.0 329.8,111.9 331.4,109.8 333.0,107.6 334.7,105.5 336.3,103.3 337.9,101.1 339.5,98.9 341.1,96.7 342.8,94.5 344.4,92.3 346.0,90.0 347.6,87.8 349.2,85.5 350.9,83.2 352.5,80.9 354.1,78.6 355.7,76.2 357.3,73.9 359.0,71.5 360.6,69.2 362.2,66.8 363.8,64.4 365.4,61.9 367.0,59.5 368.7,57.1 370.3,54.6 371.9,52.1 373.5,49.6 375.1,47.1 376.8,44.6 378.4,42.1 380.0,39.5 380.0,39.5 378.4,44.6 376.8,49.6 375.1,54.5 373.5,59.3 371.9,64.0 370.3,68.7 368.7,73.2 367.0,77.7 365.4,82.1 363.8,86.5 362.2,90.7 360.6,94.9 359.0,99.0 357.3,103.0 355.7,107.0 354.1,110.8 352.5,114.6 350.9,118.4 349.2,122.0 347.6,125.6 346.0,129.1 344.4,132.6 342.8,135.9 341.1,139.2 339.5,142.5 337.9,145.6 336.3,148.7 334.7,151.8 333.0,154.7 331.4,157.6 329.8,160.5 328.2,163.3 326.6,166.0 325.0,168.6 323.3,171.2 321.7,173.8 320.1,176.2 318.5,178.6 316.9,181.0 315.2,183.3 313.6,185.5 312.0,187.7 310.4,189.8 308.8,191.9 307.1,193.9 305.5,195.9 303.9,197.8 302.3,199.7 300.7,201.5 299.0,203.3 297.4,205.0 295.8,206.6 294.2,208.3 292.6,209.8 291.0,211.4 289.3,212.8 287.7,214.3 286.1,215.6 284.5,217.0 282.9,218.3 281.2,219.5 279.6,220.8 278.0,221.9 276.4,223.1 274.8,224.2 273.1,225.2 271.5,226.2 269.9,227.2 268.3,228.1 266.7,229.0 265.0,229.9 263.4,230.7 261.8,231.5 260.2,232.3 258.6,233.0 257.0,233.8 255.3,234.4 253.7,235.1 252.1,235.7 250.5,236.3 248.9,236.8 247.2,237.3 245.6,237.8 244.0,238.3 242.4,238.8 240.8,239.2 239.1,239.6 237.5,239.9 235.9,240.3 234.3,240.6 232.7,240.9 231.0,241.2 229.4,241.5 227.8,241.7 226.2,242.0 224.6,242.2 223.0,242.4 221.3,242.6 219.7,242.7 218.1,242.9 216.5,243.0 214.9,243.1 213.2,243.2 211.6,243.3 210.0,243.4 208.4,243.5 206.8,243.6 205.1,243.6 203.5,243.7 201.9,243.7 200.3,243.7 198.7,243.8 197.0,243.8 195.4,243.8 193.8,243.8 192.2,243.8 190.6,243.8 189.0,243.8 187.3,243.8 185.7,243.8" fill="#CADCFC" fill-opacity="0.55" stroke="none"/>
+<line x1="40.0" y1="243.8" x2="414.0" y2="243.8" stroke="#999"/>
+<line x1="185.7" y1="300.0" x2="185.7" y2="14.0" stroke="#999"/>
+<line x1="88.6" y1="240.8" x2="88.6" y2="246.8" stroke="#999"/>
+<text x="88.6" y="258.8" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="middle">-1</text>
+<line x1="380.0" y1="240.8" x2="380.0" y2="246.8" stroke="#999"/>
+<text x="380.0" y="258.8" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="middle">2</text>
+<line x1="182.7" y1="269.4" x2="188.7" y2="269.4" stroke="#999"/>
+<text x="179.7" y="273.4" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="end">-1</text>
+<line x1="182.7" y1="192.8" x2="188.7" y2="192.8" stroke="#999"/>
+<text x="179.7" y="196.8" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="end">2</text>
+<line x1="182.7" y1="141.7" x2="188.7" y2="141.7" stroke="#999"/>
+<text x="179.7" y="145.7" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="end">4</text>
+<line x1="182.7" y1="90.6" x2="188.7" y2="90.6" stroke="#999"/>
+<text x="179.7" y="94.6" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="end">6</text>
+<line x1="182.7" y1="39.5" x2="188.7" y2="39.5" stroke="#999"/>
+<text x="179.7" y="43.5" font-size="11" font-family="Calibri,Arial,sans-serif" fill="#555" text-anchor="end">8</text>
+<polyline points="40.0,330.0 42.4,325.8 44.8,321.8 47.2,317.9 49.6,314.1 52.0,310.4 54.4,306.9 56.8,303.5 59.2,300.3 61.6,297.1 64.0,294.1 66.4,291.2 68.8,288.4 71.2,285.7 73.5,283.1 75.9,280.7 78.3,278.3 80.7,276.0 83.1,273.9 85.5,271.8 87.9,269.9 90.3,268.0 92.7,266.2 95.1,264.5 97.5,262.9 99.9,261.4 102.3,260.0 104.7,258.6 107.1,257.4 109.5,256.2 111.9,255.0 114.3,254.0 116.7,253.0 119.1,252.1 121.5,251.2 123.9,250.4 126.3,249.7 128.7,249.0 131.1,248.4 133.5,247.8 135.8,247.3 138.2,246.8 140.6,246.4 143.0,246.0 145.4,245.6 147.8,245.3 150.2,245.1 152.6,244.8 155.0,244.6 157.4,244.5 159.8,244.3 162.2,244.2 164.6,244.1 167.0,244.0 169.4,243.9 171.8,243.9 174.2,243.9 176.6,243.8 179.0,243.8 181.4,243.8 183.8,243.8 186.2,243.8 188.6,243.8 191.0,243.8 193.4,243.8 195.8,243.8 198.1,243.8 200.5,243.7 202.9,243.7 205.3,243.6 207.7,243.5 210.1,243.4 212.5,243.3 214.9,243.1 217.3,242.9 219.7,242.7 222.1,242.5 224.5,242.2 226.9,241.9 229.3,241.5 231.7,241.1 234.1,240.7 236.5,240.2 238.9,239.6 241.3,239.0 243.7,238.4 246.1,237.7 248.5,236.9 250.9,236.1 253.3,235.2 255.7,234.3 258.1,233.3 260.4,232.2 262.8,231.0 265.2,229.8 267.6,228.5 270.0,227.1 272.4,225.7 274.8,224.1 277.2,222.5 279.6,220.8 282.0,218.9 284.4,217.0 286.8,215.0 289.2,212.9 291.6,210.8 294.0,208.5 296.4,206.1 298.8,203.5 301.2,200.9 303.6,198.2 306.0,195.4 308.4,192.4 310.8,189.3 313.2,186.2 315.6,182.8 318.0,179.4 320.4,175.8 322.8,172.1 325.1,168.3 327.5,164.4 329.9,160.3 332.3,156.0 334.7,151.6 337.1,147.1 339.5,142.5 341.9,137.7 344.3,132.7 346.7,127.6 349.1,122.3 351.5,116.9 353.9,111.3 356.3,105.6 358.7,99.6 361.1,93.6 363.5,87.3 365.9,80.9 368.3,74.3 370.7,67.6 373.1,60.6 375.5,53.5 377.9,46.2 380.3,38.7 382.7,31.0 385.1,23.2 387.4,15.1 389.8,6.9 392.2,-1.6 394.6,-10.2 397.0,-19.0 399.4,-28.1" fill="none" stroke="#1E2761" stroke-width="2.4"/>
+<polyline points="40.0,263.0 42.5,263.6 45.0,264.2 47.5,264.8 50.0,265.3 52.5,265.8 55.0,266.3 57.5,266.7 59.9,267.1 62.4,267.5 64.9,267.8 67.4,268.1 69.9,268.4 72.4,268.7 74.9,268.9 77.4,269.0 79.9,269.2 82.4,269.3 84.9,269.3 87.4,269.4 89.9,269.4 92.4,269.3 94.9,269.3 97.3,269.1 99.8,269.0 102.3,268.8 104.8,268.6 107.3,268.4 109.8,268.1 112.3,267.8 114.8,267.5 117.3,267.1 119.8,266.7 122.3,266.3 124.8,265.8 127.3,265.3 129.8,264.8 132.3,264.2 134.7,263.6 137.2,262.9 139.7,262.3 142.2,261.6 144.7,260.8 147.2,260.1 149.7,259.2 152.2,258.4 154.7,257.5 157.2,256.6 159.7,255.7 162.2,254.7 164.7,253.7 167.2,252.6 169.7,251.6 172.1,250.5 174.6,249.3 177.1,248.1 179.6,246.9 182.1,245.7 184.6,244.4 187.1,243.1 189.6,241.7 192.1,240.4 194.6,238.9 197.1,237.5 199.6,236.0 202.1,234.5 204.6,233.0 207.1,231.4 209.5,229.8 212.0,228.1 214.5,226.4 217.0,224.7 219.5,223.0 222.0,221.2 224.5,219.4 227.0,217.5 229.5,215.6 232.0,213.7 234.5,211.7 237.0,209.8 239.5,207.7 242.0,205.7 244.5,203.6 246.9,201.5 249.4,199.3 251.9,197.1 254.4,194.9 256.9,192.7 259.4,190.4 261.9,188.1 264.4,185.7 266.9,183.3 269.4,180.9 271.9,178.4 274.4,175.9 276.9,173.4 279.4,170.9 281.9,168.3 284.3,165.6 286.8,163.0 289.3,160.3 291.8,157.6 294.3,154.8 296.8,152.0 299.3,149.2 301.8,146.3 304.3,143.4 306.8,140.5 309.3,137.5 311.8,134.5 314.3,131.5 316.8,128.5 319.3,125.4 321.7,122.2 324.2,119.1 326.7,115.9 329.2,112.6 331.7,109.4 334.2,106.1 336.7,102.7 339.2,99.4 341.7,96.0 344.2,92.6 346.7,89.1 349.2,85.6 351.7,82.1 354.2,78.5 356.7,74.9 359.1,71.2 361.6,67.6 364.1,63.9 366.6,60.1 369.1,56.4 371.6,52.6 374.1,48.7 376.6,44.9 379.1,41.0 381.6,37.0 384.1,33.1 386.6,29.1 389.1,25.0 391.6,20.9 394.1,16.8 396.5,12.7 399.0,8.5 401.5,4.3 404.0,0.1 406.5,-4.2 409.0,-8.5 411.5,-12.8 414.0,-17.2" fill="none" stroke="#F96167" stroke-width="2.4"/>
+<circle cx="88.6" cy="269.4" r="3.4" fill="#1E2761"/>
+<circle cx="185.7" cy="243.8" r="3.4" fill="#1E2761"/>
+<circle cx="380.0" cy="39.5" r="3.4" fill="#1E2761"/>
+<text x="59.4" y="31.9" font-size="13" font-family="Georgia,serif" font-style="italic" font-weight="bold" fill="#1E2761">y = x³</text>
+<text x="59.4" y="65.1" font-size="13" font-family="Georgia,serif" font-style="italic" font-weight="bold" fill="#F96167">y = x(x+2)</text>
+</svg>
+    <figcaption>The curves meet at $x=-1,\,0,\,2$. On $[-1,0]$ the cubic $f$ (navy) is on top; on $[0,2]$ the parabola $g$ (coral) is on top &mdash; so we split at $x=0$.</figcaption>
+  </figure>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>Step 1 &mdash; intersections.</strong> Set $f(x)=g(x)$: $x^3 = x(x+2) = x^2 + 2x$, so
+      $$x^3 - x^2 - 2x = 0 \;\Rightarrow\; x(x^2 - x - 2) = 0 \;\Rightarrow\; x(x+1)(x-2) = 0.$$
+      By the Null Factor Law, $x = -1,\; 0,\; 2$.</div>
+    <div class="step"><strong>Step 2 &mdash; which curve is on top?</strong> The curves cross at $x=0$, which is <em>inside</em> the region, so we must split there.
+      <br>On $[-1,0]$, test $x=-\tfrac{1}{2}$: $f=-\tfrac{1}{8}$, $g=-\tfrac{3}{4}$ &nbsp;&rarr;&nbsp; the cubic $f$ is on top.
+      <br>On $[0,2]$, test $x=1$: $f=1$, $g=3$ &nbsp;&rarr;&nbsp; the parabola $g$ is on top.</div>
+    <div class="step"><strong>Step 3 &mdash; set up (top $-$ bottom on each piece).</strong>
+      $$A = \int_{-1}^{0}\!\bigl(x^3 - x^2 - 2x\bigr)\,dx \;+\; \int_{0}^{2}\!\bigl(-x^3 + x^2 + 2x\bigr)\,dx.$$</div>
+    <div class="step"><strong>Step 4 &mdash; first piece.</strong>
+      $$\int_{-1}^{0}\!\bigl(x^3 - x^2 - 2x\bigr)\,dx = \left[\frac{x^4}{4} - \frac{x^3}{3} - x^2\right]_{-1}^{0} = 0 - \left(\frac{1}{4} + \frac{1}{3} - 1\right) = \frac{5}{12}.$$</div>
+    <div class="step"><strong>Step 5 &mdash; second piece.</strong>
+      $$\int_{0}^{2}\!\bigl(-x^3 + x^2 + 2x\bigr)\,dx = \left[-\frac{x^4}{4} + \frac{x^3}{3} + x^2\right]_{0}^{2} = \left(-4 + \frac{8}{3} + 4\right) - 0 = \frac{8}{3}.$$</div>
+    <div class="step"><strong>Step 6 &mdash; add the pieces.</strong>
+      $$A = \frac{5}{12} + \frac{8}{3} = \frac{5}{12} + \frac{32}{12} = \frac{37}{12}.$$</div>
+    <div class="final">$A = \dfrac{37}{12}$ square units, as required. $\blacksquare$</div>
+  </div>
+</div>
+
+<div class="callout good">
+  &#128161; <strong>Why split?</strong> If you integrated $\int_{-1}^{2}(f-g)\,dx$ in one go, the two pieces would partly cancel (one is positive, one negative) and you would <em>not</em> get the true enclosed area. Whenever the curves cross inside the interval, split at every crossing and add the pieces so each region counts positively.
+</div>
+
+<p class="footer-note">&mdash; Mr Wong</p>
+
+</main>
+
+<script>
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+</script>
+</body>
+</html>
