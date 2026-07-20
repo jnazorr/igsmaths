@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 12 Methods — Differentiation &amp; Integration Mega Quiz: Worked Solutions</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042; }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink);
+         margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:26px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:940px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2.sec { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:38px; font-size:23px; }
+  p.lead { font-size:16px; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0;
+             border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .keytable { width:100%; border-collapse:collapse; margin:12px 0; font-family:Calibri,Arial,sans-serif; }
+  .keytable th, .keytable td { border:1px solid #ccc; padding:7px 6px; text-align:center; }
+  .keytable th { background:var(--navy); color:#fff; }
+  .keytable td.ans { font-weight:bold; color:var(--accent); font-size:16px; }
+  .q { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:20px 0;
+       box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .q .src { display:inline-block; background:var(--navy); color:#fff; padding:3px 12px; border-radius:12px;
+            font-size:12px; font-family:Calibri,Arial,sans-serif; letter-spacing:0.5px; margin-bottom:8px; }
+  .q .stem { font-size:15.5px; margin:2px 0 10px 0; }
+  .q .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none;
+                 padding:6px 16px; border-radius:4px; cursor:pointer; font-size:13px; }
+  .q .show-btn:hover { background:var(--accent); }
+  .q .sol { display:none; margin-top:10px; padding-top:8px; border-top:1px dashed #ccc; font-family:Calibri,Arial,sans-serif; }
+  .q.show .sol { display:block; }
+  .q .step { margin:8px 0; padding:3px 10px; border-left:3px solid var(--ice); }
+  .q .final { background:#E8F1E8; padding:8px 12px; border-radius:4px; margin-top:10px;
+              border-left:4px solid var(--good); font-weight:bold; }
+  .part { font-weight:bold; color:var(--navy); font-family:Calibri,Arial,sans-serif; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px);
+                display:flex; align-items:center; justify-content:space-between;
+                font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .toolbar { margin:14px 0; }
+  .toolbar button { font-family:Calibri,Arial,sans-serif; background:#fff; color:var(--navy);
+                    border:1px solid var(--navy); padding:6px 14px; border-radius:14px; cursor:pointer; font-size:13px; font-weight:bold; }
+  .toolbar button:hover { background:var(--navy); color:#fff; }
+  @media (max-width:780px) { main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../../">&#8721; IGS Maths</a>
+  <div class="links">
+    <a href="../../core.html">Year 10</a>
+    <a href="../../methods.html">Year 11</a>
+    <a href="../" class="current">Year 12</a>
+    <a href="../">&#127968; All Y12 topics</a>
+  </div>
+</nav>
+<header>
+  <h1>Differentiation &amp; Integration Mega Quiz &mdash; Worked Solutions</h1>
+  <div class="meta">Year 12 Methods Units 3&amp;4 &nbsp;&bull;&nbsp; VCAA Exam 2 past questions (calculator &amp; notes allowed) &nbsp;&bull;&nbsp; Mr Wong</div>
+</header>
+
+<main>
+
+<p class="lead">Full worked solutions to the mega quiz. Every question is a past <strong>VCAA Examination 2</strong> question. Try each one yourself first, then click <strong>Show solution</strong> to check your working. All numerical answers here have been checked with a computer algebra system.</p>
+
+<div class="callout">
+  <strong>Multiple-choice answer key</strong>
+  <table class="keytable">
+    <tr><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Q5</th><th>Q6</th><th>Q7</th><th>Q8</th></tr>
+    <tr><td class="ans">C</td><td class="ans">E</td><td class="ans">B</td><td class="ans">A</td><td class="ans">E</td><td class="ans">E</td><td class="ans">B</td><td class="ans">B</td></tr>
+  </table>
+</div>
+
+<div class="toolbar">
+  <button onclick="allSol(true)">Show all solutions</button>
+  <button onclick="allSol(false)">Hide all solutions</button>
+</div>
+
+<h2 class="sec">Section A &mdash; Multiple choice</h2>
+
+<div class="q">
+  <span class="src">Q1 &mdash; VCAA E2 Q9 2018</span>
+  <div class="stem">A tangent to $y = \log_e(2x)$ has gradient $2$. Where does it cross the $y$-axis?</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step">$\dfrac{dy}{dx} = \dfrac{1}{x}$. Gradient $2 \Rightarrow \dfrac{1}{x}=2 \Rightarrow x=\tfrac12$.</div>
+    <div class="step">Point of contact: $\left(\tfrac12,\ \log_e(2\cdot\tfrac12)\right) = \left(\tfrac12,\ \log_e 1\right) = \left(\tfrac12, 0\right)$.</div>
+    <div class="step">Tangent: $y - 0 = 2\left(x-\tfrac12\right) \Rightarrow y = 2x - 1$. At $x=0$: $y=-1$.</div>
+    <div class="final">Answer: C &nbsp;($-1$)</div>
+  </div>
+</div>
+
+<div class="q">
+  <span class="src">Q2 &mdash; VCAA E2 Q14 2021</span>
+  <div class="stem">Find $k$ so that the average value of $y=\cos\!\left(kx-\tfrac{\pi}{2}\right)$ over $[0,\pi]$ equals the average value of $y=\sin x$ over $[0,\pi]$.</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step">Average of $\sin x$: $\ \dfrac{1}{\pi}\displaystyle\int_0^\pi \sin x\,dx = \dfrac{1}{\pi}\,[-\cos x]_0^\pi = \dfrac{2}{\pi}.$</div>
+    <div class="step">Note $\cos\!\left(kx-\tfrac{\pi}{2}\right)=\sin(kx)$, so its average is $\ \dfrac{1}{\pi}\displaystyle\int_0^\pi \sin(kx)\,dx = \dfrac{1-\cos(k\pi)}{k\pi}.$</div>
+    <div class="step">Set equal to $\dfrac{2}{\pi}$: $\ 1-\cos(k\pi) = 2k$. Testing the options, $k=\tfrac12$ gives $1-\cos\tfrac{\pi}{2}=1=2\cdot\tfrac12$. ✓</div>
+    <div class="final">Answer: E &nbsp;$\left(k=\tfrac12\right)$</div>
+  </div>
+</div>
+
+<div class="q">
+  <span class="src">Q3 &mdash; VCAA E2 Q15 2017</span>
+  <div class="stem">Rectangle $ABCD$ with $A(0,0),B(u,0),C(u,v),D(0,v)$ and $C$ on $y=-x^3+8$. Find the maximum area.</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step">$C(u,v)$ on the curve $\Rightarrow v=-u^3+8$. Area $A = uv = u(8-u^3) = 8u-u^4.$</div>
+    <div class="step">$\dfrac{dA}{du} = 8-4u^3 = 0 \Rightarrow u^3 = 2 \Rightarrow u = \sqrt[3]{2}.$</div>
+    <div class="step">$A = 8\sqrt[3]{2} - \left(\sqrt[3]{2}\right)^4 = 8\sqrt[3]{2} - 2\sqrt[3]{2} = 6\sqrt[3]{2}.$</div>
+    <div class="final">Answer: B &nbsp;$\left(6\sqrt[3]{2}\right)$</div>
+  </div>
+</div>
+
+<div class="q">
+  <span class="src">Q4 &mdash; VCAA E2 Q6 2020</span>
+  <div class="stem">Given the graph of $y=f'(x)$, choose the corresponding graph of $y=f(x)$.</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step">Read the sign of $f'$: $f$ is <strong>increasing</strong> where $f'>0$, <strong>decreasing</strong> where $f'<0$, and has a <strong>stationary point</strong> where $f'=0$ (crosses the axis).</div>
+    <div class="step">The given $f'$ is positive, then negative (between its two $x$-intercepts), then positive again. So $f$ goes: increasing &rarr; <strong>local maximum</strong> &rarr; decreasing &rarr; <strong>local minimum</strong> &rarr; increasing.</div>
+    <div class="step">Where $f'$ has its turning point but stays positive, $f$ has a point of inflection (not a stationary point). The only option with a maximum, then a minimum, then rising is graph A.</div>
+    <div class="final">Answer: A</div>
+  </div>
+</div>
+
+<div class="q">
+  <span class="src">Q5 &mdash; VCAA E2 Q9 2016</span>
+  <div class="stem">Given $\dfrac{d}{dx}\!\left(xe^{kx}\right) = (kx+1)e^{kx}$, find $\displaystyle\int xe^{kx}\,dx$.</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step">Integrate the given result: $\ xe^{kx} = \displaystyle\int (kx+1)e^{kx}\,dx = k\!\int xe^{kx}\,dx + \int e^{kx}\,dx.$</div>
+    <div class="step">Rearrange: $\ \displaystyle\int xe^{kx}\,dx = \frac{1}{k}\left(xe^{kx} - \int e^{kx}\,dx\right)$ &nbsp;(this is option D&rsquo;s form).</div>
+    <div class="step">Now $\displaystyle\int e^{kx}\,dx = \frac{e^{kx}}{k}$, so $\ \displaystyle\int xe^{kx}\,dx = \frac{1}{k}\left(xe^{kx} - \frac{e^{kx}}{k}\right) = \frac{1}{k^2}\left(kxe^{kx} - e^{kx}\right)+c.$</div>
+    <div class="final">Answer: E &nbsp;$\left(\dfrac{1}{k^2}\left(kxe^{kx}-e^{kx}\right)+c\right)$</div>
+  </div>
+</div>
+
+<div class="q">
+  <span class="src">Q6 &mdash; VCAA E2 Q9 2020</span>
+  <div class="stem">If $\displaystyle\int_4^8 f(x)\,dx = 5$, find $\displaystyle\int_0^2 f\big(2(x+2)\big)\,dx$.</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step">Let $u = 2(x+2) = 2x+4$, so $du = 2\,dx$, i.e. $dx = \tfrac12\,du$.</div>
+    <div class="step">Limits: $x=0 \Rightarrow u=4$; &nbsp; $x=2 \Rightarrow u=8$.</div>
+    <div class="step">$\displaystyle\int_0^2 f(2x+4)\,dx = \frac12\int_4^8 f(u)\,du = \frac12 (5) = \frac52.$</div>
+    <div class="final">Answer: E &nbsp;$\left(\tfrac52\right)$</div>
+  </div>
+</div>
+
+<div class="q">
+  <span class="src">Q7 &mdash; VCAA E2 Q15 2020</span>
+  <div class="stem">Find the average value over $[-2a,a]$ of the piecewise-linear function through $(-2a,2a)$, $(0,-a)$ and $(a,a)$.</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step">Left piece $(-2a,2a)\to(0,-a)$: gradient $\dfrac{-a-2a}{0-(-2a)} = -\tfrac32$, so $y = -\tfrac32 x - a$.</div>
+    <div class="step">Right piece $(0,-a)\to(a,a)$: gradient $\dfrac{a-(-a)}{a-0} = 2$, so $y = 2x - a$.</div>
+    <div class="step">$\displaystyle\int_{-2a}^{0}\!\left(-\tfrac32 x - a\right)dx = a^2$, &nbsp; $\displaystyle\int_{0}^{a}(2x-a)\,dx = 0$. &nbsp; Total $= a^2$.</div>
+    <div class="step">Average $= \dfrac{1}{a-(-2a)}\times a^2 = \dfrac{a^2}{3a} = \dfrac{a}{3}.$</div>
+    <div class="final">Answer: B &nbsp;$\left(\tfrac{a}{3}\right)$</div>
+  </div>
+</div>
+
+<div class="q">
+  <span class="src">Q8 &mdash; VCAA E2 Q17 2017</span>
+  <div class="stem">For the even function $f$ with $x$-intercepts $a,b,c,d$, write the area bound by the curve and the $x$-axis on $[a,d]$.</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step">From the graph: $f>0$ on $(a,b)$, $f<0$ on $(b,c)$, and $f>0$ on $(c,d)$.</div>
+    <div class="step">Area must be positive everywhere, so on the middle piece (where $f$ is below the axis) we take the negative of the integral:
+      $$\text{Area} = \int_a^b f(x)\,dx \;-\; \int_b^c f(x)\,dx \;+\; \int_c^d f(x)\,dx.$$</div>
+    <div class="final">Answer: B</div>
+  </div>
+</div>
+
+<h2 class="sec">Section B &mdash; Extended response</h2>
+
+<div class="q">
+  <span class="src">Q9 (13 marks) &mdash; VCAA E2 Q4 2020</span>
+  <div class="stem">$f(x) = 2xe^{\,1-x^2},\quad 0 \le x \le 3.$</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step"><span class="part">First, the derivative (product rule):</span> $f'(x) = 2e^{1-x^2} + 2x\cdot(-2x)e^{1-x^2} = 2e^{1-x^2}\left(1-2x^2\right) = \left(2-4x^2\right)e^{1-x^2}.$</div>
+    <div class="step"><span class="part">a.</span> $f'(1) = (2-4)e^{0} = \mathbf{-2}.$</div>
+    <div class="step"><span class="part">b.</span> $\tan\theta = -2$ and $\theta$ obtuse $\Rightarrow \theta = 180^\circ - \tan^{-1}(2) = 180^\circ - 63.43^\circ \approx \mathbf{117^\circ}.$</div>
+    <div class="step"><span class="part">c.</span> $f'(p) = \left(2-4p^2\right)e^{\,1-p^2}.$</div>
+    <div class="step"><span class="part">d.i.</span> Perpendicular to gradient $-2$ means gradient $\tfrac12$. Solve $\left(2-4p^2\right)e^{1-p^2}=\tfrac12$ (CAS) $\Rightarrow p \approx \mathbf{0.655}.$</div>
+    <div class="step"><span class="part">d.ii.</span> Tangent at $x=1$: through $(1,2)$ with gradient $-2$, i.e. $y=-2x+4$. Tangent at $x=p$: through $(0.655,\,2.318)$ with gradient $\tfrac12$. They intersect at $\approx \mathbf{(0.80,\ 2.39)}.$</div>
+    <div class="step"><span class="part">e.i.</span> $f(0)=0$, so the first segment joins $(0,0)$ to $Q\!\left(n,\,2ne^{1-n^2}\right)$. Gradient $= \dfrac{2ne^{1-n^2}}{n}=2e^{1-n^2}$, so $\ y = 2e^{\,1-n^2}\,x.$</div>
+    <div class="step"><span class="part">e.ii.</span> Second segment joins $Q\!\left(n, 2ne^{1-n^2}\right)$ to $\left(3,\,6e^{-8}\right)$:
+      $$y - 6e^{-8} = \frac{6e^{-8} - 2ne^{1-n^2}}{3-n}\,(x-3).$$</div>
+    <div class="step"><span class="part">e.iii.</span> Equal areas between $f$ and each segment $\Leftrightarrow$ area under the curve equals area under the two-segment path:
+      $\displaystyle\int_0^3 f\,dx = \tfrac12\,n\,f(n) + \tfrac12\big(f(n)+f(3)\big)(3-n).$ Solving (CAS) with $1<n<3$ gives $n \approx \mathbf{1.088}.$</div>
+    <div class="final">a) $-2$ &nbsp;&bull;&nbsp; b) $117^\circ$ &nbsp;&bull;&nbsp; c) $(2-4p^2)e^{1-p^2}$ &nbsp;&bull;&nbsp; d) $p\approx0.655$, intersect $(0.80,2.39)$ &nbsp;&bull;&nbsp; e) $n\approx1.088$</div>
+  </div>
+</div>
+
+<div class="q">
+  <span class="src">Q10 (8 marks) &mdash; VCAA E2 Q3 2018</span>
+  <div class="stem">A bridge $5$ m high, $110$ m long, over three identical arches $h(x)=5\sin\!\left(\tfrac{(x-\text{start})\pi}{30}\right)$. Arch 1: $[5,35]$, Arch 2: $[40,70]$, Arch 3: $[a,105]$.</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step"><span class="part">a.</span> Each arch is $30$ m wide with a $5$ m gap. Arch 3 spans $[a,105]$ with width $30$, so $a = 105-30 = \mathbf{75}.$</div>
+    <div class="step"><span class="part">b.</span> $h_3(x)=5\sin\!\left(\tfrac{(x-75)\pi}{30}\right)$ is $h_2$ shifted; $75-40=35$, so a <strong>translation of $35$ units in the positive $x$-direction</strong>.</div>
+    <div class="step"><span class="part">c.</span> Area of one arch $= \displaystyle\int_5^{35} 5\sin\!\left(\tfrac{(x-5)\pi}{30}\right)dx = \frac{300}{\pi}$. Stone $=$ rectangle under bridge $-$ three arches:
+      $$5\times110 - 3\times\frac{300}{\pi} = 550 - \frac{900}{\pi} \approx 263.5 \approx \mathbf{264\ \text{m}^2}.$$</div>
+    <div class="step"><span class="part">d.</span> Gradient of the second bridge $= \tan\!\left(\tfrac{\pi}{90}\right) \approx \mathbf{0.035}.$</div>
+    <div class="step"><span class="part">e.</span> On Arch 5, $h(x)=5\sin\!\left(\tfrac{(x-40)\pi}{30}\right)$, so $h'(x)=\tfrac{\pi}{6}\cos\!\left(\tfrac{(x-40)\pi}{30}\right)$. Set $h'(x)=\tan\!\left(\tfrac{\pi}{90}\right)$ (CAS) $\Rightarrow x\approx54.36$, $y\approx4.99$. So $P \approx \mathbf{(54.36,\ 4.99)}.$</div>
+    <div class="final">a) $a=75$ &nbsp;&bull;&nbsp; b) translate $35$ right &nbsp;&bull;&nbsp; c) $264\ \text{m}^2$ &nbsp;&bull;&nbsp; d) $0.035$ &nbsp;&bull;&nbsp; e) $P\approx(54.36,4.99)$</div>
+  </div>
+</div>
+
+<div class="q">
+  <span class="src">Q11 (11 marks) &mdash; VCAA E2 Q2 2020</span>
+  <div class="stem">River banks $f_1(x)=20\cos\!\left(\tfrac{\pi x}{100}\right)+40$ (north) and $f_2(x)=20\cos\!\left(\tfrac{\pi x}{100}\right)+30$ (south), $0\le x\le200$. Swimmer starts at $P(50,30)$.</div>
+  <button class="show-btn" onclick="tog(this)">Show solution</button>
+  <div class="sol">
+    <div class="step"><span class="part">a.</span> Swimming north, reach the north bank at $x=50$: $f_1(50)=20\cos\tfrac{\pi}{2}+40=40$. Distance $=40-30=\mathbf{10\ \text{m}}.$</div>
+    <div class="step"><span class="part">b.</span> Swimming east ($y=30$): solve $f_1(x)=30 \Rightarrow \cos\tfrac{\pi x}{100}=-\tfrac12 \Rightarrow x=\tfrac{200}{3}$. Distance $=\tfrac{200}{3}-50=\tfrac{50}{3}\approx\mathbf{16.67\ \text{m}}.$</div>
+    <div class="step"><span class="part">c.</span> Minimise the distance from $P$ to $\left(x,f_1(x)\right)$ (CAS): minimum $\approx \mathbf{8.5\ \text{m}}$ (near $x\approx54.5$).</div>
+    <div class="step"><span class="part">d.</span> Surface area $= \displaystyle\int_0^{200}\big(f_1-f_2\big)\,dx = \int_0^{200} 10\,dx = \mathbf{2000\ \text{m}^2}.$ (The banks are always $10$ m apart.)</div>
+    <div class="step"><span class="part">e.</span> The &lsquo;no swimming&rsquo; zone is the river below $y=30$. Splitting where $f_1$ and $f_2$ cross $y=30$ and integrating gives $\approx \mathbf{837\ \text{m}^2}.$</div>
+    <div class="step"><span class="part">f.</span> New north bank $y=kf_1(x)$. Width north across the river $=kf_1-f_2=(20k-20)\cos\tfrac{\pi x}{100}+(40k-30)$. For $k\ge1$ this is largest when $\cos=1$: $60k-50$. Require $60k-50<20 \Rightarrow k<\tfrac{7}{6}$. So $\mathbf{1\le k<\tfrac{7}{6}}.$</div>
+    <div class="final">a) $10$ m &nbsp;&bull;&nbsp; b) $\tfrac{50}{3}\approx16.67$ m &nbsp;&bull;&nbsp; c) $\approx8.5$ m &nbsp;&bull;&nbsp; d) $2000\ \text{m}^2$ &nbsp;&bull;&nbsp; e) $\approx837\ \text{m}^2$ &nbsp;&bull;&nbsp; f) $1\le k<\tfrac{7}{6}$</div>
+  </div>
+</div>
+
+<p class="footer-note">&mdash; Mr Wong</p>
+
+</main>
+
+<script>
+  function tog(btn){
+    var q = btn.closest('.q');
+    q.classList.toggle('show');
+    btn.textContent = q.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function allSol(open){
+    document.querySelectorAll('.q').forEach(function(q){
+      q.classList.toggle('show', open);
+      var b = q.querySelector('.show-btn');
+      if(b) b.textContent = open ? 'Hide solution' : 'Show solution';
+    });
+  }
+</script>
+</body>
+</html>
