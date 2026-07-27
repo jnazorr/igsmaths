@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Year 12 Methods — Expected Value, Variance &amp; Standard Deviation (13D)</title>
+<script>
+window.MathJax = { tex: { inlineMath: [['$','$'],['\\(','\\)']] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+<style>
+  :root { --navy:#1E2761; --ice:#CADCFC; --accent:#F96167; --ink:#222; --muted:#666;
+    --paper:#FFFEFB; --card:#FFFFFF; --good:#2C5F2D; --warn:#B85042; }
+  * { box-sizing:border-box; }
+  body { font-family: Georgia, 'Times New Roman', serif; background:var(--paper); color:var(--ink); margin:0; padding:0; line-height:1.55; }
+  header { background:var(--navy); color:#fff; padding:28px 40px; border-bottom:6px solid var(--accent); }
+  header h1 { margin:0 0 6px 0; font-size:27px; }
+  header .meta { font-family: Calibri, Arial, sans-serif; color:var(--ice); font-size:14px; }
+  main { max-width:980px; margin:0 auto; padding:24px 40px 80px 40px; }
+  h2 { color:var(--navy); border-bottom:2px solid var(--ice); padding-bottom:6px; margin-top:36px; font-size:24px; }
+  h3 { color:var(--navy); margin-top:24px; font-size:18px; font-family: Calibri, Arial, sans-serif; }
+  .callout { background:var(--ice); border-left:6px solid var(--navy); padding:14px 18px; margin:18px 0; border-radius:4px; font-family: Calibri, Arial, sans-serif; }
+  .callout.warn { background:#FCE8E6; border-left-color:var(--accent); }
+  .callout.good { background:#E8F1E8; border-left-color:var(--good); }
+  .formula-box { background:#EAF2FB; border:2px solid var(--navy); border-radius:8px; padding:14px 24px; margin:18px 0; font-size:17px; box-shadow:0 2px 4px rgba(30,39,97,0.1); }
+  .formula-box .label { display:block; font-family:Calibri,Arial,sans-serif; font-size:12px; color:var(--navy); font-weight:bold; letter-spacing:0.5px; margin-bottom:4px; }
+  .example { background:var(--card); border:1px solid #ddd; border-radius:8px; padding:16px 20px; margin:18px 0; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+  .example .label { display:inline-block; background:var(--navy); color:#fff; padding:3px 12px; border-radius:12px; font-size:12px; font-family: Calibri, Arial, sans-serif; letter-spacing:0.5px; margin-bottom:10px; }
+  .example .q { font-size:16px; padding:6px 0 8px 0; }
+  .example .a { display:none; margin-top:6px; padding-top:8px; border-top:1px dashed #ccc; font-family: Calibri, Arial, sans-serif; }
+  .example.show .a { display:block; }
+  .example .show-btn { font-family:Calibri,Arial,sans-serif; background:var(--navy); color:#fff; border:none; padding:5px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:4px; }
+  .example .show-btn:hover { background:var(--accent); }
+  .example .step { margin:6px 0; padding:4px 10px; border-left:3px solid var(--ice); }
+  .example .final { background:#E8F1E8; padding:8px 12px; border-radius:4px; margin-top:10px; border-left:4px solid var(--good); font-weight:bold; font-size:15px; }
+  table.dist { border-collapse:collapse; margin:10px 0; font-family:Calibri,Arial,sans-serif; }
+  table.dist th, table.dist td { border:1px solid #999; padding:6px 14px; text-align:center; }
+  table.dist th { background:var(--navy); color:#fff; }
+  table.dist td.rl { background:#EAF2FB; font-weight:bold; color:var(--navy); }
+  .practice { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:14px 18px; margin:12px 0; }
+  .practice .qnum { font-weight:bold; color:var(--navy); font-family: Calibri, Arial, sans-serif; }
+  button.reveal { font-family: Calibri, Arial, sans-serif; background:var(--navy); color:#fff; border:none; padding:6px 14px; border-radius:4px; cursor:pointer; font-size:13px; margin-top:8px; }
+  button.reveal:hover { background:var(--accent); }
+  .answer { display:none; margin-top:10px; padding:10px 14px; background:#E8F1E8; border-left:4px solid var(--good); border-radius:4px; font-family:Calibri,Arial,sans-serif; }
+  .answer.show { display:block; }
+  ol.qlist > li { margin-bottom:10px; }
+  .quiz { background:#F4F0FF; border:2px solid var(--navy); border-radius:8px; padding:18px 22px; margin:24px 0; }
+  .quiz-q { margin:14px 0; padding-bottom:12px; border-bottom:1px dashed #ccc; }
+  .quiz-q:last-child { border-bottom:none; }
+  .quiz-q label { display:block; padding:4px 8px; cursor:pointer; font-family: Calibri, Arial, sans-serif; }
+  .quiz-q label:hover { background:#fff; border-radius:4px; }
+  .quiz-q input[type=radio] { margin-right:8px; }
+  #scorebox { display:none; margin-top:14px; padding:14px; background:#fff; border-radius:6px; font-family: Calibri, Arial, sans-serif; font-weight:bold; }
+  table.program { width:100%; border-collapse:collapse; margin-top:10px; font-family: Calibri, Arial, sans-serif; }
+  table.program th, table.program td { border:1px solid #ccc; padding:8px 10px; text-align:left; }
+  table.program th { background:var(--navy); color:#fff; }
+  .footer-note { color:var(--muted); font-size:13px; margin-top:30px; font-family: Calibri, Arial, sans-serif; }
+  .key-ideas { background:var(--card); border:2px solid var(--navy); border-radius:8px; padding:14px 20px; margin:16px 0; }
+  .key-ideas h3 { margin-top:0; color:var(--navy); }
+  .key-ideas ul { margin:8px 0 0 0; padding-left:22px; }
+  .key-ideas li { margin-bottom:6px; font-family: Calibri, Arial, sans-serif; }
+  .video-block { background:#0f1115; border:2px solid var(--navy); border-radius:10px; padding:14px; margin:20px 0; box-shadow:0 4px 14px rgba(0,0,0,0.12); }
+  .video-block video { width:100%; max-width:920px; display:block; margin:0 auto; border-radius:6px; }
+  .video-block .caption { font-family:Calibri,Arial,sans-serif; color:#CADCFC; font-size:13px; margin:10px 4px 0 4px; text-align:center; }
+  .video-block .caption strong { color:#f5d142; }
+  .lesson-nav { background: var(--navy); color: #fff; padding: 7px clamp(14px, 3vw, 28px); display:flex; align-items:center; justify-content:space-between; font-family: Calibri, Arial, sans-serif; font-size: 13px; }
+  .lesson-nav a { color:#fff; text-decoration:none; opacity:0.78; }
+  .lesson-nav a:hover, .lesson-nav a.current { opacity:1; text-decoration:underline; }
+  .lesson-nav .brand { font-weight:bold; opacity:1; font-size:14px; }
+  .lesson-nav .links { display:flex; gap:14px; flex-wrap:wrap; }
+  .resources-box { background:#FFF9E6; border:1px solid #E8D88A; border-radius:8px; padding:10px 16px; margin:14px 0 0 0; font-family: Calibri, Arial, sans-serif; font-size:13.5px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+  .resources-box strong { color:var(--navy); }
+  .resources-box a { color:var(--navy); background:#fff; border:1px solid var(--navy); padding:3px 10px; border-radius:14px; text-decoration:none; font-weight:bold; }
+  .resources-box a:hover { background:var(--navy); color:#fff; }
+  @media (max-width:780px) { main { padding:18px; } }
+</style>
+</head>
+<body>
+<nav class="lesson-nav">
+  <a class="brand" href="../../">&#8721; IGS Maths</a>
+  <div class="links">
+    <a href="../../core.html">Year 10</a>
+    <a href="../../methods.html">Year 11</a>
+    <a href="../" class="current">Year 12</a>
+    <a href="../">&#127968; All Y12 topics</a>
+  </div>
+</nav>
+<header>
+  <h1>Year 12 Methods — Expected Value, Variance &amp; Standard Deviation (13D)</h1>
+  <div class="meta">Discrete random variables &nbsp;&bull;&nbsp; Cambridge Methods 3&amp;4, Ch 13 &sect;13D &nbsp;&bull;&nbsp; Mr Wong</div>
+  <div class="resources-box">
+    <strong>&#128218; This topic:</strong>
+    <a href="../">&#127968; All Y12 Methods topics</a>
+    <a href="../differentiation-integration-quiz-solutions/">Calculus quiz solutions</a>
+  </div>
+</header>
+
+<main>
+
+<h2>Today's lesson</h2>
+<p>A <strong>discrete random variable</strong> $X$ takes a list of values, each with a probability $p(x)=\Pr(X=x)$. This lesson is about summarising that distribution with two numbers: its <strong>centre</strong> (the mean) and its <strong>spread</strong> (the standard deviation).</p>
+
+<div class="key-ideas">
+  <h3>Learning intentions</h3>
+  <ul>
+    <li>Find the <strong>expected value (mean)</strong> $\mu = E(X) = \sum x\,p(x)$ and read it as a long-run average.</li>
+    <li>Find the <strong>variance</strong> using the easy formula $\mathrm{Var}(X) = E(X^2) - [E(X)]^2$.</li>
+    <li>Find the <strong>standard deviation</strong> $\mathrm{sd}(X) = \sqrt{\mathrm{Var}(X)}$ and use it to describe spread.</li>
+    <li>Apply expected value to decide whether a game is worth playing.</li>
+  </ul>
+</div>
+
+<h2>Part 1 — Expected value (the mean)</h2>
+
+<div class="formula-box">
+  <span class="label">EXPECTED VALUE (MEAN)</span>
+  $$\mu = E(X) = \sum_x x\cdot \Pr(X=x) = \sum_x x\cdot p(x).$$
+  Multiply each value by its probability, then add. It is the <strong>long-run average</strong> of $X$.
+</div>
+
+<p>Think of the probability distribution as a set of weights sitting on a beam. The mean is the point where the beam <strong>balances</strong> — the values with more probability pull it towards them.</p>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="ExpectedValue.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">&#128250; <strong>Walkthrough:</strong> the mean $E(X)=\sum x\,p(x)$ as the balancing point of a distribution (worked for the weighted die below, $\mu=4.15$).</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 1 — a weighted die</span>
+  <div class="q">Find the expected value rolled on a weighted die with this distribution.
+    <table class="dist"><tr><td class="rl">$x$</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr>
+    <tr><td class="rl">$p(x)$</td><td>0.1</td><td>0.1</td><td>0.1</td><td>0.2</td><td>0.25</td><td>0.25</td></tr></table>
+  </div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>Check</strong> the probabilities add to $1$: $0.1+0.1+0.1+0.2+0.25+0.25 = 1$. ✓</div>
+    <div class="step">$E(X)=\sum x\,p(x) = 1(0.1)+2(0.1)+3(0.1)+4(0.2)+5(0.25)+6(0.25)$</div>
+    <div class="step">$= 0.1 + 0.2 + 0.3 + 0.8 + 1.25 + 1.5$</div>
+    <div class="final">$E(X) = 4.15$</div>
+    <div class="step" style="margin-top:8px;">Note the mean need not be a value the die can show — it is the average over <em>many</em> rolls.</div>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 2 — is the game worth playing?</span>
+  <div class="q">In a casino game you pay \$4 to roll a fair die. If you roll an <strong>even</strong> number you get \$5; if you roll a <strong>5</strong> you get \$7; anything else pays nothing. Let $X$ be the amount of money you make per game.
+    <br><strong>(a)</strong> Describe the distribution of $X$ in a table. &nbsp; <strong>(b)</strong> Find the expected profit (or loss) per game.</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>(a)</strong> Work out the <em>profit</em> (money received $-\$4$ to play) for each outcome:</div>
+    <div class="step">&bull; Even $\{2,4,6\}$: receive \$5, so profit $= +\$1$, with $\Pr = \tfrac{3}{6}=\tfrac12$.<br>
+      &bull; Roll a $5$: receive \$7, so profit $= +\$3$, with $\Pr = \tfrac16$.<br>
+      &bull; Roll $\{1,3\}$: receive \$0, so profit $= -\$4$, with $\Pr = \tfrac{2}{6}=\tfrac13$.</div>
+    <div class="step">
+      <table class="dist"><tr><td class="rl">$x$</td><td>$-4$</td><td>$1$</td><td>$3$</td></tr>
+      <tr><td class="rl">$p(x)$</td><td>$\tfrac13$</td><td>$\tfrac12$</td><td>$\tfrac16$</td></tr></table></div>
+    <div class="step"><strong>(b)</strong> $E(X) = -4\!\left(\tfrac13\right) + 1\!\left(\tfrac12\right) + 3\!\left(\tfrac16\right) = -\tfrac43 + \tfrac12 + \tfrac12 = -\tfrac13.$</div>
+    <div class="final">$E(X) = -\dfrac13 \approx -\$0.33$ &nbsp;— an expected <strong>loss</strong> of about 33 cents per game, so in the long run the game is <em>not</em> worth playing.</div>
+  </div>
+</div>
+
+<h2>Part 2 — Variance and standard deviation</h2>
+
+<div class="formula-box">
+  <span class="label">VARIANCE &amp; STANDARD DEVIATION</span>
+  $$\mathrm{Var}(X) = E\!\big[(X-\mu)^2\big] = E(X^2) - [E(X)]^2, \qquad \mathrm{sd}(X) = \sigma = \sqrt{\mathrm{Var}(X)}.$$
+  In practice use the right-hand formula: find $E(X^2)=\sum x^2\,p(x)$, then subtract the mean squared.
+</div>
+
+<div class="callout">
+  &#128161; <strong>Two averages to keep separate:</strong> $E(X)=\sum x\,p(x)$ uses the values, while $E(X^2)=\sum x^2\,p(x)$ uses the <em>squared</em> values (with the same probabilities). Variance combines them.
+</div>
+
+<div class="video-block">
+  <video controls preload="metadata" playsinline>
+    <source src="VarianceSD.mp4" type="video/mp4">
+    Your browser doesn't support embedded video.
+  </video>
+  <p class="caption">&#128250; <strong>Walkthrough:</strong> computing $E(X)$, $E(X^2)$, $\mathrm{Var}(X)=E(X^2)-[E(X)]^2$ and $\mathrm{sd}(X)$ step by step (Example 3 below).</p>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 3 — the full calculation</span>
+  <div class="q">For the distribution below, find $E(X)$, $E(X^2)$, $\mathrm{Var}(X)$, and hence the standard deviation to two decimal places.
+    <table class="dist"><tr><td class="rl">$x$</td><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td class="rl">$p(x)$</td><td>0.5</td><td>0.4</td><td>0.1</td></tr></table></div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step"><strong>(a)</strong> $E(X) = 1(0.5)+2(0.4)+3(0.1) = 0.5+0.8+0.3 = 1.6.$</div>
+    <div class="step"><strong>(b)</strong> $E(X^2) = 1(0.5)+4(0.4)+9(0.1) = 0.5+1.6+0.9 = 3.0.$</div>
+    <div class="step"><strong>(c)</strong> $\mathrm{Var}(X) = E(X^2) - [E(X)]^2 = 3.0 - (1.6)^2 = 3.0 - 2.56 = 0.44.$</div>
+    <div class="step"><strong>(d)</strong> $\mathrm{sd}(X) = \sqrt{0.44} = 0.6633\ldots$</div>
+    <div class="final">$E(X)=1.6,\quad \mathrm{Var}(X)=0.44,\quad \mathrm{sd}(X)\approx 0.66.$</div>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 4 — with fractions</span>
+  <div class="q">Find $E(X)$, $E(X^2)$, $\mathrm{Var}(X)$ and $\sigma$ for
+    <table class="dist"><tr><td class="rl">$x$</td><td>1</td><td>2</td><td>3</td></tr>
+    <tr><td class="rl">$p(x)$</td><td>$\tfrac{5}{12}$</td><td>$\tfrac{4}{12}$</td><td>$\tfrac{3}{12}$</td></tr></table></div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step">$E(X) = 1\!\left(\tfrac{5}{12}\right)+2\!\left(\tfrac{4}{12}\right)+3\!\left(\tfrac{3}{12}\right) = \tfrac{5+8+9}{12} = \tfrac{22}{12} = \tfrac{11}{6}.$</div>
+    <div class="step">$E(X^2) = 1\!\left(\tfrac{5}{12}\right)+4\!\left(\tfrac{4}{12}\right)+9\!\left(\tfrac{3}{12}\right) = \tfrac{5+16+27}{12} = \tfrac{48}{12} = 4.$</div>
+    <div class="step">$\mathrm{Var}(X) = 4 - \left(\tfrac{11}{6}\right)^2 = 4 - \tfrac{121}{36} = \tfrac{144-121}{36} = \tfrac{23}{36}.$</div>
+    <div class="step">$\sigma = \sqrt{\tfrac{23}{36}} = \dfrac{\sqrt{23}}{6} = 0.799\ldots$</div>
+    <div class="final">$E(X)=\tfrac{11}{6}\approx1.83,\quad \mathrm{Var}(X)=\tfrac{23}{36},\quad \sigma \approx 0.80.$</div>
+  </div>
+</div>
+
+<h2>Part 3 — Using the mean and standard deviation</h2>
+
+<p>The standard deviation measures how far, on average, the values sit from the mean. A useful rule of thumb: for many distributions, <strong>most</strong> of the probability lies within two standard deviations of the mean, $[\mu-2\sigma,\ \mu+2\sigma]$ (often quoted as about $95\%$).</p>
+
+<div class="example">
+  <span class="label">EXAMPLE 5 — testing the "95%" claim</span>
+  <div class="q">For the distribution below, find $\mu$ and $\sigma$ (to two decimal places), then decide on the claim $\Pr(\mu-2\sigma \le X \le \mu+2\sigma) \approx 0.95.$
+    <table class="dist"><tr><td class="rl">$x$</td><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+    <tr><td class="rl">$p(x)$</td><td>0.1</td><td>0.1</td><td>0.2</td><td>0.2</td><td>0.3</td><td>0.1</td></tr></table></div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step">$\mu = E(X) = 0(0.1)+1(0.1)+2(0.2)+3(0.2)+4(0.3)+5(0.1) = 2.8.$</div>
+    <div class="step">$E(X^2) = 0+1(0.1)+4(0.2)+9(0.2)+16(0.3)+25(0.1) = 10.0.$</div>
+    <div class="step">$\mathrm{Var}(X) = 10.0 - 2.8^2 = 10 - 7.84 = 2.16$, so $\sigma = \sqrt{2.16} \approx 1.47.$</div>
+    <div class="step">Interval: $\mu \pm 2\sigma = 2.8 \pm 2(1.47) = 2.8 \pm 2.94 = [-0.14,\ 5.74].$</div>
+    <div class="step">Every possible value $x = 0,1,2,3,4,5$ lies inside $[-0.14, 5.74]$, so $\Pr(\mu-2\sigma \le X \le \mu+2\sigma) = 1.$</div>
+    <div class="final">Here the exact probability is $\mathbf{1}$ (100%), not $0.95$. The "$\approx 95\%$" is only a <em>rough guide</em> (it is exact for normal distributions); for this short discrete distribution all of the probability falls within two standard deviations.</div>
+  </div>
+</div>
+
+<div class="example">
+  <span class="label">EXAMPLE 6 — betting on red at roulette</span>
+  <div class="q">You bet \$100 on red at roulette (a European wheel: $37$ pockets — $18$ red, $18$ black, $1$ green zero). What are your expected winnings / loss?</div>
+  <button class="show-btn" onclick="toggleEx(this)">Show solution</button>
+  <div class="a">
+    <div class="step">Let $X$ be your profit. Red wins \$100; anything else (black or green) loses \$100.</div>
+    <div class="step">
+      <table class="dist"><tr><td class="rl">$x$</td><td>$+100$</td><td>$-100$</td></tr>
+      <tr><td class="rl">$p(x)$</td><td>$\tfrac{18}{37}$</td><td>$\tfrac{19}{37}$</td></tr></table></div>
+    <div class="step">$E(X) = 100\!\left(\tfrac{18}{37}\right) - 100\!\left(\tfrac{19}{37}\right) = \dfrac{100(18-19)}{37} = -\dfrac{100}{37}.$</div>
+    <div class="final">$E(X) = -\dfrac{100}{37} \approx -\$2.70$ per \$100 bet — a long-run <strong>loss</strong> (the green zero gives the house its edge).</div>
+  </div>
+</div>
+
+<h2>Practice</h2>
+
+<div class="practice">
+  <p class="qnum">Practice 1 — the full calculation.</p>
+  <p>Consider the distribution below. (a) Calculate $E(X)$. &nbsp; (b) Calculate $E(X^2)$. &nbsp; (c) Hence find $\mathrm{Var}(X)$. &nbsp; (d) Hence find $\mathrm{sd}(X)$ to two decimal places.</p>
+  <table class="dist"><tr><td class="rl">$x$</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+  <tr><td class="rl">$p(x)$</td><td>0.4</td><td>0.2</td><td>0.1</td><td>0.3</td></tr></table>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    (a) $E(X) = 0(0.4)+1(0.2)+2(0.1)+3(0.3) = 1.3.$<br>
+    (b) $E(X^2) = 0+1(0.2)+4(0.1)+9(0.3) = 3.3.$<br>
+    (c) $\mathrm{Var}(X) = 3.3 - 1.3^2 = 3.3 - 1.69 = 1.61.$<br>
+    (d) $\mathrm{sd}(X) = \sqrt{1.61} \approx 1.27.$
+  </div>
+</div>
+
+<div class="practice">
+  <p class="qnum">Practice 2 — a fair game?</p>
+  <p>A game costs \$2 to play. You draw one card from a standard deck: an ace pays \$20, any other face-card-or-number pays nothing. Let $X$ be your profit. Find $E(X)$ and state whether the game is fair (a game is <em>fair</em> if $E(X)=0$).</p>
+  <button class="reveal" onclick="toggle(this)">Show answer</button>
+  <div class="answer">
+    $\Pr(\text{ace}) = \tfrac{4}{52} = \tfrac{1}{13}$. Profit is $+\$18$ (win \$20, less the \$2 cost) with prob $\tfrac{1}{13}$, or $-\$2$ with prob $\tfrac{12}{13}$.<br>
+    $E(X) = 18\!\left(\tfrac{1}{13}\right) - 2\!\left(\tfrac{12}{13}\right) = \dfrac{18 - 24}{13} = -\dfrac{6}{13} \approx -\$0.46.$<br>
+    Since $E(X) \ne 0$ (it is negative), the game is <strong>not fair</strong> — on average you lose about 46 cents per play.
+  </div>
+</div>
+
+<h2>Quick quiz (5 min)</h2>
+<div class="quiz" id="quiz">
+  <p style="font-family:Calibri,Arial,sans-serif; margin-top:0;">Pick the correct answer for each, then click <strong>Mark</strong>.</p>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q1.</strong> For $x=0,1,2$ with $p(x)=0.2,0.5,0.3$, the mean $E(X)$ is</p>
+    <label><input type="radio" name="q1" value="a"> $0.5$</label>
+    <label><input type="radio" name="q1" value="b"> $1.0$</label>
+    <label><input type="radio" name="q1" value="c"> $1.1$</label>
+    <label><input type="radio" name="q1" value="d"> $1.5$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="b">
+    <p><strong>Q2.</strong> The computational formula for variance is</p>
+    <label><input type="radio" name="q2" value="a"> $\mathrm{Var}(X) = E(X)^2 - E(X^2)$</label>
+    <label><input type="radio" name="q2" value="b"> $\mathrm{Var}(X) = E(X^2) - [E(X)]^2$</label>
+    <label><input type="radio" name="q2" value="c"> $\mathrm{Var}(X) = \sqrt{E(X^2)}$</label>
+    <label><input type="radio" name="q2" value="d"> $\mathrm{Var}(X) = E(X^2) - E(X)$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="a">
+    <p><strong>Q3.</strong> If $E(X)=2$ and $E(X^2)=6$, then $\mathrm{Var}(X)$ equals</p>
+    <label><input type="radio" name="q3" value="a"> $2$</label>
+    <label><input type="radio" name="q3" value="b"> $4$</label>
+    <label><input type="radio" name="q3" value="c"> $6$</label>
+    <label><input type="radio" name="q3" value="d"> $10$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="d">
+    <p><strong>Q4.</strong> If $\mathrm{Var}(X)=0.25$, the standard deviation is</p>
+    <label><input type="radio" name="q4" value="a"> $0.0625$</label>
+    <label><input type="radio" name="q4" value="b"> $0.25$</label>
+    <label><input type="radio" name="q4" value="c"> $0.125$</label>
+    <label><input type="radio" name="q4" value="d"> $0.5$</label>
+  </div>
+
+  <div class="quiz-q" data-answer="c">
+    <p><strong>Q5.</strong> A game has expected profit $E(X) = -\$0.40$ per play. In the long run you should expect to</p>
+    <label><input type="radio" name="q5" value="a"> break even</label>
+    <label><input type="radio" name="q5" value="b"> win about 40 cents per play</label>
+    <label><input type="radio" name="q5" value="c"> lose about 40 cents per play</label>
+    <label><input type="radio" name="q5" value="d"> win \$0.40 only on the first play</label>
+  </div>
+
+  <button class="reveal" onclick="markQuiz()" style="margin-top:10px;">Mark my quiz</button>
+  <div id="scorebox"></div>
+</div>
+
+<h2>Working program — Cambridge §13D</h2>
+<p style="font-family:Calibri,Arial,sans-serif;">After the quiz, open Chapter 13 and work through these:</p>
+<table class="program">
+  <tr><th>Exercise</th><th>Set work</th></tr>
+  <tr><td><strong>13D</strong> — Expected value, variance &amp; standard deviation</td><td>Q1, Q2, Q3, Q5, Q7, Q9</td></tr>
+  <tr><td>Chapter 13 review</td><td>Multiple-choice Q1–4, Short-answer Q1, Q2 (mean &amp; sd)</td></tr>
+</table>
+
+<h2>Exit ticket — write in your book</h2>
+<div class="callout">
+  Before you pack up, in your exercise book:
+  <ol style="margin-top:6px;">
+    <li>Write the two formulas $E(X)=\sum x\,p(x)$ and $\mathrm{Var}(X)=E(X^2)-[E(X)]^2$ from memory.</li>
+    <li>For $x=1,2$ with $p(x)=0.5,0.5$, find $E(X)$, $\mathrm{Var}(X)$ and $\mathrm{sd}(X)$.</li>
+    <li>Explain in one sentence what a negative expected profit tells you about a game.</li>
+  </ol>
+</div>
+
+<p class="footer-note">— Mr Wong</p>
+
+</main>
+
+<script>
+  function toggle(btn){
+    var a = btn.nextElementSibling;
+    a.classList.toggle('show');
+    btn.textContent = a.classList.contains('show') ? 'Hide answer' : 'Show answer';
+  }
+  function toggleEx(btn){
+    var ex = btn.closest('.example');
+    ex.classList.toggle('show');
+    btn.textContent = ex.classList.contains('show') ? 'Hide solution' : 'Show solution';
+  }
+  function markQuiz(){
+    var qs = document.querySelectorAll('#quiz .quiz-q');
+    var correct = 0, total = qs.length;
+    qs.forEach(function(q){
+      var ans = q.dataset.answer;
+      var picked = q.querySelector('input[type=radio]:checked');
+      q.querySelectorAll('label').forEach(function(l){ l.style.background=''; });
+      if(picked){
+        var lbl = picked.parentElement;
+        if(picked.value === ans){ lbl.style.background='#D4EDDA'; correct++; }
+        else { lbl.style.background='#F8D7DA'; }
+      }
+      q.querySelectorAll('input[type=radio]').forEach(function(r){
+        if(r.value === ans){ r.parentElement.style.borderLeft = '4px solid #2C5F2D'; }
+      });
+    });
+    var box = document.getElementById('scorebox');
+    box.style.display = 'block';
+    var pct = Math.round(100*correct/total);
+    var msg = correct + ' / ' + total + ' correct (' + pct + '%).';
+    if(pct === 100) msg += '  Perfect — straight into Cambridge 13D.';
+    else if(pct >= 80) msg += '  Solid — go to the working program.';
+    else if(pct >= 60) msg += '  Re-watch the variance walkthrough, then try again.';
+    else msg += '  Re-read Parts 1–2 and the worked examples, then have another go.';
+    box.textContent = msg;
+  }
+</script>
+</body>
+</html>
