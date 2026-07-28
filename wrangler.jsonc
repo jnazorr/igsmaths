@@ -1,0 +1,14 @@
+{
+  // Cloudflare Pages config for the IGS Maths site + passphrase gate.
+  // The static site is the repo root; the gate lives in ./functions.
+  //
+  // Bindings are configured in the Cloudflare Pages project (dashboard), NOT here:
+  //   - SITE_PASSPHRASE : secret  (Settings -> Variables and Secrets -> Add secret)
+  //   - GATE_KV         : KV namespace binding (Settings -> Functions -> KV bindings)
+  //
+  // Local testing (bindings passed on the CLI, no secrets committed):
+  //   npx wrangler pages dev --kv GATE_KV --binding SITE_PASSPHRASE=testpass123
+  "name": "igsmaths",
+  "compatibility_date": "2024-11-06",
+  "pages_build_output_dir": "."
+}
