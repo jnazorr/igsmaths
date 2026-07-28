@@ -1,4 +1,0 @@
-# Cloudflare / wrangler local state — never commit
-.wrangler/
-.dev.vars
-node_modules/
